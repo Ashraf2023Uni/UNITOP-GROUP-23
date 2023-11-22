@@ -1,0 +1,196 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*if want banner above navbar to have logo + image then create section class logo before navbar*/
+
+.navbar{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.links{
+    flex: 1;
+    text-align: right;
+    padding-right: 20px;
+    margin-bottom: 20px;
+}
+
+.links ul{
+    display: inline-block;
+    list-style-type: none;
+}
+
+.links ul li{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.links img{
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+}
+
+/*change colour of p, a and h tags*/
+
+a{
+    text-decoration: none;
+}
+
+.banner{
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: blueviolet;
+}
+
+.log-in{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.image{
+    flex-basis: 50%;
+    min-width: 300px;
+}
+
+.image img{
+    max-width: 100%;
+    padding: 50px 0;
+}
+
+/*change font style*/
+
+.heading h1{
+    font-size: 50px;
+    line-height: 60px;
+    margin: 25px 0;
+}
+
+.button{
+    display: inline-block;
+    background: black;
+    color: white;
+    padding: 8px 30px;
+    margin: 30px 0;
+    border-radius: 30px;
+}
+
+header{
+    background: beige;
+}
+
+/*Product showcase*/
+.row{
+    display: flex;
+    max-width: 1080px;
+    margin: auto;
+    padding-top: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: aqua;
+}
+
+.products{
+    flex-basis: 25%;
+    padding: 10px;
+    min-width: 200px;
+    margin-bottom: 50px;
+}
+
+.products img{
+    width: 200px;
+}
+
+.product h2{
+    text-align: center;
+    margin: 20px auto 40px;
+    position: relative;
+    line-height: 60px;
+}
+
+/*Discount section*/
+
+.discount{
+    background-color: blanchedalmond;
+    margin-top: 80px;
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.disc{
+    min-width: 200px;
+}
+
+.disc .disc-img{
+    max-width: 100%;
+    padding: 50px 0;
+}
+
+/*Footer*/
+
+footer{
+    background: white;
+    color: blue;
+    font-size: 14px;
+    padding: 60px 0 20px;
+}
+
+.footer{
+    display: flex;
+    margin: auto;
+    padding-top: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: blueviolet;
+}
+
+.footer-col, .footer-col1, .footer-col2{
+    min-width: 250px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.footer-col{
+    flex-basis: 30%;
+}
+
+.footer-col1{
+    flex: 1;
+    text-align: center;
+}
+
+.footer-col1 img{
+    width: 180px;
+    margin-bottom: 20px;
+}
+
+.footer-col2 {
+    flex-basis: 12%;
+    text-align: center;
+}
+
+ul{
+    list-style-type: none;
+}
+
+footer hr{
+    border: none;
+    background-color: aquamarine;
+    height: 1px;
+    margin: 20px 0;
+}
+
+.terms{
+    text-align: center;
+}
