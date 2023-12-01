@@ -196,6 +196,20 @@ header{
     line-height: 60px;
 }
 
+.products .fp1{
+    padding: 25px 10px;
+}
+.products .fp2{
+    width: 270px;
+    transform: translate(-40px);
+}
+
+.featured-img{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 /*Discount section*/
 
 .discount{
