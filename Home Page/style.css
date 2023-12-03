@@ -174,16 +174,20 @@ header{
     display: flex;
     max-width: 1200px;
     margin: auto;
-    padding-top: 20px;
-    padding-left: 20px;
+    padding-top: 10px;
+    padding-left: 10px;
     padding-right: 20px;
 }
 
 .products{
     flex-basis: 20%;
-    padding: 10px;
+    padding: 20px;
     min-width: 200px;
-    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   /*background-color: rgb(127, 219, 235);*/
 }
 
 .products img{
@@ -197,7 +201,7 @@ header{
     line-height: 60px;
 }
 
-.products .fp1{
+/*.products .fp1{
     padding: 25px 5px;
 }
 .products .fp2{
@@ -206,7 +210,7 @@ header{
 }
 .fp3,.fp2, .fp1{
     margin-bottom: 20px;
-}
+}*/
 .products h4, .products p{
     text-align: center;
     padding-top: 4px;
@@ -217,8 +221,12 @@ header{
     justify-content: space-between;
     align-items: center;
 }
-.prod .prod-button{
-    margin-top: 25px;
+.products .button{
+    margin-top: 20px;
+
+}
+.products .button:hover{
+    background-color: rgb(127, 219, 235);
 }
 
 /*Discount section*/
@@ -249,6 +257,9 @@ header{
     margin-top: 20px;
     padding: 10px 10px;
 }
+.box img{
+    max-width: 500px;
+}
 
 
 /*Footer*/
@@ -274,17 +285,19 @@ footer{
 }
 
 .footer-col{
-    flex-basis: 30%;
+    flex-basis: 20%;
 }
 
 .footer-col1{
     flex: 1;
     text-align: center;
 }
+.footer h3{
+    padding-bottom: 10px;
+}
 
 .footer-col1 img{
-    width: 50px;
-    margin-bottom: 20px;
+    width: 70px;
 }
 
 .footer-col2 {
@@ -300,7 +313,7 @@ footer hr{
     border: none;
     background-color:  rgb(127, 219, 235);
     height: 1px;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .terms{
