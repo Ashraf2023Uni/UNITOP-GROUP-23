@@ -117,6 +117,7 @@ a{
     flex-wrap: wrap;
     justify-content: space-around;
     margin: 20px;
+    padding-top: 25px;
 }
 
 .image{
@@ -155,7 +156,7 @@ a{
 }
 
 header{
-    padding-bottom: 45px;
+    padding-bottom: 80px;
     background-color: rgb(127, 219, 235);
     text-align: center;
     /*background-image: url('images/header.png');
@@ -167,19 +168,19 @@ header{
     text-align: center;
     padding-bottom: 35px;
 }
-/*Product showcase*/
+
+/* 5 Featured product showcase*/
 .row{
     display: flex;
-    max-width: 1080px;
+    max-width: 1200px;
     margin: auto;
     padding-top: 20px;
-    padding-left: 25px;
-    padding-right: 25px;
-    background-color: aqua;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .products{
-    flex-basis: 25%;
+    flex-basis: 20%;
     padding: 10px;
     min-width: 200px;
     margin-bottom: 50px;
@@ -189,7 +190,7 @@ header{
     width: 200px;
 }
 
-.product h2{
+.prod h2{
     text-align: center;
     margin: 20px auto 40px;
     position: relative;
@@ -197,11 +198,18 @@ header{
 }
 
 .products .fp1{
-    padding: 25px 10px;
+    padding: 25px 5px;
 }
 .products .fp2{
     width: 270px;
     transform: translate(-40px);
+}
+.fp3,.fp2, .fp1{
+    margin-bottom: 20px;
+}
+.products h4, .products p{
+    text-align: center;
+    padding-top: 4px;
 }
 
 .featured-img{
@@ -209,11 +217,13 @@ header{
     justify-content: space-between;
     align-items: center;
 }
+.prod .prod-button{
+    margin-top: 25px;
+}
 
 /*Discount section*/
 
-.discount{
-    background-color: blanchedalmond;
+.about{
     margin-top: 80px;
     padding: 30px 0;
     display: flex;
@@ -222,20 +232,28 @@ header{
     justify-content: space-around;
 }
 
-.disc{
-    min-width: 200px;
+.box{
+    flex-basis: 48%;
+    background-color: rgb(127, 219, 235);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.box h1, .box p{
+    margin-bottom: 10px;
+    text-align: center;
+}
+.box .button{
+    margin-top: 20px;
+    padding: 10px 10px;
 }
 
-.disc .disc-img{
-    max-width: 100%;
-    padding: 50px 0;
-}
 
 /*Footer*/
 
 footer{
-    background: white;
-    color: blue;
     font-size: 14px;
     padding: 60px 0 20px;
 }
@@ -246,7 +264,7 @@ footer{
     padding-top: 20px;
     padding-left: 25px;
     padding-right: 25px;
-    background-color: blueviolet;
+    background-color:  rgb(127, 219, 235);
 }
 
 .footer-col, .footer-col1, .footer-col2{
@@ -265,7 +283,7 @@ footer{
 }
 
 .footer-col1 img{
-    width: 180px;
+    width: 50px;
     margin-bottom: 20px;
 }
 
@@ -280,7 +298,7 @@ ul{
 
 footer hr{
     border: none;
-    background-color: aquamarine;
+    background-color:  rgb(127, 219, 235);
     height: 1px;
     margin: 20px 0;
 }
