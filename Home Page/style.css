@@ -14,27 +14,33 @@
 
 /*if want banner above navbar to have logo + image then create section class logo before navbar*/
 
+/*navbar - all contents*/
 .navbar{
     display: flex;
     align-items: center;
-    padding: 20px;
+    font-size: small;
 }
+
+/*navbar - a tags/links to the other pages*/
 .nav-links a{
     color: black;
     text-decoration: none;
     cursor: pointer;
+    padding: 2px;
 }
 .nav-links a:hover{
-    background-color: white;
+    background-color: black;
+    color: white;
 }
 
+/*searchbar - FUNCTIONALITY NEEDED*/
 .search-bar{
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .search-bar input{
-    padding: 5px;
     width: 700px;
+    height: 19px;
 }
 .search-bar button{
     background-color: transparent;
@@ -43,21 +49,22 @@
     transform: translateY(4px);
     cursor: pointer;
 }
+.search-bar .search-icon{
+    width: 15px;
+}
 
+/*div class=links - all contents*/
 .links{
     flex: 1;
     text-align: right;
-    padding-right: 10px;
+    padding-right: 5px;
     padding-top: 20px;
 }
-
 .links nav{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
-
-/*Individually space icon? seperate with img with section*/
 
 .links .img-links img{
     display: inline-block;
@@ -82,21 +89,42 @@
     text-align: center;
 }
 
+.img-links .home-icon{
+    width: 15px;
+    transform: translate(10px);
+}
 .img-links .about-us-icon{
-    width: 23.5px;
-    transform: translate(-2px);
+    width: 17px;
+    transform: translate(7px);
 }
 .img-links .contact-us-icon{
-    transform: translate(11px);
+    width: 15px;
+    transform: translate(15px);
 }
 .img-links .account-icon{
+    width: 15px;
     transform: translate(25px);
 }
 .img-links .basket-icon{
+    width: 15px;
     transform: translate(22px);
 }
-.img-links .browse-icon{
+/*.img-links .browse-icon{
+    width: 15px;
     transform: translate(8px);
+}*/
+.banner{
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.banner::after{
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: grey;
+    margin-top: 10px;
 }
 
 /*change colour of p, a and h tags*/
@@ -105,12 +133,12 @@ a{
     text-decoration: none;
 }
 
-.banner{
-    margin: auto;
-    padding-left: 25px;
-    padding-right: 25px;
-}
 
+.banner-log{
+    margin: auto;
+    padding: 0;
+    text-align: center;
+}
 .log-in{
     display: flex;
     align-items: center;
@@ -120,15 +148,28 @@ a{
     padding-top: 25px;
 }
 
-.image{
+.button{
+    display: inline-block;
+    margin-bottom: 50px;
+    border: 2px solid white;
+    background-color: transparent;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: white;
+}
+.button:hover{
+    background-color: white;
+    color: black;
+}
+
+/*.image{ IMAGE was in banner - removed
     flex-basis: 50%;
     min-width: 300px;
 }
-
 .image img{
     max-width: 100%;
     padding: 50px 0;
-}
+}*/
 
 /*change font style*/
 
@@ -142,34 +183,27 @@ a{
     margin: 25px 0;
 }
 
-.button{
-    display: inline-block;
-    border: 2px solid black;
-    background-color: transparent;
-    padding: 10px 20px;
-    cursor: pointer;
-    color: black;
-}
-.button:hover{
-    background-color: white;
-    color: black;
-}
-
 header{
-    padding-bottom: 80px;
-    background-color: rgb(127, 219, 235);
+    padding-bottom: 5px;
     text-align: center;
     /*background-image: url('images/header.png');
     background-size: cover;
     background-position: center center;*/
 }
-
+.log-in{
+    color: white;
+    background-image: url(images/banner.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 .log-in p{
     text-align: center;
     padding-bottom: 35px;
 }
 
 /* 5 Featured product showcase*/
+
 .row{
     display: flex;
     max-width: 1200px;
@@ -181,12 +215,14 @@ header{
 
 .products{
     flex-basis: 20%;
-    padding: 20px;
+    padding: 10px;
     min-width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border: 1px solid black;
+    margin: 10px;
    /*background-color: rgb(127, 219, 235);*/
 }
 
@@ -196,14 +232,12 @@ header{
 
 .prod h2{
     text-align: center;
-    margin: 20px auto 40px;
+    margin: 40px auto 20px;
     position: relative;
     line-height: 60px;
 }
 
-/*.products .fp1{
-    padding: 25px 5px;
-}
+/*
 .products .fp2{
     width: 270px;
     transform: translate(-40px);
@@ -222,11 +256,16 @@ header{
     align-items: center;
 }
 .products .button{
-    margin-top: 20px;
+    margin-top: 30px;
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+    margin-bottom: 20px;
 
 }
 .products .button:hover{
-    background-color: rgb(127, 219, 235);
+    background-color: black;
+    color: white;
 }
 
 /*Discount section*/
