@@ -257,7 +257,7 @@ header{
     text-decoration: underline;
 }
 
-/*Discount section*/
+/*About Us/Contact Us section*/
 
 .about{
     margin-top: 80px;
@@ -270,13 +270,15 @@ header{
 
 .box{
     flex-basis: 48%;
-    background-color: rgb(127, 219, 235);
-    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border: 1px solid black;
+    padding: 20px;
+    margin-bottom: 20px;
 }
+
 .box h1, .box p{
     margin-bottom: 10px;
     text-align: center;
