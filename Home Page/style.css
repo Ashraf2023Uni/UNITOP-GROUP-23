@@ -367,9 +367,11 @@ footer p{
 
 
 /*Products Page*/
+.product{
+    width: 100%;
+}
 .gallery{
     margin: 20px;
-
 }
 
 .small-gallery{
@@ -377,4 +379,18 @@ footer p{
     justify-content: space-between;
     width: 120px;
     height: 120px;
+}
+.product .row{
+    margin: 20px;
+    align-items: center;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.details{
+    padding: 70px;
+}
+.details a{
+    padding: 0;
+    font-size: small;
 }
