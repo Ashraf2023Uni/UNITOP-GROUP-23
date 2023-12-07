@@ -1,4 +1,4 @@
-<style><?php include('../css/home-page.css'); ?></style>
+<style><?php include('../css/home-page.css') ?></style>
 <?php
 require_once('connectdb.php');
 $query = "SELECT product_id, product_name, price FROM products";

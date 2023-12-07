@@ -373,11 +373,15 @@ footer p{
     margin: 20px;
 }
 
+#main-image{
+    width:400px;
+}
 .small-gallery{
     display: flex;
     justify-content: space-between;
-    width: 120px;
+    width: 400px;
     height: 120px;
+    overflow-x: auto;
 }
 .product .row{
     margin: 20px;
