@@ -5,7 +5,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 body{
-    background: #f3eeee;
+    background: white;
 }
 .container{
     display: flex;
@@ -22,7 +22,7 @@ body{
     border-radius: 0px; 
     box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
                 0 32px 64px -48px rgba(0, 0, 0, 0.5);
-    border: 2px solid #000000; /** remove maybe **/
+    border: 1px solid #000000; /** remove maybe **/
 
 }
 .f-box{
@@ -46,7 +46,7 @@ body{
 .f-box form .input input{
     height: 40px;
     width: 100%;
-    font-size: 20px;
+    font-size: small;
     padding: 0 10px;
     border: 100 solid #000000;
     border-radius: 2px;
@@ -55,7 +55,7 @@ body{
 }
 .button{
     height: 45px;
-    background: rgba(36, 141, 233, 0.88);
+    background: rgb(34, 83, 198);
     border: 5;
     border-radius: 0px;
     color: #ffffff;
@@ -65,6 +65,9 @@ body{
     transition: all .3s;
     margin-top: 10px;
     padding: 0px 10px;
+}
+label {
+    padding-bottom: 5px;
 }
 
 /*
@@ -94,4 +97,177 @@ body{
     
 }
 
+/**************************HEADER + FOOTER styling********************************/
+/*******NAVBAR styling START- all contents********/
+.navbar{
+    display: flex;
+    align-items: center;
+    font-size: small;
+}
+a{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 2px;
+}
+a:hover{
+    text-decoration: underline;
+}
+.search-bar{
+    text-align: center;
+    margin-top: 10px;
+}
+.search-bar input{
+    width: 700px;
+    height: 19px;
+}
+.search-bar button{
+    background-color: transparent;
+    color: white;
+    border: none;
+    transform: translateY(4px);
+    cursor: pointer;
+}
+.search-bar .search-icon{
+    width: 15px;
+}
+.links{
+    flex: 1;
+    text-align: right;
+    padding-right: 5px;
+    padding-top: 20px;
+}
+.links nav{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.links .img-links img{
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    margin-right: 56px;
+}
+
+.links ul{
+    display: inline-block;
+    list-style-type: none;
+}
+
+.links .nav-links ul li{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.links img{
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+}
+
+.img-links .home-icon{
+    width: 15px;
+    transform: translate(18px);
+}
+.img-links .about-us-icon{
+    width: 17px;
+    transform: translate(9px);
+}
+.img-links .contact-us-icon{
+    width: 15px;
+    transform: translate(15px);
+}
+.img-links .account-icon{
+    width: 15px;
+    transform: translate(22px);
+}
+.img-links .basket-icon{
+    width: 15px;
+    transform: translate(13px);
+}
+
+.banner{
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.banner::after{
+    content: "";
+    display: block;
+    height: 1px;
+    margin-top: 10px;
+    background-color: gray;
+}
+
+header{
+    padding-bottom: 5px;
+    text-align: center;
+}
+/********NAVBAR styling END- all contents**********/
+/*******FOOTER***********/
+
+.footer{
+    font-size: small;
+    display: flex;
+    justify-content: space-around;
+    color: black;
+    padding: 25px 0 15px;
+}
+footer::before{
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: gray;
+    padding: 0;
+}
+
+.footer-box{
+    flex: 1;
+    text-align: center;
+}
+.footer-box img{
+    width: 20px;
+}
+.btn{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid black;
+    margin-top: 5px;
+    padding: 10px;
+}
+.btn:hover{
+    text-decoration: underline;
+}
+
+.footer h3{
+    padding-bottom: 10px;
+}
+ul{
+    list-style-type: none;
+    padding: 5px 10px;
+    display: inline-block;
+}
+
+footer p{
+    text-align: center;
+    font-size: small;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.socials{
+    width: 15px;
+    margin: 10px;
+   transform: translate(140px);
+}
+.line{
+    content: "";
+    display: block;
+    height: 0.5px;
+    background-color: gray;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+/*************FOOTER END**************/
 

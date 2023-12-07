@@ -148,7 +148,6 @@ header{
     text-decoration: underline;
 }
 
-
 .banner-log{
     margin: auto;
     padding: 0;
@@ -244,14 +243,14 @@ header{
 }
 .products .button{
     margin-top: 30px;
-    background-color: transparent;
-    color: black;
+    background-color: rgb(34, 83, 198);
+    color: white;
     border: 1px solid black;
     margin-bottom: 20px;
 
 }
 .products .button:hover{
-    background-color: rgb(34, 83, 198);
+    opacity: 0.80;
     color: white;
     text-decoration: underline;
 }
