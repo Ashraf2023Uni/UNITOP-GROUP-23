@@ -72,6 +72,7 @@ CREATE TABLE `login` (
 
 CREATE TABLE `signup` (
   `Email` varchar(30) NOT NULL,
+  `university` varchar(30) NOT NULL,
   `password` varchar(10) NOT NULL, 
   `phoneNumber` decimal(12,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
