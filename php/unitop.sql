@@ -64,6 +64,19 @@ CREATE TABLE `products` (
   `discount_percent` decimal(3,1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+
+CREATE TABLE `login` (
+  `Email` varchar(30) NOT NULL,
+  `password` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `signup` (
+  `Email` varchar(30) NOT NULL,
+  `password` varchar(10) NOT NULL, 
+  `phoneNumber` decimal(12,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
 --
 -- Indexes for dumped tables
 --
@@ -127,6 +140,10 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `payment_details`
   ADD CONSTRAINT `payment_details_ibfk_1` FOREIGN KEY (`email`) REFERENCES `login` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+ALTER TABLE `signup`
+  ADD PRIMARY KEY (`Email`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
