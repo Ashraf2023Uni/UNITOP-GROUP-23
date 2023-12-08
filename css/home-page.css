@@ -222,7 +222,8 @@ header{
 }
 
 .products img{
-    width: 200px;
+    
+    height:190px;
 }
 
 .prod h2{
@@ -235,19 +236,25 @@ header{
 .products h4, .products p{
     text-align: center;
     padding-top: 4px;
+    margin-bottom: 5px;
 }
 
+.products p{
+    margin-bottom: 100px;
+}
 .featured-img{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .products .button{
-    margin-top: 30px;
+    margin-top: 300px;
     background-color: rgb(34, 83, 198);
     color: white;
     border: 1px solid black;
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
+    align-items: bottom;
+    position: absolute;
 
 }
 .products .button:hover{
