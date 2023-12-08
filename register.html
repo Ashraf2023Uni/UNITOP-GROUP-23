@@ -62,12 +62,6 @@
                 </div>
 
                 <div class="input field">
-                    <label for="university">University:</label>
-                    <input list="universities" name="university" id="universityInput" placeholder="Type or select your university" required>
-                    <datalist id="universities"></datalist>
-                </div>
-
-                <div class="input field">
                     <label for="phoneNumber">Phone Number:</label>
                     <input type="number" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" required> 
                 </div>
@@ -75,13 +69,6 @@
                 <div class="input field">
                     <label for="password">Password:</label>
                     <input type="password" name="password" id="password" placeholder="Password" required> 
-                </div>
-
-                <div class="input field">
-                    <label for="confirmPassword">Confirm Password:</label>
-                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" required oninput="validatePassword()">
-                    <span id="passwordError" style="color: red;"></span>
-                    <span id="passwordMatch" style="color: green;"></span>
                 </div>
 
                 <div class="field">
@@ -142,8 +129,6 @@
     </div>
     
     </footer>
-
-    <script src="js/register.js"></script>
 
 </body>
 </html>
