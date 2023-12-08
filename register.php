@@ -15,6 +15,7 @@ if (isset($_POST['submitted'])){
 
 
      $phoneNumber=isset($_POST['phoneNumber'])?$_POST['phoneNumber']:false;
+     $university=isset($_POST['university'])?$_POST['university']:false;
   
      $email=isset($_POST['email'])?$_POST['email']:false;
      $password=isset($_POST['password'])?password_hash($_POST['password'],PASSWORD_DEFAULT):false;
@@ -28,7 +29,11 @@ if (isset($_POST['submitted'])){
 
      }
 
+      if (!($university)){
+       echo "Your uni is not valid";
+       exit;
 
+     }
 
      
      if (!($email)){
@@ -44,8 +49,8 @@ if (isset($_POST['submitted'])){
 
     try{ 
 	
-        $stat=$db->prepare("insert into signup values(default,?,?,?)");
-        $stat->execute(array($email, $password, $phoneNumber));
+        $stat=$db->prepare("insert into signup values(default,?,?,?,?)");
+        $stat->execute(array($email, $university, $password, $phoneNumber));
         
         $id=$db->lastInsertId();
         echo "You are registered. Your ID is: $id  ";  	
