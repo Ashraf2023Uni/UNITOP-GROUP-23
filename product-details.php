@@ -76,7 +76,8 @@
             <div class='small-gallery'>
                 <img src='assests/Product/".$details['product_id'].".png'>";
                 for($i=2; $i<=7; $i++){
-                    echo"<img src='assests/Product/".$details['product_id']."_".$i.".png'>";
+                    if(file_exists('assests/Product/'.$details['product_id'].'_'.$i.'.png')){
+                    echo"<img src='assests/Product/".$details['product_id']."_".$i.".png'>";}
                 }
             echo "</div>
             </section>
@@ -86,7 +87,7 @@
             <br><br>
             <h3>".$details['product_name']."</h3>
             <br>
-            <h2>".$details['price']."</h2>
+            <h2>£".floatval($details['price'])."</h2>
             <br>
             <select name='quantity'>
                 <option>select quantity</option>";
@@ -101,7 +102,7 @@
             <h4>More Details:</h4>
             <br>
             <p>" .$details['description']."</p>
-            </section>'";?>
+            </section>";?>
         </section>
     </div>
 
