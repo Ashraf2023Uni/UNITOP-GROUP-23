@@ -54,7 +54,7 @@
 
 <div class="container">
 
-    <form action="">
+    <form action="php/store-payments.php" method="post">
 
         <div class="row">
 
@@ -68,25 +68,25 @@
                 </div>
                 <div class="inputBox">
                     <span>Company Email:</span>
-                    <input type="email" placeholder="example@example.com">
+                    <input type="email" placeholder="example@example.com" name="email">
                 </div>
                 <div class="inputBox">
                     <span>Company Address:</span>
-                    <input type="text" placeholder="Street etc.">
+                    <input type="text" placeholder="Street etc." name="address">
                 </div>
                 <div class="inputBox">
                     <span>City:</span>
-                    <input type="text" placeholder="Birmingham">
+                    <input type="text" placeholder="Birmingham" name="city">
                 </div>
 
                 <div class="flex">
                     <div class="inputBox">
                         <span>Area:</span>
-                        <input type="text" placeholder="Aston">
+                        <input type="text" placeholder="Aston" name="area">
                     </div>
                     <div class="inputBox">
                         <span>Post Code:</span>
-                        <input type="text" placeholder="123 456">
+                        <input type="text" placeholder="123 456" name="postcode">
                     </div>
                 </div>
 
@@ -102,11 +102,11 @@
                 </div>
                 <div class="inputBox">
                     <span>Name On Card:</span>
-                    <input type="text" placeholder="Mr.Steve Smith">
+                    <input type="text" placeholder="Mr.Steve Smith" name="fullname">
                 </div>
                 <div class="inputBox">
                     <span> Credit Card Number:</span>
-                    <input type="number" placeholder="1111-2222-3333-4444">
+                    <input type="number" placeholder="1111-2222-3333-4444" name="num">
                 </div>
                 <div class="inputBox">
                     <span>Exp Month:</span>
@@ -120,7 +120,7 @@
                     </div>
                     <div class="inputBox">
                         <span>CVV :</span>
-                        <input type="text" placeholder="1234">
+                        <input type="text" placeholder="1234" name="cvv">
                     </div>
                 </div>
 
@@ -131,7 +131,7 @@
         <input type="submit" value="proceed to checkout" class="submit-btn">
 
     </form>
-
+    <?php if(ISSET($_GET["fullname"])){echo $_GET["fullname"];} ?>
 </div>    
 
 
