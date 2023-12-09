@@ -1,9 +1,9 @@
 <?php
 
-$db_host = 'ask Noor';
-$db_name = 'ask Noor';
-$username = 'ask Noor';
-$password = 'ask Noor';
+$db_host = 'localhost';
+$db_name = 'unitop';
+$username = 'root';
+$password = '';
 
 
 $db = new PDO("mysql:dbname=$db_name;host=$db_host", $username, $password); 
