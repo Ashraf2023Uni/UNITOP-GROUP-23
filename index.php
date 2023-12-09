@@ -31,9 +31,9 @@
                         <ul>
                            <!--<li><a href="">Browse</a></li>-->
                             <li><a href="index.html">Home</a></li>
-                            <li><a href="">About Us</a></li>
-                            <li><a href="">Contact Us</a></li>
-                            <li><a href="">Account</a></li>
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="contact-us.html">Contact Us</a></li>
+                            <li><a href="account.html">Account</a></li>
                             <li><a href="basket.html">Basket</a></li>
                         </ul>
                         </div>
