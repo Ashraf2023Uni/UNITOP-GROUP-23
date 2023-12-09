@@ -23,6 +23,6 @@ catch(PDOException $ex){
     echo"Failed to store data <br>";
     echo($ex->getMessage());
     echo"<br><br> <a href='../payments.php'><button> Re-enter payment method </button></a>";
-    echo"<br><br> <a href='../index.php'><button> Back to Homepage </button></a>";
+    echo"<br><br> <a href='../index.php'><button> Back to Homepage </button></a >";
 }
 ?>
