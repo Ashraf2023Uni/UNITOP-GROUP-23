@@ -89,6 +89,7 @@
     <section class="row">
         <div class="featured-img">
            <?php include('php/featured.php'); ?>
+           
         </div>
     <section>
 </div>
