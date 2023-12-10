@@ -80,7 +80,7 @@ if(isset($_POST['submit'])) {
 
         if ($user && password_verify($password, $user['password'])) {
             // Login successful, redirect to a logged-in page or perform necessary actions
-            header("Location: index.php");
+            header("Location: logged-in-index.php");
             exit;
         } else {
             // Login failed, display an error message or redirect to login page

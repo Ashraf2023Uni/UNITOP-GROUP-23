@@ -80,7 +80,7 @@ if(isset($_POST['submit'])) {
         $stmt = $db->prepare("INSERT INTO signup (Email, university, password, phoneNumber) VALUES (?, ?, ?, ?)");
         $stmt->execute(array($email, $university, $password, $phoneNumber));
 
-        header("Location: register.php");
+        header("Location: login.php");
         exit;
     } catch (PDOException $ex) {
         echo "A database error has occurred.<br>";
