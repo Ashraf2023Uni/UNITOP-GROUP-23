@@ -88,13 +88,12 @@
     <h2>Featured Products</h2>
     <section class="row">
         <div class="featured-img">
-           <?php include('php/featured.php'); ?>
-           
+           <?php include('php/featured.php');?>
         </div>
     <section>
 </div>
 
-<!--About Us+Contact Us - showcase Melissa's work-->
+<!--About Us+Contact Us-->
 <div class="about">
         <section class="box" style="background-image: url(assests/Banners/about-us.jpg);">
             <h1>Who we are!</h1>
