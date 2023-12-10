@@ -1,6 +1,5 @@
 <?php
 
-
 if (isset($_POST['submitted'])){
 
   if ( !isset($_POST['Email'], $_POST['password']) ) {
