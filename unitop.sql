@@ -128,6 +128,9 @@ ALTER TABLE `products`
 --
 -- Constraints for dumped tables
 --
+ALTER TABLE `signup`
+  ADD PRIMARY KEY (`Email`);
+COMMIT;
 
 --
 -- Constraints for table `orders`
@@ -143,9 +146,6 @@ ALTER TABLE `payment_details`
   ADD CONSTRAINT `payment_details_ibfk_1` FOREIGN KEY (`Email`) REFERENCES `signup` (`Email`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
-ALTER TABLE `signup`
-  ADD PRIMARY KEY (`Email`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
