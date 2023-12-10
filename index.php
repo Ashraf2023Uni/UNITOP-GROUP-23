@@ -79,8 +79,8 @@
                     <br>for seamless coding to lightweight designs for the mobility demands of your medics.
                     <br>Choose to empower your students journey through UNITOP.
                 </p>
-                <a href="login.html" class="button">Log In</a> or
-                <a href="register.html" class="button">Sign Up</a>
+                <a href="login.php" class="button">Log In</a> or
+                <a href="register.php" class="button">Sign Up</a>
             </section>
         </div>
     </div>
@@ -100,7 +100,7 @@
         <section class="box" style="background-image: url(assests/Banners/about-us.jpg);">
             <h1>Who we are!</h1>
             <p>Dive into our company.</p>
-            <a href="about-us.hmtml" class="button">About Us</a>
+            <a href="about-us.html" class="button">About Us</a>
         </section>
         <section class="box" style="background-image: url(assests/Banners/contact-us.jpg);">
             <h1>How to reach us!</h1>
@@ -116,7 +116,7 @@
         <img src="assests/Navbar/logo-no-slogan.png">
         <h3>UNITOP</h3>
         <p>Educate with UNITOP!</p>
-        <a href="login.html" class="btn">Log In</a>
+        <a href="login.php" class="btn">Log In</a>
     </div>
 
     <div class="footer-box">
@@ -131,22 +131,22 @@
     <div class="footer-box">
         <h3>About Us</h3>
         <ul>
-            <li><a href="">Who We Are</a></li>
+            <li><a href="about-us.html">Who We Are</a></li>
             <br>
-            <li><a href="">Our Mission</a></li>
+            <li><a href="about-us.html">Our Mission</a></li>
             <br>
-            <li><a href="">The Team</a></li>
+            <li><a href="about-us.html">The Team</a></li>
         </ul>
     </div>
 
     <div class="footer-box">
         <h3>Useful Links</h3>
         <ul>
-            <li><a href="">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <br>
-            <li><a href="">Contact Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
             <br>
-            <li><a href="">About Us</a></li>
+            <li><a href="about-us.html">About Us</a></li>
         </ul>
     </div>
 </div>
