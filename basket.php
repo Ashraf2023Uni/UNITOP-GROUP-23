@@ -65,42 +65,85 @@
    <div class="small-container cart-page">
     <table>
         <tr>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Subtotal</th>
+            <th>Products</th>
+        
         </tr>
         <tr>
-            <td class="cart-info">
-                <img src="assests\Law/hp-front.png" alt="Product Image">
-                <div>
-                    <p>Law student Laptop</p>
-                    <small>Price: £1,000</small>
-                    <br>
-                    <a href="">Remove</a>
-                </div>
-            </td>
-            <td><input type="number" value="1"></td>
-            <td>£1,000</td>
-        </tr>
+            <td class="cart-info" >
+                <?php 
+                session_start();
+                require_once('php/connectdb.php');
+
+
+
+
+
+                if(isset($_POST['quantity']) && isset($_POST['prod_id'])){
+                    $qty = $_POST['quantity'];
+                    $id = $_POST['prod_id'];
+
+                }
+                if(isset($_POST['add_basket'])){
+                    
+
+                    if(isset($_SESSION['prod_id'])){
+                        $_SESSION['prod_id'][] = $id; 
+                    } 
+                    else{
+                    $_SESSION['prod_id'] = array();
+                    $_SESSION['prod_id'][] = $id;
+                    }
+
+                    if(isset($_SESSION['qty'])){
+                        $_SESSION['qty'][] = $qty; 
+                    } 
+                    else{
+                    $_SESSION['qty'] = array();
+                    $_SESSION['qty'][] = $qty; 
+                    }
+                }
+                $total = 0;
+                $split_total = array();
+                for($i = 0; $i<count($_SESSION['prod_id']); $i++){
+                    $id = $_SESSION['prod_id'][$i];
+                    $quantity = $_SESSION['qty'][$i];
+                    $query = "SELECT product_name, price FROM products WHERE product_id = $id";
+                    $laptop = $db->query($query)->fetch();
+                    $total = $total + (floatval($laptop['price']) * intval($quantity));
+                    $split_total[$i] = (floatval($laptop['price']) * intval($quantity));
+                
+                   
+                echo"<div class='cart-line'><img src='assests/Product/".$id.".png' alt='Product Image'>
+                
+                    <div>
+                        <p>".$laptop['product_name']."</p>
+                        <small>Price: £".$laptop['price']."</small><br>
+                        <small>Qty: $quantity
+                        <br>
+                        <p> Subtotal: £$split_total[$i] </p>
+
+                    </div>
+                </div>";}   
+        echo"</tr> </td>
     </table>
-    <div class="total-price">
+    <div class='total-price'>
         <table>
             <tr>
                 <td>Subtotal</td>
-                <td>£1,000</td>
+                <td>£$total</td>
             </tr>
             <tr>
                 <td>Tax</td>
-                <td>£175</td>
+                <td>£0</td>
             </tr>
             <tr>
                 <td>Total</td>
-                <td>£1,175</td>
+                <td>£$total</td>
             </tr>
         </table>
-    </div>
+    </div>";?>
        <!-- Checkout Button -->
-       <button class="checkout-button">Proceed to Checkout</button>
+      <form action=payments.php> <button type='submit' class="checkout-button">Proceed to Checkout</button></form>
     </div>
 </div>
 
