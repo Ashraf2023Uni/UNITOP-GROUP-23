@@ -3,12 +3,6 @@
         session_start();
         require('connectdb.php');
     }
-
-    if(isset($_POST['Log Out'])){
-        header("Location: index.php");
-        exit;
-    }
-
 ?>
 
 <!DOCTYPE html>
@@ -60,9 +54,15 @@
 
                         <!--Log out button-->
                         <!--<input type="submit" class="btn" name="submit" value="Log Out"> -->
-                        <form action='logged-in-index.php' method='post'>
+                        <form action="index.php" method="post">
                             <input type="submit" class="btn" name="Log Out" value="Log Out"> 
                         </form>
+
+                        <?php if(isset($_POST['Log Out'])){
+                            header("Location: index.php");
+                            exit;
+                            }
+                        ?>
                           
                     </nav>
 
