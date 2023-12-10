@@ -407,6 +407,7 @@ footer p{
 /*Cart Items*/
 .cart-page{
     margin: 80px auto;
+    padding-left:20px;
 }
 table{
     width: 100%;
@@ -453,7 +454,14 @@ td:last-child{
 }
 }
 th:last-child{
-    text-align: right;
+    text-align: left;
+    padding-left:20px;
+}
+
+.cart-line{
+    float:right;
+    padding-left:10px;
+    width:400px
 }
 /*checkout button for cart page*/
 .checkout-button {

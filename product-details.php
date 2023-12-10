@@ -89,6 +89,7 @@
             <br>
             <h2>£".floatval($details['price'])."</h2>
             <br>
+            <form action='basket.php' method='post') ?>
             <select name='quantity'>
                 <option>select quantity</option>";
                 for($i = 1; $i<=$details['stock'] ;$i++){
@@ -96,8 +97,10 @@
                 }
                echo "<button class='button'> Add to Basket </button>
             </select>
+            <input type='hidden' name='prod_id' value='".$product_id."'>
             <br><br>
-            <button class='btn'>Add to basket</button>
+            <button type='submit' class='btn' name='add_basket'>Add to basket</button>
+            </form>
             <br><br>
             <h4>More Details:</h4>
             <br>
