@@ -53,7 +53,6 @@
                         </div>
 
                         <!--Log out button-->
-
                             <button class="btn">Log Out</button>
                     </nav>
 
