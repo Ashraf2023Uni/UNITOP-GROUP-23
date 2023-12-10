@@ -4,6 +4,10 @@
         require('connectdb.php');
     }
 
+    if(isset($_POST['Log Out'])){
+        header("Location: index.php");
+        exit;
+    }
 
 ?>
 
@@ -55,7 +59,10 @@
                         </div>
 
                         <!--Log out button-->
-                        <input type="submit" class="btn" name="submit" value="Log Out"> 
+                        <!--<input type="submit" class="btn" name="submit" value="Log Out"> -->
+                        <form action='logged-in-index.php' method='post'>
+                            <input type="submit" class="btn" name="Log Out" value="Log Out"> 
+                        </form>
                           
                     </nav>
 
