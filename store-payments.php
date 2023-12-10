@@ -37,6 +37,8 @@ for($i=0;$i<count($_SESSION['prod_id']);$i++){
     $enter_stock = "UPDATE products SET stock = '$new_stock' WHERE product_id = $id";
     echo $new_stock;
     $db->query($enter_stock);
+    unset($_SESSION['prod_id']);
+    unset($_SESSION['qty']);
 }
 echo "Order was successful";
 }
