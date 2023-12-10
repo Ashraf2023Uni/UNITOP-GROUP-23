@@ -27,7 +27,7 @@
                         <div class="img-links">
                              <!--Customer basket-->
                              <!--<a href=""><img src="images/search.png" class="browse-icon"></a>-->
-                             <a href="index.php"><img src="assests/Navbar/home_4991416.png" class="home-icon"></a>
+                             <a href="logged-in-index.php"><img src="assests/Navbar/home_4991416.png" class="home-icon"></a>
                              <a href="about-us.html"><img src="assests/Navbar/about-us.png" class="about-us-icon"></a>
                              <a href="contact.html"><img src="assests/Navbar/notification_9383540.png" class="contact-us-icon"></a>
                              <a href="index.php"><img src="assests/Navbar/avatar_9892372.png" class="account-icon"></a>
@@ -37,11 +37,12 @@
                         <div class="nav-links">
                         <ul>
                            <!--<li><a href="">Browse</a></li>-->
-                            <li><a href="index.php">Home</a></li>
+                            <li><a href="logged-in-index.php">Home</a></li>
                             <li><a href="about-us.html">About Us</a></li>
                             <li><a href="contact.html">Contact Us</a></li>
                             <li><a href="account.php">Account</a></li>
                             <li><a href="basket.php">Basket</a></li>
+                
                         </ul>
                         </div>
                     
@@ -50,6 +51,10 @@
                             <input type="text" placeholder="Search">
                             <button type="submit"><img src="assests/Navbar/search.png" class="search-icon"></button>
                         </div>
+
+                        <!--Log out button-->
+
+                            <button class="btn">Log Out</button>
                     </nav>
 
                    </div>
@@ -67,6 +72,7 @@
     </header>
 
     <!------------------------------MAIN BODY--------------------------------------->
+
 
 <!--Product showcase row (arrows would be nice)-->
 <div class="prod">
