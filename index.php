@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    require('connectdb.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
