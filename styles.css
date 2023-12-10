@@ -1,0 +1,101 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation and Section Styling */
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Company Heading */
+.company-heading {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.parallax {
+    height: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Typography */
+h1, h2, h3 {
+    color: #333;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Utility Classes */
+.marginTop40 {
+    margin-top: 40px;
+}
+
+.ct-u-paddingBoth100 {
+    padding: 100px 0;
+}
+
+.ct-u-fontWeight300 {
+    font-weight: 300;
+}
+
+/* Button Styling */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-uniTOP-red-reversed {
+    background-color: #ff4136;
+}
+
+.btn-fullWidth-sm {
+    width: 100%;
+}
+
+/* Small Devices */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .btn-fullWidth-sm {
+        display: block;
+        width: auto;
+    }
+
+
+
+
+}
+
+
+
+
+
