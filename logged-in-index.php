@@ -3,6 +3,14 @@
         session_start();
         require('connectdb.php');
     }
+
+
+
+    if(isset($_POST['submit'])) {
+    unset($_SESSION["email"]);
+    session_destroy();
+
+
 ?>
 
 <!DOCTYPE html>
