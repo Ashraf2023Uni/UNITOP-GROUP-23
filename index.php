@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require('php/connectdb.php');
+    require('connectdb.php');
 ?>
 
 <!DOCTYPE html>
@@ -88,7 +88,7 @@
     <h2>Featured Products</h2>
     <section class="row">
         <div class="featured-img">
-           <?php include('php/featured.php');?>
+           <?php include('featured.php');?>
         </div>
     <section>
 </div>

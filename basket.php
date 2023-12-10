@@ -72,7 +72,7 @@
             <td class="cart-info" >
                 <?php 
                 session_start();
-                require_once('php/connectdb.php');
+                require_once('connectdb.php');
 
 
 

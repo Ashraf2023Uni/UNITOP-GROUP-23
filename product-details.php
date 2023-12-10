@@ -64,7 +64,7 @@
     <div class='product'>
         <section class='row'>
             <?php 
-            require_once('php/connectdb.php');
+            require_once('connectdb.php');
             $product_id = "";
             if(ISSET($_GET["id"])){
                 $product_id = $_GET["id"];
