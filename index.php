@@ -37,7 +37,7 @@
                            <!--<li><a href="">Browse</a></li>-->
                             <li><a href="index.html">Home</a></li>
                             <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="contact-us.html">Contact Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
                             <li><a href="account.html">Account</a></li>
                             <li><a href="basket.html">Basket</a></li>
                         </ul>
@@ -99,12 +99,12 @@
         <section class="box" style="background-image: url(assests/Banners/about-us.jpg);">
             <h1>Who we are!</h1>
             <p>Dive into our company.</p>
-            <a href="" class="button">About Us</a>
+            <a href="about-us.hmtml" class="button">About Us</a>
         </section>
         <section class="box" style="background-image: url(assests/Banners/contact-us.jpg);">
             <h1>How to reach us!</h1>
             <p>Contact us through here.</p>
-            <a href="" class="button">Contact Us</a>
+            <a href="contact.html" class="button">Contact Us</a>
         </section>
 </div>
 
