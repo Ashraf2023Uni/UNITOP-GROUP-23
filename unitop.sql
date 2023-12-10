@@ -146,6 +146,13 @@ ALTER TABLE `payment_details`
   ADD CONSTRAINT `payment_details_ibfk_1` FOREIGN KEY (`Email`) REFERENCES `signup` (`Email`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
+INSERT INTO `products` (`product_id`, `product_name`, `description`, `stock`, `price`, `discount_percent`) VALUES
+(1, 'Legion Pro 7 (Gen8)', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16″ Lenovo PureSight Gaming Display with WQXGA resolution', 460, 2999.00, NULL),
+(2, 'ACER 314 14\" Chromebook Silver', 'The Chromebook 314 is here to keep you productive and entertained wherever you are. Its 14\" Full HD screen is great for work and catching up on Netflix. The octa-core Intel® Core™ i3 has plenty of power for your apps, games, and browser tabs. And at just 1.5 Kg, it won\'t weigh you down.', 515, 329.99, NULL),
+(3, 'HP 14 Laptop Intel, 4GB, 128GB', 'Includes 4GB RAM, 128GB SSD. Also pre-installed with Windows 11 and a year-long subscription with OFFICE 365.', 600, 279.00, NULL),
+(4, 'Dell G3 15-3500/i5', '8GB Ram/512GB SSD/GTX 1650/15” Display/Windows 11', 150, 699.99, NULL),
+(5, 'Asus TUF F15 15.6in i5', 'RAM: 16 GB / Storage: 1 TB SSD, Tuf Back Pack and Tuff gaming mouse, Intel core i5 processor, 15.6 inch screen size, Bluetooth, Built-in Webcam, Wi-Fi, Backlit Keyboard, HDMI, USB 3.0, USB 2.0, USB 3.2', 230, 1419.99, NULL);
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
