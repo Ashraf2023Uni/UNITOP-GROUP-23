@@ -65,6 +65,7 @@ if (isset($_POST['submitted'])){
     <title>Login</title>
 </head>
 <body>
+
     <header>
         <!--NAVBAR-->
         <div class="banner">
@@ -123,7 +124,7 @@ if (isset($_POST['submitted'])){
                     <input type="submit" class="button" name="submit" value="Login" required> 
                 </div>
                 <div class="links">
-                    Dont have an account yet? <a href="register.html" >Sign Up!</a>
+                    Dont have an account yet? <a href="register.php" >Sign Up!</a>
                 </div>
             </form>
             </div>
