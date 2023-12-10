@@ -5,12 +5,6 @@
     }
 
 
-
-    if(isset($_POST['submit'])) {
-    unset($_SESSION["email"]);
-    session_destroy();
-
-
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +55,8 @@
                         </div>
 
                         <!--Log out button-->
-                            <button class="btn">Log Out</button>
+                        <input type="submit" class="btn" name="submit" value="Log Out"> 
+                          
                     </nav>
 
                    </div>
