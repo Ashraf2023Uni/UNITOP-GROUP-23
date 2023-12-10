@@ -65,7 +65,6 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
---- Mohammed Sabil Ali 220192905
 --
 -- Table structure for table `signup`
 --
