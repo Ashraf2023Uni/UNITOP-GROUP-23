@@ -64,6 +64,13 @@ CREATE TABLE `products` (
   `discount_percent` decimal(3,1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+INSERT INTO `products` (`product_id`, `product_name`, `description`, `stock`, `price`, `discount_percent`) VALUES (1, 'Legion Pro 7 (Gen8)', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16" Lenovo PureSight Gaming Display with WQXGA resolution', 460, 2999.00, NULL);
+INSERT INTO `products` (`product_id`, `product_name`, `description`, `stock`, `price`, `discount_percent`) VALUES 
+(2, 'Surface Pro 8', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16" Lenovo PureSight Gaming Display with WQXGA resolution', 460, 999.00, NULL);
+INSERT INTO `products` (`product_id`, `product_name`, `description`, `stock`, `price`, `discount_percent`) VALUES 
+(3, '14-inch Macbook Pro', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16" Lenovo PureSight Gaming Display with WQXGA resolution', 460, 1699.00, NULL),
+(4, 'HP 15-fd0023na Laptop', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16" Lenovo PureSight Gaming Display with WQXGA resolution', 460, 999.00, NULL),
+(5, 'Dell XPS 15', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16" Lenovo PureSight Gaming Display with WQXGA resolution', 460, 999.00, NULL);
 -- --------------------------------------------------------
 --
 -- Table structure for table `signup`
