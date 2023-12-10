@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL,
   `product_id` int(11) DEFAULT NULL,
-  `email` varchar(25) DEFAULT NULL,
+  `Email` varchar(30) NOT NULL,
   `order_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `cost` decimal(9,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -46,7 +46,7 @@ CREATE TABLE `payment_details` (
   `card_num` varchar(16) DEFAULT NULL,
   `security_num` varchar(3) DEFAULT NULL,
   `expiration` varchar(5) DEFAULT NULL,
-  `email` varchar(25) DEFAULT NULL
+  `Email` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -88,14 +88,14 @@ CREATE TABLE `signup` (
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`order_id`),
   ADD KEY `product_id` (`product_id`),
-  ADD KEY `email` (`email`);
+  ADD KEY `Email` (`Email`);
 
 --
 -- Indexes for table `payment_details`
 --
 ALTER TABLE `payment_details`
   ADD PRIMARY KEY (`payment_id`),
-  ADD KEY `email` (`email`);
+  ADD KEY `Email` (`Email`);
 
 --
 -- Indexes for table `products`
@@ -134,13 +134,13 @@ ALTER TABLE `products`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`email`) REFERENCES `login` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`Email`) REFERENCES `signup` (`Email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `payment_details`
 --
 ALTER TABLE `payment_details`
-  ADD CONSTRAINT `payment_details_ibfk_1` FOREIGN KEY (`email`) REFERENCES `login` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `payment_details_ibfk_1` FOREIGN KEY (`Email`) REFERENCES `signup` (`Email`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 ALTER TABLE `signup`
