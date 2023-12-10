@@ -143,7 +143,7 @@
         </table>
     </div>";?>
        <!-- Checkout Button -->
-      <form action=payments.php> <button type='submit' class="checkout-button">Proceed to Checkout</button></form>
+      <form action=payments.html> <button type='submit' class="checkout-button">Proceed to Checkout</button></form>
     </div>
 </div>
 
