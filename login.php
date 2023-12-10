@@ -76,20 +76,20 @@ if (isset($_POST['submitted'])){
                         <div class="img-links">
                              <!--Customer basket-->
                              <!--<a href=""><img src="images/search.png" class="browse-icon"></a>-->
-                             <a href="index.html"><img src="assests/Navbar/home_4991416.png" class="home-icon"></a>
-                             <a href=""><img src="assests/Navbar/about-us.png" class="about-us-icon"></a>
-                             <a href=""><img src="assests/Navbar/notification_9383540.png" class="contact-us-icon"></a>
-                             <a href=""><img src="assests/Navbar/avatar_9892372.png" class="account-icon"></a>
-                             <a href=""><img src="assests/Navbar/checkout_4765148.png" class="basket-icon"></a>
+                             <a href="index.php"><img src="assests/Navbar/home_4991416.png" class="home-icon"></a>
+                             <a href="about-us.html"><img src="assests/Navbar/about-us.png" class="about-us-icon"></a>
+                             <a href="contact.html"><img src="assests/Navbar/notification_9383540.png" class="contact-us-icon"></a>
+                             <a href="index.php"><img src="assests/Navbar/avatar_9892372.png" class="account-icon"></a>
+                             <a href="basket.php"><img src="assests/Navbar/checkout_4765148.png" class="basket-icon"></a>
                         </div>
                         <div class="nav-links">
                         <ul>
                            <!--<li><a href="">Browse</a></li>-->
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="">About Us</a></li>
-                            <li><a href="">Contact Us</a></li>
-                            <li><a href="">Account</a></li>
-                            <li><a href="">Basket</a></li>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="index.php">Account</a></li>
+                            <li><a href="basket.php">Basket</a></li>
                         </ul>
                         </div>
                         <!---Search Bar--->
