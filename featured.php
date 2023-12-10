@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title> Title </title>
-<?php echo "<link rel ='stylesheet'type='text/css' href='home-page.css'>"; ?>
+<?php echo "<link rel ='stylesheet'type='text/css' href='css/home-page.css'>"; ?>
 </head>
 <body>
 <?php 
