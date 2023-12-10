@@ -1,43 +1,10 @@
-<?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-$db_host = 'localhost';
-$db_name = 'u_220032003_db';
-$username = 'u-220032003';
-$password = 'szHRphD4DvTQYXz';
-
-$db = new PDO("mysql:dbname=$db_name;host=$db_host", $username, $password);
-
-If(isset($_POST['submit'])) {
-
-$phoneNumber = isset($_POST['phoneNumber']) ? $_POST['phoneNumber'] : false;
-$university = isset($_POST['university']) ? $_POST['university'] : false;
-$email = isset($_POST['Email']) ? $_POST['Email'] : false;
-$password = isset($_POST['password']) ? password_hash($_POST['password'],PASSWORD_DEFAULT) : false; 
-If(!$phoneNumber || !$university || !$email || !$password ){
-exit("Invalid data");
- }
-
-try {
-$stat = $db->prepare("INSERT INTO signup(Email, university, password, phoneNumber) VALUES (?, ?, ?, ?)");
-$stat->execute(array($email, $university, $password, $phoneNumber));
-
-header("Location: index.php");
-exit;
-} catch (PDOException $ex) {
-echo "A database error has occurred.<br>";
-echo "Error details: <em>" . $ex->getMessage() . "</em>";
-	}
-}
-?>
-
+<!--Mohammed Sabil Ali Student ID: 220192905-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="css/login.css">
     <link rel="shortcut icon" type="icon" href="assests/Banners/logo.png">
     <title>Register</title>
 </head>
@@ -54,21 +21,21 @@ echo "Error details: <em>" . $ex->getMessage() . "</em>";
                         <div class="img-links">
                              <!--Customer basket-->
                              <!--<a href=""><img src="images/search.png" class="browse-icon"></a>-->
-                             <a href="index.php"><img src="assests/Navbar/home_4991416.png" class="home-icon"></a>
-                             <a href="about-us.html"><img src="assests/Navbar/about-us.png" class="about-us-icon"></a>
-                             <a href="contact.html"><img src="assests/Navbar/notification_9383540.png" class="contact-us-icon"></a>
-                             <a href="index.php"><img src="assests/Navbar/avatar_9892372.png" class="account-icon"></a>
-                             <a href="basket.php"><img src="assests/Navbar/checkout_4765148.png" class="basket-icon"></a>
+                             <a href="index.html"><img src="assests/Navbar/home_4991416.png" class="home-icon"></a>
+                             <a href=""><img src="assests/Navbar/about-us.png" class="about-us-icon"></a>
+                             <a href=""><img src="assests/Navbar/notification_9383540.png" class="contact-us-icon"></a>
+                             <a href=""><img src="assests/Navbar/avatar_9892372.png" class="account-icon"></a>
+                             <a href=""><img src="assests/Navbar/checkout_4765148.png" class="basket-icon"></a>
                         </div>
 
                         <div class="nav-links">
                         <ul>
                            <!--<li><a href="">Browse</a></li>-->
-                            <li><a href="index.php">Home</a></li>
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="index.php">Account</a></li>
-                            <li><a href="basket.php">Basket</a></li>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="">About Us</a></li>
+                            <li><a href="">Contact Us</a></li>
+                            <li><a href="">Account</a></li>
+                            <li><a href="">Basket</a></li>
                         </ul>
                         </div>
                     
@@ -86,9 +53,46 @@ echo "Error details: <em>" . $ex->getMessage() . "</em>";
     
        <div class="container">
         <div class="box f-box">
+
+        <?php
+include_once("connectdb.php");
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+$db_host = 'localhost';
+$db_name = 'unitop';
+$username = 'root';
+$password = '';
+
+$db = new PDO("mysql:dbname=$db_name;host=$db_host", $username, $password);
+
+if(isset($_POST['submit'])) {
+    $email = isset($_POST['Email']) ? $_POST['Email'] : false;
+    $university = isset($_POST['university']) ? $_POST['university'] : false;
+    $phoneNumber = isset($_POST['phoneNumber']) ? $_POST['phoneNumber'] : false;
+    $password = isset($_POST['password']) ? password_hash($_POST['password'], PASSWORD_DEFAULT) : false;
+
+    if(!$email || !$university || !$phoneNumber || !$password) {
+        exit("Invalid data");
+    }
+
+    try {
+        $stmt = $db->prepare("INSERT INTO signup (Email, university, password, phoneNumber) VALUES (?, ?, ?, ?)");
+        $stmt->execute(array($email, $university, $password, $phoneNumber));
+
+        header("Location: register.php");
+        exit;
+    } catch (PDOException $ex) {
+        echo "A database error has occurred.<br>";
+        echo "Error details: <em>" . $ex->getMessage() . "</em>";
+    }
+}
+?>
+             
+
         
             <header>Sign Up</header>
-            <form action="index.php" method="post">
+            <form action="register.php" method="post">
                 
                 <div class="input field">
                     <label for="Email">Email:</label>
@@ -123,15 +127,15 @@ echo "Error details: <em>" . $ex->getMessage() . "</em>";
                     <input type="submit" class="button" name="submit" value="Register" required> 
                 </div>
                 <div class="links">
-                    Already have an account? <a href="login.html">Sign In!</a>
+                    Already have an account? <a href="login.php">Sign In!</a>
                 </div>
             </form>
             </div>
 
        </div>
 
-   <!-------------------FOOTER---------------------->
-   <footer>
+       <!-------------------FOOTER---------------------->
+<footer>
     <div class="footer">
         <div class="footer-box">
             <img src="assests/Navbar/logo-no-slogan.png">
@@ -152,22 +156,22 @@ echo "Error details: <em>" . $ex->getMessage() . "</em>";
         <div class="footer-box">
             <h3>About Us</h3>
             <ul>
-                <li><a href="about-us.html">Who We Are</a></li>
+                <li><a href="">Who We Are</a></li>
                 <br>
-                <li><a href="about-us.html">Our Mission</a></li>
+                <li><a href="">Our Mission</a></li>
                 <br>
-                <li><a href="about-us.html">The Team</a></li>
+                <li><a href="">The Team</a></li>
             </ul>
         </div>
     
         <div class="footer-box">
             <h3>Useful Links</h3>
             <ul>
-                <li><a href="index.php">Home</a></li>
+                <li><a href="">Home</a></li>
                 <br>
-                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="">Contact Us</a></li>
                 <br>
-                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="">About Us</a></li>
             </ul>
         </div>
     </div>
@@ -177,7 +181,7 @@ echo "Error details: <em>" . $ex->getMessage() . "</em>";
     
     </footer>
 
-    <script src="register.js"></script>
+    <script src="js/register.js"></script>
 
 </body>
 </html>
