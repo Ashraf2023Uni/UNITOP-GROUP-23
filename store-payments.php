@@ -11,14 +11,14 @@ $area = $_REQUEST['area'];
 $postcode = $_REQUEST['postcode'];
 
 $query = "INSERT INTO payment_details (card_num, security_num, email, fullname, 
-addressline, city, area, post_code) 
+addressline, city, area, postcode) 
 VALUES ('$card_num', '$cvv', '$email', 
 '$name', '$address', '$city', '$area', '$postcode')";
 
 try{
     $db->query($query);
     echo"Payment data successfully stored";
-    echo"<br><br><a href='../index.php'><button> Back to Homepage </button></a><br>"; }
+    echo"<br><br><a href='index.php'><button> Back to Homepage </button></a><br>"; }
 catch(PDOException $ex){
     echo"Failed to store data <br>";
     echo($ex->getMessage());
