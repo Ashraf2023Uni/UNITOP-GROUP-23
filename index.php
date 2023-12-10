@@ -1,6 +1,8 @@
 <?php
-    session_start();
-    require('connectdb.php');
+    if(session_status() == PHP_SESSION_NONE) {
+        session_start();
+        require('connectdb.php');
+    }
 ?>
 
 <!DOCTYPE html>
