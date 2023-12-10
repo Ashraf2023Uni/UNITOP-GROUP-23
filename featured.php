@@ -19,7 +19,7 @@ if($products->rowCount()>0){
         <h4>".$laptop['product_name']."</h4>
         <p>£".$laptop['price']."</p>
         </a>
-        <button class='button'>Quick Add</button>
+        <button class='button'>More Details</button>
         </section>";
     }
 
