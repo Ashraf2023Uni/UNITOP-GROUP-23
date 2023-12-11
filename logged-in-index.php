@@ -60,7 +60,7 @@
                             <input type="submit" class="btn" name="Log Out" value="Log Out"> 
                         </form>
                     <?php  
-                        if(isset($_POST['logout'])){
+                        if(isset($_POST['Log Out'])){
                             header("Location: index.php");
                             exit;
                         }
