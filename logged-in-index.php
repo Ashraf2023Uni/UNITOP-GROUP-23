@@ -55,8 +55,17 @@
                         </div>
 
                         <!--Log out button-->
-                        <input type="submit" class="btn" name="submit" value="Log Out"> 
-                          
+                        <!--<input type="submit" class="btn" name="submit" value="Log Out">-->
+                        <form action='index.php' method='post'>
+                            <input type="submit" class="btn" name="Log Out" value="Log Out"> 
+                        </form>
+                    <?php  
+                        if(isset($_POST['logout'])){
+                            header("Location: index.php");
+                            exit;
+                        }
+                    ?>
+
                     </nav>
 
                    </div>
