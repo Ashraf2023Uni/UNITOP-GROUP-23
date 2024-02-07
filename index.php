@@ -1,8 +1,6 @@
 <?php
-    if(session_status() == PHP_SESSION_NONE) {
-        session_start();
-        require('connectdb.php');
-    }
+    session_start();
+    require('php/connectdb.php');
 ?>
 
 <!DOCTYPE html>
@@ -27,21 +25,21 @@
                         <div class="img-links">
                              <!--Customer basket-->
                              <!--<a href=""><img src="images/search.png" class="browse-icon"></a>-->
-                             <a href="index.php"><img src="assests/Navbar/home_4991416.png" class="home-icon"></a>
-                             <a href="about-us.html"><img src="assests/Navbar/about-us.png" class="about-us-icon"></a>
-                             <a href="contact.html"><img src="assests/Navbar/notification_9383540.png" class="contact-us-icon"></a>
-                             <a href="index.php"><img src="assests/Navbar/avatar_9892372.png" class="account-icon"></a>
-                             <a href="basket.php"><img src="assests/Navbar/checkout_4765148.png" class="basket-icon"></a>
+                             <a href="index.html"><img src="assests/Navbar/home_4991416.png" class="home-icon"></a>
+                             <a href=""><img src="assests/Navbar/about-us.png" class="about-us-icon"></a>
+                             <a href=""><img src="assests/Navbar/notification_9383540.png" class="contact-us-icon"></a>
+                             <a href=""><img src="assests/Navbar/avatar_9892372.png" class="account-icon"></a>
+                             <a href=""><img src="assests/Navbar/checkout_4765148.png" class="basket-icon"></a>
                         </div>
 
                         <div class="nav-links">
                         <ul>
                            <!--<li><a href="">Browse</a></li>-->
-                            <li><a href="index.php">Home</a></li>
+                            <li><a href="index.html">Home</a></li>
                             <li><a href="about-us.html">About Us</a></li>
                             <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="account.php">Account</a></li>
-                            <li><a href="basket.php">Basket</a></li>
+                            <li><a href="account.html">Account</a></li>
+                            <li><a href="basket.html">Basket</a></li>
                         </ul>
                         </div>
                     
@@ -79,8 +77,8 @@
                     <br>for seamless coding to lightweight designs for the mobility demands of your medics.
                     <br>Choose to empower your students journey through UNITOP.
                 </p>
-                <a href="login.php" class="button">Log In</a> or
-                <a href="register.php" class="button">Sign Up</a>
+                <a href="login.html" class="button">Log In</a> or
+                <a href="register.html" class="button">Sign Up</a>
             </section>
         </div>
     </div>
@@ -90,7 +88,7 @@
     <h2>Featured Products</h2>
     <section class="row">
         <div class="featured-img">
-           <?php include('featured.php');?>
+           <?php include('php/featured.php');?>
         </div>
     <section>
 </div>
@@ -100,7 +98,7 @@
         <section class="box" style="background-image: url(assests/Banners/about-us.jpg);">
             <h1>Who we are!</h1>
             <p>Dive into our company.</p>
-            <a href="about-us.html" class="button">About Us</a>
+            <a href="about-us.hmtml" class="button">About Us</a>
         </section>
         <section class="box" style="background-image: url(assests/Banners/contact-us.jpg);">
             <h1>How to reach us!</h1>
@@ -116,7 +114,7 @@
         <img src="assests/Navbar/logo-no-slogan.png">
         <h3>UNITOP</h3>
         <p>Educate with UNITOP!</p>
-        <a href="login.php" class="btn">Log In</a>
+        <a href="login.html" class="btn">Log In</a>
     </div>
 
     <div class="footer-box">
@@ -131,22 +129,22 @@
     <div class="footer-box">
         <h3>About Us</h3>
         <ul>
-            <li><a href="about-us.html">Who We Are</a></li>
+            <li><a href="">Who We Are</a></li>
             <br>
-            <li><a href="about-us.html">Our Mission</a></li>
+            <li><a href="">Our Mission</a></li>
             <br>
-            <li><a href="about-us.html">The Team</a></li>
+            <li><a href="">The Team</a></li>
         </ul>
     </div>
 
     <div class="footer-box">
         <h3>Useful Links</h3>
         <ul>
-            <li><a href="index.php">Home</a></li>
+            <li><a href="">Home</a></li>
             <br>
-            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="">Contact Us</a></li>
             <br>
-            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="">About Us</a></li>
         </ul>
     </div>
 </div>
