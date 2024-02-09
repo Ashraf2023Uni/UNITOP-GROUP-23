@@ -1,5 +1,4 @@
-//This page will showcase list of products that can be filtered/searched
-
+<!--This page will showcase list of products that can be filtered/searched-->
 <?php
     session_start();
     require('php/connectdb.php');
@@ -37,7 +36,7 @@
                         <div class="nav-links">
                         <ul>
                            <!--<li><a href="">Browse</a></li>-->
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.php">Home</a></li>
                             <li><a href="about-us.html">About Us</a></li>
                             <li><a href="contact.html">Contact Us</a></li>
                             <li><a href="account.html">Account</a></li>
