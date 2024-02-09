@@ -1,3 +1,5 @@
+//This page will showcase list of products that can be filtered/searched
+
 <?php
     session_start();
     require('php/connectdb.php');
@@ -56,56 +58,13 @@
 
           <!--Menu with the categories - each subject-->
         <div class="menu">
-            <a href="explore-page.php">Computer Science</a>
+            <a href="">Computer Science</a>
             <a href=""> E-sports</a>
             <a href="">Graphics Design</a>
             <a href="">Law</a>
             <a href="">Medicine</a>
         </div>
     </header>
-
-    <!------------------------------MAIN BODY--------------------------------------->
-    
-    <!--Banner to encourage log-in, necessary to be able to purchase from the store-->
-    <div class="banner-log">
-        <!--Log In button in big screen-->
-        <div class="log-in" style="background-image: url(assests/Banners/banner.jpg);">
-            <section class="heading">
-                <h1>Educate with UNITOP</h1>
-                <p>Choose a laptop that aligns perfectly with your students academic pursuits.
-                    <br>Choose the features that matter to your students, from powerful processors 
-                    <br>for seamless coding to lightweight designs for the mobility demands of your medics.
-                    <br>Choose to empower your students journey through UNITOP.
-                </p>
-                <a href="login.html" class="button">Log In</a> or
-                <a href="register.html" class="button">Sign Up</a>
-            </section>
-        </div>
-    </div>
-
-<!--Product showcase row (arrows would be nice)-->
-<div class="prod">
-    <h2>Featured Products</h2>
-    <section class="row">
-        <div class="featured-img">
-           <?php include('php/featured.php');?>
-        </div>
-    <section>
-</div>
-
-<!--About Us+Contact Us-->
-<div class="about">
-        <section class="box" style="background-image: url(assests/Banners/about-us.jpg);">
-            <h1>Who we are!</h1>
-            <p>Dive into our company.</p>
-            <a href="about-us.hmtml" class="button">About Us</a>
-        </section>
-        <section class="box" style="background-image: url(assests/Banners/contact-us.jpg);">
-            <h1>How to reach us!</h1>
-            <p>Contact us through here.</p>
-            <a href="contact.html" class="button">Contact Us</a>
-        </section>
-</div>
 
 <!-------------------FOOTER---------------------->
 <footer>
