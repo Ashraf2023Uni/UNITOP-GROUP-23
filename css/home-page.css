@@ -11,15 +11,7 @@
     box-sizing: border-box;
     font-family:Arial, Helvetica, sans-serif
 }
-
-/*******NAVBAR styling START- all contents********/
-.navbar{
-    display: flex;
-    align-items: center;
-    font-size: small;
-}
-
-/*navbar - a tags/links to the other pages*/
+/*a tags/links to the other pages = black, underlined*/
 a{
     color: black;
     text-decoration: none;
@@ -30,14 +22,24 @@ a:hover{
     text-decoration: underline;
 }
 
-/*searchbar - FUNCTIONALITY NEEDED*/
+/************************************* NAVIGATION BAR ********************************************/
+.navbar{
+    display: flex;
+    align-items: center;
+    font-size: small;
+}
+/*Search bar*/
+.search-bar input{
+    font-size: 1rem;
+}
+
 .search-bar{
     text-align: center;
     margin-top: 10px;
 }
 .search-bar input{
     width: 700px;
-    height: 19px;
+    height: 20px;
 }
 .search-bar button{
     background-color: transparent;
