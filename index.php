@@ -13,6 +13,7 @@
     <link rel="shortcut icon" type="icon" href="assests/Banners/logo.png">
 </head>
 
+<!--Main body-->
 <body>
     <header>
         <!--NAVBAR-->
@@ -45,9 +46,10 @@
                     
                         <!---Search Bar--->
                         <div class="search-bar">
-                            <input type="text" placeholder="Search">
+                            <input type="text" placeholder="What are you looking for?">
                             <button type="submit"><img src="assests/Navbar/search.png" class="search-icon"></button>
                         </div>
+
                     </nav>
 
                    </div>
