@@ -20,7 +20,6 @@
         <div class="banner">
             <section class="navbar">
                 <img src="assests/Navbar/UT-new-logo.png" width="100px" alt="UNITOP logo">
-                <!--<h1>UNITOP</h1>-->
 
                 <!--Navbar - Links to other pages-->
                 <div class="links">
@@ -68,20 +67,20 @@
                     <br>for seamless coding to lightweight designs for the mobility demands of your medics.
                     <br>Choose to empower your students journey through UNITOP.
                 </p>
-                <a href="login.html" class="button">Log In</a> or
-                <a href="register.html" class="button">Sign Up</a>
+                <a href="login.php" class="button">Log In</a> or
+                <a href="register.php" class="button">Sign Up</a>
             </section>
         </div>
     </div>
 
-      <!--Menu with the categories - each subject-->
-      <div class="menu">
-            <a href="explore-page.php">Computer Science</a>
-            <a href=""> E-sports</a>
-            <a href="">Graphics Design</a>
-            <a href="">Law</a>
-            <a href="">Medicine</a>
-        </div>
+<!--Menu with the categories - popular degreee-->
+<div class="menu">
+    <a href="explore-page.php">Computer Science</a>
+    <a href=""> E-sports</a>
+    <a href="">Graphics Design</a>
+    <a href="">Law</a>
+    <a href="">Medicine</a>
+</div>
 
 <!--Product showcase row (arrows would be nice)-->
 <div class="prod">

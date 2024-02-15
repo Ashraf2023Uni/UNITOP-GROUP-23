@@ -133,8 +133,7 @@ header{
 .menu{
     margin-top: 5px;
     color: black;
-    font-size:medium;
-    max-width: 400px;
+    font-size: medium;
     display: flex;
     justify-content: space-around;
     align-items: center;
