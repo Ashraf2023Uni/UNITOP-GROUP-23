@@ -28,6 +28,7 @@ a:hover{
     align-items: center;
     font-size: small;
 }
+
 /*Search bar*/
 .search-bar input{
     font-size: 1rem;
@@ -36,6 +37,7 @@ a:hover{
 .search-bar{
     text-align: center;
     margin-top: 10px;
+    font-style: italic;
 }
 .search-bar input{
     width: 700px;
@@ -131,7 +133,7 @@ header{
 .menu{
     margin-top: 5px;
     color: black;
-    font-size: small;
+    font-size:medium;
     max-width: 400px;
     display: flex;
     justify-content: space-around;
