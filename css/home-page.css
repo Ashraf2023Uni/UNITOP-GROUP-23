@@ -30,10 +30,6 @@ a:hover{
 }
 
 /*Search bar*/
-.search-bar input{
-    font-size: 1rem;
-}
-
 .search-bar{
     text-align: center;
     margin-top: 10px;
