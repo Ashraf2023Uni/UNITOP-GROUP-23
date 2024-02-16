@@ -65,6 +65,25 @@
         </div>
     </header>
 
+<!-----------------Main Body-------------------->
+<div class="filter">
+    <span>Filter</span>
+    <select name="" id="select">
+        <option value="View All">View All</option>
+        <option value="most popular">Most Popular</option>
+        <option value="recently added">Recently added</option>
+        <option value="low to high">Low to High</option>
+        <option value="high to low">High to Low</option>
+</div>
+
+<div class="prod">
+    <section class="row">
+        <div class="featured-img">
+           <?php include('php/featured.php');?>
+        </div>
+    <section>
+</div>
+
 <!-------------------FOOTER---------------------->
 <footer>
 <div class="footer">
