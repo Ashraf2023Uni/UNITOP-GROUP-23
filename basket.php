@@ -72,7 +72,7 @@
             <td class="cart-info" >
                 <?php 
                 session_start();
-                require_once('connectdb.php');
+                require_once('php/connectdb.php');
 
 
 
@@ -90,16 +90,16 @@
                         $_SESSION['prod_id'][] = $id; 
                     } 
                     else{
-                    $_SESSION['prod_id'] = array();
-                    $_SESSION['prod_id'][] = $id;
+                        $_SESSION['prod_id'] = array();
+                        $_SESSION['prod_id'][] = $id;
                     }
 
                     if(isset($_SESSION['qty'])){
                         $_SESSION['qty'][] = $qty; 
                     } 
                     else{
-                    $_SESSION['qty'] = array();
-                    $_SESSION['qty'][] = $qty; 
+                        $_SESSION['qty'] = array();
+                        $_SESSION['qty'][] = $qty; 
                     }
                 }
                 $total = 0;
@@ -143,7 +143,7 @@
         </table>
     </div>";?>
        <!-- Checkout Button -->
-      <form action=payments.html> <button type='submit' class="checkout-button">Proceed to Checkout</button></form>
+      <form action= HTML-files/payments.html> <button type='submit' class="checkout-button">Proceed to Checkout</button></form>
     </div>
 </div>
 
