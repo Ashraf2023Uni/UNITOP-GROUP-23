@@ -181,8 +181,11 @@ universitiesList.forEach(function (university) {
     universitiesDatalist.appendChild(option);
 });
 
-// js for validating passwords
+document.getElementById('phoneNumber').addEventListener('input', function(event) {
+    this.value = this.value.replace(/[^\d]/g, ''); // Remove any non-numeric characters
+});
 
+// js for validating passwords
 function validatePassword() {
     var password = document.getElementById("password").value;
     var confirmPassword = document.getElementById("confirmPassword").value;
@@ -192,8 +195,48 @@ function validatePassword() {
     if (password !== confirmPassword) {
         passwordError.textContent = "Passwords do not match!";
         passwordMatch.textContent = "";
+        return false; // Prevent form submission
     } else {
         passwordError.textContent = "";
         passwordMatch.textContent = "Passwords match!";
+        return true; // Allow form submission
     }
 }
+// js for pop up message for password
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const errorMessage = urlParams.get('error');
+
+    if (errorMessage === 'password_mismatch') {
+        alert('Passwords do not match. Please try again.');
+    } else if (errorMessage === 'duplicate_entry') {
+        alert('The email or phone number is already in use. Please try again.');
+    } else if (errorMessage === 'invalid_data') {
+        alert('Invalid data provided. Please check your input.');
+    }
+});
+// js for pop up if email or number are in database already
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const errorMessage = urlParams.get('error');
+
+    if (errorMessage === 'duplicate_entry') {
+        alert('The email or phone number is already in use. Please try again.');
+    }
+});
+
+// OLD JS FOR PASSWORD VALIDATION
+//function validatePassword() {
+   // var password = document.getElementById("password").value;
+    //var confirmPassword = document.getElementById("confirmPassword").value;
+    //var passwordError = document.getElementById("passwordError");
+   // var passwordMatch = document.getElementById("passwordMatch");
+
+   // if (password !== confirmPassword) {
+   //     passwordError.textContent = "Passwords do not match!";
+   //     passwordMatch.textContent = "";
+   // } else {
+   //     passwordError.textContent = "";
+   //     passwordMatch.textContent = "Passwords match!";
+   //// }
+//}

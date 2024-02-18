@@ -70,15 +70,42 @@ if(isset($_POST['submit'])) {
     $email = isset($_POST['Email']) ? $_POST['Email'] : false;
     $university = isset($_POST['university']) ? $_POST['university'] : false;
     $phoneNumber = isset($_POST['phoneNumber']) ? $_POST['phoneNumber'] : false;
-    $password = isset($_POST['password']) ? password_hash($_POST['password'], PASSWORD_DEFAULT) : false;
+    $password = isset($_POST['password']) ? $_POST['password'] : false;
+    $confirmPassword = isset($_POST['confirmPassword']) ? $_POST['confirmPassword'] : false;
 
-    if(!$email || !$university || !$phoneNumber || !$password) {
-        exit("Invalid data");
+    // Check if passwords match 
+    // FIXED ORDER AS WAS OVERWRITTEN BEFORE
+    if($password !== $confirmPassword) {
+        // Redirect back to registration page with error message
+        header("Location: register.php?error=password_mismatch");
+        exit; // Stop
     }
 
+    // Check if all fields are provided
+    if(!$email || !$university || !$phoneNumber || !$password || !$confirmPassword) {
+        // Redirect back to registration page with error message
+        header("Location: register.php?error=invalid_data");
+        exit; // Stop
+    }
+
+    // Hash the password
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
     try {
+        // Checks if email or phone number already exists in the database
+        $stmt = $db->prepare("SELECT * FROM signup WHERE Email = ? OR phoneNumber = ?");
+        $stmt->execute(array($email, $phoneNumber));
+        $existingUser = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if($existingUser) {
+            // If email or phone number already exists show error
+            header("Location: register.php?error=duplicate_entry");
+            exit;
+        }
+
+        // Insert data to database
         $stmt = $db->prepare("INSERT INTO signup (Email, university, password, phoneNumber) VALUES (?, ?, ?, ?)");
-        $stmt->execute(array($email, $university, $password, $phoneNumber));
+        $stmt->execute(array($email, $university, $hashedPassword, $phoneNumber));
 
         header("Location: login.php");
         exit;
@@ -88,9 +115,8 @@ if(isset($_POST['submit'])) {
     }
 }
 ?>
-             
 
-        
+    
             <header>Sign Up</header>
             <form action="register.php" method="post">
                 
@@ -107,7 +133,7 @@ if(isset($_POST['submit'])) {
 
                 <div class="input field">
                     <label for="phoneNumber">Phone Number:</label>
-                    <input type="number" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" required> 
+                    <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" pattern="[0-9]*" maxlength="11"  required> 
                 </div>
 
                 <div class="input field">
