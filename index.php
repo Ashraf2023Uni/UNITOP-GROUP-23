@@ -40,6 +40,7 @@
                                 <li><a href="contact.html">Contact Us</a></li>
                                 <li><a href="index.php">Account</a></li>
                                 <li><a href="basket.php">Basket</a></li>
+                                <li><a href="admin_login.php">Staff login</a></li>
                             </ul>
                         </div>
                         <!---Search Bar--->
