@@ -67,9 +67,9 @@
 
 <!-----------------Main Body-------------------->
 <div class="filter">
-    <span>Filter</span>
+    <span>Sort: </span>
     <select name="" id="select">
-        <option value="View All">View All</option>
+        <option value="Default">Default</option>
         <option value="most popular">Most Popular</option>
         <option value="recently added">Recently added</option>
         <option value="low to high">Low to High</option>
@@ -130,6 +130,7 @@
 </div>
 
 </footer>
-
 </body>
-</html> 
+</html>
+
+<script type="text/javascript" src="filter.js></script>  

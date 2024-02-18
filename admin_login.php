@@ -27,4 +27,7 @@ if(isset($_POST['submit'])) {
     $stmt->execute(array($email));
     $adminUser = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if($adminUser)
+    if($adminUser) {
+        
+    }
+}
