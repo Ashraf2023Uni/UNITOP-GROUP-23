@@ -1,5 +1,5 @@
 <?php
-include_once("connectdb.php");
+include_once("php/connectdb.php");
 
 if(isset($_POST['submit'])) {
     $db_host = 'localhost';
