@@ -54,6 +54,10 @@ if(isset($_POST['submit'])) {
                         <label for="email">Email:</label>
                         <input type="email" name="email" id="email" placeholder="Email" required>
 </div>
+<div class="input-field">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" id="password" placeholder="Password" required>
+</div>
 
 <div class="field">
     <input type="submit" class="button" name="submit" value="Login">
