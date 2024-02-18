@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once("php/connectdb.php");
 
 if(isset($_POST['submit'])) {
@@ -28,7 +29,8 @@ if(isset($_POST['submit'])) {
     $adminUser = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if($adminUser && password_verify($password, $adminUser['password'])) {
-       header("Location: admin_index.php");
+        $_SESSION['admin_email'] = $adminUser['email'];
+        header("Location: admin_index.php");
        exit;
     } else { 
         echo "Incorrect Details";
