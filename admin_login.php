@@ -27,7 +27,42 @@ if(isset($_POST['submit'])) {
     $stmt->execute(array($email));
     $adminUser = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if($adminUser) {
-        
+    if($adminUser && password_verify($password, $adminUser['password'])) {
+       header("Location: admin_index.php");
+       exit;
+    } else { 
+        echo "Incorrect Details";
     }
+
+
 }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin Login</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="box">
+                <header>Admin Login</header>
+                <form action="admin_login.php" method="post">
+                    <div class="input-field">
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email" placeholder="Email" required>
+</div>
+
+<div class="field">
+    <input type="submit" class="button" name="submit" value="Login">
+</div>
+</form>   
+<div class="links">
+    Or register here <a href="admin_register.php">Staff sign up</a>
+</div>
+            </div>
+        </div>
+    </body>
+</html>
