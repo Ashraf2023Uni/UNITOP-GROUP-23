@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require('connectdb.php');
+    require('php/connectdb.php');
 
     if(isset($_SESSION['admin_email'])) {
         $admin_email = $_SESSION['$admin_email'];
