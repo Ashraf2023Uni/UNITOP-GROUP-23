@@ -197,32 +197,42 @@ header{
     padding-bottom: 35px;
 }
 
-/* 5 Featured product showcase*/
-.row{
+/********************PRODUCT Showcase********************/
+
+/*.products ul{
+    width: 100%;
     display: flex;
-    max-width: 1200px;
+    flex-wrap: wrap;
+}
+
+.products ul li{
+    width: 20%;
+    position: relative;
+}*/
+/*.row{
+    display: flex;
+    max-width: 1000px;
     margin: auto;
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 20px;
-}
+}*/
 
-.products{
-    flex-basis: 20%;
+/*.products .details{
+    flex-basis: 10%;
     padding: 10px;
-    min-width: 200px;
+    min-width: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border: 1px solid black;
     margin: 10px;
-    height:390px;
-}
+    height:200px;
+}*/
 
-.products img{
-    
-    height:190px;
+/*.products img{
+    height:100px;
 }
 
 .prod h2{
@@ -239,7 +249,7 @@ header{
 }
 
 .products p{
-    margin-bottom: 100px;
+    margin-bottom: 10px;
 }
 .featured-img{
     display: flex;
@@ -247,11 +257,10 @@ header{
     align-items: center;
 }
 .products .button{
-    margin-top: 300px;
+    margin-top: 5px;
     background-color: rgb(34, 83, 198);
     color: white;
-    border: 1px solid black;
-    /*margin-bottom: 20px;*/
+    border: 1px solid black;    
     align-items: bottom;
     position: absolute;
 
@@ -260,7 +269,7 @@ header{
     opacity: 0.80;
     color: white;
     text-decoration: underline;
-}
+}*/
 
 /*About Us/Contact Us section*/
 

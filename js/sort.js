@@ -1,4 +1,5 @@
 //Sorting products
 
 let field = document.querySelector('products');
-let 
+let select = document.getElementById('select');
+

@@ -9,15 +9,13 @@ if($products->rowCount()>0){
     while($laptop = $products->fetch()){
         echo"
         <section class='products'>
-            <ul = 
             <a href='product-details.php?id=".$laptop['product_id']."'>
             
-            <img src='assests/Product/".$laptop['product_id'].".png' alt='' id='Featured-Thumbnail'>
+                <img src='assests/Product/".$laptop['product_id'].".png' alt='' id='Featured-Thumbnail'>
         
-            <h4>".$laptop['product_name']."</h4>
-            <p>£".$laptop['price']."</p>
+                <h4>".$laptop['product_name']."</h4>
+                <p>£".$laptop['price']."</p>
             </a>
-        
             <button class='button'>More Details</button>
         </section>";
     }
