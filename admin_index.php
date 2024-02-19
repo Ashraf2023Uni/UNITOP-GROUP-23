@@ -1,74 +1,157 @@
 <?php
-session_start();
-include_once("php/connectdb.php");
+    session_start();
 
-if(isset($_POST['submit'])) {
-    $db_host = 'localhost';
-    $db_name = 'unitop';
-    $username = 'root';
-    $password = '';
-
-    try {
-        $db = new PDO("mysql:dbname=$db_name;host=$db_host", $username, $password);
-    } catch (PDOException $ex) {
-
-        echo "Failed to connect.";
-        exit;
+    if(isset($_SESSION['admin_email'])) {
+        $admin_email = $_SESSION['admin_email'];
+   
     }
-
-    $email = isset($_POST['email']) ? $_POST['email'] : false;
-    $password = isset($_POST['password']) ? $_POST['password'] : false;
-
-    if(!$email || !$password) {
-        echo "give both.";
-        exit;
-    }
-
-    $stmt = $db->prepare("SELECT * FROM admin_users WHERE email = ?");
-    $stmt->execute(array($email));
-    $adminUser = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if($adminUser && password_verify($password, $adminUser['password'])) {
-        $_SESSION['admin_email'] = $adminUser['email'];
-        header("Location: admin_index.php");
-       exit;
-    } else { 
-        echo "Incorrect Details";
-    }
-
-
-}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin Login</title>
-    </head>
-    <body>
-        <div class="container">
-            <div class="box">
-                <header>Admin Login</header>
-                <form action="admin_login.php" method="post">
-                    <div class="input-field">
-                        <label for="email">Email:</label>
-                        <input type="email" name="email" id="email" placeholder="Email" required>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNITOP/HomePage</title>
+    <link rel="stylesheet" href="css/home-page.css">
+    <link rel="shortcut icon" type="icon" href="assests/Banners/logo.png">
+<style>
+    .logout-form {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .logout-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: white;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;    
+    }
+    .stock-form {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .stock-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: white;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;    
+    }
+    </style>
+</head>
+
+
+<body>
+    <header>
+        <!--NAVBAR and other header stuff goes here-->
+         <!--NAVBAR-->
+         <div class="banner">
+            <section class="navbar">
+                <img src="assests/Navbar/UT-new-logo.png" width="100px" alt="UNITOP logo">
+
+                <!--Navbar - Links to other pages-->
+                <div class="links">
+                    <nav>
+                        <div class="img-links">
+                             
+                             <a href="about-us.html"><img src="assests/Navbar/about-us.png" class="about-us-icon"></a>
+                             <a href="contact.html"><img src="assests/Navbar/notification_9383540.png" class="contact-us-icon"></a>
+                             <a href="admin_index.php"><img src="assests/Navbar/avatar_9892372.png" class="account-icon"></a>
+                             <a href="basket.php"><img src="assests/Navbar/checkout_4765148.png" class="basket-icon"></a>
+                             
+                        </div>
+                        <div class="nav-links">
+                            <ul>
+                               
+                                <li><a href="about-us.html">About Us</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
+                                <li><a href="admin_index.php">Account</a></li>
+                                <li><a href="basket.php">Basket</a></li>
+                                
+                            </ul>
+                        </div>
+                        <div class="search-bar">
+                            <input type="search" id="search" placeholder="What are you looking for?">
+                            <button type="submit"><img src="assests/Navbar/search.png" class="search-icon"></button>
+                            </div>
+                    </nav>
+
+                </div>
+            </section>
+        </div>
+
+        
+    </header>
+
+    <!------------------------------MAIN BODY--------------------------------------->
+    <div class="container">
+        <h1>Welcome, <?php echo $admin_email; ?></h1>
+        <form action="admin_logout.php" method="post" class="logout-form">
+            <button type="submit" class="logout-button">Logout</button>
+        </form>
+    </div>
+
+    <div class="container2">
+        
+        <form action="admin_stock.php" method="post" class="stock-form">
+            <button type="submit" class="stock-button">Adjust Stock</button>
+        </form>
+    </div>
+
+    <footer> 
+    <div class="footer">
+    <div class="footer-box">
+        <img src="assests/Navbar/logo-no-slogan.png">
+        <h3>UNITOP</h3>
+        <p>Educate with UNITOP!</p>
+       
+    </div>
+
+    <div class="footer-box">
+        <h3>Follow Us</h3>
+        <div class="socials">
+            <img src="assests/Footer/instagram.png">
+            <img src="assests/Footer/facebook.png">
+            <img src="assests/Footer/linkedin.png"> 
+        </div>
+    </div>
+
+    <div class="footer-box">
+        <h3>About Us</h3>
+        <ul>
+            <li><a href="">Who We Are</a></li>
+            <br>
+            <li><a href="">Our Mission</a></li>
+            <br>
+            <li><a href="">The Team</a></li>
+        </ul>
+    </div>
+
+    <div class="footer-box">
+        <h3>Useful Links</h3>
+        <ul>
+            <li><a href="">Home</a></li>
+            <br>
+            <li><a href="">Contact Us</a></li>
+            <br>
+            <li><a href="">About Us</a></li>
+        </ul>
+    </div>
 </div>
-<div class="input-field">
-                        <label for="password">Password:</label>
-                        <input type="password" name="password" id="password" placeholder="Password" required>
+<div class="line">
+      <p>Terms and Conditions apply* | UNITOP Limited</p>
 </div>
 
-<div class="field">
-    <input type="submit" class="button" name="submit" value="Login">
-</div>
-</form>   
-<div class="links">
-    Or register here <a href="admin_register.php">Staff sign up</a>
-</div>
-            </div>
-        </div>
-    </body>
+
+    </footer>
+</body>
 </html>
+   
+             
