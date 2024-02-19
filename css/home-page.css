@@ -193,14 +193,11 @@ header{
 /********************PRODUCT Showcase********************/
 .row{
     display: flex;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: auto;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 20px;
 }
 
-.products .details{
+.products{
     flex-basis: 20%;
     padding: 10px;
     min-width: 100px;
@@ -210,11 +207,11 @@ header{
     justify-content: center;
     border: 1px solid black;
     margin: 10px;
-    height:200px;
+    height: 450px;
 }
 
 .products img{
-    height:100px;
+    height:200px;
 }
 
 .prod h2{
@@ -239,7 +236,8 @@ header{
     align-items: center;
 }
 .products .button{
-    margin-top: 5px;
+    margin-top: 30px;
+    transform: translateX(45px);
     background-color: rgb(34, 83, 198);
     color: white;
     border: 1px solid black;    
