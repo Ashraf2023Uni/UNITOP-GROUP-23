@@ -122,7 +122,7 @@ if(isset($_POST['submit'])) {
                 
                 <div class="input field">
                     <label for="Email">Email:</label>
-                    <input type="text" name="Email" id="Email" placeholder="Email" required> 
+                    <input type="email" name="Email" id="Email" placeholder="Email" required> 
                 </div>
 
                 <div class="input field">
