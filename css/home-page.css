@@ -191,28 +191,17 @@ header{
 }
 
 /********************PRODUCT Showcase********************/
-
-/*.products ul{
-    width: 100%;
+.row{
     display: flex;
-    flex-wrap: wrap;
-}
-
-.products ul li{
-    width: 20%;
-    position: relative;
-}*/
-/*.row{
-    display: flex;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: auto;
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 20px;
-}*/
+}
 
-/*.products .details{
-    flex-basis: 10%;
+.products .details{
+    flex-basis: 20%;
     padding: 10px;
     min-width: 100px;
     display: flex;
@@ -222,9 +211,9 @@ header{
     border: 1px solid black;
     margin: 10px;
     height:200px;
-}*/
+}
 
-/*.products img{
+.products img{
     height:100px;
 }
 
@@ -262,7 +251,7 @@ header{
     opacity: 0.80;
     color: white;
     text-decoration: underline;
-}*/
+}
 
 /*About Us/Contact Us section*/
 

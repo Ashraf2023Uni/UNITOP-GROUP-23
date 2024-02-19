@@ -15,8 +15,8 @@ if($products->rowCount()>0){
         
                 <h4>".$laptop['product_name']."</h4>
                 <p>£".$laptop['price']."</p>
+                <button class='button'>More Details</button>
             </a>
-            <button class='button'>More Details</button>
         </section>";
     }
 
