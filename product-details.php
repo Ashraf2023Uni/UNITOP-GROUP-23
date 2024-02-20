@@ -65,50 +65,74 @@
         <section class='row'>
             <?php 
             require_once('php/connectdb.php');
+
             $product_id = "";
             if(ISSET($_GET["id"])){
                 $product_id = $_GET["id"];
-            }
+            
             $query = "SELECT * FROM products WHERE product_id = $product_id";
+            #Ashraf work
             $details = $db->query($query)->fetch();
-            echo"<section class='gallery'>
-            <img src='assests/Product/".$details['product_id'].".png' id='main-image'>
-            <div class='small-gallery'>
-                <img src='assests/Product/".$details['product_id'].".png'>";
-                for($i=2; $i<=7; $i++){
-                    if(file_exists('assests/Product/'.$details['product_id'].'_'.$i.'.png')){
-                    echo"<img src='assests/Product/".$details['product_id']."_".$i.".png'>";}
-                }
-            echo "</div>
-            </section>
-            <section class='details'>
-            <!--Link back to home page-->
-            <a href='index.php'>Home</a>
-            <br><br>
-            <h3>".$details['product_name']."</h3>
-            <br>
-            <h2>£".floatval($details['price'])."</h2>
-            <br>
-            <form action='basket.php' method='post') ?>
-            <select name='quantity'>
-                <option>select quantity</option>";
-                for($i = 1; $i<=$details['stock'] ;$i++){
-                    echo"<option>".$i."</option>";
-                }
-               echo "<button class='button'> Add to Basket </button>
-            </select>
-            <input type='hidden' name='prod_id' value='".$product_id."'>
-            <br><br>
-            <button type='submit' class='btn' name='add_basket'>Add to basket</button>
-            </form>
-            <br><br>
-            <h4>More Details:</h4>
-            <br>
-            <p>" .$details['description']."</p>
-            </section>";?>
-        </section>
-    </div>
+            if($details){
+                echo"<section class='gallery'>";
+                echo "<img src='assests/Product/".$details['product_id'].".png' id='main-image'>";
+                echo "<div class='small-gallery'>";
+                echo  "<img src='assets/Product/".$details['product_id'].".png'>";
 
+                    for($i=2; $i<=7; $i++){
+                        if(file_exists('assests/Product/'.$details['product_id'].'_'.$i.'.png')){
+                        echo"<img src='assests/Product/".$details['product_id']."_".$i.".png'>";
+
+                    }
+                }
+                echo "</div>";
+            echo "</section>";
+            
+            echo "<section class='details'>";
+            echo "<!--Link back to home page-->";
+            echo "<a href='index.php'>Home</a>";
+            echo "<br><br>";
+            echo "<h3>".$details['product_name']."</h3>";
+            echo "<br>";
+            echo "<h2>£".floatval($details['price'])."</h2>";
+            echo "<br>";
+            $stock_level = $details['stock'];
+            if($stock_level > 0){
+                if($stock_level > 10){
+                    echo "<p>Status: In Shock</p>";
+                    echo "<form action='basket.php' method='post'>";
+                    echo "<select name='quantity'>";
+                    echo "<option>select quantity</option>";
+                    for($i = 1;$i<=$stock_level;$i++){
+                            echo"<option>".$i."</option>";
+                    }
+                    echo "</select>";
+                    echo "<input type='hidden' name='prod_id' value='".$product_id."'>";
+                    echo "<br><br>";
+                    echo "<button type='submit' class='btn' name='add_basket'>Add to basket</button>";
+                    echo "</form>";
+                } else {
+                    echo"<p>Status: Low Stock</p>";
+                    }
+                } else {
+                    echo"<p>Status: Out of stock </p>";
+
+            }
+        } else {
+            echo "Product not found";
+        }
+    } else {
+        echo "Product ID not provided";
+    }
+        ?>
+        </section>
+        </div>
+           
+
+
+            
+    
+     
     <!--Product Details Body - JavaScript needed to be able to select any product and go to product detail page-->
 
 
