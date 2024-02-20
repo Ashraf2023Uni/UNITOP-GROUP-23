@@ -105,13 +105,13 @@ a:hover{
     padding-left: 20px;
     padding-right: 20px;
 }
-.banner::after{
+/*.banner::after{
     content: "";
     display: block;
     height: 1px;
     margin-top: 10px;
     background-color: gray;
-}
+}*/
 
 header{
     padding-bottom: 5px;
@@ -120,7 +120,7 @@ header{
 /********NAVBAR styling END- all contents**********/
 
 .menu{
-    margin-top: 5px;
+    margin-top: 10px;
     color: black;
     font-size: medium;
     display: flex;
@@ -140,19 +140,22 @@ header{
     text-decoration: underline;
 }
 
-/*.banner-log{
-    margin: auto;
-    padding: 0;
-    text-align: center;
+.banner-log{
+    display: flex;
+    flex-direction: column;
 }
 
 .log-in{
-    display: flex;
+    width: 1200px;
+    height: 500px;
+    /*display: flex;
     align-items: center;
     flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 20px;
-    padding-top: 25px;
+    justify-content: space-around;*/
+    color: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .button{
@@ -177,31 +180,32 @@ header{
 .heading h1{
     font-size: 50px;
     line-height: 60px;
-    margin: 25px 0;
+    text-align: left;
+    margin: 10px 0;
+    padding-top: 135px;
+}
+.heading-links{
+    /*display: flex;
+    flex-direction: column;
+    text-align: center;*/
+    padding-top: 30px;
+    padding-left: 150px;
 }
 
-.log-in{
-    color: white;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-}
 .log-in p{
     text-align: left;
-    padding-bottom: 35px;
-}*/
+    padding-top: 35px;
+}
 
 /********************PRODUCT Showcase********************/
 .row{
     display: flex;
-    max-width: 1400px;
-    margin: auto;
+    flex-direction: row;
 }
 
 .products{
     flex-basis: 20%;
-    padding: 10px;
-    min-width: 100px;
+    padding: 3px;
     display: flex;
     flex-direction: column;
     align-items: center;

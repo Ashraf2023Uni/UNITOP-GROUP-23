@@ -61,7 +61,7 @@
     
     <!--Banner to encourage log-in, necessary to be able to purchase from the store-->
     <div class="banner-log">
-        <div class="log-in" style="background-image: url(assests/Banners/);">
+        <div class="log-in" style="background-image: url(assests/Banners/banner.jpg);">
             <section class="heading">
                 <h1>Educate with UNITOP</h1>
                 <p>Choose a laptop that aligns perfectly with your students academic pursuits.
@@ -69,8 +69,11 @@
                     <br>for seamless coding to lightweight designs for the mobility demands of your medics.
                     <br>Choose to empower your students journey through UNITOP.
                 </p>
+            <section class="heading-links">
                 <a href="login.php" class="button">Log In</a> or
                 <a href="register.php" class="button">Sign Up</a>
+            </section>
+
             </section>
         </div>
     </div>
