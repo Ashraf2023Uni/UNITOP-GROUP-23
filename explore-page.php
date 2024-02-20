@@ -133,4 +133,4 @@
 </body>
 </html>
 
-<script type="text/javascript" src="filter.js></script>  
+<script type="javascript" src="filter.js></script>  
