@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2024 at 06:07 AM
+-- Generation Time: Feb 20, 2024 at 07:17 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -33,6 +33,16 @@ CREATE TABLE `admin_users` (
   `password` varchar(255) NOT NULL,
   `phoneNumber` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin_users`
+--
+
+INSERT INTO `admin_users` (`id`, `email`, `password`, `phoneNumber`) VALUES
+(0, '1@1.com', '$2y$10$ApGOwcbfZS6l7CRUmbYH.eQq5R61auqAWVbCHMFez1.ngDzOZBh.i', '1'),
+(0, '4@4.com', '$2y$10$TBTTX5ax4gLv2B4N1ifvGeS21hput5pejjUCHPxLJY1RaQ.ntLTgO', '4'),
+(0, '5@5.com', '$2y$10$KXpcpfvGdwmcEarNB3eXUeXPMbKWkuk/KjU8egkNm6CN9pDlCttbq', '5'),
+(0, 'fiona@f.com', '$2y$10$rZrChyo.a8jXJrg.WX5sJeW1DsIdQc1372lFXFSBSxor9oAwXxlxC', '12');
 
 -- --------------------------------------------------------
 
@@ -72,21 +82,23 @@ CREATE TABLE `products` (
   `product_id` int(11) NOT NULL,
   `product_name` varchar(30) DEFAULT NULL,
   `description` varchar(300) DEFAULT NULL,
-  `stock` smallint(6) DEFAULT NULL,
+  `stock` int(11) DEFAULT 0,
   `price` decimal(8,2) DEFAULT NULL,
-  `discount_percent` decimal(3,1) DEFAULT NULL
+  `discount_percent` decimal(3,1) DEFAULT NULL,
+  `low_stock_indicator` tinyint(1) DEFAULT 0,
+  `out_of_stock_indicator` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `product_name`, `description`, `stock`, `price`, `discount_percent`) VALUES
-(1, 'Legion Pro 7 (Gen8)', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16\" Lenovo PureSight Gaming Display with WQXGA resolution', 460, 2999.00, NULL),
-(2, 'Surface Pro 8', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16\" Lenovo PureSight Gaming Display with WQXGA resolution', 460, 999.00, NULL),
-(3, '14-inch Macbook Pro', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16\" Lenovo PureSight Gaming Display with WQXGA resolution', 460, 1699.00, NULL),
-(4, 'HP 15-fd0023na Laptop', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16\" Lenovo PureSight Gaming Display with WQXGA resolution', 460, 999.00, NULL),
-(5, 'Dell XPS 15', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16\" Lenovo PureSight Gaming Display with WQXGA resolution', 460, 999.00, NULL);
+INSERT INTO `products` (`product_id`, `product_name`, `description`, `stock`, `price`, `discount_percent`, `low_stock_indicator`, `out_of_stock_indicator`) VALUES
+(1, 'Legion Pro 7 (Gen8)', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16\" Lenovo PureSight Gaming Display with WQXGA resolution', 460, 2999.00, NULL, 0, 0),
+(2, 'Surface Pro 8', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16\" Lenovo PureSight Gaming Display with WQXGA resolution', 460, 999.00, NULL, 0, 0),
+(3, '14-inch Macbook Pro', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16\" Lenovo PureSight Gaming Display with WQXGA resolution', 460, 1699.00, NULL, 0, 0),
+(4, 'HP 15-fd0023na Laptop', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16\" Lenovo PureSight Gaming Display with WQXGA resolution', 460, 999.00, NULL, 0, 0),
+(5, 'Dell XPS 15', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16\" Lenovo PureSight Gaming Display with WQXGA resolution', 460, 999.00, NULL, 0, 0);
 
 -- --------------------------------------------------------
 
