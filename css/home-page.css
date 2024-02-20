@@ -140,11 +140,12 @@ header{
     text-decoration: underline;
 }
 
-.banner-log{
+/*.banner-log{
     margin: auto;
     padding: 0;
     text-align: center;
 }
+
 .log-in{
     display: flex;
     align-items: center;
@@ -181,14 +182,14 @@ header{
 
 .log-in{
     color: white;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
 }
 .log-in p{
-    text-align: center;
+    text-align: left;
     padding-bottom: 35px;
-}
+}*/
 
 /********************PRODUCT Showcase********************/
 .row{

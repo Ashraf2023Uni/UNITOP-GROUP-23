@@ -61,8 +61,7 @@
     
     <!--Banner to encourage log-in, necessary to be able to purchase from the store-->
     <div class="banner-log">
-        <!--Log In button in big screen-->
-        <div class="log-in" style="background-image: url(assests/Banners/banner.jpg);">
+        <div class="log-in" style="background-image: url(assests/Banners/);">
             <section class="heading">
                 <h1>Educate with UNITOP</h1>
                 <p>Choose a laptop that aligns perfectly with your students academic pursuits.
