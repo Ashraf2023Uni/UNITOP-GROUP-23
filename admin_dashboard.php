@@ -17,6 +17,75 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width", initial-scale="1.0">
     <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: azure;
+        }  
+        
+        h1, h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color:blue;
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: palevioletred;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid green;
+            text-align: left;
+        }
+        th {
+            background-color: orange;
+            color: darkblue;
+        }
+        td input[type="number"] {
+            width: 80px;
+            padding: 5px;
+        }
+
+        td button {
+            padding: 5px 10px;
+            background-color: darkmagenta;
+            color:aqua;
+            border: none;
+            cursor: pointer;
+        }
+
+        td button:hover {
+            background-color: darkgoldenrod;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: yellow;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+        }
+    </style>
 </head>
 <body>
     <h1>Admin Dashboard</h1>
