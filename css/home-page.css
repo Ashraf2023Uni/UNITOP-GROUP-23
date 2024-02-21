@@ -2,7 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:Arial, Helvetica, sans-serif
+    font-family:Arial, Helvetica, sans-serif;
+}
+header{
+    padding-bottom: 5px;
+    text-align: center;
 }
 
 a{
@@ -113,10 +117,6 @@ a:hover{
     background-color: gray;
 }*/
 
-header{
-    padding-bottom: 5px;
-    text-align: center;
-}
 /********NAVBAR styling END- all contents**********/
 
 .menu{

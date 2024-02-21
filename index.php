@@ -53,14 +53,10 @@
                 </div>
             </section>
         </div>
-
-        
     </header>
 
-    <!------------------------------MAIN BODY--------------------------------------->
-    
-    <!--Banner to encourage log-in, necessary to be able to purchase from the store-->
-    <div class="banner-log">
+        <!--Banner to encourage log-in, necessary to be able to purchase from the store-->
+        <div class="banner-log">
         <div class="log-in" style="background-image: url(assests/Banners/banner.jpg);">
             <section class="heading">
                 <h1>Educate with UNITOP</h1>
@@ -77,6 +73,7 @@
             </section>
         </div>
     </div>
+    <!------------------------------MAIN BODY--------------------------------------->
 
 <!--Menu with the categories - popular degreee-->
 <div class="menu">
