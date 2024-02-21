@@ -1,27 +1,27 @@
 <!--This page will showcase list of products that can be filtered/sorted-->
-<?php
-    session_start();
+<?php 
+  session_start();
     require('php/connectdb.php');
 
     //Fetch data from database
-    $product_id = "";
-            if(ISSET($_GET["id"])){
-                $product_id = $_GET["id"];
-                $query = "SELECT * FROM products WHERE product_id = $product_id";
-                $products = $db->query($query);
-            
-                //Array of fetched data
-                $products = $result->fetchAll(PDO::FETCH_ASSOC);
-                //Function - sorts product based on selection value
-            
+    $query = "SELECT * FROM products";
+    $result = $db->query($query);
+
+    if($result === false){
+        die("Execution was unsuccessful: " . $db->errorInfo()[2]);
+    }
+    //Array of fetched data
+    $products = $result->fetchAll(PDO::FETCH_ASSOC);
+    
+    //Function - sorts product based on selection value        
     function sortProducts($products, $sort){
         switch($sort){
-            case 'high to low':
+            case 'high-to-low':
                 usort($products, function($low, $high){
                     return $high['price'] - $low['price'];
                 });
                 break;
-            case 'low to high':
+            case 'low-to-high':
                 usort($products, function($low, $high){
                     return $low['price'] - $high['price'];
                 });
@@ -31,11 +31,14 @@
         }
         return $products;
     }
-                //Get the selection value form user
-                $sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
-                //Sort product
-                $sorted = sortProducts($products, $sort);
-            }
+    //Get the selection value form user
+    $sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
+    if($sort === 'default'){
+        $sorted = $products;
+    } else {
+        //Sort product
+        $sorted = sortProducts($products, $sort);
+    }  
 ?>
 
 <!DOCTYPE html>
@@ -100,44 +103,40 @@
 </header>
 
 <!-----------------Main Body-------------------->
-<div class="sort">
+<div class="sorting">
     <span>Sort: </span>
-    <select name="" id="select" onchange="sortProducts()">
+    <select name="sort" id="select" onchange="sortProducts()">
         <option value="default">Default</option>
-        <!--<option value="most popular">Most Popular</option>
-        <option value="recently added">Recently Added</option>-->
-        <option value="low to high">Low to High</option>
-        <option value="high to low">High to Low</option>
+        <option value="low-to-high">Low to High</option>
+        <option value="high-to-low">High to Low</option>
 </div>
 
-<div class="prod">
+<div id="products">
     <section class="row">
         <!--Product Details-->
+        <div class="featured-img">
         <?php
-        $product_id = "";
-        if(isset($_GET["id"])){
-            $product_id = $_GET["id"];
-            $query = "SELECT * From products WHERE product_id = $product_id";
-            $result = $db->query($query)->fetch();
-
-            if($result){
-
-                echo "<ul id='products'>";
-                foreach ($sorted as $products){
-                    echo "<li>" . $products['product_name'] . ' - $' .$products['price'] . "</li>";
-                }
-            echo "</ul>";
-        } else {
+        require('php/connectdb.php');
+        if($result){
+                foreach ($sorted as $product){
+                echo"
+                <section class='products'>
+                <a href='product-details.php?id=".$laptop['product_id']."'>
+                    <img src='assests/Product/".$laptop['product_id'].".png' alt='' id='Featured-Thumbnail'>
+                    <h4>".$laptop['product_name']."</h4>
+                    <p>£".$laptop['price']."</p>
+                    <button class='button'>More Details</button>
+                </a>
+                </section>";
+            }
+            } else {
             echo "Product not found";
-        }
-    } else {
-        echo "Product ID not provided";
-    }
+            }
         ?>
-
-        
+        </div>
     <section>
 </div>
+ 
 
 <!-------------------FOOTER---------------------->
 <footer>
