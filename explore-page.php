@@ -1,7 +1,41 @@
-<!--This page will showcase list of products that can be filtered/searched-->
+<!--This page will showcase list of products that can be filtered/sorted-->
 <?php
     session_start();
     require('php/connectdb.php');
+
+    //Fetch data from database
+    $product_id = "";
+            if(ISSET($_GET["id"])){
+                $product_id = $_GET["id"];
+                $query = "SELECT * FROM products WHERE product_id = $product_id";
+                $products = $db->query($query);
+            
+                //Array of fetched data
+                $products = $result->fetchAll(PDO::FETCH_ASSOC);
+                //Function - sorts product based on selection value
+            
+    function sortProducts($products, $sort){
+        switch($sort){
+            case 'high to low':
+                usort($products, function($low, $high){
+                    return $high['price'] - $low['price'];
+                });
+                break;
+            case 'low to high':
+                usort($products, function($low, $high){
+                    return $low['price'] - $high['price'];
+                });
+                break;
+            default;
+                break;
+        }
+        return $products;
+    }
+                //Get the selection value form user
+                $sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
+                //Sort product
+                $sorted = sortProducts($products, $sort);
+            }
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +49,7 @@
 </head>
 
 <body>
-    <header>
+<header>
         <!--NAVBAR-->
         <div class="banner">
             <section class="navbar">
@@ -63,24 +97,45 @@
             <a href="">Law</a>
             <a href="">Medicine</a>
         </div>
-    </header>
+</header>
 
 <!-----------------Main Body-------------------->
-<div class="filter">
+<div class="sort">
     <span>Sort: </span>
-    <select name="" id="select">
-        <option value="Default">Default</option>
-        <option value="most popular">Most Popular</option>
-        <option value="recently added">Recently added</option>
+    <select name="" id="select" onchange="sortProducts()">
+        <option value="default">Default</option>
+        <!--<option value="most popular">Most Popular</option>
+        <option value="recently added">Recently Added</option>-->
         <option value="low to high">Low to High</option>
         <option value="high to low">High to Low</option>
 </div>
 
 <div class="prod">
     <section class="row">
-        <div class="featured-img">
-           <?php include('php/featured.php');?>
-        </div>
+        <!--Product Details-->
+        <?php
+        $product_id = "";
+        if(isset($_GET["id"])){
+            $product_id = $_GET["id"];
+            $query = "SELECT * From products WHERE product_id = $product_id";
+            $result = $db->query($query)->fetch();
+
+            if($result){
+
+                echo "<ul id='products'>";
+                foreach ($sorted as $products){
+                    echo "<li>" . $products['product_name'] . ' - $' .$products['price'] . "</li>";
+                }
+            echo "</ul>";
+        } else {
+            echo "Product not found";
+        }
+    } else {
+        echo "Product ID not provided";
+    }
+        ?>
+
+        
     <section>
 </div>
 
@@ -130,6 +185,7 @@
 </div>
 
 </footer>
+
 </body>
 </html>
 
