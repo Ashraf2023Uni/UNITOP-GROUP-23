@@ -200,15 +200,15 @@ a:hover{
 /********************PRODUCT Showcase********************/
 .row{
     display: flex;
-    flex-direction: row;
+    flex-flow: row;
+    position: relative;
+    width: auto;
 }
 
 .products{
-    flex-basis: 20%;
-    padding: 3px;
-    display: flex;
-    flex-direction: column;
+    flex-basis: 1 1 17%;
     align-items: center;
+    padding: 3px;
     justify-content: center;
     border: 1px solid black;
     margin: 10px;

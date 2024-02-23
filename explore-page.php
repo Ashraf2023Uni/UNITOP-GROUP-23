@@ -100,10 +100,11 @@
 <!-----------------Main Body-------------------->
 <div class="sorting">
     <span>Sort: </span>
-    <select name="sort" id="select" onchange="sortProducts()">
+    <select name="sort" id="select">
         <option value="default">Default</option>
         <option value="low-to-high">Low to High</option>
         <option value="high-to-low">High to Low</option>
+    </select>
 </div>
 
 <div id="prod">
@@ -113,13 +114,13 @@
         <?php
         require('php/connectdb.php');
         if($result){
-                foreach ($sorted as $product){
+                foreach ($sorted as $products){
                 echo"
                 <section class='products'>
-                <a href='product-details.php?id=".$product['product_id']."'>
-                    <img src='assests/Product/".$product['product_id'].".png' alt='' id='Featured-Thumbnail'>
-                    <h4>".$product['product_name']."</h4>
-                    <p>£".$product['price']."</p>
+                <a href='product-details.php?id=".$products['product_id']."'>
+                    <img src='assests/Product/".$products['product_id'].".png' alt='' id='Featured-Thumbnail'>
+                    <h4>".$products['product_name']."</h4>
+                    <p>£".$products['price']."</p>
                     <button class='button'>More Details</button>
                 </a>
                 </section>";
