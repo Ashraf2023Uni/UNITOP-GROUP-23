@@ -4,13 +4,8 @@
     require('php/connectdb.php');
 
     //Fetch data from database
-    $query = "SELECT * FROM products";
+    $query = "SELECT product_id, product_name, price FROM products";
     $result = $db->query($query);
-
-    if($result === false){
-        die("Execution was unsuccessful: " . $db->errorInfo()[2]);
-    }
-    //Array of fetched data
     $products = $result->fetchAll(PDO::FETCH_ASSOC);
     
     //Function - sorts product based on selection value        
@@ -111,7 +106,7 @@
         <option value="high-to-low">High to Low</option>
 </div>
 
-<div id="products">
+<div id="prod">
     <section class="row">
         <!--Product Details-->
         <div class="featured-img">
@@ -128,7 +123,7 @@
                     <button class='button'>More Details</button>
                 </a>
                 </section>";
-            }
+                }
             } else {
             echo "Product not found";
             }
@@ -187,5 +182,3 @@
 
 </body>
 </html>
-
-<script type="javascript" src="sort.js"></script>  
