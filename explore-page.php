@@ -116,10 +116,10 @@
                 foreach ($sorted as $product){
                 echo"
                 <section class='products'>
-                <a href='product-details.php?id=".$laptop['product_id']."'>
-                    <img src='assests/Product/".$laptop['product_id'].".png' alt='' id='Featured-Thumbnail'>
-                    <h4>".$laptop['product_name']."</h4>
-                    <p>£".$laptop['price']."</p>
+                <a href='product-details.php?id=".$product['product_id']."'>
+                    <img src='assests/Product/".$product['product_id'].".png' alt='' id='Featured-Thumbnail'>
+                    <h4>".$product['product_name']."</h4>
+                    <p>£".$product['price']."</p>
                     <button class='button'>More Details</button>
                 </a>
                 </section>";
