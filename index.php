@@ -45,7 +45,7 @@
                         </div>
                         <!---Search Bar--->
                         <div class="search-bar">
-                            <input type="search" id="search" placeholder="What are you looking for?">
+                            <input type="search" id="search" placeholder="Search laptops">
                             <button type="submit"><img src="assests/Navbar/search.png" class="search-icon"></button>
                         </div>
                     </nav>
