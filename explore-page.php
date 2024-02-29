@@ -1,4 +1,4 @@
-<!--This page will showcase list of products that can be filtered/sorted-->
+<!--This page will showcase list of products that can be filtered/sorted - HUMAYRA 210005848-->
 <?php 
   session_start();
     require('php/connectdb.php');
@@ -112,13 +112,16 @@
         <!--Product Details-->
         <div class="featured-img">
         <?php
+
+        $count = 0;
+
         require('php/connectdb.php');
         if($result){
                 foreach ($sorted as $products){
                 echo"
                 <section class='products'>
                 <a href='product-details.php?id=".$products['product_id']."'>
-                    <img src='assests/Product/".$products['product_id'].".png' alt='' id='Featured-Thumbnail'>
+                    <img src='assests/Products/".$products['product_id'].".png' alt='' id='Featured-Thumbnail'>
                     <h4>".$products['product_name']."</h4>
                     <p>£".$products['price']."</p>
                     <button class='button'>More Details</button>
@@ -132,7 +135,17 @@
         </div>
     <section>
 </div>
- 
+
+<?php
+require('php/connectdb.php');
+
+$productInRow = 0;
+
+if($products->rowCount() > 0){
+    echo"<div class='row'>";
+    
+}
+?>
 
 <!-------------------FOOTER---------------------->
 <footer>
