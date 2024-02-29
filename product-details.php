@@ -75,13 +75,13 @@
             $details = $db->query($query)->fetch();
             if($details){
                 echo"<section class='gallery'>";
-                echo "<img src='assests/Product/".$details['product_id'].".png' id='main-image'>";
+                echo "<img src='assests/Products/".$details['product_id'].".png' id='main-image'>";
                 echo "<div class='small-gallery'>";
-                    echo  "<img src='assets/Product/".$details['product_id'].".png'>";
+                    echo  "<img src='assets/Products/".$details['product_id'].".png'>";
 
                     for($i=1; $i<=4; $i++){
-                        if(file_exists('assests/Product/'.$details['product_id'].'_'.$i.'.png')){
-                        echo"<img src='assests/Product/".$details['product_id']."_".$i.".png'>";
+                        if(file_exists('assests/Products/'.$details['product_id'].'_'.$i.'.png')){
+                        echo"<img src='assests/Products/".$details['product_id']."_".$i.".png'>";
 
                     }
                 }
