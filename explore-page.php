@@ -3,37 +3,19 @@
   session_start();
     require('php/connectdb.php');
 
-    //Fetch data from database
     $query = "SELECT product_id, product_name, price FROM products";
-    $result = $db->query($query);
-    $products = $result->fetchAll(PDO::FETCH_ASSOC);
-    
-    //Function - sorts product based on selection value        
-    function sortProducts($products, $sort){
-        switch($sort){
-            case 'high-to-low':
-                usort($products, function($low, $high){
-                    return $high['price'] - $low['price'];
-                });
-                break;
-            case 'low-to-high':
-                usort($products, function($low, $high){
-                    return $low['price'] - $high['price'];
-                });
-                break;
-            default;
-                break;
-        }
-        return $products;
-    }
-    //Get the selection value form user
+
     $sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
-    if($sort === 'default'){
-        $sorted = $products;
+    if($sort == 'low-to-high'){
+        $query = "SELECT product_id, product_name, price FROM products ORDER BY price ASC";
+    } elseif ($sort == 'high-to-low') {
+        $query = "SELECT product_id, product_name, price FROM products ORDER BY price DESC";
     } else {
-        //Sort product
-        $sorted = sortProducts($products, $sort);
-    }  
+        $query = "SELECT product_id, product_name, price FROM products ORDER BY product_id";
+    }
+    
+    $result = $db->query($query);
+    $products = $result->fetchAll(PD0::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -98,6 +80,7 @@
 </header>
 
 <!-----------------Main Body-------------------->
+<form action="" method="GET">
 <div class="sorting">
     <span>Sort: </span>
     <select name="sort" id="select">
@@ -106,6 +89,7 @@
         <option value="high-to-low">High to Low</option>
     </select>
 </div>
+</form>
 
 <div id="prod">
     <section class="row">
@@ -133,19 +117,8 @@
             }
         ?>
         </div>
-    <section>
+        </section>
 </div>
-
-<?php
-require('php/connectdb.php');
-
-$productInRow = 0;
-
-if($products->rowCount() > 0){
-    echo"<div class='row'>";
-    
-}
-?>
 
 <!-------------------FOOTER---------------------->
 <footer>

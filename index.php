@@ -78,7 +78,7 @@
 <!--Menu with the categories - popular degreee-->
 <div class="menu">
     <a href="explore-page.php">Computer Science</a>
-    <a href=""> E-sports</a>
+    <a href="menu.php"> E-sports</a>
     <a href="">Graphics Design</a>
     <a href="">Law</a>
     <a href="">Medicine</a>
