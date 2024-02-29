@@ -61,6 +61,13 @@
   text-transform: none;
 }
 
+#inputExp {
+  position:relative ;
+  display:flex ;
+  justify-content:space-around ;
+  width:35% ;
+}
+
 .container form .row .col .inputBox input:focus{
   border:1px solid #000;
 }

@@ -54,7 +54,7 @@
 
 <div class="container">
 
-    <form action="store-payments.php" method="post">
+    <form action="../store-payments.php" method="post">
 
         <div class="row">
 
@@ -108,16 +108,13 @@
                     <span> Credit Card Number:</span>
                     <input type="number" placeholder="1111-2222-3333-4444" name="num">
                 </div>
-                <div class="inputBox">
-                    <span>Exp Month:</span>
-                    <input type="text" placeholder="January">
+                <span>Exp Date:</span>
+                <div class="inputBox" id="inputExp">
+                    <input type="text" placeholder="MM" name = "expMonth">
+                    <input type="text" placeholder="XX" name = "expYear">
                 </div>
 
                 <div class="flex">
-                    <div class="inputBox">
-                        <span>Exp Year:</span>
-                        <input type="number" placeholder="2024">
-                    </div>
                     <div class="inputBox">
                         <span>CVV :</span>
                         <input type="text" placeholder="1234" name="cvv">

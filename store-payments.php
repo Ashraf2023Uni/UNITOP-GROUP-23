@@ -1,8 +1,10 @@
 <?php   
-require_once('connectdb.php');
+require_once('php/connectdb.php');
 
 $card_num = $_REQUEST['num'];
 $cvv = $_REQUEST['cvv'];
+$expMonth = $_REQUEST['expMonth'];
+$expYear = $_REQUEST['expYear'];
 $email = $_REQUEST['email'];
 $name = $_REQUEST['fullname'];
 $address = $_REQUEST['address'];
@@ -10,10 +12,11 @@ $city = $_REQUEST['city'];
 $area = $_REQUEST['area'];
 $postcode = $_REQUEST['postcode'];
 
-$query = "INSERT INTO payment_details (card_num, security_num, email, fullname, 
-addressline, city, area, postcode) 
-VALUES ('$card_num', '$cvv', '$email', 
-'$name', '$address', '$city', '$area', '$postcode')";
+$expDate = $expMonth . "/" . $expYear;
+
+$query = "INSERT INTO payment_details (card_name, card_num, cvv, expiration, email) 
+VALUES ('$name', '$card_num', '$cvv', 
+'$expDate', '$email')";
 
 try{
     $db->query($query);
@@ -27,7 +30,7 @@ catch(PDOException $ex){
 }
 
 session_start();
-require_once('connectdb.php');
+require_once('php/connectdb.php');
 try{
 for($i=0;$i<count($_SESSION['prod_id']);$i++){
     $id = $_SESSION['prod_id'][$i];
