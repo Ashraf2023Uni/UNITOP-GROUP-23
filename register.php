@@ -73,6 +73,12 @@ if(isset($_POST['submit'])) {
     $password = isset($_POST['password']) ? $_POST['password'] : false;
     $confirmPassword = isset($_POST['confirmPassword']) ? $_POST['confirmPassword'] : false;
 
+    // Email domain validation
+    if (!preg_match("/^.+@.+\.ac\.uk$/i", $email)) {
+        header("Location: register.php?error=email_domain_invalid");
+        exit;
+    }
+
     // Check if passwords match 
     // FIXED ORDER AS WAS OVERWRITTEN BEFORE
     if($password !== $confirmPassword) {
@@ -115,6 +121,29 @@ if(isset($_POST['submit'])) {
     }
 }
 ?>
+            
+            <!-- Display Error Messages -->
+            <?php if (isset($_GET['error'])): ?>
+                <div class="error-message"style="color: red;">>
+                    <?php
+                    switch ($_GET['error']) {
+                        case 'email_domain_invalid':
+                            echo "Email must end with .ac.uk. Please use a valid academic email address.";
+                            break;
+                        case 'password_mismatch':
+                            echo "Passwords do not match!";
+                            break;
+                        case 'invalid_data':
+                            echo "Please ensure all fields are filled out correctly.";
+                            break;
+                        case 'duplicate_entry':
+                            echo "The email or phone number is already in use. Please try again.";
+                            break;
+                        // Handle other error messages as needed
+                    }
+                    ?>
+                </div>
+            <?php endif; ?>
 
     
             <header>Sign Up</header>
@@ -122,7 +151,7 @@ if(isset($_POST['submit'])) {
                 
                 <div class="input field">
                     <label for="Email">Email:</label>
-                    <input type="email" name="Email" id="Email" placeholder="Email" required> 
+                    <input type="email" name="Email" id="Email" placeholder="Email" pattern=".+@.+\.ac\.uk$" title="Email must end with .ac.uk" required> 
                 </div>
 
                 <div class="input field">

@@ -174,6 +174,14 @@ var universitiesList = [
 
 ];
 
+document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    var email = document.getElementById('Email').value;
+    if (!/.+@.+\.ac\.uk$/.test(email)) {
+        alert('Email must end with .ac.uk');
+        event.preventDefault(); // STOPS form submission
+    }
+});
+
 var universitiesDatalist = document.getElementById("universities");
 universitiesList.forEach(function (university) {
     var option = document.createElement("option");
