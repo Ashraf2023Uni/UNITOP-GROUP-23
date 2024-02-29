@@ -11,7 +11,7 @@ if($products->rowCount()>0){
         <section class='products'>
             <a href='product-details.php?id=".$laptop['product_id']."'>
             
-                <img src='assests/Product/".$laptop['product_id'].".png' alt='' id='Featured-Thumbnail'>
+                <img src='assests/Product-Images/".$laptop['product_id'].".png' alt='' id='Featured-Thumbnail'>
         
                 <h4>".$laptop['product_name']."</h4>
                 <p>£".$laptop['price']."</p>
