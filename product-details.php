@@ -77,9 +77,9 @@
                 echo"<section class='gallery'>";
                 echo "<img src='assests/Product/".$details['product_id'].".png' id='main-image'>";
                 echo "<div class='small-gallery'>";
-                echo  "<img src='assets/Product/".$details['product_id'].".png'>";
+                    echo  "<img src='assets/Product/".$details['product_id'].".png'>";
 
-                    for($i=2; $i<=7; $i++){
+                    for($i=1; $i<=4; $i++){
                         if(file_exists('assests/Product/'.$details['product_id'].'_'.$i.'.png')){
                         echo"<img src='assests/Product/".$details['product_id']."_".$i.".png'>";
 
