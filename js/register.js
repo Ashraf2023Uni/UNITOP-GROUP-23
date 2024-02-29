@@ -193,6 +193,24 @@ document.getElementById('phoneNumber').addEventListener('input', function(event)
     this.value = this.value.replace(/[^\d]/g, ''); // Remove any non-numeric characters
 });
 
+function validatePasswordRequirements() {
+    var password = document.getElementById("password").value;
+    var regex = /^(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/; // Regex pattern
+    
+    if (!regex.test(password)) {
+        alert("Password must be at least 8 characters long, contain at least one uppercase letter, and include numbers.");
+        return false;
+    }
+    return true;
+}
+
+// event listener
+document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    if (!validatePasswordRequirements()) {
+        event.preventDefault(); // Prevent form submission
+    }
+});
+
 // js for validating passwords
 function validatePassword() {
     var password = document.getElementById("password").value;

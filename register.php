@@ -79,6 +79,12 @@ if(isset($_POST['submit'])) {
         exit;
     }
 
+    // Password criteria validation
+    if (!preg_match('/^(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/', $password)) {
+        header("Location: register.php?error=password_criteria_not_met");
+        exit;
+    }
+
     // Check if passwords match 
     // FIXED ORDER AS WAS OVERWRITTEN BEFORE
     if($password !== $confirmPassword) {
@@ -130,6 +136,9 @@ if(isset($_POST['submit'])) {
                         case 'email_domain_invalid':
                             echo "Email must end with .ac.uk. Please use a valid academic email address.";
                             break;
+                        case 'password_criteria_not_met':
+                            echo "Password must be at least 8 characters long, include at least one uppercase letter and one number.";
+                            break;
                         case 'password_mismatch':
                             echo "Passwords do not match!";
                             break;
@@ -139,7 +148,7 @@ if(isset($_POST['submit'])) {
                         case 'duplicate_entry':
                             echo "The email or phone number is already in use. Please try again.";
                             break;
-                        // Handle other error messages as needed
+                        // ADD other error messages as needed
                     }
                     ?>
                 </div>
@@ -167,7 +176,8 @@ if(isset($_POST['submit'])) {
 
                 <div class="input field">
                     <label for="password">Password:</label>
-                    <input type="password" name="password" id="password" placeholder="Password" required> 
+                    <input type="password" name="password" id="password" placeholder="Password" pattern="(?=.*\d)(?=.*[A-Z]).{8,}" 
+       title="Password must be at least 8 characters long and contain at least one uppercase letter and one number." required> 
                 </div>
 
                 <div class="input field">
