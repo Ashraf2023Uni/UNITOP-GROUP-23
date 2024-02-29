@@ -111,10 +111,13 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`product_id`, `product_name`, `description`, `stock`, `price`, `discount_percent`, `low_stock_indicator`, `out_of_stock_indicator`) VALUES
 (1, 'Legion Pro 7 (Gen8)', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16\" Lenovo PureSight Gaming Display with WQXGA resolution', 460, '2999.00', NULL, 0, 0),
-(2, 'Surface Pro 8', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16\" Lenovo PureSight Gaming Display with WQXGA resolution', 460, '999.00', NULL, 0, 0),
-(3, '14-inch Macbook Pro', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16\" Lenovo PureSight Gaming Display with WQXGA resolution', 460, '1699.00', NULL, 0, 0),
-(4, 'HP 15-fd0023na Laptop', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16\" Lenovo PureSight Gaming Display with WQXGA resolution', 460, '999.00', NULL, 0, 0),
-(5, 'Dell XPS 15', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16\" Lenovo PureSight Gaming Display with WQXGA resolution', 460, '999.00', NULL, 0, 0);
+(2, 'Surface Pro 8', 'The Surface Pro 8 is ultra-light, fast and versatile with the perfect balance of portability and power.', 460, '1699.00', NULL, 0, 0),
+(3, '14-inch Macbook Pro', 'The 14-inch MacBook Pro blasts forward with M3, an incredibly advanced chip that brings serious speed and capability. With best-in-class battery life — up to 22 hours1 — and a beautiful Liquid Retina XDR display, it’s a pro laptop without equal.', 460, '1699.00', NULL, 0, 0),
+(4, 'HP 15-fd0023na Laptop', 'HP 15-fd0023na LAPTOP Intel N200 3.70GHz 4/128GB SSD WEBCAM WINDOWS 11 S.', 460, '215.99', NULL, 0, 0),
+(5, 'Dell XPS 15', '13th Generation Intel® Core™ i7-13620H Processor (24MB Cache, up to 4.9GHz)', 460, '1546.79', NULL, 0, 0),
+(6, 'MacBook Air', 'MacBook Air (M1, 2020) 13 inch with 8-Core CPU and 7-Core GPU 256Gb SSD.', 460, '949.99', NULL, 0, 0),
+(7, 'Lenovo ThinkPad X1 Carbon', 'ThinkPad X1 Carbon Gen 11, 13th Generation Intel® Core™ i7-1355U Processor (E-cores up to 3.70 GHz P-cores up to 5.00 GHz).', 460, '1899.99', NULL, 0, 0),
+(8, 'Gigabyte G5', 'Gigabyte G5 KF5-53PT354SD 14.4´´ i5-13500H/16GB/512GB SSD/RTX 4060 Gaming Laptop', 460, '1144.50', NULL, 0, 0);
 
 -- --------------------------------------------------------
 
