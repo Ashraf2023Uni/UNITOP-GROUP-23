@@ -117,7 +117,7 @@ INSERT INTO `products` (`product_id`, `product_name`, `description`, `stock`, `p
 (5, 'Dell XPS 15', '13th Generation Intel® Core™ i7-13620H Processor (24MB Cache, up to 4.9GHz)', 460, '1546.79', NULL, 0, 0),
 (6, 'MacBook Air', 'MacBook Air (M1, 2020) 13 inch with 8-Core CPU and 7-Core GPU 256Gb SSD.', 460, '949.99', NULL, 0, 0),
 (7, 'Lenovo ThinkPad X1 Carbon', 'ThinkPad X1 Carbon Gen 11, 13th Generation Intel® Core™ i7-1355U Processor (E-cores up to 3.70 GHz P-cores up to 5.00 GHz).', 460, '1899.99', NULL, 0, 0),
-(8, 'Gigabyte G5', 'Gigabyte G5 KF5-53PT354SD 14.4´´ i5-13500H/16GB/512GB SSD/RTX 4060 Gaming Laptop', 460, '1144.50', NULL, 0, 0);
+(8, 'Gigabyte G5', 'Gigabyte G5 KF5-53PT354SD 14.4´ i5-13500H/16GB/512GB SSD/RTX 4060 Gaming Laptop', 460, '1144.50', NULL, 0, 0);
 
 -- --------------------------------------------------------
 

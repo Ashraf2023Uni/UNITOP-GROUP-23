@@ -1,22 +1,4 @@
 <!--This page will showcase list of products that can be filtered/sorted - HUMAYRA 210005848-->
-<?php 
-  session_start();
-    require('php/connectdb.php');
-
-    $sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
-    echo "Sorting: $sort" . "<br>";
-
-    if($sort == 'low-to-high'){
-        $query = "SELECT product_id, product_name, price FROM products ORDER BY price ASC";
-    } elseif ($sort == 'high-to-low') {
-        $query = "SELECT product_id, product_name, price FROM products ORDER BY price DESC";
-    } else {
-        $query = "SELECT product_id, product_name, price FROM products ORDER BY product_id";
-    }
-    
-    echo "Query: $query";
-    $products = $db->query($query);
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -96,6 +78,24 @@
         <!--Product Details-->
         <div class="featured-img">
         <?php
+        
+        session_start();
+          require('php/connectdb.php');
+      
+          $sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
+          echo "Sorting: $sort" . "<br>";
+      
+          if($sort == 'low-to-high'){
+              $query = "SELECT product_id, product_name, price FROM products ORDER BY price ASC";
+          } elseif ($sort == 'high-to-low') {
+              $query = "SELECT product_id, product_name, price FROM products ORDER BY price DESC";
+          } else {
+              $query = "SELECT product_id, product_name, price FROM products ORDER BY product_id";
+          }
+          
+          echo "Query: $query";
+          $products = $db->query($query);
+      
             if($products->rowCount()>0){
                 while($laptop = $products->fetch()){
                     echo"<section class='products'>
