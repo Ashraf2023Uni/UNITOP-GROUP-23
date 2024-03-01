@@ -55,7 +55,7 @@
         <div class="box f-box">
 
         <?php
-include_once("connectdb.php");
+include_once("php/connectdb.php");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -156,7 +156,7 @@ if(isset($_POST['submit'])) {
 
     
             <header>Sign Up</header>
-            <form action="register.php" method="post">
+            <form id="registrationForm" action="register.php" method="post">
                 
                 <div class="input field">
                     <label for="Email">Email:</label>

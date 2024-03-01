@@ -54,7 +54,7 @@
         <div class="box f-box">
         
         <?php
-include_once("connectdb.php");
+include_once("php/connectdb.php");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
