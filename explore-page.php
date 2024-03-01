@@ -78,10 +78,9 @@
         <!--Product Details-->
         <div class="featured-img">
         <?php
-        
         session_start();
-          require('php/connectdb.php');
-      
+        require('php/connectdb.php');
+
           $sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
           echo "Sorting: $sort" . "<br>";
       
