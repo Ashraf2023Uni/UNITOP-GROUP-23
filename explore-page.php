@@ -3,9 +3,9 @@
   session_start();
     require('php/connectdb.php');
 
-    $query = "SELECT product_id, product_name, price FROM products";
-
     $sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
+    echo "Sorting: $sort" . "<br>";
+
     if($sort == 'low-to-high'){
         $query = "SELECT product_id, product_name, price FROM products ORDER BY price ASC";
     } elseif ($sort == 'high-to-low') {
@@ -14,8 +14,8 @@
         $query = "SELECT product_id, product_name, price FROM products ORDER BY product_id";
     }
     
-    $result = $db->query($query);
-    $products = $result->fetchAll(PD0::FETCH_ASSOC);
+    echo "Query: $query";
+    $products = $db->query($query);
 ?>
 
 <!DOCTYPE html>
@@ -84,7 +84,7 @@
 <div class="sorting">
     <span>Sort: </span>
     <select name="sort" id="select">
-        <option value="default">Default</option>
+        <option value="view-all">Default</option>
         <option value="low-to-high">Low to High</option>
         <option value="high-to-low">High to Low</option>
     </select>
@@ -96,24 +96,21 @@
         <!--Product Details-->
         <div class="featured-img">
         <?php
-
-        $count = 0;
-
-        require('php/connectdb.php');
-        if($result){
-                foreach ($sorted as $products){
-                echo"
-                <section class='products'>
-                <a href='product-details.php?id=".$products['product_id']."'>
-                    <img src='assests/Products/".$products['product_id'].".png' alt='' id='Featured-Thumbnail'>
-                    <h4>".$products['product_name']."</h4>
-                    <p>£".$products['price']."</p>
+            if($products->rowCount()>0){
+                while($laptop = $products->fetch()){
+                    echo"<section class='products'>
+                    <a href='product-details.php?id=".$laptop['product_id']."'>
+                
+                    <img src='assests/Products/".$laptop['product_id'].".png' alt='' id='Featured-Thumbnail'>
+        
+                    <h4>".$laptop['product_name']."</h4>
+                    <p>£".$laptop['price']."</p>
                     <button class='button'>More Details</button>
-                </a>
-                </section>";
-                }
-            } else {
-            echo "Product not found";
+                    </a>
+                    </section>";
+    
+                 }
+
             }
         ?>
         </div>
