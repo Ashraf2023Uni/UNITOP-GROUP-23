@@ -62,16 +62,15 @@
 </header>
 
 <!-----------------Main Body-------------------->
-<form action="" method="GET">
-<div class="sorting">
-    <span>Sort: </span>
-    <select name="sort" id="select">
-        <option value="view-all">Default</option>
-        <option value="low-to-high">Low to High</option>
-        <option value="high-to-low">High to Low</option>
-    </select>
+
+<div class="sortdown">
+    <button class="dropdown">Sort By: </button>
+    <div class="sort-list">
+        <a href="explore-page.php?sort=default">Default</a>
+        <a href="explore-page.php?sort=high-to-low">High To Low</a>
+        <a href="explore-page.php?sort=low-to-high">Low To High</a>
+    </div>
 </div>
-</form>
 
 <div id="prod">
     <section class="row">
@@ -82,8 +81,7 @@
         require('php/connectdb.php');
 
           $sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
-          echo "Sorting: $sort" . "<br>";
-      
+
           if($sort == 'low-to-high'){
               $query = "SELECT product_id, product_name, price FROM products ORDER BY price ASC";
           } elseif ($sort == 'high-to-low') {
@@ -91,8 +89,7 @@
           } else {
               $query = "SELECT product_id, product_name, price FROM products ORDER BY product_id";
           }
-          
-          echo "Query: $query";
+
           $products = $db->query($query);
       
             if($products->rowCount()>0){
@@ -107,9 +104,9 @@
                     <button class='button'>More Details</button>
                     </a>
                     </section>";
-    
                  }
-
+            }else {
+                echo "Product not found";
             }
         ?>
         </div>
