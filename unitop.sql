@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 29, 2024 at 03:31 PM
+-- Generation Time: Mar 04, 2024 at 08:40 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -62,12 +62,23 @@ INSERT INTO `admin_users` (`id`, `email`, `password`, `phoneNumber`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `orderlines`
+--
+
+CREATE TABLE `orderlines` (
+  `order_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` mediumint(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `orders`
 --
 
 CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL,
-  `product_id` int(11) DEFAULT NULL,
   `Email` varchar(30) NOT NULL,
   `order_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `cost` decimal(9,2) DEFAULT NULL
@@ -157,11 +168,17 @@ ALTER TABLE `address`
   ADD PRIMARY KEY (`address_id`);
 
 --
+-- Indexes for table `orderlines`
+--
+ALTER TABLE `orderlines`
+  ADD KEY `order_id` (`order_id`),
+  ADD KEY `product_id` (`product_id`);
+
+--
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`order_id`),
-  ADD KEY `product_id` (`product_id`);
+  ADD PRIMARY KEY (`order_id`);
 
 --
 -- Indexes for table `payment_details`
@@ -207,7 +224,7 @@ ALTER TABLE `payment_details`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `signup`
@@ -220,10 +237,11 @@ ALTER TABLE `signup`
 --
 
 --
--- Constraints for table `orders`
+-- Constraints for table `orderlines`
 --
-ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE `orderlines`
+  ADD CONSTRAINT `orderlines_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `orderlines_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
