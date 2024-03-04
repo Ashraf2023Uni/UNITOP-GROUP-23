@@ -102,15 +102,16 @@ CREATE TABLE `products` (
   `price` decimal(8,2) DEFAULT NULL,
   `discount_percent` decimal(3,1) DEFAULT NULL,
   `low_stock_indicator` tinyint(1) DEFAULT 0,
-  `out_of_stock_indicator` tinyint(1) DEFAULT 0
+  `out_of_stock_indicator` tinyint(1) DEFAULT 0,
+  `category` varchar(300) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `product_name`, `description`, `stock`, `price`, `discount_percent`, `low_stock_indicator`, `out_of_stock_indicator`) VALUES
-(1, 'Legion Pro 7 (Gen8)', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16\" Lenovo PureSight Gaming Display with WQXGA resolution', 460, '2999.00', NULL, 0, 0),
+INSERT INTO `products` (`product_id`, `product_name`, `description`, `stock`, `price`, `discount_percent`, `low_stock_indicator`, `out_of_stock_indicator`, `category`) VALUES
+(1, 'Legion Pro 7 (Gen8)', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16\" Lenovo PureSight Gaming Display with WQXGA resolution', 460, '2999.00', NULL, 0, 0, `Computer-Science``E-sports`),
 (2, 'Surface Pro 8', 'The Surface Pro 8 is ultra-light, fast and versatile with the perfect balance of portability and power.', 460, '1699.00', NULL, 0, 0),
 (3, '14-inch Macbook Pro', 'The 14-inch MacBook Pro blasts forward with M3, an incredibly advanced chip that brings serious speed and capability. With best-in-class battery life — up to 22 hours1 — and a beautiful Liquid Retina XDR display, it’s a pro laptop without equal.', 460, '1699.00', NULL, 0, 0),
 (4, 'HP 15-fd0023na Laptop', 'HP 15-fd0023na LAPTOP Intel N200 3.70GHz 4/128GB SSD WEBCAM WINDOWS 11 S.', 460, '215.99', NULL, 0, 0),

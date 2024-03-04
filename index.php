@@ -77,11 +77,11 @@
 
 <!--Menu with the categories - popular degreee-->
 <div class="menu">
-    <a href="explore-page.php">Computer Science</a>
-    <a href="menu.php"> E-sports</a>
-    <a href="">Graphics Design</a>
-    <a href="">Law</a>
-    <a href="">Medicine</a>
+    <a href="explore-page.php?sort=computer-science">Computer Science</a>
+    <a href="explore-page.php?sort=e-sports"> E-sports</a>
+    <a href="explore-page.php?sort=graphics-design">Graphics Design</a>
+    <a href="explore-page.php?sort=law">Law</a>
+    <a href="explore-page.php?sort=medicine">Medicine</a>
 </div>
 
 <!--Product showcase row (arrows would be nice)-->
@@ -93,6 +93,48 @@
         </div>
     <section>
 </div>
+
+<div id="prod">
+    <section class="row">
+        <!--Product Details-->
+        <div class="featured-img">
+        <?php
+        session_start();
+        require('php/connectdb.php');
+
+          $sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
+
+          if($sort == 'low-to-high'){
+              $query = "SELECT product_id, product_name, price FROM products ORDER BY price ASC";
+          } elseif ($sort == 'high-to-low') {
+              $query = "SELECT product_id, product_name, price FROM products ORDER BY price DESC";
+          } else {
+              $query = "SELECT product_id, product_name, price FROM products ORDER BY product_id";
+          }
+
+          $products = $db->query($query);
+      
+            if($products->rowCount()>0){
+                while($laptop = $products->fetch()){
+                    echo"<section class='products'>
+                    <a href='product-details.php?id=".$laptop['product_id']."'>
+                
+                    <img src='assests/Products/".$laptop['product_id'].".png' alt='' id='Featured-Thumbnail'>
+        
+                    <h4>".$laptop['product_name']."</h4>
+                    <p>£".$laptop['price']."</p>
+                    <button class='button'>More Details</button>
+                    </a>
+                    </section>";
+                 }
+            }else {
+                echo "Product not found";
+            }
+        ?>
+        </div>
+        </section>
+</div>
+
 
 <!--About Us+Contact Us-->
 <div class="about">
