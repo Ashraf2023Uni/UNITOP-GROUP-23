@@ -50,18 +50,16 @@
                    </div>
             </section>
         </div>
-
-          <!--Menu with the categories - each subject-->
-        <div class="menu">
-            <a href="">Computer Science</a>
-            <a href=""> E-sports</a>
-            <a href="">Graphics Design</a>
-            <a href="">Law</a>
-            <a href="">Medicine</a>
-        </div>
 </header>
 
 <!-----------------Main Body-------------------->
+<div class="menu">
+    <a href="explore-page.php?sort=computer-science">Computer Science</a>
+    <a href="explore-page.php?sort=e-sports"> E-sports</a>
+    <a href="explore-page.php?sort=graphics-design">Graphics Design</a>
+    <a href="explore-page.php?sort=law">Law</a>
+    <a href="explore-page.php?sort=medicine">Medicine</a>
+</div>
 
 <div class="sortdown">
     <button class="dropdown">Sort By: </button>
