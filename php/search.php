@@ -1,3 +1,5 @@
+<style><?php include('../css/home-page.css') ?></style>
+
 <form method="post">
     <label>Search</label>
     <input type="text" name="search">
@@ -5,7 +7,6 @@
 </form>
 
 <?php
-    session_start();
     require('php/connectdb.php');
 
     if(isset($_POST["submit"])){

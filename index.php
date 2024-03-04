@@ -84,6 +84,8 @@
     <a href="explore-page.php">Medicine</a>
 </div>
 
+<?php include('php/search.php');?>
+
 <!--Product showcase row (arrows would be nice)-->
 <div class="prod">
     <h2>Featured Products</h2>
