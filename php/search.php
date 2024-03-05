@@ -6,6 +6,7 @@
     <input type="submit" name="submit">
 </form>
 
+<div class="row">
 <?php
     require('php/connectdb.php');
 
@@ -37,3 +38,4 @@
         }
     }
 ?>
+</div>

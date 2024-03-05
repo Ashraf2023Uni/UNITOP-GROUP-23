@@ -75,10 +75,7 @@
     </div>
 </div>
 
-<div id="prod">
-    <section class="row">
-        <!--Product Details-->
-        <div class="featured-img">
+<div class="row">
         <?php 
         require('php/connectdb.php');
 
@@ -111,9 +108,8 @@
                 echo "Product not found";
             }
         ?>
-        </div>
-        </section>
 </div>
+
 
 <!-------------------FOOTER---------------------->
 <footer>

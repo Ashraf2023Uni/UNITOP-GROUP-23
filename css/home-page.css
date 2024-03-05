@@ -199,13 +199,10 @@ a:hover{
 
 /********************PRODUCT Showcase********************/
 .row{
-    /*display: grid;
+    display: grid;
     flex-flow: row;
     position: relative;
-    width: auto;*/
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(17%, 1fr));
-    gap: 10px;
+    width: auto;
 }
 
 .products{
@@ -223,7 +220,7 @@ a:hover{
     height:200px;
 }
 
-.prod h2{
+.products h2{
     text-align: center;
     margin: 40px auto 20px;
     position: relative;
@@ -236,7 +233,7 @@ a:hover{
     margin-bottom: 5px;
 }
 
-.products p{
+.prod p{
     margin-bottom: 10px;
 }
 .featured-img{
