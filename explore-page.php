@@ -70,7 +70,11 @@
     <button class="dropdown">Sort By: </button>
     <div class="sort-list">
         <a href="explore-page.php?sort=default">Default</a>
+        </div>
+        <div class="sort-list">
         <a href="explore-page.php?sort=high-to-low">High To Low</a>
+        </div>
+        <div class="sort-list">
         <a href="explore-page.php?sort=low-to-high">Low To High</a>
     </div>
 </div>

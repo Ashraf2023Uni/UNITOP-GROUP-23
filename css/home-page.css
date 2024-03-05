@@ -233,14 +233,10 @@ a:hover{
     margin-bottom: 5px;
 }
 
-.prod p{
+.products p{
     margin-bottom: 10px;
 }
-.featured-img{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+
 .products .button{
     margin-top: 30px;
     transform: translateX(45px);
@@ -471,3 +467,5 @@ th:last-child{
 .checkout-button:hover {
     background-color: #401f9b;
 }
+
+/*******************************SORTING DROP DOWN***************************/
