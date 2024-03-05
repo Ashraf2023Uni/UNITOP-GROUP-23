@@ -96,7 +96,7 @@
       
             if($products->rowCount()>0){
                 while($laptop = $products->fetch()){
-                    echo"<section class='products'>
+                    echo"<div class='products'>
                     <a href='product-details.php?id=".$laptop['product_id']."'>
                 
                     <img src='assests/Products/".$laptop['product_id'].".png' alt='' id='Featured-Thumbnail'>
@@ -105,7 +105,7 @@
                     <p>£".$laptop['price']."</p>
                     <button class='button'>More Details</button>
                     </a>
-                    </section>";
+                    </div>";
                  }
             }else {
                 echo "Product not found";
