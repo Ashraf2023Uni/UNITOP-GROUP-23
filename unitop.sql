@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2024 at 05:36 PM
+-- Generation Time: Mar 07, 2024 at 05:39 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -62,17 +62,6 @@ INSERT INTO `admin_users` (`id`, `email`, `password`, `phoneNumber`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `filer_medicine`
---
-
-CREATE TABLE `filer_medicine` (
-  `id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `filter_cs`
 --
 
@@ -110,6 +99,17 @@ CREATE TABLE `filter_graphic_design` (
 --
 
 CREATE TABLE `filter_law` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `filter_medicine`
+--
+
+CREATE TABLE `filter_medicine` (
   `id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -223,13 +223,6 @@ ALTER TABLE `address`
   ADD PRIMARY KEY (`address_id`);
 
 --
--- Indexes for table `filer_medicine`
---
-ALTER TABLE `filer_medicine`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `product_id` (`product_id`);
-
---
 -- Indexes for table `filter_cs`
 --
 ALTER TABLE `filter_cs`
@@ -254,6 +247,13 @@ ALTER TABLE `filter_graphic_design`
 -- Indexes for table `filter_law`
 --
 ALTER TABLE `filter_law`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`);
+
+--
+-- Indexes for table `filter_medicine`
+--
+ALTER TABLE `filter_medicine`
   ADD PRIMARY KEY (`id`),
   ADD KEY `product_id` (`product_id`);
 
@@ -299,12 +299,6 @@ ALTER TABLE `address`
   MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `filer_medicine`
---
-ALTER TABLE `filer_medicine`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `filter_cs`
 --
 ALTER TABLE `filter_cs`
@@ -326,6 +320,12 @@ ALTER TABLE `filter_graphic_design`
 -- AUTO_INCREMENT for table `filter_law`
 --
 ALTER TABLE `filter_law`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `filter_medicine`
+--
+ALTER TABLE `filter_medicine`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -357,12 +357,6 @@ ALTER TABLE `signup`
 --
 
 --
--- Constraints for table `filer_medicine`
---
-ALTER TABLE `filer_medicine`
-  ADD CONSTRAINT `filer_medicine_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `filter_cs`
 --
 ALTER TABLE `filter_cs`
@@ -385,6 +379,12 @@ ALTER TABLE `filter_graphic_design`
 --
 ALTER TABLE `filter_law`
   ADD CONSTRAINT `filter_law_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `filter_medicine`
+--
+ALTER TABLE `filter_medicine`
+  ADD CONSTRAINT `filter_medicine_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `orderlines`
