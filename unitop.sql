@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2024 at 08:40 PM
+-- Generation Time: Mar 07, 2024 at 05:36 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -58,6 +58,61 @@ INSERT INTO `admin_users` (`id`, `email`, `password`, `phoneNumber`) VALUES
 (0, '4@4.com', '$2y$10$TBTTX5ax4gLv2B4N1ifvGeS21hput5pejjUCHPxLJY1RaQ.ntLTgO', '4'),
 (0, '5@5.com', '$2y$10$KXpcpfvGdwmcEarNB3eXUeXPMbKWkuk/KjU8egkNm6CN9pDlCttbq', '5'),
 (0, 'fiona@f.com', '$2y$10$rZrChyo.a8jXJrg.WX5sJeW1DsIdQc1372lFXFSBSxor9oAwXxlxC', '12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `filer_medicine`
+--
+
+CREATE TABLE `filer_medicine` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `filter_cs`
+--
+
+CREATE TABLE `filter_cs` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `filter_esports`
+--
+
+CREATE TABLE `filter_esports` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `filter_graphic_design`
+--
+
+CREATE TABLE `filter_graphic_design` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `filter_law`
+--
+
+CREATE TABLE `filter_law` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -168,6 +223,41 @@ ALTER TABLE `address`
   ADD PRIMARY KEY (`address_id`);
 
 --
+-- Indexes for table `filer_medicine`
+--
+ALTER TABLE `filer_medicine`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`);
+
+--
+-- Indexes for table `filter_cs`
+--
+ALTER TABLE `filter_cs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`);
+
+--
+-- Indexes for table `filter_esports`
+--
+ALTER TABLE `filter_esports`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`);
+
+--
+-- Indexes for table `filter_graphic_design`
+--
+ALTER TABLE `filter_graphic_design`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`);
+
+--
+-- Indexes for table `filter_law`
+--
+ALTER TABLE `filter_law`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`);
+
+--
 -- Indexes for table `orderlines`
 --
 ALTER TABLE `orderlines`
@@ -209,6 +299,36 @@ ALTER TABLE `address`
   MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `filer_medicine`
+--
+ALTER TABLE `filer_medicine`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `filter_cs`
+--
+ALTER TABLE `filter_cs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `filter_esports`
+--
+ALTER TABLE `filter_esports`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `filter_graphic_design`
+--
+ALTER TABLE `filter_graphic_design`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `filter_law`
+--
+ALTER TABLE `filter_law`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
@@ -235,6 +355,36 @@ ALTER TABLE `signup`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `filer_medicine`
+--
+ALTER TABLE `filer_medicine`
+  ADD CONSTRAINT `filer_medicine_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `filter_cs`
+--
+ALTER TABLE `filter_cs`
+  ADD CONSTRAINT `filter_cs_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `filter_esports`
+--
+ALTER TABLE `filter_esports`
+  ADD CONSTRAINT `filter_esports_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `filter_graphic_design`
+--
+ALTER TABLE `filter_graphic_design`
+  ADD CONSTRAINT `filter_graphic_design_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `filter_law`
+--
+ALTER TABLE `filter_law`
+  ADD CONSTRAINT `filter_law_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `orderlines`
