@@ -8,6 +8,52 @@ $error_message = '.';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $current_password = $_POST['current_password'];
-    #$new_password = 
+    $new_password = $_POST['new_password'];
+    $confirm_new_password = $_POST['confirm_new_password'];
+
+    $admin_id = $_SESSION['admin_id'];
+
+    $query = "SELECT password FROM admins WHERE admin_id = :admin_id";
+    $statement = $db->prepare($query);
+    $statement->bindParam(' :admin_id', $admin_id, PDO::PARAM_INT);
+    $statement->execute();
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+    if ($result && password_verify($current_password, $result['password'])) {
+        if ($new_password === $confirm_new_password) {
+
+            $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
+
+            $update_query = "UPDATE admins SET password = :password WHERE admin_id = :admin_id";
+            $update_statement->bindParam(' :password', $hashed_password, PDO::PARAM_STR);
+            $update_statement->bindParam(' :admin_id', $admin_id, PDO::PARAM_INT);
+
+
+            if ($update_statement->execute()){
+                $success_message = "Password Changed";
+            } else {
+                $error_message = "Failed to change pw";
+            }
+        } else {
+            $error_message = "New pw and confirm new pw are not same";
+
+        }
+    } else {
+        $error_message = "current pw not correct";
+    }
+            }
+        
+    }
 
 }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+</body>
+</html>    
