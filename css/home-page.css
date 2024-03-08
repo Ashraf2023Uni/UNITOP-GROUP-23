@@ -120,8 +120,9 @@ a:hover{
 /********NAVBAR styling END- all contents**********/
 
 .menu{
-    margin-top: 10px;
-    color: black;
+    background-color: black;
+    color: white;
+    padding: 15px;
     font-size: medium;
     display: flex;
     justify-content: space-around;
@@ -131,10 +132,9 @@ a:hover{
 }
 .menu a{
     text-decoration: none;
-    color: black;
+    color: white;
     text-align: center;
     cursor: pointer;
-    padding: 2px;
 }
 .menu a:hover{
     text-decoration: underline;
@@ -144,14 +144,9 @@ a:hover{
     display: flex;
     flex-direction: column;
 }
-
 .log-in{
-    width: 1200px;
+    width: max-width;
     height: 500px;
-    /*display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-around;*/
     color: white;
     background-size: cover;
     background-position: center;
@@ -171,6 +166,21 @@ a:hover{
 .button:hover{
     background-color: white;
     color: black;
+}
+
+.search{
+    margin-top: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input{
+    width: 500px;
+}
+.search img{
+    height: 15px;
+    width: 15px;
 }
 
 .heading{
@@ -212,14 +222,14 @@ a:hover{
     justify-content: center;
     border: 1px solid black;
     margin: 10px;
-    height: 450px;
+    height: 370px;
+    transition: background-color 0.3s ease;
 }
-
 .products img{
     height:200px;
 }
 
-.products h2{
+.header h2{
     text-align: center;
     margin: 40px auto 20px;
     position: relative;
@@ -230,10 +240,6 @@ a:hover{
     text-align: center;
     padding-top: 4px;
     margin-bottom: 5px;
-}
-
-.products p{
-    margin-bottom: 10px;
 }
 
 .products .button{
@@ -251,6 +257,14 @@ a:hover{
     color: white;
     text-decoration: underline;
 }
+.products:hover{
+    background-color: black;
+    color: white;
+}
+.products a:hover{
+    color: white;
+}
+
 
 /*About Us/Contact Us section*/
 
@@ -291,7 +305,6 @@ a:hover{
 .box img{
     max-width: 400px;
 }
-
 
 /*******FOOTER***********/
 

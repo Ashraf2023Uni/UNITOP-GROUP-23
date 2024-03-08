@@ -1,11 +1,15 @@
 <!--This page will showcase list of products that can be filtered/sorted - HUMAYRA 210005848-->
 <style><?php include('../css/home-page.css') ?></style>
 
+<div class="search">
 <form method="post">
-    <label>Search</label>
+    <label>What are you looking for?</label>
     <input type="text" name="search">
-    <input type="submit" name="submit">
+    <button type="submit" name="submit" id="search-img">
+        <img src="assests/Navbar/search.png" class="search-icon">
+    </button>
 </form>
+</div>
 
 <div class="row">
 <?php
