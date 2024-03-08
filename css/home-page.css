@@ -364,12 +364,8 @@ footer p{
    transform: translate(140px);
 }
 .line{
-    content: "";
-    display: block;
-    height: 0.5px;
-    background-color: gray;
-    margin-left: 20px;
-    margin-right: 20px;
+    background-color: black;
+    color: white;
 }
 /*************FOOTER END**************/
 

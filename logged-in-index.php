@@ -3,58 +3,53 @@
         session_start();
         require('php/connectdb.php');
     }
-
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <meta name="viewport" content="width=device-width" , initial-scale="1.0">
     <title>UNITOP/HomePage</title>
     <link rel="stylesheet" href="css/home-page.css">
     <link rel="shortcut icon" type="icon" href="assests/Banners/logo.png">
 </head>
+
+<!--Main body-->
 
 <body>
     <header>
         <!--NAVBAR-->
         <div class="banner">
             <section class="navbar">
-                <img src="assests/Navbar/logo-no-slogan.png" width="75px" alt="UNITOP logo">
-                <h1>UNITOP</h1>
+                <img src="assests/Navbar/UT-new-logo.png" width="100px" alt="UNITOP logo">
+
+                <!--Navbar - Links to other pages-->
                 <div class="links">
                     <nav>
                         <div class="img-links">
-                             <!--Customer basket-->
-                             <!--<a href=""><img src="images/search.png" class="browse-icon"></a>-->
-                             <a href="logged-in-index.php"><img src="assests/Navbar/home_4991416.png" class="home-icon"></a>
-                             <a href="about-us.html"><img src="assests/Navbar/about-us.png" class="about-us-icon"></a>
-                             <a href="contact.html"><img src="assests/Navbar/notification_9383540.png" class="contact-us-icon"></a>
-                             <a href="index.php"><img src="assests/Navbar/avatar_9892372.png" class="account-icon"></a>
-                             <a href="basket.php"><img src="assests/Navbar/checkout_4765148.png" class="basket-icon"></a>
-                        </div>
+                            <a href="index.php"><img src="assests/Navbar/home_4991416.png" class="home-icon"></a>
+                            <a href="about-us.html"><img src="assests/Navbar/about-us.png" class="about-us-icon"></a>
+                            <a href="contact.html"><img src="assests/Navbar/notification_9383540.png"
+                                    class="contact-us-icon"></a>
+                            <a href="index.php"><img src="assests/Navbar/avatar_9892372.png" class="account-icon"></a>
+                            <a href="basket.php"><img src="assests/Navbar/checkout_4765148.png" class="basket-icon"></a>
+                            <a href="admin_login.php"><img src="assests/Navbar/staffpic.png" class="staff-icon"></a>
 
+                        </div>
                         <div class="nav-links">
-                        <ul>
-                           <!--<li><a href="">Browse</a></li>-->
-                            <li><a href="logged-in-index.php">Home</a></li>
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="account.php">Account</a></li>
-                            <li><a href="basket.php">Basket</a></li>
-                
-                        </ul>
-                        </div>
-                    
-                        <!---Search Bar--->
-                        <div class="search-bar">
-                            <input type="text" placeholder="Search">
-                            <button type="submit"><img src="assests/Navbar/search.png" class="search-icon"></button>
+                            <ul>
+                                <li><a href="index.php">Home</a></li>
+                                <li><a href="about-us.html">About Us</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
+                                <li><a href="index.php">Account</a></li>
+                                <li><a href="basket.php">Basket</a></li>
+                                <li><a href="admin_login.php">Staff login</a></li>
+                            </ul>
                         </div>
 
-                        <!--Log out button-->
+                           <!--Log out button-->
                         <!--<input type="submit" class="btn" name="submit" value="Log Out">-->
                         <form action='index.php' method='post'>
                             <input type="submit" class="btn" name="Log Out" value="Log Out"> 
@@ -65,96 +60,98 @@
                             exit;
                         }
                     ?>
-
                     </nav>
 
-                   </div>
+                </div>
             </section>
-        </div>
-
-          <!--Menu with the categories - each subject-->
-        <div class="menu">
-            <a href="">Computer Science</a>
-            <a href=""> E-sports</a>
-            <a href="">Graphics Design</a>
-            <a href="">Law</a>
-            <a href="">Medicine</a>
         </div>
     </header>
 
-    <!------------------------------MAIN BODY--------------------------------------->
-
-
-<!--Product showcase row (arrows would be nice)-->
-<div class="prod">
-    <h2>Featured Products</h2>
-    <section class="row">
-        <div class="featured-img">
-           <?php include('featured.php');?>
-        </div>
-    <section>
+ <!--Menu with the categories - popular degreee-->
+ <div class="menu">
+    <a href="explore-page.php">Computer Science</a>
+    <a href="explore-page.php"> E-sports</a>
+    <a href="explore-page.php">Graphics Design</a>
+    <a href="explore-page.php">Law</a>
+    <a href="explore-page.php">Medicine</a>
 </div>
 
-<!--About Us+Contact Us-->
-<div class="about">
+    <!------------------------------MAIN BODY--------------------------------------->
+
+    <?php include('php/search.php'); ?>
+
+    <!--Product showcase row (arrows would be nice)-->
+    <div class="header">
+    <h2>Featured Products</h2>
+    <div class="row">
+        <?php include('php/featured.php'); ?>
+    </div>
+    </div>
+
+    <!--About Us+Contact Us-->
+    <div class="about">
         <section class="box" style="background-image: url(assests/Banners/about-us.jpg);">
             <h1>Who we are!</h1>
             <p>Dive into our company.</p>
-            <a href="about-us.html" class="button">About Us</a>
+            <a href="about-us.hmtml" class="button">About Us</a>
         </section>
         <section class="box" style="background-image: url(assests/Banners/contact-us.jpg);">
             <h1>How to reach us!</h1>
             <p>Contact us through here.</p>
             <a href="contact.html" class="button">Contact Us</a>
         </section>
-</div>
-
-<!-------------------FOOTER---------------------->
-<footer>
-<div class="footer">
-    <div class="footer-box">
-        <img src="assests/Navbar/logo-no-slogan.png">
-        <h3>UNITOP</h3>
-        <p>Educate with UNITOP!</p>
-        <a href="login.php" class="btn">Log In</a>
     </div>
 
-    <div class="footer-box">
-        <h3>Follow Us</h3>
-        <div class="socials">
-            <img src="assests/Footer/instagram.png">
-            <img src="assests/Footer/facebook.png">
-            <img src="assests/Footer/linkedin.png"> 
+    <!-------------------FOOTER---------------------->
+    <footer>
+        <div class="footer">
+            <div class="footer-box">
+                <img src="assests/Navbar/logo-no-slogan.png">
+                <h3>UNITOP</h3>
+                <p>Educate with UNITOP!</p>
+                <a href="login.html" class="btn">Log In</a>
+            </div>
+
+            <div class="footer-box">
+                <h3>Follow Us</h3>
+                <div class="socials">
+                    <img src="assests/Footer/instagram.png">
+                    <img src="assests/Footer/facebook.png">
+                    <img src="assests/Footer/linkedin.png">
+                </div>
+            </div>
+
+            <div class="footer-box">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="">Who We Are</a></li>
+                    <br>
+                    <li><a href="">Our Mission</a></li>
+                    <br>
+                    <li><a href="">The Team</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-box">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <br>
+                    <li><a href="">Contact Us</a></li>
+                    <br>
+                    <li><a href="">About Us</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
+        <div class="line">
+            <p>Terms and Conditions apply* | UNITOP Limited</p>
+        </div>
 
-    <div class="footer-box">
-        <h3>About Us</h3>
-        <ul>
-            <li><a href="about-us.html">Who We Are</a></li>
-            <br>
-            <li><a href="about-us.html">Our Mission</a></li>
-            <br>
-            <li><a href="about-us.html">The Team</a></li>
-        </ul>
-    </div>
-
-    <div class="footer-box">
-        <h3>Useful Links</h3>
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <br>
-            <li><a href="contact.html">Contact Us</a></li>
-            <br>
-            <li><a href="about-us.html">About Us</a></li>
-        </ul>
-    </div>
-</div>
-<div class="line">
-      <p>Terms and Conditions apply* | UNITOP Limited</p>
-</div>
-
-</footer>
+    </footer>
 
 </body>
-</html> 
+
+</html>
+
+<script type="text/javascript" src="index.js"></script>
+                      
