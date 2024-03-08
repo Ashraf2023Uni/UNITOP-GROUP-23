@@ -6,7 +6,7 @@
 </head>
 <body>
 <?php 
-require_once('connectdb.php');
+require_once('php/connectdb.php');
 $query = "SELECT product_id, product_name, price FROM products";
 $products = $db->query($query);
 

@@ -1,7 +1,7 @@
 <?php
     if(session_status() == PHP_SESSION_NONE) {
         session_start();
-        require('connectdb.php');
+        require('php/connectdb.php');
     }
 
 
