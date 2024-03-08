@@ -200,20 +200,19 @@ a:hover{
 /********************PRODUCT Showcase********************/
 .row{
     display: grid;
+    grid-template-columns: repeat(5, 1fr);
     flex-flow: row;
     position: relative;
     width: auto;
 }
 
 .products{
-    /*flex-basis: 1 1 17%;*/
     align-items: center;
     padding: 3px;
     justify-content: center;
     border: 1px solid black;
     margin: 10px;
     height: 450px;
-    flex-direction:column;
 }
 
 .products img{

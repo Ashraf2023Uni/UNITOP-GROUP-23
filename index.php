@@ -87,14 +87,10 @@
 <?php include('php/search.php');?>
 
 <!--Product showcase row (arrows would be nice)-->
-<div class="prod">
     <h2>Featured Products</h2>
-    <section class="row">
-        <div class="featured-img">
+    <div class="row">
            <?php include('php/featured.php');?>
-        </div>
-    <section>
-</div>
+    </div>
 
 <!--About Us+Contact Us-->
 <div class="about">
