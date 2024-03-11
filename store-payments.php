@@ -64,17 +64,22 @@ try{
         $enter_stock = "UPDATE products SET stock = '$new_stock' WHERE product_id = $prod_id";
         $db->query($enter_stock);
         
+        //orderline table insert individual products
         $qty = $_SESSION['qty'][$i];
         $orderline = "INSERT INTO orderlines(order_id, product_id, quantity) 
         VALUES ($order_id, '$prod_id', $qty)";
         $enterOrderline = $db->query($orderline);
 
+
         // temporary reciepts:
-        // $subtotal = $current['price'] * intval($_SESSION['qty'][$i]);
-        // echo "<p>".$current['product_name']."         £".$current['price']." <em> X".$_SESSION['qty'][$i]."</em></p>";
-        // $total_cost = $total_cost + $subtotal;
+        $subtotal = $current['price'] * intval($_SESSION['qty'][$i]);
+        echo "<p>".$current['product_name']."         £".$current['price']." <em> X".$_SESSION['qty'][$i]."</em></p>";
+        $total_cost = $total_cost + $subtotal;
     }
-    // echo "<strong><p>Total price: £".$total_cost."</p></strong>";
+    echo "<strong><p>Total price: £".$total_cost."</p></strong>";
+    echo "total cost: " .$total_cost. "  order_id: " .$order_id;
+    $set_cost = "UPDATE orders SET cost = '$total_cost' WHERE order_id = $order_id";
+    $enter_cost = $db->query($set_cost);
     $_SESSION['prod_id'] = array();
     $_SESSION['qty'] = array();
     echo "<br><br><a href='index.php'><button> Back to Homepage </button></a><br>"; 
