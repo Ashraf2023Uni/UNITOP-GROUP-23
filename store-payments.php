@@ -50,15 +50,24 @@ try{
     $total_cost = 0;
     echo "<h3>Order was successful!</h3>";
     echo "<h2>Reciept:</h2>";
+
+    $create_order = "INSERT INTO orders VALUES();";
+    $enterOrder = $db->query($create_order);
+    $order_id = $db->lastInsertId();
+
+    echo "order_id:" .  $order_id;
     for($i=0;$i<count($_SESSION['prod_id']);$i++){  
-        $id = $_SESSION['prod_id'][$i];
-        $order = "SELECT stock, product_name, price FROM products WHERE product_id = $id";
-        $current = $db->query($order)->fetch(); //current details before order
+        $prod_id = $_SESSION['prod_id'][$i];
+        $select_prod = "SELECT stock, product_name, price FROM products WHERE product_id = $prod_id";
+        $current = $db->query($select_prod)->fetch(); //current details before order
         $new_stock = intval($current['stock']) - intval($_SESSION['qty'][$i]);
-        $enter_stock = "UPDATE products SET stock = '$new_stock' WHERE product_id = $id";
+        $enter_stock = "UPDATE products SET stock = '$new_stock' WHERE product_id = $prod_id";
         $db->query($enter_stock);
         
-
+        $qty = $_SESSION['qty'][$i];
+        $orderline = "INSERT INTO orderlines(order_id, product_id, quantity) 
+        VALUES ($order_id, '$prod_id', $qty)";
+        $enterOrderline = $db->query($orderline);
 
         // temporary reciepts:
         // $subtotal = $current['price'] * intval($_SESSION['qty'][$i]);
