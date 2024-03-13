@@ -48,20 +48,20 @@ if(isset($_POST['submit'])) {
 </head>
 <body>
     <div class="container">
-        <div class="box">  
+        <div class="box f-box">  
             <header>Admin Sign Up</header>
             <form action="admin_register.php" method="post">
-                <div class="input-field">
+                <div class="field">
                     <label for="email">Email:</label>
                     <input type="email" name="email" id="email" placeholder="Email" required>
                 </div>
                 
-                <div class="input-field">
+                <div class="field">
                     <label for="password">Password:</label>
                     <input type="password" name="password" id="password" placeholder="Password" required>
                 </div>
 
-                <div class="input-field">
+                <div class="field">
                 <label for="phoneNumber">Phone Number:</label>
                     <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" required>
                 </div>
@@ -77,3 +77,5 @@ if(isset($_POST['submit'])) {
     </div>
 </body>
 </html>                
+
+  
