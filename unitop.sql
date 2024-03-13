@@ -387,6 +387,13 @@ ALTER TABLE `filter_medicine`
   ADD CONSTRAINT `filter_medicine_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- AUTO_INCREMENT for table `admin_users`
+--
+ALTER TABLE `admin_users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+
+--
 -- Constraints for table `orderlines`
 --
 ALTER TABLE `orderlines`
