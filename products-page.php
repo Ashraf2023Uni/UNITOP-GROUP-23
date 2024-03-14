@@ -59,20 +59,17 @@
 <!------------------------------SEARCH-BAR FUNCTIONALITY-------------------------------------->
 <?php include('php/search.php');?>
 
-<div class="product-cards">
-</div>
-
 <!------------------------------SORTING PRODUCTS-------------------------------------->                
 <div class="sortdown">
     <button class="dropdown">Sort By: </button>
     <div class="sort-list">
-        <a href="products-page.php?sort=default">Default</a>
+        <a href="products-page.php?<?php echo isset($_POST['submit']) ? '?search=' . urlencode($_POST['search']) . '&' : ''; ?>sort=default">Default</a>
         </div>
         <div class="sort-list">
-        <a href="products-page.php?sort=high-to-low">High To Low</a>
+        <a href="products-page.php?<?php echo isset($_POST['submit']) ? '?search=' . urlencode($_POST['search']) . '&' : ''; ?>sort=high-to-low">High To Low</a>
         </div>
         <div class="sort-list">
-        <a href="products-page.php?sort=low-to-high">Low To High</a>
+        <a href="products-page.php?<?php echo isset($_POST['submit']) ? '?search=' . urlencode($_POST['search']) . '&' : ''; ?>sort=low-to-high">Low To High</a>
     </div>
 </div>
 
@@ -98,7 +95,7 @@
                 break;
             case 'high-to-low':
                 $query .= " ORDER BY price DESC";
-                break;   
+                break; 
         }
     }
     $products = $db->prepare($query);
@@ -107,7 +104,7 @@
         $name = $_POST["search"];
         $products->bindValue('searchName', '%' . $name . '%', PDO::PARAM_STR);
     }
-
+    
         $products->execute();
 
         if($products->rowCount()>0){
