@@ -1,3 +1,4 @@
+<!--HomePage for customers who are not logged in - Humayra Hussain, 210005848-->
 <?php
 session_start();
 require('php/connectdb.php');
@@ -5,32 +6,30 @@ require('php/connectdb.php');
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" , initial-scale="1.0">
     <title>UNITOP/HomePage</title>
     <link rel="stylesheet" href="css/home-page.css">
     <link rel="shortcut icon" type="icon" href="assests/Banners/logo.png">
+    <script src="search.js" defer></script>
 </head>
 
-<!--Main body-->
-
 <body>
+    <!--Header - brand logo and navigation bar-->
     <header>
-        <!--NAVBAR-->
+        <!--NAVIGATION BAR-->
         <div class="banner">
             <section class="navbar">
                 <img src="assests/Navbar/UT-new-logo.png" width="100px" alt="UNITOP logo">
 
-                <!--Navbar - Links to other pages-->
+                <!--Navbar - Links to Other Pages-->
                 <div class="links">
                     <nav>
                         <div class="img-links">
                             <a href="index.php"><img src="assests/Navbar/home_4991416.png" class="home-icon"></a>
                             <a href="about-us.html"><img src="assests/Navbar/about-us.png" class="about-us-icon"></a>
-                            <a href="contact.html"><img src="assests/Navbar/notification_9383540.png"
-                                    class="contact-us-icon"></a>
+                            <a href="contact.html"><img src="assests/Navbar/notification_9383540.png" class="contact-us-icon"></a>
                             <a href="index.php"><img src="assests/Navbar/avatar_9892372.png" class="account-icon"></a>
                             <a href="basket.php"><img src="assests/Navbar/checkout_4765148.png" class="basket-icon"></a>
                             <a href="admin_login.php"><img src="assests/Navbar/staffpic.png" class="staff-icon"></a>
@@ -53,34 +52,62 @@ require('php/connectdb.php');
         </div>
     </header>
 
- <!--Menu with the categories - popular degreee-->
- <div class="menu">
-    <a href="explore-page.php">Computer Science</a>
-    <a href="explore-page.php"> E-sports</a>
-    <a href="explore-page.php">Graphics Design</a>
-    <a href="explore-page.php">Law</a>
-    <a href="explore-page.php">Medicine</a>
-</div>
+    <!--Menu with the categories based on degrees of students-->
+    <div class="menu">
+    <a href="products-page.php">Computer Science</a>
+    <a href="products-page.php"> E-sports</a>
+    <a href="products-page.php">Graphics Design</a>
+    <a href="products-page.php">Law</a>
+    <a href="products-page.php">Medicine</a>
+    </div>
 
     <!--Banner to encourage log-in, necessary to be able to purchase from the store-->
     <div class="banner-log">
-        <div class="log-in" style="background-image: url(assests/Banners/banner.jpg);">
-            <section class="heading">
-                <h1>Educate with UNITOP</h1>
-                <p>Choose a laptop that aligns perfectly with your students academic pursuits.
-                    <br>Choose the features that matter to your students, from powerful processors
-                    <br>for seamless coding to lightweight designs for the mobility demands of your medics.
-                    <br>Choose to empower your students journey through UNITOP.
-                </p>
-                <section class="heading-links">
-                    <a href="login.php" class="button">Log In</a> or
-                    <a href="register.php" class="button">Sign Up</a>
-                </section>
-
+    <div class="log-in" style="background-image: url(assests/Banners/banner.jpg);">
+        <section class="heading">
+            <h1>Educate with UNITOP</h1>
+            <p>Choose a laptop that aligns perfectly with your students academic pursuits.
+                <br>Choose the features that matter to your students, from powerful processors
+                <br>for seamless coding to lightweight designs for the mobility demands of your medics.
+                <br>Choose to empower your students journey through UNITOP.
+            </p>
+            <section class="heading-links">
+                <a href="login.php" class="button">Log In</a> or
+                <a href="register.php" class="button">Sign Up</a>
             </section>
-        </div>
+
+        </section>
     </div>
-    <!------------------------------MAIN BODY--------------------------------------->
+    </div>
+
+    <!--Search bar - products to be searched through by name-->
+    <div class="search-bar">
+        <form id="searchForm" onsubmit="searchProducts(); return false;">
+            <label for="search"></label>
+            <input type="search" id="searchInput" placeholder="Search">
+            <button type="submit"><img src="assests/Navbar/search.png" class="search-icon"></button>
+        </form>
+    </div>
+    <!--Body of products once search for-->
+    <div class="product-cards">
+        <!--Template for product display-->
+        <template>
+            <div class="product">
+                <?php
+                     echo"<section class='products'>
+                     <a href='product-details.php?id=".$laptop['product_id']."'>
+                 
+                     <img src='assests/Products/".$laptop['product_id'].".png' alt='' id='Featured-Thumbnail'>
+         
+                     <h4>".$laptop['product_name']."</h4>
+                     <p>£".$laptop['price']."</p>
+                     <button class='button'>More Details</button>
+                     </a>
+                     </section>";
+                ?>
+            </div>;
+        </template>
+    </div>
 
     <?php include('php/search.php'); ?>
 

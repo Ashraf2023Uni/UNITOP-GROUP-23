@@ -49,69 +49,84 @@
 <!-----------------Main Body-------------------->
 <!--FILTERING NEEDED-->
 <div class="menu">
-    <a href="explore-page.php?sort=computer-science">Computer Science</a>
-    <a href="explore-page.php?sort=e-sports"> E-sports</a>
-    <a href="explore-page.php?sort=graphics-design">Graphics Design</a>
-    <a href="explore-page.php?sort=law">Law</a>
-    <a href="explore-page.php?sort=medicine">Medicine</a>
+    <a href="products-page.php?sort=computer-science">Computer Science</a>
+    <a href="products-page.php?sort=e-sports"> E-sports</a>
+    <a href="products-page.php?sort=graphics-design">Graphics Design</a>
+    <a href="products-page.php?sort=law">Law</a>
+    <a href="products-page.php?sort=medicine">Medicine</a>
 </div>
 
 <!------------------------------SEARCH-BAR FUNCTIONALITY-------------------------------------->
- <div class="search-bar">
-    <input type="text" placeholder="Search">
-    <button type="submit"><img src="assests/Navbar/search.png" class="search-icon"></button>
-</div>
-
 <?php include('php/search.php');?>
 
-<!------------------------------SORTING PRODUCTS-------------------------------------->
-                    
+<div class="product-cards">
+</div>
+
+<!------------------------------SORTING PRODUCTS-------------------------------------->                
 <div class="sortdown">
     <button class="dropdown">Sort By: </button>
     <div class="sort-list">
-        <a href="explore-page.php?sort=default">Default</a>
+        <a href="products-page.php?sort=default">Default</a>
         </div>
         <div class="sort-list">
-        <a href="explore-page.php?sort=high-to-low">High To Low</a>
+        <a href="products-page.php?sort=high-to-low">High To Low</a>
         </div>
         <div class="sort-list">
-        <a href="explore-page.php?sort=low-to-high">Low To High</a>
+        <a href="products-page.php?sort=low-to-high">Low To High</a>
     </div>
 </div>
 
 <div class="row">
-        <?php 
-        require('php/connectdb.php');
+<?php
+    require('php/connectdb.php');
+    $query = "SELECT product_id, product_name, price from products";
 
-          $sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
+    if(isset($_POST["submit"])){
+        $name = $_POST["search"];
+        $query = "SELECT product_id, product_name, price FROM products WHERE product_name LIKE :searchName";
+        $products = $db->prepare($query);
+        $products->bindValue('searchName', '%' . $name . '%', PDO::PARAM_STR);
+    } else {
+        $products = $db->prepare($query);
+    }
 
-          if($sort == 'low-to-high'){
-              $query = "SELECT product_id, product_name, price FROM products ORDER BY price ASC";
-          } elseif ($sort == 'high-to-low') {
-              $query = "SELECT product_id, product_name, price FROM products ORDER BY price DESC";
-          } else {
-              $query = "SELECT product_id, product_name, price FROM products ORDER BY product_id";
-          }
+    $sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
+    if($sort !== 'default'){
+        switch($sort){
+            case 'low-to-high':
+                $query .= " ORDER BY price ASC";
+                break;
+            case 'high-to-low':
+                $query .= " ORDER BY price DESC";
+                break;   
+        }
+    }
+    $products = $db->prepare($query);
+    
+    if(isset($_POST["submit"])){
+        $name = $_POST["search"];
+        $products->bindValue('searchName', '%' . $name . '%', PDO::PARAM_STR);
+    }
 
-          $products = $db->query($query);
-      
-            if($products->rowCount()>0){
-                while($laptop = $products->fetch()){
-                    echo"<div class='products'>
-                    <a href='product-details.php?id=".$laptop['product_id']."'>
-                
-                    <img src='assests/Products/".$laptop['product_id'].".png' alt='' id='Featured-Thumbnail'>
-        
-                    <h4>".$laptop['product_name']."</h4>
-                    <p>£".$laptop['price']."</p>
-                    <button class='button'>More Details</button>
-                    </a>
-                    </div>";
-                 }
-            }else {
-                echo "Product not found";
-            }
-        ?>
+        $products->execute();
+
+        if($products->rowCount()>0){
+            while($laptop = $products->fetch()){
+                echo"<section class='products'>
+                <a href='product-details.php?id=".$laptop['product_id']."'>
+            
+                <img src='assests/Products/".$laptop['product_id'].".png' alt='' id='Featured-Thumbnail'>
+    
+                <h4>".$laptop['product_name']."</h4>
+                <p>£".$laptop['price']."</p>
+                <button class='button'>More Details</button>
+                </a>
+                </section>";
+             }
+        }else {
+            echo "Name does not exist.";
+        }
+?>
 </div>
 
 
