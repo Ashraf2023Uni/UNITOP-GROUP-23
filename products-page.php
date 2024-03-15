@@ -81,6 +81,7 @@
     if(isset($_POST["submit"])){
         $name = $_POST["search"];
         $query = "SELECT product_id, product_name, price FROM products WHERE product_name LIKE :searchName";
+
         $products = $db->prepare($query);
         $products->bindValue('searchName', '%' . $name . '%', PDO::PARAM_STR);
     } else {
@@ -104,7 +105,6 @@
         $name = $_POST["search"];
         $products->bindValue('searchName', '%' . $name . '%', PDO::PARAM_STR);
     }
-    
         $products->execute();
 
         if($products->rowCount()>0){

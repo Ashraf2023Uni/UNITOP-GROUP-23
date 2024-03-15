@@ -81,34 +81,6 @@ require('php/connectdb.php');
     </div>
 
     <!--Search bar - products to be searched through by name-->
-    <div class="search-bar">
-        <form id="searchForm" onsubmit="searchProducts(); return false;">
-            <label for="search"></label>
-            <input type="search" id="searchInput" placeholder="Search">
-            <button type="submit"><img src="assests/Navbar/search.png" class="search-icon"></button>
-        </form>
-    </div>
-    <!--Body of products once search for-->
-    <div class="product-cards">
-        <!--Template for product display-->
-        <template>
-            <div class="product">
-                <?php
-                     echo"<section class='products'>
-                     <a href='product-details.php?id=".$laptop['product_id']."'>
-                 
-                     <img src='assests/Products/".$laptop['product_id'].".png' alt='' id='Featured-Thumbnail'>
-         
-                     <h4>".$laptop['product_name']."</h4>
-                     <p>£".$laptop['price']."</p>
-                     <button class='button'>More Details</button>
-                     </a>
-                     </section>";
-                ?>
-            </div>;
-        </template>
-    </div>
-
     <?php include('php/search.php'); ?>
 
     <!--Product showcase row (arrows would be nice)-->

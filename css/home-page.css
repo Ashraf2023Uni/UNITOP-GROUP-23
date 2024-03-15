@@ -7,6 +7,7 @@
 header{
     padding-bottom: 5px;
     text-align: center;
+    /*position fixed*/
 }
 
 a{
@@ -252,7 +253,7 @@ input{
     position: absolute;
 
 }
-.products .button:hover{
+/*.products .button:hover{
     opacity: 0.80;
     color: white;
     text-decoration: underline;
@@ -263,7 +264,7 @@ input{
 }
 .products a:hover{
     color: white;
-}
+}*/
 
 
 /*About Us/Contact Us section*/
