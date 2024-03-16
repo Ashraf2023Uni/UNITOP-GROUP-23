@@ -102,7 +102,7 @@ CREATE TABLE `payment_details` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `laptops`
+-- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
@@ -188,9 +188,9 @@ ALTER TABLE `payment_details`
   ADD PRIMARY KEY (`payment_id`);
 
 --
--- Indexes for table `laptops`
+-- Indexes for table `products`
 --
-ALTER TABLE `laptops`
+ALTER TABLE `products`
   ADD PRIMARY KEY (`product_id`);
 
 --
@@ -222,9 +222,9 @@ ALTER TABLE `payment_details`
   MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `laptops`
+-- AUTO_INCREMENT for table `products`
 --
-ALTER TABLE `laptops`
+ALTER TABLE `products`
   MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
@@ -251,7 +251,7 @@ ALTER TABLE `admin_users`
 --
 ALTER TABLE `orderlines`
   ADD CONSTRAINT `orderlines_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `orderlines_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `laptops` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `orderlines_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 --

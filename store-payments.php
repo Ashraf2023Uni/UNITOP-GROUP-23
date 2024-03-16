@@ -52,7 +52,7 @@ try{
 }
 
 
-//processing order: updating laptops table
+//processing order: updating products table
 require_once('php/connectdb.php');
 try{
     $total_cost = 0;
@@ -66,13 +66,13 @@ try{
     echo "order_id:" .  $order_id;
     for($i=0;$i<count($_SESSION['prod_id']);$i++){  
         $prod_id = $_SESSION['prod_id'][$i];
-        $select_prod = "SELECT stock, product_name, price FROM laptops WHERE product_id = ?";
+        $select_prod = "SELECT stock, product_name, price FROM products WHERE product_id = ?";
         $stmt = $db->prepare($select_prod);
         $stmt->execute([$prod_id]);
         $current = $stmt->fetch();
 
         $newStock = intval($current['stock']) - intval($_SESSION['qty'][$i]);
-        $enterStock = "UPDATE laptops SET stock = '$newStock' WHERE product_id = ?";
+        $enterStock = "UPDATE products SET stock = '$newStock' WHERE product_id = ?";
         $stmt = $db->prepare($enterStock);
         $stmt->execute([$prod_id]);
         

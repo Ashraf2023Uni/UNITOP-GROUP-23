@@ -70,7 +70,7 @@
         </tr>
         <tr>
             <td class="cart-info" >
-                <?php 
+<?php 
                 session_start();
                 require_once('php/connectdb.php');
 
@@ -144,9 +144,16 @@
                 <td>£$total</td>
             </tr>
         </table>
-    </div>";?>
-       <!-- Checkout Button -->
-      <form action= HTML-files/payments.html> <button type='submit' class="checkout-button">Proceed to Checkout</button></form>
+    </div>";
+
+    if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']){
+        echo"<form action= HTML-files/payments.html> <button type='submit' class='checkout-button'>Proceed to Checkout</button></form>";
+    }
+    else{
+        echo"<form action= login.php> <button type='submit' class='checkout-button'>Login to Checkout</button></form>";   
+    }
+
+ ?>
     </div>
 </div>
 
