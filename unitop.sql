@@ -105,7 +105,7 @@ CREATE TABLE `payment_details` (
 -- Table structure for table `laptops`
 --
 
-CREATE TABLE `laptops` (
+CREATE TABLE `products` (
   `product_id` int(11) NOT NULL,
   `product_name` varchar(30) DEFAULT NULL,
   `description` varchar(300) DEFAULT NULL,
@@ -120,7 +120,7 @@ CREATE TABLE `laptops` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `laptops` (`product_id`, `product_name`, `description`, `stock`, `price`, `discount_percent`, `low_stock_indicator`, `out_of_stock_indicator`) VALUES
+INSERT INTO `products` (`product_id`, `product_name`, `description`, `stock`, `price`, `discount_percent`, `low_stock_indicator`, `out_of_stock_indicator`) VALUES
 (1, 'Legion Pro 7 (Gen8)', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16\" Lenovo PureSight Gaming Display with WQXGA resolution', 460, '2999.00', NULL, 0, 0),
 (2, 'Surface Pro 8', 'The Surface Pro 8 is ultra-light, fast and versatile with the perfect balance of portability and power.', 460, '1699.00', NULL, 0, 0),
 (3, '14-inch Macbook Pro', 'The 14-inch MacBook Pro blasts forward with M3, an incredibly advanced chip that brings serious speed and capability. With best-in-class battery life — up to 22 hours1 — and a beautiful Liquid Retina XDR display, it’s a pro laptop without equal.', 460, '1699.00', NULL, 0, 0),
