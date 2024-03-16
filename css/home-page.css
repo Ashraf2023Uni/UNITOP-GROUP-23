@@ -343,13 +343,14 @@ footer p{
 
 
 /*Product-details page styling - Humayra Hussain - 210005848*/
-.product{
+.product-detail{
     width: 100%;
 }
+/*Product images*/
 .gallery{
-    margin: 20px;
+    margin: 30px;
+    margin-top: 10px;
 }
-
 #main-image{
     width:400px;
 }
@@ -360,20 +361,54 @@ footer p{
     height: 120px;
     overflow-x: auto;
 }
-.product .row{
+.product-detail .product-row{
     margin: 20px;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     padding: 20px;
+    border-radius: 30px;
 }
-
 .details{
-    padding: 70px;
+    padding: 10px;
+    margin: 150px;
+    width: 100%;
+    margin-top: 20px;
+}
+.details h3{
+    font-size: 30px;
 }
 .details a{
     padding: 0;
     font-size: small;
+    color:  rgba(0, 0, 0, 0.5);
 }
+/*Add to Basket button*/
+.details .btn{
+    margin-top: 20px;
+    padding: 20px;
+    font-size: large;
+    transition: transform 0.5s ease;
+    transition: background-colour 0.3s ease;
+    background-color: rgba(46, 10, 10, 0.5);
+    border: none;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+.details .btn:hover{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: scale(1.1);
+}
+.details select{
+    margin-top: 10px;
+    font-size: small;
+    border-radius: 10px;
+}
+
+
+
+
 /*Cart Items*/
 .cart-page{
     margin: 80px auto;
@@ -447,5 +482,3 @@ th:last-child{
 .checkout-button:hover {
     background-color: #401f9b;
 }
-
-/*******************************SORTING DROP DOWN***************************/
