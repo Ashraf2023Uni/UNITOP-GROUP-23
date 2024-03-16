@@ -1,4 +1,4 @@
-<!--HomePage for customers who are not logged in - Humayra Hussain, 210005848-->
+<!--HomePage for customers - Humayra Hussain, 210005848-->
 <?php
 session_start();
 require('php/connectdb.php');
@@ -10,52 +10,56 @@ require('php/connectdb.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" , initial-scale="1.0">
     <title>UNITOP/HomePage</title>
-    <link rel="stylesheet" href="css/home-page.css">
-    <link rel="shortcut icon" type="icon" href="assests/Banners/logo.png">
-    <script src="search.js" defer></script>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" 
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/home-page.css"/>
+    <link rel="shortcut icon" type="icon" href="assests/Banners/logo.png"/>
 </head>
 
 <body>
     <!--Header - brand logo and navigation bar-->
     <header>
-        <!--NAVIGATION BAR-->
-        <div class="banner">
-            <section class="navbar">
-                <img src="assests/Navbar/UT-new-logo.png" width="100px" alt="UNITOP logo">
+        <!--LOGO-->
+        <div class="navbar">
+            <img src="assests/Navbar/UT-new-logo.png" width="100px" alt="UNITOP logo">
+            
+            <!--Search bar - products to be searched through by name-->
+            <?php include('php/search.php'); ?>
 
-                <!--Navbar - Links to Other Pages-->
-                <div class="links">
-                    <nav>
-                        <div class="img-links">
-                            <a href="index.php"><img src="assests/Navbar/home_4991416.png" class="home-icon"></a>
-                            <a href="about-us.html"><img src="assests/Navbar/about-us.png" class="about-us-icon"></a>
-                            <a href="contact.html"><img src="assests/Navbar/notification_9383540.png" class="contact-us-icon"></a>
-                            <a href="index.php"><img src="assests/Navbar/avatar_9892372.png" class="account-icon"></a>
-                            <a href="basket.php"><img src="assests/Navbar/checkout_4765148.png" class="basket-icon"></a>
-                            <a href="admin_login.php"><img src="assests/Navbar/staffpic.png" class="staff-icon"></a>
-
-                        </div>
-                        <div class="nav-links">
-                            <ul>
-                                <li><a href="index.php">Home</a></li>
-                                <li><a href="about-us.html">About Us</a></li>
-                                <li><a href="contact.html">Contact Us</a></li>
-                                <li><a href="index.php">Account</a></li>
-                                <li><a href="basket.php">Basket</a></li>
-                                <li><a href="admin_login.php">Staff login</a></li>
-                            </ul>
-                        </div>
-                    </nav>
-
-                </div>
-            </section>
+            <!--NAVIGATION BAR-->
+            <div class="links">
+                <nav>
+                    <div class="img-links">
+                        <a href="index.php"><img src="assests/Navbar/home_4991416.png" class="home-icon"></a>
+                        <a href="about-us.html"><img src="assests/Navbar/about-us.png" class="about-us-icon"></a>
+                        <a href="contact.html"><img src="assests/Navbar/notification_9383540.png" class="contact-us-icon"></a>
+                        <a href="index.php"><img src="assests/Navbar/avatar_9892372.png" class="account-icon"></a>
+                        <a href="basket.php"><img src="assests/Navbar/checkout_4765148.png" class="basket-icon"></a>
+                        <a href="admin_login.php"><img src="assests/Navbar/staffpic.png" class="staff-icon"></a>
+                    </div>
+                    <div class="page-links">
+                        <ul>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="index.php">Account</a></li>
+                            <li><a href="basket.php">Basket</a></li>
+                            <li><a href="admin_login.php">Staff login</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
         </div>
     </header>
 
     <!--Menu with the categories based on degrees of students-->
     <div class="menu">
     <a href="products-page.php">Computer Science</a>
-    <a href="products-page.php"> E-sports</a>
+    <a href="products-page.php">Biology</a>
     <a href="products-page.php">Graphics Design</a>
     <a href="products-page.php">Law</a>
     <a href="products-page.php">Medicine</a>
@@ -63,8 +67,8 @@ require('php/connectdb.php');
 
     <!--Banner to encourage log-in, necessary to be able to purchase from the store-->
     <div class="banner-log">
-    <div class="log-in" style="background-image: url(assests/Banners/banner.jpg);">
-        <section class="heading">
+    <div class="log-in" style="background-image: url(assests/Banners/banner-computer.jpg);">
+        <div class="heading">
             <h1>Educate with UNITOP</h1>
             <p>Choose a laptop that aligns perfectly with your students academic pursuits.
                 <br>Choose the features that matter to your students, from powerful processors
@@ -72,24 +76,15 @@ require('php/connectdb.php');
                 <br>Choose to empower your students journey through UNITOP.
             </p>
             <section class="heading-links">
-                <a href="login.php" class="button">Log In</a> or
+                <a href="login.php" class="button" id="login-btn">Log In</a> or
                 <a href="register.php" class="button">Sign Up</a>
             </section>
-
-        </section>
+        </div>
     </div>
     </div>
-
-    <!--Search bar - products to be searched through by name-->
-    <?php include('php/search.php'); ?>
 
     <!--Product showcase row (arrows would be nice)-->
-    <div class="header">
-    <h2>Featured Products</h2>
-    <div class="row">
-        <?php include('php/featured.php'); ?>
-    </div>
-    </div>
+    <?php include('php/featured.php'); ?>
 
     <!--About Us+Contact Us-->
     <div class="about">

@@ -1,15 +1,39 @@
+/*Humayra Hussain - 210005848*/
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:Arial, Helvetica, sans-serif;
-}
-header{
-    padding-bottom: 5px;
-    text-align: center;
-    /*position fixed*/
+    font-family: "Poppins", sans-serif;
 }
 
+/************************Styling for NAVIGATION BAR**************************/
+header .navbar{
+    text-align: center;
+    background-color: white;
+    width: 100%;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    font-size: small;
+}
+/*Search Bar*/
+.search{
+    margin-top: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input{
+    width: 500px;
+    margin-left: 20px;
+}
+.search img{
+    height: 15px;
+    width: 15px;
+}
+/*Links to pages for the Nav-bar*/
 a{
     color: black;
     text-decoration: none;
@@ -19,36 +43,6 @@ a{
 a:hover{
     text-decoration: underline;
 }
-
-/************************************* NAVIGATION BAR ********************************************/
-.navbar{
-    display: flex;
-    align-items: center;
-    font-size: small;
-}
-
-/*Search bar*/
-.search-bar{
-    text-align: center;
-    margin-top: 10px;
-    font-style: italic;
-}
-.search-bar input{
-    width: 700px;
-    height: 20px;
-}
-.search-bar button{
-    background-color: transparent;
-    color: white;
-    border: none;
-    transform: translateY(4px);
-    cursor: pointer;
-}
-.search-bar .search-icon{
-    width: 15px;
-}
-
-/*div class=links - all contents*/
 .links{
     flex: 1;
     text-align: right;
@@ -60,76 +54,55 @@ a:hover{
     flex-direction: column;
     align-items: flex-end;
 }
-
 .links .img-links img{
     display: inline-block;
-    padding: 0;
-    margin: 0;
     margin-right: 56px;
+    margin-bottom: -7px;
 }
-
 .links ul{
     display: inline-block;
     list-style-type: none;
 }
-
-.links .nav-links ul li{
+.links .page-links ul li{
     display: inline-block;
     margin-right: 20px;
 }
-
 .links img{
     display: inline-block;
     width: 20px;
     text-align: center;
 }
-
 .img-links .home-icon{
     width: 15px;
-    transform: translate(19px);
+    transform: translate(-16px);
 }
 .img-links .about-us-icon{
     width: 17px;
-    transform: translate(9px);
+    transform: translate(-17px);
 }
 .img-links .contact-us-icon{
     width: 15px;
-    transform: translate(17px);
+    transform: translate(-9px);
 }
 .img-links .account-icon{
     width: 15px;
-    transform: translate(22px);
+    transform: translate(7px);
 }
 .img-links .basket-icon{
     width: 15px;
-    transform: translate(15px);
+    transform: translate(5px);
 }
 
-.banner{
-    margin: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-/*.banner::after{
-    content: "";
-    display: block;
-    height: 1px;
-    margin-top: 10px;
-    background-color: gray;
-}*/
-
-/********NAVBAR styling END- all contents**********/
-
+/************************Styling for Login Banner**************************/
+/*5 Categories for Menu*/
 .menu{
     background-color: black;
     color: white;
-    padding: 15px;
-    font-size: medium;
+    padding: 5px;
     display: flex;
+    font-size: small;
     justify-content: space-around;
     align-items: center;
-    margin-left: auto;
-    margin-right: auto;
 }
 .menu a{
     text-decoration: none;
@@ -140,10 +113,12 @@ a:hover{
 .menu a:hover{
     text-decoration: underline;
 }
-
+/*Log-in Banner*/
 .banner-log{
     display: flex;
     flex-direction: column;
+    margin: auto;
+    text-align: center;
 }
 .log-in{
     width: max-width;
@@ -152,98 +127,98 @@ a:hover{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
 .button{
     display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
     margin-bottom: 50px;
     border: 2px solid white;
     background-color: transparent;
     padding: 10px 20px;
     cursor: pointer;
     color: white;
-    border-radius: 4px;
+    border-radius: 10px;
 }
 .button:hover{
-    background-color: white;
-    color: black;
+    text-decoration: underline;
 }
-
-.search{
-    margin-top: 20px;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-input{
-    width: 500px;
-}
-.search img{
-    height: 15px;
-    width: 15px;
-}
-
 .heading{
-    margin-left: 40px;
+    margin-left: 200px;
+    margin-right: 200px;
+    transition: background-colour 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
 }
-
+.heading:hover{
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: scale(1.05);
+}
 .heading h1{
     font-size: 50px;
     line-height: 60px;
-    text-align: left;
+    text-align: center;
     margin: 10px 0;
-    padding-top: 120px;
+    padding-top: 50px;
 }
 .heading-links{
-    /*display: flex;
-    flex-direction: column;
-    text-align: center;*/
     padding-top: 30px;
-    padding-left: 150px;
 }
-
 .log-in p{
-    text-align: left;
-    padding-top: 35px;
+    text-align: center;
+    padding: 20px;
+}
+.button#login-btn{
+    background-color: white;
+    color: black;
+    margin-left: 40px;
 }
 
-/********************PRODUCT Showcase********************/
-.row{
+/************************FEATURED PRODUCT SHOWCASE**************************/
+.featured-products h2{
+    margin-top: 40px;
+    text-align: center;
+    position: relative;
+    line-height: 40px;
+}
+.featured-products p{
+    margin-top: 0;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.product-row{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     flex-flow: row;
     position: relative;
     width: auto;
 }
-
-.products{
+.product-card{
     align-items: center;
     padding: 3px;
     justify-content: center;
     border: 1px solid black;
     margin: 10px;
     height: 370px;
-    transition: background-color 0.3s ease;
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
-.products img{
+.product-card img{
     height:200px;
 }
-
-.header h2{
-    text-align: center;
-    margin: 40px auto 20px;
-    position: relative;
-    line-height: 60px;
-}
-
-.products h4, .products p{
+.product-card h4, .product-card p{
     text-align: center;
     padding-top: 4px;
     margin-bottom: 5px;
 }
-
-.products .button{
+.product-card .button{
     margin-top: 30px;
     transform: translateX(45px);
     background-color: rgb(34, 83, 198);
@@ -251,24 +226,12 @@ input{
     border: 1px solid black;    
     align-items: bottom;
     position: absolute;
-
 }
-/*.products .button:hover{
-    opacity: 0.80;
-    color: white;
-    text-decoration: underline;
+.product-card:hover{
+    transform: scale(1.1);
 }
-.products:hover{
-    background-color: black;
-    color: white;
-}
-.products a:hover{
-    color: white;
-}*/
 
-
-/*About Us/Contact Us section*/
-
+/************************ABOUT US and CONTACT US**************************/
 .about{
     margin-top: 80px;
     padding: 30px 0;
