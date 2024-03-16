@@ -240,6 +240,11 @@ ALTER TABLE `customers`
 ALTER TABLE `admin_users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
+--
+-- Indexes for table `admin_users`
+--
+ALTER TABLE `admin_users`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Constraints for table `orderlines`
