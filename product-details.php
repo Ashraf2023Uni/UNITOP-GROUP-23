@@ -70,7 +70,7 @@
             if(ISSET($_GET["id"])){
                 $product_id = $_GET["id"];
             
-            $query = "SELECT * FROM products WHERE product_id = $product_id";
+            $query = "SELECT * FROM laptops WHERE product_id = $product_id";
             #Ashraf work
             $details = $db->query($query)->fetch();
             if($details){

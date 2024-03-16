@@ -80,6 +80,9 @@ if(isset($_POST['submit'])) {
 
         if ($user && password_verify($password, $user['password'])) {
             // Login successful, redirect to a logged-in page or perform necessary actions
+            session_start();
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['logged_in'] = true;
             header("Location: logged-in-index.php");
             exit;
         } else {

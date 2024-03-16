@@ -56,6 +56,8 @@
                         </form>
                     <?php  
                         if(isset($_POST['Log Out'])){
+                            $_SESSION['logged_in'] = false;
+                            unset($_SESSION['user_id']);
                             header("Location: index.php");
                             exit;
                         }

@@ -110,7 +110,7 @@
                 for($i = 0; $i<count($_SESSION['prod_id']); $i++){
                     $id = $_SESSION['prod_id'][$i];
                     $quantity = $_SESSION['qty'][$i];
-                    $query = "SELECT product_name, price FROM products WHERE product_id = $id";
+                    $query = "SELECT product_name, price FROM laptops WHERE product_id = $id";
                     $laptop = $db->query($query)->fetch();
                     $total = $total + (floatval($laptop['price']) * intval($quantity));
                     $split_total[$i] = (floatval($laptop['price']) * intval($quantity));

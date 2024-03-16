@@ -7,12 +7,12 @@
 <body>
 <?php 
 require_once('php/connectdb.php');
-$query = "SELECT product_id, product_name, price FROM products";
-$products = $db->query($query);
+$query = "SELECT product_id, product_name, price FROM laptops";
+$all_laptops = $db->query($query);
 
 
-if($products->rowCount()>0){
-    while($laptop = $products->fetch()){
+if($all_laptops->rowCount()>0){
+    while($laptop = $all_laptops->fetch()){
         echo"<div class='products'>
         <a href='product-details.php?id=".$laptop['product_id']."'>
         <img src='assests/Product/".$laptop['product_id'].".png' alt='' id='Featured-Thumbnail'>
