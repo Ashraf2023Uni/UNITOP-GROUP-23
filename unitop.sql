@@ -62,61 +62,6 @@ INSERT INTO `admin_users` (`id`, `email`, `password`, `phoneNumber`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `filter_cs`
---
-
-CREATE TABLE `filter_cs` (
-  `id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `filter_esports`
---
-
-CREATE TABLE `filter_esports` (
-  `id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `filter_graphic_design`
---
-
-CREATE TABLE `filter_graphic_design` (
-  `id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `filter_law`
---
-
-CREATE TABLE `filter_law` (
-  `id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `filter_medicine`
---
-
-CREATE TABLE `filter_medicine` (
-  `id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `orderlines`
 --
 
@@ -134,7 +79,7 @@ CREATE TABLE `orderlines` (
 
 CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL,
-  `Email` varchar(30) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `order_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `cost` decimal(9,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -157,10 +102,10 @@ CREATE TABLE `payment_details` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Table structure for table `laptops`
 --
 
-CREATE TABLE `products` (
+CREATE TABLE `laptops` (
   `product_id` int(11) NOT NULL,
   `product_name` varchar(30) DEFAULT NULL,
   `description` varchar(300) DEFAULT NULL,
@@ -175,7 +120,7 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `product_name`, `description`, `stock`, `price`, `discount_percent`, `low_stock_indicator`, `out_of_stock_indicator`) VALUES
+INSERT INTO `laptops` (`product_id`, `product_name`, `description`, `stock`, `price`, `discount_percent`, `low_stock_indicator`, `out_of_stock_indicator`) VALUES
 (1, 'Legion Pro 7 (Gen8)', 'Powerful AI-tuned gaming laptop with AMD Ryzen™ processing muscle-Stunning 16\" Lenovo PureSight Gaming Display with WQXGA resolution', 460, '2999.00', NULL, 0, 0),
 (2, 'Surface Pro 8', 'The Surface Pro 8 is ultra-light, fast and versatile with the perfect balance of portability and power.', 460, '1699.00', NULL, 0, 0),
 (3, '14-inch Macbook Pro', 'The 14-inch MacBook Pro blasts forward with M3, an incredibly advanced chip that brings serious speed and capability. With best-in-class battery life — up to 22 hours1 — and a beautiful Liquid Retina XDR display, it’s a pro laptop without equal.', 460, '1699.00', NULL, 0, 0),
@@ -188,10 +133,10 @@ INSERT INTO `products` (`product_id`, `product_name`, `description`, `stock`, `p
 -- --------------------------------------------------------
 
 --
--- Table structure for table `signup`
+-- Table structure for table `customers`
 --
 
-CREATE TABLE `signup` (
+CREATE TABLE `customers` (
   `id` int(11) NOT NULL,
   `Email` varchar(255) NOT NULL,
   `university` varchar(255) NOT NULL,
@@ -200,10 +145,10 @@ CREATE TABLE `signup` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `signup`
+-- Dumping data for table `customers`
 --
 
-INSERT INTO `signup` (`id`, `Email`, `university`, `password`, `phoneNumber`) VALUES
+INSERT INTO `customers` (`id`, `Email`, `university`, `password`, `phoneNumber`) VALUES
 (0, 'n.powell@aston.ac.uk', 'Aston University', '$2y$10$dUINP467bNvBROdaeAmM4.jYIEVYavvUDXXSp0CgdRkE7mGURZXjG', '01214564567'),
 (1, 'testing123@gmail.com', 'Arts University Plymouth', '$2y$10$Dzx64yUKzVKC6DQuikMcLesXOMS8A8wwTMgo/jgKQsWY7RHY9MLjy', '1234567890'),
 (2, 'testing123@gmail.com', 'Arts University Plymouth', '$2y$10$/Lh/f8O5cNC2UaSu7/dCNeERWIfiTiKA3IIfVXnXrnNF/Kqi1cVYO', '1234567890'),
@@ -223,41 +168,6 @@ ALTER TABLE `address`
   ADD PRIMARY KEY (`address_id`);
 
 --
--- Indexes for table `filter_cs`
---
-ALTER TABLE `filter_cs`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `product_id` (`product_id`);
-
---
--- Indexes for table `filter_esports`
---
-ALTER TABLE `filter_esports`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `product_id` (`product_id`);
-
---
--- Indexes for table `filter_graphic_design`
---
-ALTER TABLE `filter_graphic_design`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `product_id` (`product_id`);
-
---
--- Indexes for table `filter_law`
---
-ALTER TABLE `filter_law`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `product_id` (`product_id`);
-
---
--- Indexes for table `filter_medicine`
---
-ALTER TABLE `filter_medicine`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `product_id` (`product_id`);
-
---
 -- Indexes for table `orderlines`
 --
 ALTER TABLE `orderlines`
@@ -268,7 +178,8 @@ ALTER TABLE `orderlines`
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`order_id`);
+  ADD PRIMARY KEY (`order_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `payment_details`
@@ -277,15 +188,15 @@ ALTER TABLE `payment_details`
   ADD PRIMARY KEY (`payment_id`);
 
 --
--- Indexes for table `products`
+-- Indexes for table `laptops`
 --
-ALTER TABLE `products`
+ALTER TABLE `laptops`
   ADD PRIMARY KEY (`product_id`);
 
 --
--- Indexes for table `signup`
+-- Indexes for table `customers`
 --
-ALTER TABLE `signup`
+ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -297,36 +208,6 @@ ALTER TABLE `signup`
 --
 ALTER TABLE `address`
   MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `filter_cs`
---
-ALTER TABLE `filter_cs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `filter_esports`
---
-ALTER TABLE `filter_esports`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `filter_graphic_design`
---
-ALTER TABLE `filter_graphic_design`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `filter_law`
---
-ALTER TABLE `filter_law`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `filter_medicine`
---
-ALTER TABLE `filter_medicine`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -341,51 +222,18 @@ ALTER TABLE `payment_details`
   MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT for table `laptops`
 --
-ALTER TABLE `products`
+ALTER TABLE `laptops`
   MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `signup`
+-- AUTO_INCREMENT for table `customers`
 --
-ALTER TABLE `signup`
+ALTER TABLE `customers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Constraints for dumped tables
---
-
---
--- Constraints for table `filter_cs`
---
-ALTER TABLE `filter_cs`
-  ADD CONSTRAINT `filter_cs_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `filter_esports`
---
-ALTER TABLE `filter_esports`
-  ADD CONSTRAINT `filter_esports_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `filter_graphic_design`
---
-ALTER TABLE `filter_graphic_design`
-  ADD CONSTRAINT `filter_graphic_design_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `filter_law`
---
-ALTER TABLE `filter_law`
-  ADD CONSTRAINT `filter_law_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `filter_medicine`
---
-ALTER TABLE `filter_medicine`
-  ADD CONSTRAINT `filter_medicine_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
 --
 -- AUTO_INCREMENT for table `admin_users`
 --
@@ -398,8 +246,16 @@ ALTER TABLE `admin_users`
 --
 ALTER TABLE `orderlines`
   ADD CONSTRAINT `orderlines_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `orderlines_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `orderlines_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `laptops` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `customers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
