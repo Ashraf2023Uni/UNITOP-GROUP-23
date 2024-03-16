@@ -74,7 +74,7 @@ if(isset($_POST['submit'])) {
     }
 
     try {
-        $stmt = $db->prepare("SELECT * FROM signup WHERE Email = ?");
+        $stmt = $db->prepare("SELECT * FROM customers WHERE Email = ?");
         $stmt->execute(array($email));
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 

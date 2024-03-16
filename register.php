@@ -105,7 +105,7 @@ if(isset($_POST['submit'])) {
 
     try {
         // Checks if email or phone number already exists in the database
-        $stmt = $db->prepare("SELECT * FROM signup WHERE Email = ? OR phoneNumber = ?");
+        $stmt = $db->prepare("SELECT * FROM customers WHERE Email = ? OR phoneNumber = ?");
         $stmt->execute(array($email, $phoneNumber));
         $existingUser = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -116,7 +116,7 @@ if(isset($_POST['submit'])) {
         }
 
         // Insert data to database
-        $stmt = $db->prepare("INSERT INTO signup (Email, university, password, phoneNumber) VALUES (?, ?, ?, ?)");
+        $stmt = $db->prepare("INSERT INTO customers (Email, university, password, phoneNumber) VALUES (?, ?, ?, ?)");
         $stmt->execute(array($email, $university, $hashedPassword, $phoneNumber));
 
         header("Location: login.php");
