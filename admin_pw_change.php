@@ -4,18 +4,21 @@ session_start();
 
 require_once('php/connectdb.php');
 
-$error_message = '.';
+$error_message = 'Not working';
+$success_message = 'Working';
+
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $current_password = $_POST['current_password'];
     $new_password = $_POST['new_password'];
     $confirm_new_password = $_POST['confirm_new_password'];
 
-    $admin_id = $_SESSION['admin_id'];
+    $id = $_SESSION['id'];
 
-    $query = "SELECT password FROM admins WHERE admin_id = :admin_id";
+    $query = "SELECT password FROM admin_users WHERE id = :id";
     $statement = $db->prepare($query);
-    $statement->bindParam(':admin_id', $admin_id, PDO::PARAM_INT);
+    $statement->bindParam(':id', $id, PDO::PARAM_INT);
     $statement->execute();
     $result = $statement->fetch(PDO::FETCH_ASSOC);
 
@@ -24,10 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
             $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
 
-            $update_query = "UPDATE admins SET password = :password WHERE admin_id = :admin_id";
+            $update_query = "UPDATE admin_users SET password = :password WHERE id = :id";
             $update_statement = $db->prepare($update_query);
             $update_statement->bindParam(' :password', $hashed_password, PDO::PARAM_STR);
-            $update_statement->bindParam(' :admin_id', $admin_id, PDO::PARAM_INT);
+            $update_statement->bindParam(' :id', $id, PDO::PARAM_INT);
 
 
             if ($update_statement->execute()){
@@ -63,6 +66,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         <label for="current_password">Current Password:</label><br>
         <input type="password" id="current_password" name="current_password" required><br><br>
 
+        <label for="new_password">New Password:</label><br>
+        <input type="password" id="new_password" name="new_password" required><br><br>
+       
         <label for="confirm_new_password">Confirm New Password:</label><br>
         <input type="password" id="confirm_new_password" name="confirm_new_password" required><br><br>
 
