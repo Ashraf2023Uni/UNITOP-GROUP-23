@@ -6,34 +6,33 @@
     <div class="product-row">
 
         <?php
-        require_once('connectdb.php');
-        $query = "SELECT product_id, product_name, price FROM products";
-        $all_laptops = $db->query($query);
+            require_once('connectdb.php');
+            $query = "SELECT product_id, product_name, price FROM products";
+            $all_laptops = $db->query($query);
 
-        $count = 0;
+            $count = 0;
 
-        if($all_laptops->rowCount()>0){
-            while($laptop = $all_laptops->fetch()){
-            //Only show first 5 laptops
-            if($count < 5){
-                echo"<div class='product-card'>
-                    <a href='product-details.php?id=".$laptop['product_id']."'>
-                
-                    <img src='assests/Products/".$laptop['product_id'].".png' alt='' id='Featured-Thumbnail'>
+            if($all_laptops->rowCount()>0){
+                while($laptop = $all_laptops->fetch()){
+                //Only show first 5 laptops
+                if($count < 5){
+                    echo"<div class='product-card'>
+                        <a href='product-details.php?id=".$laptop['product_id']."'>
+                        <img src='assests/Products/".$laptop['product_id'].".png' alt='' id='Featured-Thumbnail'>
         
-                    <h4>".$laptop['product_name']."</h4>
-                    <p>£".$laptop['price']."</p>
-                    <button class='button'>More Details</button>
-                    </a>
-                    </div>";
-                $count++;
-            } else {
-                //Break once 5 products displayed
-                break;
-            }
+                        <h4>".$laptop['product_name']."</h4>
+                        <p>£".$laptop['price']."</p>
+                        <button class='button'>More Details</button>
+                        </a>
+                        </div>";
+                    $count++;
+                } else {
+                    //Break once 5 products displayed
+                    break;
+                }
     
-        }
-        }
+            }
+            }
 
         ?>
     </div>

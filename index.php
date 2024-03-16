@@ -86,30 +86,40 @@ require('php/connectdb.php');
     <!--Product showcase row (arrows would be nice)-->
     <?php include('php/featured.php'); ?>
 
-    <!--About Us+Contact Us-->
+    <!--About Us and Contact Us Banner-->
+    <div class="about-p">
+        <p>Discover who we are or Get in Touch today</p>
+    </div>
     <div class="about">
-        <section class="box" style="background-image: url(assests/Banners/about-us.jpg);">
+        <section class="box" style="background-image: url(assests/Banners/about.jpg);">
             <h1>Who we are!</h1>
-            <p>Dive into our company.</p>
+            <p>At UNITOP, we're dedicated to elevating your students educational journey. 
+                Our vision began with proving ease in your laptop purchases. 
+                Learn more about us and how we strive to make your students learning better.
+            </p>
             <a href="about-us.hmtml" class="button">About Us</a>
         </section>
-        <section class="box" style="background-image: url(assests/Banners/contact-us.jpg);">
+        <section class="box" style="background-image: url(assests/Banners/contact.jpg);">
             <h1>How to reach us!</h1>
-            <p>Contact us through here.</p>
+            <p>
+                We are here to assist you every step of the way.
+                Whether you have a question or need assitance, our team is here to help.
+                Your feedback is invaluable to us and we look forward to hearing from you.
+                Get in touch today.
+            </p>
             <a href="contact.html" class="button">Contact Us</a>
         </section>
     </div>
 
-    <!-------------------FOOTER---------------------->
+    <!--FOOTER-->
     <footer>
         <div class="footer">
             <div class="footer-box">
                 <img src="assests/Navbar/logo-no-slogan.png">
                 <h3>UNITOP</h3>
                 <p>Educate with UNITOP!</p>
-                <a href="login.html" class="btn">Log In</a>
+                <a href="login.php" class="button">Log In</a>
             </div>
-
             <div class="footer-box">
                 <h3>Follow Us</h3>
                 <div class="socials">
@@ -118,37 +128,32 @@ require('php/connectdb.php');
                     <img src="assests/Footer/linkedin.png">
                 </div>
             </div>
-
             <div class="footer-box">
                 <h3>About Us</h3>
                 <ul>
-                    <li><a href="">Who We Are</a></li>
+                    <li><a href="about-us.html">Who We Are</a></li>
                     <br>
-                    <li><a href="">Our Mission</a></li>
+                    <li><a href="about-us.html">Our Mission</a></li>
                     <br>
-                    <li><a href="">The Team</a></li>
+                    <li><a href="about-us.html">The Team</a></li>
                 </ul>
             </div>
-
             <div class="footer-box">
                 <h3>Useful Links</h3>
                 <ul>
-                    <li><a href="">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <br>
-                    <li><a href="">Contact Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                     <br>
-                    <li><a href="">About Us</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
                 </ul>
             </div>
         </div>
         <div class="line">
             <p>Terms and Conditions apply* | UNITOP Limited</p>
         </div>
-
     </footer>
 
 </body>
 
 </html>
-
-<script type="text/javascript" src="index.js"></script>
