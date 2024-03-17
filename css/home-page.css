@@ -181,6 +181,9 @@ a:hover{
 }
 
 /************************FEATURED PRODUCT SHOWCASE**************************/
+.featured-products{
+    margin-bottom: 20px;
+}
 .featured-products h2{
     margin-top: 60px;
     text-align: center;
@@ -406,9 +409,18 @@ footer p{
     border-radius: 10px;
 }
 
+/*Products page styling - Humayra Hussain, 210005848*/
+.sorting form{
+    margin: 20px;
+    text-align: right;
+}
+.sorting form .button{
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    margin-bottom: 0;
+}
 
-
-
+/*Basket Page styling - Haseeb */
 /*Cart Items*/
 .cart-page{
     margin: 80px auto;

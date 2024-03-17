@@ -60,33 +60,24 @@
     <a href="products-page.php">Medicine</a>
     </div>
 
-<!------------------------------SORTING PRODUCTS-------------------------------------->                
+<!------------------------------SORTING PRODUCTS-------------------------------------->
 <div class="sorting">
-    <div class="sort-list">
-        <a href="products-page.php?<?php echo isset($_POST['submit']) ? '?search=' . urlencode($_POST['search']) . '&' : ''; ?>sort=default">Default</a>
-        </div>
-        <div class="sort-list">
-        <a href="products-page.php?<?php echo isset($_POST['submit']) ? '?search=' . urlencode($_POST['search']) . '&' : ''; ?>sort=high-to-low">High To Low</a>
-        </div>
-        <div class="sort-list">
-        <a href="products-page.php?<?php echo isset($_POST['submit']) ? '?search=' . urlencode($_POST['search']) . '&' : ''; ?>sort=low-to-high">Low To High</a>
-    </div>
-</div>
-
-<div class="sorting">
-<select class="dropdown">Sort By: </select>
-    <option value="default">Default</option>
-    <option value="low-to-high">Price Low to High</option>
-    <option value="high-to-low">Price High to Low</option>
-</select>
+<form action="products-page.php" method="POST">
+    <select name="sort" class="dropdown">
+        <option value="default">Default</option>
+        <option value="low-to-high">Price Low to High</option>
+        <option value="high-to-low">Price High to Low</option>
+    </select>
+    <button type="submit" class="button">Apply Sort</button>
+</form>
 </div>
 
 <div class='featured-products'>
-<div class="product-row">
+<div class="product-row" id="product-row">
 <?php
     require('php/connectdb.php');
     $query = "SELECT product_id, product_name, price from products";
-
+    
     if(isset($_POST["submit"])){
         $name = $_POST["search"];
         $query = "SELECT product_id, product_name, price FROM products WHERE product_name LIKE :searchName";
@@ -97,15 +88,16 @@
         $products = $db->prepare($query);
     }
 
-    $sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
-    if($sort !== 'default'){
-        switch($sort){
-            case 'low-to-high':
-                $query .= " ORDER BY price ASC";
-                break;
-            case 'high-to-low':
-                $query .= " ORDER BY price DESC";
-                break; 
+    if(isset($_POST['sort'])){
+        if($_POST['sort'] !== 'default'){
+            switch($_POST['sort']){
+                case 'low-to-high':
+                    $query = "SELECT product_id, product_name, price from products ORDER BY price ASC";
+                    break;
+                case 'high-to-low':
+                    $query = "SELECT product_id, product_name, price from products ORDER BY price DESC";
+                    break; 
+            }
         }
     }
     $products = $db->prepare($query);
@@ -120,9 +112,7 @@
             while($laptop = $products->fetch()){
                 echo"<section class='product-card'>
                 <a href='product-details.php?id=".$laptop['product_id']."'>
-            
                 <img src='assests/Products/".$laptop['product_id'].".png' alt='' id='Featured-Thumbnail'>
-    
                 <h4>".$laptop['product_name']."</h4>
                 <p>£".$laptop['price']."</p>
                 <button class='button'>More Details</button>
@@ -132,10 +122,35 @@
         }else {
             echo "Name does not exist.";
         }
+
+/*OLD SORTING
+$sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
+    if($sort !== 'default'){
+        switch($sort){
+            case 'low-to-high':
+                $query .= " ORDER BY price ASC";
+                break;
+            case 'high-to-low':
+                $query .= " ORDER BY price DESC";
+                break; 
+        }
+    }*/
 ?>
 </div>
 </div>
 
+<!--Sorting using php OLD          
+<div class="sorting">
+    <div class="sort-list">
+        <a href="products-page.php?sort=default">Default</a>
+        </div>
+        <div class="sort-list">
+        <a href="products-page.php?sort=high-to-low">High To Low</a>
+        </div>
+        <div class="sort-list">
+        <a href="products-page.php?sort=low-to-high">Low To High</a>
+    </div>
+</div>-->
 <!-------------------FOOTER---------------------->
 <footer>
 <div class="footer">

@@ -64,6 +64,24 @@
         <section class='product-row'>
             <?php 
             require_once('php/connectdb.php');
+
+            //Error message when no quantity is selected
+            $quantity = "";
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $quantity = $_POST['quantity'];
+            }
+            if (isset($_GET['error'])): ?>
+                <div class="error-message"style="color: red;">>
+                <?php
+                switch ($_GET['error']) {
+                    case 'select quantity':
+                        echo "Please select a quantity.";
+                        break;
+                }
+                ?>
+            </div>
+            <?php endif;
+        
             $product_id = "";
             if(ISSET($_GET["id"])){
                 $product_id = $_GET["id"];
@@ -113,7 +131,6 @@
                     }
                 } else {
                     echo"<p>Status: Out of stock </p>";
-
             }
         } else {
             echo "Product not found";
