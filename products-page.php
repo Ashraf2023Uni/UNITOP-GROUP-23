@@ -14,6 +14,7 @@
     />
     <link rel="stylesheet" href="css/home-page.css">
     <link rel="shortcut icon" type="icon" href="assests/Banners/logo.png">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -78,24 +79,30 @@
     require('php/connectdb.php');
     $query = "SELECT product_id, product_name, price from products";
     
+    //Checks if the form named 'submit' has been submitted
     if(isset($_POST["submit"])){
+        //Retrieve the value entered in the form named 'search'
         $name = $_POST["search"];
+        //Search for products with a name similar to what was searched
         $query = "SELECT product_id, product_name, price FROM products WHERE product_name LIKE :searchName";
-
         $products = $db->prepare($query);
         $products->bindValue('searchName', '%' . $name . '%', PDO::PARAM_STR);
+        $products->execute();
     } else {
+        //If nothing has been searched then the query still continues.
         $products = $db->prepare($query);
     }
 
+    //Checks if the form with the name 'sort' has been submitted
+    $sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
     if(isset($_POST['sort'])){
         if($_POST['sort'] !== 'default'){
             switch($_POST['sort']){
                 case 'low-to-high':
-                    $query = "SELECT product_id, product_name, price from products ORDER BY price ASC";
+                    $query .= " ORDER BY price ASC";
                     break;
                 case 'high-to-low':
-                    $query = "SELECT product_id, product_name, price from products ORDER BY price DESC";
+                    $query .= " ORDER BY price DESC";
                     break; 
             }
         }
@@ -123,16 +130,10 @@
             echo "Name does not exist.";
         }
 
-/*OLD SORTING
+/*OLD SORTING using a href = products.php?sort - URL
 $sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
     if($sort !== 'default'){
-        switch($sort){
-            case 'low-to-high':
-                $query .= " ORDER BY price ASC";
-                break;
-            case 'high-to-low':
-                $query .= " ORDER BY price DESC";
-                break; 
+        switch($sort){ 
         }
     }*/
 ?>

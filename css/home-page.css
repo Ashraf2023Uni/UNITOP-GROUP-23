@@ -180,7 +180,7 @@ a:hover{
     margin-left: 40px;
 }
 
-/************************FEATURED PRODUCT SHOWCASE**************************/
+/************************PRODUCT SHOWCASE**************************/
 .featured-products{
     margin-bottom: 20px;
 }
@@ -222,7 +222,7 @@ a:hover{
     margin-bottom: 5px;
 }
 .product-card .button{
-    margin-top: 30px;
+    margin-top: 20px;
     border-radius: 10px;   
     align-items: bottom;
     position: absolute;
@@ -417,7 +417,8 @@ footer p{
 .sorting form .button{
     background-color: rgba(0, 0, 0, 0.9);
     color: white;
-    margin-bottom: 0;
+    margin: 0;
+    padding: 5px;
 }
 
 /*Basket Page styling - Haseeb */
