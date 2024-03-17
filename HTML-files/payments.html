@@ -45,7 +45,7 @@
                         <!---Search Bar--->
                         <div class="search-bar">
                             <input type="text" placeholder="Search">
-                            <button type="submit"><img src="assests/Navbar/search.png" class="search-icon"></button>
+                            <button type="submit"><img src="../assests/Navbar/search.png" class="search-icon"></button>
                         </div>
                     </nav>
 
@@ -64,10 +64,7 @@
 
                 <h3 class="title">Billing Address</h3>
 
-                <div class="inputBox">
-                    <span>Full Name:</span>
-                    <input type="text" placeholder="Steve Smith" name="fullname">
-                </div>
+
                 <div class="inputBox">
                     <span>Company Email:</span>
                     <input type="email" placeholder="example@example.com" name="email">
@@ -110,18 +107,19 @@
                     <span> Credit Card Number:</span>
                     <input type="number" placeholder="1111-2222-3333-4444" name="num">
                 </div>
-                <span>Exp Date:</span>
-                <div class="inputBox" id="inputExp">
-                    <input type="text" placeholder="MM" name = "expMonth">
-                    <input type="text" placeholder="XX" name = "expYear">
-                </div>
 
-                <div class="flex">
+
+                <div class="flex">          
+                    <div class="inputBox">
+                        <span>Exp Date:</span>
+                        <input type="text" placeholder="MM/YY" name = "expMonth">
+                    </div>
                     <div class="inputBox">
                         <span>CVV :</span>
                         <input type="text" placeholder="1234" name="cvv">
                     </div>
                 </div>
+
 
             </div>
     
