@@ -1,8 +1,13 @@
 <?php
-    if(session_status() == PHP_SESSION_NONE) {
-        session_start();
-        require('php/connectdb.php');
-    }
+session_start(); 
+require('php/connectdb.php'); 
+
+
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    // If not logged in, redirect to login page
+    header("Location: login.php"); 
+    exit; 
+}
 ?>
 
 <!--HomePage for customers with account - Humayra Hussain, 210005848-->
@@ -31,6 +36,12 @@
             
             <!--Search bar - products to be searched through by name-->
             <?php include('php/search.php'); ?>
+
+            <?php if (isset($_SESSION['email'])): ?>
+            <div class="welcome-message">
+                <h1>Welcome, <?php echo htmlspecialchars($_SESSION['email']); ?></h1>
+            </div>
+        <?php endif; ?>
 
             <!--NAVIGATION BAR-->
             <div class="links">
