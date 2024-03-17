@@ -1,5 +1,6 @@
 <!--This page will showcase list of products that can be filtered/sorted - HUMAYRA 210005848-->
-
+<?php
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,11 +55,12 @@
     </header>
     <!--Menu with the categories based on degrees of students-->
     <div class="menu">
-    <a href="products-page.php">Computer Science</a>
-    <a href="products-page.php">Biology</a>
-    <a href="products-page.php">Graphics Design</a>
-    <a href="products-page.php">Law</a>
-    <a href="products-page.php">Medicine</a>
+    <a href="products-page.php?category=All Laptops">All Laptops</a>
+    <a href="products-page.php?category=Computer Science">Computer Science</a>
+    <a href="products-page.php?category=Biology">Biology</a>
+    <a href="products-page.php?category=Graphics Design">Graphics Design</a>
+    <a href="products-page.php?category=Law">Law</a>
+    <a href="products-page.php?category=Medicine">Medicine</a>
     </div>
 
 <!------------------------------SORTING PRODUCTS-------------------------------------->
@@ -75,6 +77,7 @@
 
 <div class='featured-products'>
 <div class="product-row" id="product-row">
+    
 <?php
     require('php/connectdb.php');
     $query = "SELECT product_id, product_name, price from products";
@@ -129,29 +132,10 @@
         }else {
             echo "Name does not exist.";
         }
-
-/*OLD SORTING using a href = products.php?sort - URL
-$sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
-    if($sort !== 'default'){
-        switch($sort){ 
-        }
-    }*/
 ?>
 </div>
 </div>
 
-<!--Sorting using php OLD          
-<div class="sorting">
-    <div class="sort-list">
-        <a href="products-page.php?sort=default">Default</a>
-        </div>
-        <div class="sort-list">
-        <a href="products-page.php?sort=high-to-low">High To Low</a>
-        </div>
-        <div class="sort-list">
-        <a href="products-page.php?sort=low-to-high">Low To High</a>
-    </div>
-</div>-->
 <!-------------------FOOTER---------------------->
 <footer>
 <div class="footer">
@@ -198,6 +182,39 @@ $sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
 </div>
 
 </footer>
-
+<script src="js/filter-category.js"></script>
 </body>
 </html>
+
+<!--Sorting using php OLD     
+<h2> Test Products </h2>
+<div class='featured-products'>
+<div class="product-row" id="product-row">
+<?php
+            //Sorting products based on price
+            /*include('php/sort.php');*/
+        ?>
+</div>
+</div>
+
+<div class="sorting">
+    <div class="sort-list">
+        <a href="products-page.php?sort=default">Default</a>
+        </div>
+        <div class="sort-list">
+        <a href="products-page.php?sort=high-to-low">High To Low</a>
+        </div>
+        <div class="sort-list">
+        <a href="products-page.php?sort=low-to-high">Low To High</a>
+    </div>
+</div>
+OLD SORTING using a href = products.php?sort - URL
+$sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
+    if($sort !== 'default'){
+        switch($sort){ 
+        }
+    }*/
+
+   /* foreach ($products as $product) {
+        echo "<div>{$product['product_name']}</div>";
+    }-->

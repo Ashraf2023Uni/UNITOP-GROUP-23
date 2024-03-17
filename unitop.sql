@@ -61,6 +61,36 @@ INSERT INTO `admin_users` (`id`, `email`, `password`, `phoneNumber`) VALUES
 
 -- --------------------------------------------------------
 
+CREATE TABLE `categories` (
+  `category_id` int AUTO_INCREMENT PRIMARY KEY,
+  `category` VARCHAR(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `categories` (`category`) VALUES
+('All Laptops'),
+('Computer Science'),
+('Biology'),
+('Graphics Design'),
+('Law'),
+('Medicine');
+
+CREATE TABLE `product_categories` (
+  `product_id` INT,
+  `category_id` INT,
+  PRIMARY KEY (product_id, category_id),
+  FOREIGN KEY (product_id) REFERENCES products(product_id),
+  FOREIGN KEY (category_id) REFERENCES categories(category_id)
+);
+
+INSERT INTO `product_categories` (`product_id`, `category_id`) VALUES
+('1', '1'),
+('1', '2'),
+('1', '4'),
+('2', '1'),
+('3', '1'),
+('4', '1');
+-- --------------------------------------------------------
+
 --
 -- Table structure for table `orderlines`
 --

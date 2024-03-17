@@ -1,7 +1,7 @@
 <!--HomePage for customers - Humayra Hussain, 210005848-->
 <?php
 session_start();
-require('php/connectdb.php');
+    require('php/connectdb.php');
 ?>
 
 <!DOCTYPE html>
@@ -58,11 +58,12 @@ require('php/connectdb.php');
 
     <!--Menu with the categories based on degrees of students-->
     <div class="menu">
-    <a href="products-page.php">Computer Science</a>
-    <a href="products-page.php">Biology</a>
-    <a href="products-page.php">Graphics Design</a>
-    <a href="products-page.php">Law</a>
-    <a href="products-page.php">Medicine</a>
+    <a href="products-page.php?category=All Laptops">All Laptops</a>
+    <a href="products-page.php?category=Computer Science">Computer Science</a>
+    <a href="products-page.php?category=Biology">Biology</a>
+    <a href="products-page.php?category=Graphics Design">Graphics Design</a>
+    <a href="products-page.php?category=Law">Law</a>
+    <a href="products-page.php?category=Medicine">Medicine</a>
     </div>
 
     <!--Banner to encourage log-in, necessary to be able to purchase from the store-->

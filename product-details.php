@@ -52,6 +52,7 @@
     </header>
     <!--Menu with the categories based on degrees of students-->
     <div class="menu">
+    <a href="products-page.php">All Laptops</a>
     <a href="products-page.php">Computer Science</a>
     <a href="products-page.php">Biology</a>
     <a href="products-page.php">Graphics Design</a>
