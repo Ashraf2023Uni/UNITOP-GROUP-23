@@ -186,6 +186,15 @@
 </body>
 </html>
 
+
+
+
+
+
+
+
+
+
 <!--Sorting using php OLD     
 <h2> Test Products </h2>
 <div class='featured-products'>

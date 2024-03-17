@@ -63,10 +63,10 @@ INSERT INTO `admin_users` (`id`, `email`, `password`, `phoneNumber`) VALUES
 
 CREATE TABLE `categories` (
   `category_id` int AUTO_INCREMENT PRIMARY KEY,
-  `category` VARCHAR(255) NOT NULL
+  `category_name` VARCHAR(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `categories` (`category`) VALUES
+INSERT INTO `categories` (`category_name`) VALUES
 ('All Laptops'),
 ('Computer Science'),
 ('Biology'),
