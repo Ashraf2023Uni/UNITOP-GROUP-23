@@ -12,8 +12,7 @@ $db->beginTransaction();
 //collecting form data
 $cardNum = $_REQUEST['num'];
 $cvv = $_REQUEST['cvv'];
-$expMonth = $_REQUEST['expMonth'];
-$expYear = $_REQUEST['expYear'];
+$expDate = $_REQUEST['expDate'];
 $email = $_REQUEST['email'];
 $name = $_REQUEST['fullname'];
 $address = $_REQUEST['address'];
@@ -21,9 +20,10 @@ $city = $_REQUEST['city'];
 $town = $_REQUEST['area'];
 $postcode = $_REQUEST['postcode'];
 
+$user_id = $_SESSION['user_id'];
+
 $rollback = false;
 
-$expDate = $expMonth . "/" . $expYear;
 
 //inserting data into payment_details table
 $enterPaymentDetails = "INSERT INTO payment_details (card_name, card_num, cvv, expiration, email) 
@@ -97,7 +97,7 @@ try{
     }
     echo "<strong><p>Total price: £".$total_cost."</p></strong>";
     echo "total cost: " .$total_cost. "  order_id: " .$order_id;
-    $setCost = "UPDATE orders SET cost = '$total_cost' WHERE order_id = ?";
+    $setCost = "UPDATE orders SET cost = '$total_cost', user_id = '$user_id' WHERE order_id = ?";
     $stmt = $db->prepare($setCost);
     $stmt->execute([$order_id]);
     //$enterCost = $db->query($setCost);

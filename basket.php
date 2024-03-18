@@ -29,7 +29,7 @@
                              <a href="basket.php"><img src="assests/Navbar/checkout_4765148.png" class="basket-icon"></a>
                         </div>
 
-                        <div class="nav-links">
+                        <div class="page-links">
                         <ul>
                            <!--<li><a href="">Browse</a></li>-->
                             <li><a href="index.php">Home</a></li>
