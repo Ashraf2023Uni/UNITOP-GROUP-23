@@ -2,6 +2,12 @@
 session_start();
 require_once('php/connectdb.php');
 
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    // If not logged in, redirect to login page
+    header("Location: login.php"); 
+    exit; 
+}
+
 $db->beginTransaction(); 
 //collecting form data
 $cardNum = $_REQUEST['num'];

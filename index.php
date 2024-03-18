@@ -29,6 +29,12 @@ session_start();
             
             <!--Search bar - products to be searched through by name-->
             <?php include('php/search.php'); ?>
+            
+            <?php if (isset($_SESSION['email'])): ?>
+            <div class="welcome-message">
+                <h1>Welcome, <?php echo htmlspecialchars($_SESSION['email']); ?></h1>
+            </div>
+        <?php endif; ?>
 
             <!--NAVIGATION BAR-->
             <div class="links">
@@ -65,7 +71,14 @@ session_start();
     <a href="products-page.php?category=Law">Law</a>
     <a href="products-page.php?category=Medicine">Medicine</a>
     </div>
+    <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
+    <!-- Logout Button -->
+    <form action="logout.php" method="post">
+    <button type="submit" name="logout" class="logout-button">Log Out</button>
+    </form>
+    <?php endif; ?>
 
+    <?php if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true): ?>
     <!--Banner to encourage log-in, necessary to be able to purchase from the store-->
     <div class="banner-log">
     <div class="log-in" style="background-image: url(assests/Banners/banner-computer.jpg);">
@@ -83,6 +96,7 @@ session_start();
         </div>
     </div>
     </div>
+    <?php endif; ?>
 
     <!--Product showcase row (arrows would be nice)-->
     <?php include('php/featured.php'); ?>
@@ -119,7 +133,9 @@ session_start();
                 <img src="assests/Navbar/logo-no-slogan.png">
                 <h3>UNITOP</h3>
                 <p>Educate with UNITOP!</p>
+                <?php if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true): ?>
                 <a href="login.php" class="button">Log In</a>
+                <?php endif; ?>
             </div>
             <div class="footer-box">
                 <h3>Follow Us</h3>

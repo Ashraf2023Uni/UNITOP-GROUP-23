@@ -84,7 +84,7 @@ if(isset($_POST['submit'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['email'] = $user['Email']; // Store the user's email in the session
             $_SESSION['logged_in'] = true;
-            header("Location: logged-in-index.php");
+            header("Location: index.php");
             exit;
         } else {
             // Login failed, display an error message or redirect to login page
