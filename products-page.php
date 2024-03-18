@@ -182,7 +182,7 @@
 </div>
 
 </footer>
-<script src="js/filter-category.js"></script>
+
 </body>
 </html>
 

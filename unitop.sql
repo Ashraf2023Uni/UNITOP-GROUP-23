@@ -62,7 +62,7 @@ INSERT INTO `admin_users` (`id`, `email`, `password`, `phoneNumber`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Table structure for table `categories` Humayra Hussain 210005848
 --
 
 CREATE TABLE `categories` (
@@ -185,7 +185,7 @@ INSERT INTO `products` (`product_id`, `product_name`, `description`, `stock`, `p
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_categories`
+-- Table structure for table `product_categories` Humayra Hussain 210005848
 --
 
 CREATE TABLE `product_categories` (

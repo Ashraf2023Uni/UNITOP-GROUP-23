@@ -1,4 +1,4 @@
-<!--HomePage for customers - Humayra Hussain, 210005848-->
+<!--HomePage for customers - Humayra Hussain, 210005848 + Mohammed Ali (Checks to see if customers are logged in)-->
 <?php
 session_start();
     require('php/connectdb.php');
@@ -173,5 +173,4 @@ session_start();
     </footer>
 
 </body>
-
 </html>
