@@ -1,3 +1,8 @@
+<?php
+session_start(); 
+require('php/connectdb.php'); 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,6 +47,13 @@
                             <button type="submit"><img src="assests/Navbar/search.png" class="search-icon"></button>
                         </div>
                     </nav>
+
+                    <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
+                    <!-- Logout Button -->
+                    <form action="logout.php" method="post">
+                    <button type="submit" name="logout" class="logout-button">Log Out</button>
+                    </form>
+                    <?php endif; ?>
 
                    </div>
             </section>

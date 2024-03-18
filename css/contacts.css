@@ -269,7 +269,25 @@ footer p{
 }
 /*************FOOTER END**************/
 
+/*SABZ*/
 
+.welcome-message {
+    font-size: 10px; 
+    color: #060101; 
+    padding: 0px;
+    margin-top: 20px; 
+    text-align: center; 
+
+}
+
+.logout-button {
+    padding: 12px 20px;
+    background-color: #c1bebe;
+    color: rgba(46, 10, 10, 0.5);
+    border: none;
+    cursor: pointer;
+    float: right;
+}
 
 
 
