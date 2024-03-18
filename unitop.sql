@@ -23,7 +23,18 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+--
+-- Table structure for table `address`
+--
 
+CREATE TABLE `address` (
+  `address_id` int(11) NOT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `address_line` varchar(100) NOT NULL,
+  `city` varchar(30) NOT NULL,
+  `town` varchar(40) DEFAULT NULL,
+  `postcode` varchar(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -116,11 +127,7 @@ CREATE TABLE `payment_details` (
   `card_num` varchar(16) DEFAULT NULL,
   `cvv` varchar(3) DEFAULT NULL,
   `expiration` varchar(5) DEFAULT NULL,
-  `email` varchar(30) NOT NULL,
-  `addressline` varchar(50) NOT NULL,
-  `city` varchar(30) NOT NULL,
-  `area` varchar(30) NOT NULL,
-  `postcode` varchar(7) NOT NULL
+  `email` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -185,6 +192,11 @@ INSERT INTO `customers` (`id`, `Email`, `university`, `password`, `phoneNumber`)
 -- Indexes for dumped tables
 --
 
+--
+-- Indexes for table `address`
+--
+ALTER TABLE `address`
+  ADD PRIMARY KEY (`address_id`);
 
 --
 -- Indexes for table `orderlines`
@@ -227,6 +239,11 @@ ALTER TABLE `admin_users`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `address`
+--
+ALTER TABLE `address`
+  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `orders`
