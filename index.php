@@ -56,6 +56,17 @@ session_start();
         </div>
     </header>
 
+    <div class="menu">
+        <?php 
+        include('php/category.php');
+        $categories = getCategories($db);
+        /*print_r($categories);*/
+        foreach ($categories as $category){
+            echo "<a href='products-page.php?category={$category['category_id']}'>{$category['category']}></a>";
+        }
+        ?>
+    </div>
+
     <!--Menu with the categories based on degrees of students-->
     <div class="menu">
     <a href="products-page.php?category=All Laptops">All Laptops</a>

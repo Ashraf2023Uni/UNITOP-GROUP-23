@@ -80,59 +80,77 @@
     
 <?php
     require('php/connectdb.php');
-    $query = "SELECT product_id, product_name, price from products";
-    
-    //Checks if the form named 'submit' has been submitted
-    if(isset($_POST["submit"])){
-        //Retrieve the value entered in the form named 'search'
-        $name = $_POST["search"];
-        //Search for products with a name similar to what was searched
-        $query = "SELECT product_id, product_name, price FROM products WHERE product_name LIKE :searchName";
-        $products = $db->prepare($query);
-        $products->bindValue('searchName', '%' . $name . '%', PDO::PARAM_STR);
-        $products->execute();
-    } else {
-        //If nothing has been searched then the query still continues.
-        $products = $db->prepare($query);
-    }
+    include('php/category.php');
+    $products = getProductsByCategory($db, $category_id);
+    /*print_r($category_id);*/
 
-    //Checks if the form with the name 'sort' has been submitted
-    $sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
-    if(isset($_POST['sort'])){
-        if($_POST['sort'] !== 'default'){
-            switch($_POST['sort']){
-                case 'low-to-high':
-                    $query .= " ORDER BY price ASC";
-                    break;
-                case 'high-to-low':
-                    $query .= " ORDER BY price DESC";
-                    break; 
-            }
-        }
-    }
-    $products = $db->prepare($query);
-    
-    if(isset($_POST["submit"])){
-        $name = $_POST["search"];
-        $products->bindValue('searchName', '%' . $name . '%', PDO::PARAM_STR);
-    }
-        $products->execute();
-
-        if($products->rowCount()>0){
-            while($laptop = $products->fetch()){
-                echo"<section class='product-card'>
-                <a href='product-details.php?id=".$laptop['product_id']."'>
-                <img src='assests/Products/".$laptop['product_id'].".png' alt='' id='Featured-Thumbnail'>
-                <h4>".$laptop['product_name']."</h4>
-                <p>£".$laptop['price']."</p>
+    if(!empty($products)){
+        foreach($products as $product){
+            echo"<section class='product-card'>
+                <a href='product-details.php?id=".$product['product_id']."'>
+                <img src='assests/Products/".$product['product_id'].".png' alt='' id='Featured-Thumbnail'>
+                <h4>".$product['product_name']."</h4>
+                <p>£".$product['price']."</p>
                 <button class='button'>More Details</button>
                 </a>
                 </section>";
-             }
-        }else {
-            echo "Name does not exist.";
         }
-?>
+    }
+
+     //SEARCH AND SORT FUNCTIONALITY
+     $query = "SELECT product_id, product_name, price from products";
+    
+     //Checks if the form named 'submit' has been submitted
+     if(isset($_POST["submit"])){
+         //Retrieve the value entered in the form named 'search'
+         $name = $_POST["search"];
+         //Search for products with a name similar to what was searched
+         $query = "SELECT product_id, product_name, price FROM products WHERE product_name LIKE :searchName";
+         $products = $db->prepare($query);
+         $products->bindValue('searchName', '%' . $name . '%', PDO::PARAM_STR);
+         $products->execute();
+     } else {
+         //If nothing has been searched then the query still continues.
+         $products = $db->prepare($query);
+     }
+ 
+     //Checks if the form with the name 'sort' has been submitted
+     $sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
+     if(isset($_POST['sort'])){
+         if($_POST['sort'] !== 'default'){
+             switch($_POST['sort']){
+                 case 'low-to-high':
+                     $query .= " ORDER BY price ASC";
+                     break;
+                 case 'high-to-low':
+                     $query .= " ORDER BY price DESC";
+                     break; 
+             }
+         }
+     }
+     $products = $db->prepare($query);
+     
+     if(isset($_POST["submit"])){
+         $name = $_POST["search"];
+         $products->bindValue('searchName', '%' . $name . '%', PDO::PARAM_STR);
+     }
+         $products->execute();
+ 
+         if($products->rowCount()>0){
+             while($laptop = $products->fetch()){
+                 echo"<section class='product-card'>
+                 <a href='product-details.php?id=".$laptop['product_id']."'>
+                 <img src='assests/Products/".$laptop['product_id'].".png' alt='' id='Featured-Thumbnail'>
+                 <h4>".$laptop['product_name']."</h4>
+                 <p>£".$laptop['price']."</p>
+                 <button class='button'>More Details</button>
+                 </a>
+                 </section>";
+              }
+         }else {
+             echo "Name does not exist.";
+         }
+ ?>
 </div>
 </div>
 
