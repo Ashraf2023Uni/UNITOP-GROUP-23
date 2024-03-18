@@ -30,12 +30,6 @@ session_start();
             <!--Search bar - products to be searched through by name-->
             <?php include('php/search.php'); ?>
             
-            <?php if (isset($_SESSION['email'])): ?>
-            <div class="welcome-message">
-                <h1>Welcome, <?php echo htmlspecialchars($_SESSION['email']); ?></h1>
-            </div>
-        <?php endif; ?>
-
             <!--NAVIGATION BAR-->
             <div class="links">
                 <nav>
@@ -71,6 +65,13 @@ session_start();
     <a href="products-page.php?category=Law">Law</a>
     <a href="products-page.php?category=Medicine">Medicine</a>
     </div>
+
+    <!-- <?php if (isset($_SESSION['email'])): ?>
+        <div class="welcome-message">
+            <h1>Welcome, <?php echo htmlspecialchars($_SESSION['email']); ?></h1>
+        </div>
+    <?php endif; ?> -->
+    
     <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
     <!-- Logout Button -->
     <form action="logout.php" method="post">
