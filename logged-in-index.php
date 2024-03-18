@@ -79,6 +79,10 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     <a href="products-page.php?category=Medicine">Medicine</a>
     </div>
 
+    <form action="logout.php" method="post">
+    <button type="submit" name="logout" class="logout-button">Log Out</button>
+    </form>
+
     <!--Banner to encourage log-in, necessary to be able to purchase from the store
     <div class="banner-log">
     <div class="log-in" style="background-image: url(assests/Banners/banner-computer.jpg);">

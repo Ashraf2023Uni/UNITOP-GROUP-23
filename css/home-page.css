@@ -505,3 +505,13 @@ th:last-child{
     text-align: center; 
 
 }
+
+.logout-button {
+    /* Add styles for your logout button here */
+    padding: 12px 20px;
+    background-color: #c1bebe;
+    color: rgba(46, 10, 10, 0.5);
+    border: none;
+    cursor: pointer;
+    float: right;
+}
