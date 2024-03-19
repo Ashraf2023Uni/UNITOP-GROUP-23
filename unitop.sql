@@ -23,18 +23,6 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `address`
---
-
-CREATE TABLE `address` (
-  `address_id` int(11) NOT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `address_line` varchar(100) NOT NULL,
-  `city` varchar(30) NOT NULL,
-  `town` varchar(40) DEFAULT NULL,
-  `postcode` varchar(7) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -149,7 +137,11 @@ CREATE TABLE `payment_details` (
   `card_num` varchar(16) DEFAULT NULL,
   `cvv` varchar(3) DEFAULT NULL,
   `expiration` varchar(5) DEFAULT NULL,
-  `email` varchar(30) NOT NULL
+  `email` varchar(255) NOT NULL,
+  `addressline` varchar(100) NOT NULL,
+  `city` varchar(30) NOT NULL,
+  `town` varchar(40) DEFAULT NULL,
+  `postcode` varchar(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -229,15 +221,40 @@ INSERT INTO `product_categories` (`product_id`, `category_id`) VALUES
 (8, 1),
 (8, 4);
 
+
+--
+-- Table structure for table `shipping_address`
+--
+
+CREATE TABLE `shipping_address` (
+  `address_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `firstname` varchar(30) NOT NULL,
+  `surname` varchar(30) NOT NULL,
+  `addressline` varchar(50) NOT NULL,
+  `flat_num` tinyint(3) DEFAULT NULL,
+  `city` varchar(30) NOT NULL,
+  `postcode` varchar(7) NOT NULL,
+  `county` varchar(50) NOT NULL,
+  `phone_num` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Table structure for table `delivery_options`
+--
+
+CREATE TABLE `delivery_options` (
+  `delivery_id` int(11) NOT NULL,
+  `courier` VARCHAR(50) NOT NULL,
+  `expected_timeframe` varchar(200) NOT NULL,
+  `tracking` boolean NOT NULL DEFAULT 0 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
 --
 -- Indexes for dumped tables
 --
 
---
--- Indexes for table `address`
---
-ALTER TABLE `address`
-  ADD PRIMARY KEY (`address_id`);
 
 --
 -- Indexes for table `admin_users`
@@ -292,14 +309,23 @@ ALTER TABLE `product_categories`
   ADD KEY `category_id` (`category_id`);
 
 --
+-- Indexes for table `shipping_address`
+--
+ALTER TABLE `shipping_address`
+  ADD PRIMARY KEY (`address_id`),
+  ADD KEY `user_id` (`user_id`);
+
+
+--
+-- Indexes for table `delivery_options`
+--
+ALTER TABLE `delivery_options`
+  ADD PRIMARY KEY (`delivery_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
---
--- AUTO_INCREMENT for table `address`
---
-ALTER TABLE `address`
-  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `admin_users`
@@ -338,6 +364,19 @@ ALTER TABLE `products`
   MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `shipping_address`
+--
+ALTER TABLE `shipping_address`
+  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT;
+
+
+--
+-- AUTO_INCREMENT for table `delivery_options`
+--
+ALTER TABLE `delivery_options`
+  MODIFY `delivery_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -362,6 +401,15 @@ ALTER TABLE `product_categories`
   ADD CONSTRAINT `product_categories_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
   ADD CONSTRAINT `product_categories_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `categories` (`category_id`);
 COMMIT;
+
+
+--
+-- Constraints for table `shipping_address`
+--
+ALTER TABLE `shipping_address`
+  ADD CONSTRAINT `shipping_address_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `customers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
