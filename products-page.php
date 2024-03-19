@@ -102,7 +102,7 @@
     //To prevent duplication of products showing
 
     //Check if getProductsByCategory has been called
-     if (!isset($products)){
+     if (!isset($products) && $products !== null){
         if($products->rowCount() > 0){
             while($product = $products->fetch()){
                 echo"<section class='product-card'>
@@ -228,7 +228,7 @@
 
 
 
-<?php
+<!--
 //OLD SEARCH AND SORT PHP
 /*SEARCH AND SORT FUNCTIONALITY
      $query = "SELECT product_id, product_name, price from products";
@@ -267,5 +267,4 @@
          $name = $_POST["search"];
          $products->bindValue('searchName', '%' . $name . '%', PDO::PARAM_STR);
      }
-         $products->execute();*/
-?>
+         $products->execute();*/-->
