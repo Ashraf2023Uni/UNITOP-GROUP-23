@@ -44,6 +44,21 @@
         cursor: pointer;
         transition: background-color 0.3s ease;    
     }
+
+    .changePw-form {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .changePw-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: white;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;    
+    }
     </style>
 </head>
 
@@ -100,8 +115,22 @@
 
     <div class="container2">
         
-        <form action="admin_stock.php" method="post" class="stock-form">
+        <form action="update_stock.php" method="post" class="stock-form">
             <button type="submit" class="stock-button">Adjust Stock</button>
+        </form>
+    </div>
+
+    <div class="container3">
+        
+        <form action="admin_pw_change.php" method="post" class="changePw-form">
+            <button type="submit" class="changePw-button">Change your password</button>
+        </form>
+    </div>
+
+    <div class="container3">
+        
+        <form action="admin_change_customers.php" method="post" class="changePw-form">
+            <button type="submit" class="changePw-button">Customer Management</button>
         </form>
     </div>
 
