@@ -16,12 +16,12 @@
         require_once 'php/connectdb.php';
 
         $sql = "SELECT * FROM products";
-        $result = $db->query($sql);
+        $result = $conn->query($sql);
 
-        if ($result->rowCount() > 0) {
+        if ($result->num_rows > 0) {
             echo"<table>";
             echo "<tr><th>Product ID</th><th>Product Name</th><th>Current Stock</th><th>Action</th></tr>";
-            while($row = $result->fetch()){
+            while($row = $result->fetch_assoc()){
                 echo "<tr>";
                 echo "<td>" . $row['$product_id'] . "</td>";
                 echo "<td>" . $row['$product_name'] . "</td>";
