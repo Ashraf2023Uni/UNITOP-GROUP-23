@@ -34,7 +34,7 @@ if(isset($_SESSION['admin_email'])) {
 
 }
 //view customers
-$query = "SELECT * FROM signup";
+$query = "SELECT * FROM customers";
 $result = $db->query($query);
 if ($result) {
     echo "<table>";
@@ -70,7 +70,7 @@ if (isset($_POST['add_customer'])) {
     $university = $_POST['university'];
     $phoneNumber = $_POST['phone_number'];
 
-    $insert_query = "INSERT INTO signup (Email, university, phoneNumber) VALUES (:email, :university, :phoneNumber)";
+    $insert_query = "INSERT INTO customers (Email, university, phoneNumber) VALUES (:email, :university, :phoneNumber)";
     $insert_statement = $db->prepare($insert_query);
     $insert_statement->bindParam(' :email', $email, PDO::PARAM_STR);
     $insert_statement->bindParam(' :university', $university, PDO::PARAM_STR);
@@ -90,7 +90,7 @@ if (isset($_POST['add_customer'])) {
         $university = $_POST['university'];
         $phoneNumber = $_POST['phone_number'];
 
-        $update_query = "UPDATE signup SET EMAIL=:email, university=:university, phoneNumber=phoneNumber WHERE id=id";
+        $update_query = "UPDATE customers SET EMAIL=:email, university=:university, phoneNumber=phoneNumber WHERE id=id";
         $update_statement->bindParam(' :email', $email, PDO::PARAM_STR);
         $update_statement->bindParam(' :university', $university, PDO::PARAM_STR);
         $update_statement->bindParam(' :phoneNumber', $phoneNumber, PDO::PARAM_STR);
@@ -108,7 +108,7 @@ if (isset($_POST['add_customer'])) {
     if (isset($_GET['delete_id'])) {
         $delete_id = $_GET['delete_id'];
 
-        $delete_query = "DELETE FROM signup WHERE id=:id";
+        $delete_query = "DELETE FROM customers WHERE id=:id";
         $delete_statement = $db->prepare($delete_query);
         $delete_statement->bindParam(':id', $delete_id, PDO::PARAM_INT);
 
