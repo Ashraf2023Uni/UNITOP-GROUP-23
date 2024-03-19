@@ -2,8 +2,21 @@
 session_start();
 
 
-
 require_once('php/connectdb.php');
+
+/*
+This line of code below retrieves 
+the value associated with the 'id' 
+key from the $_SESSION superglobal 
+array and assigns it to the variable
+$id. Session variables need to exist
+across multiple pages during a users
+session on a website. 
+*/
+if(isset($_SESSION['admin_email'])) {
+    $admin_email = $_SESSION['admin_email'];
+
+}
 
 $query = "SELECT * FROM products";
 $statement = $db->query($query);
@@ -148,6 +161,7 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 </body>
 </html>
+
 
 
 
