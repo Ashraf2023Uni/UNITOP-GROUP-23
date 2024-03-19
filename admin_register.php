@@ -29,6 +29,9 @@ if(isset($_POST['submit'])) {
        $stmt = $db->prepare("INSERT INTO admin_users (email, password, phoneNumber) VALUES (?, ?, ?)"); 
        $stmt->execute(array($email, $password, $phoneNumber));
 
+       $last_id = $db->lastInsertId();
+       echo "New record created. ID: " . $last_id;
+       
        header("Location: admin_login.php");
        exit;
     } catch (PDOException $ex) {
@@ -78,4 +81,3 @@ if(isset($_POST['submit'])) {
 </body>
 </html>                
 
-  
