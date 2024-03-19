@@ -56,6 +56,7 @@ session_start();
         </div>
     </header>
 
+    <!--Menu with the categories based on degrees of students-->
     <div class="menu">
         <?php 
         include('php/category.php');
@@ -65,16 +66,6 @@ session_start();
             echo "<a href='products-page.php?category={$category['category_id']}'>{$category['category']}></a>";
         }
         ?>
-    </div>
-
-    <!--Menu with the categories based on degrees of students-->
-    <div class="menu">
-    <a href="products-page.php?category=All Laptops">All Laptops</a>
-    <a href="products-page.php?category=Computer Science">Computer Science</a>
-    <a href="products-page.php?category=Biology">Biology</a>
-    <a href="products-page.php?category=Graphics Design">Graphics Design</a>
-    <a href="products-page.php?category=Law">Law</a>
-    <a href="products-page.php?category=Medicine">Medicine</a>
     </div>
 
     <!-- <?php if (isset($_SESSION['email'])): ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2024 at 02:29 PM
+-- Generation Time: Mar 19, 2024 at 01:03 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -62,7 +62,7 @@ INSERT INTO `admin_users` (`id`, `email`, `password`, `phoneNumber`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories` Humayra Hussain 210005848
+-- Table structure for table `categories`
 --
 
 CREATE TABLE `categories` (
@@ -108,7 +108,8 @@ INSERT INTO `customers` (`id`, `Email`, `university`, `password`, `phoneNumber`)
 (4, 'test1@hotmail.com', 'Aston University', '$2y$10$4kgRssV2QuJ7aOSGSuN1CecHSHjXgB3i7KkQ19yrdpDvTGnHeIaQe', '0121000000'),
 (5, 'sabil@hotmail.com', 'Aston University', '$2y$10$GDQCSWNaaS4jj4MoCETYR.JU09mcYBXVD31cLIigmDUhP2UkTpV9y', '07724584106'),
 (6, 'ashraf@gmail.com', 'University of Warwick', '$2y$10$VlOJicibWTP2sEpQ2S35NeTmc4pFTALOKroN3pxH.Z8go8fo3Rm7i', '041034201301'),
-(7, 'test@aston.ac.uk', 'Aston University', '$2y$10$FWdZCln8BXDstmqUqJYMhup8OuDsUGXdWRBrvSyau/z1O22jCGigO', '07523232211');
+(7, 'test@aston.ac.uk', 'Aston University', '$2y$10$FWdZCln8BXDstmqUqJYMhup8OuDsUGXdWRBrvSyau/z1O22jCGigO', '07523232211'),
+(8, 'h.h@aston.ac.uk', 'Aston University', '$2y$10$cKBsDjL779m8PQuimtVJCO.xrNXQazVi15Xtpv7BsflZwIZRc3SK.', '07444444444');
 
 -- --------------------------------------------------------
 
@@ -185,7 +186,7 @@ INSERT INTO `products` (`product_id`, `product_name`, `description`, `stock`, `p
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_categories` Humayra Hussain 210005848
+-- Table structure for table `product_categories`
 --
 
 CREATE TABLE `product_categories` (
@@ -202,8 +203,31 @@ INSERT INTO `product_categories` (`product_id`, `category_id`) VALUES
 (1, 2),
 (1, 4),
 (2, 1),
+(2, 3),
+(2, 5),
+(2, 6),
 (3, 1),
-(4, 1);
+(3, 2),
+(3, 3),
+(3, 4),
+(3, 5),
+(3, 6),
+(4, 1),
+(4, 2),
+(4, 5),
+(5, 1),
+(5, 2),
+(5, 4),
+(6, 1),
+(6, 3),
+(6, 4),
+(6, 5),
+(6, 6),
+(7, 1),
+(7, 2),
+(7, 4),
+(8, 1),
+(8, 4);
 
 --
 -- Indexes for dumped tables
@@ -293,7 +317,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `orders`
