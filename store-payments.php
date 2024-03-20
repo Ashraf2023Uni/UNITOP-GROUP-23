@@ -9,7 +9,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 }
 
 $db->beginTransaction(); 
-//collecting form data
+//collecting billing form data
 $cardNum = $_REQUEST['num'];
 $cvv = $_REQUEST['cvv'];
 $expDate = $_REQUEST['expDate'];
@@ -26,42 +26,42 @@ $rollback = false;
 
 
 //inserting data into payment_details table
-$enterPaymentDetails = "INSERT INTO payment_details (card_name, card_num, cvv, expiration, email) 
-VALUES (?,?,?,?,?)";
+$enterPaymentDetails = "INSERT INTO payment_details (card_name, card_num, cvv, expiration, email, addressline, city, town, postcode) 
+VALUES (?,?,?,?,?,?,?,?,?)";
 try{
     $stmt = $db->prepare($enterPaymentDetails);
-    $stmt->execute([$name, $cardNum, $cvv, $expDate, $email]);
+    $stmt->execute([$name, $cardNum, $cvv, $expDate, $email, $address, $city, $town, $postcode]);
     $recall_payment = $db->lastInsertId();
 }catch(PDOException $ex){
     echo "Failed to store payment details<br>";
     echo($ex->getMessage());
     echo"<br><br> <a href='../payments.php><button>Re-enter payment method</button</a><br>";
-    $rollback = true;
+    endTransaction(false, $db);
 }
 
-$intoAddress = "INSERT INTO address (email, address_line, city, town, postcode)
-VALUES('$email', '$address', '$city', '$town', '$postcode')";
+// $intoAddress = "INSERT INTO address (email, address_line, city, town, postcode)
+// VALUES('$email', '$address', '$city', '$town', '$postcode')";
 
 //inserting data into address table
-$enterAddress = "INSERT INTO address (email, address_line, city, town, postcode)
-VALUES(?,?,?,?,?)";
-try{
-    $stmt = $db->prepare($enterAddress);
-    $stmt->execute([$email, $address, $city, $town, $postcode]);
-    echo"Address successfully stored <br>";
-    $recall_address = $db->lastInsertId();
-}catch(PDOException $ex){
-    echo"Failed to store address data <br>";
-    echo($ex->getMessage());
-    echo"<br><br> <a href='../payments.php'><button> Re-enter address </button></a><br>";
-    $rollback = true;
-}
+// $enterAddress = "INSERT INTO address (email, address_line, city, town, postcode)
+// VALUES(?,?,?,?,?)";
+// try{
+//     $stmt = $db->prepare($enterAddress);
+//     $stmt->execute([$email, $address, $city, $town, $postcode]);
+//     echo"Address successfully stored <br>";
+//     $recall_address = $db->lastInsertId();
+// }catch(PDOException $ex){
+//     echo"Failed to store address data <br>";
+//     echo($ex->getMessage());
+//     echo"<br><br> <a href='../payments.php'><button> Re-enter address </button></a><br>";
+//     $rollback = true;
+// }
 
 
 //processing order: updating products table
 require_once('php/connectdb.php');
 try{
-    $total_cost = 0;
+    $GLOBALS['total_cost'] = 0;
     echo "<h3>Order was successful!</h3>";
     echo "<h2>Reciept:</h2>";
 
@@ -93,32 +93,33 @@ try{
         // temporary reciepts:
         $subtotal = $current['price'] * intval($_SESSION['qty'][$i]);
         echo "<p>".$current['product_name']."         £".$current['price']." <em> X".$_SESSION['qty'][$i]."</em></p>";
-        $total_cost = $total_cost + $subtotal;
+        $GLOBALS['total_cost'] = $GLOBALS['total_cost'] + $subtotal;
     }
-    echo "<strong><p>Total price: £".$total_cost."</p></strong>";
-    echo "total cost: " .$total_cost. "  order_id: " .$order_id;
-    $setCost = "UPDATE orders SET cost = '$total_cost', user_id = '$user_id' WHERE order_id = ?";
+    echo "<strong><p>Total price: £".$GLOBALS['total_cost']."</p></strong>";
+    echo "  order_id: " .$order_id;
+    $setCost = "UPDATE orders SET cost = ?, user_id = ? WHERE order_id = ?";
     $stmt = $db->prepare($setCost);
-    $stmt->execute([$order_id]);
+    $stmt->execute([$GLOBALS['total_cost'],$user_id,$order_id]);
     //$enterCost = $db->query($setCost);
     $_SESSION['prod_id'] = array();
     $_SESSION['qty'] = array();
     echo "<br><br><a href='index.php'><button>Back to Homepage</button></a><br>"; 
+    endTransaction(true, $db);
 }
 catch(PDOException $ex){
-    echo "Purchase failed";
     echo($ex->getMessage());
-    $rollback = true;
+    endTransaction(false, $db);
 }
 
-
-if($rollback){
-    $db->rollback();
-    echo"transaction did not go through";
+function endTransaction($commit, $db){
+    if($commit){
+        $db->commit();
+        echo $GLOBALS['total_cost'];
+    }
+    else{
+        $db->rollback();
+        echo "Transaction did not go through";
+    }
 }
-else{
-    $db->commit();
-}
-
 
 ?>
