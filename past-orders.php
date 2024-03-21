@@ -85,7 +85,7 @@ session_start();
             echo   "<p><strong>Total Price:</strong> £" . $order['cost'] . "
                 </div>";
             
-            echo"<p class='status'>Delivery status:</p></div>";
+            echo"<p class='status'>Delivery status: Processing</p></div>";
         }
 
 

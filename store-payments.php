@@ -59,10 +59,10 @@ try{
 
 
 //processing order: updating products table
-require_once('php/connectdb.php');
+require_once('php/connectdb.php'); 
 try{
     $GLOBALS['total_cost'] = 0;
-    echo "<h3>Order was successful!</h3>";
+    echo "<h3>Thank you, ".$_SESSION['email']."!<br>Your order is currently being processed</h3>";
     echo "<h2>Reciept:</h2>";
 
     $create_order = "INSERT INTO orders VALUES();";
@@ -114,7 +114,6 @@ catch(PDOException $ex){
 function endTransaction($commit, $db){
     if($commit){
         $db->commit();
-        echo $GLOBALS['total_cost'];
     }
     else{
         $db->rollback();
