@@ -11,6 +11,7 @@ header .navbar{
     text-align: center;
     background-color: white;
     width: 100%;
+    max-width: 100%;
 }
 .navbar{
     display: flex;
@@ -56,7 +57,7 @@ a:hover{
 }
 .links .img-links img{
     display: inline-block;
-    margin-right: 56px;
+    margin-right: 50px;
     margin-bottom: -7px;
 }
 .links ul{
@@ -74,23 +75,15 @@ a:hover{
 }
 .img-links .home-icon{
     width: 15px;
-    transform: translate(-16px);
-}
-.img-links .about-us-icon{
-    width: 17px;
-    transform: translate(-17px);
-}
-.img-links .contact-us-icon{
-    width: 15px;
-    transform: translate(-9px);
+    transform: translate(-12px);
 }
 .img-links .account-icon{
     width: 15px;
-    transform: translate(7px);
+    transform: translate(-11px);
 }
 .img-links .basket-icon{
     width: 15px;
-    transform: translate(5px);
+    transform: translate(-10px);
 }
 
 /************************Styling for Login Banner**************************/
@@ -147,8 +140,7 @@ a:hover{
     text-decoration: underline;
 }
 .heading{
-    margin-left: 200px;
-    margin-right: 200px;
+    width: 60%;
     transition: background-colour 0.3s ease;
     background-color: rgba(0, 0, 0, 0.7);
     border: 1px solid black;
@@ -344,7 +336,6 @@ footer p{
     align-items: center;
 }
 
-
 /*Product-details page styling - Humayra Hussain - 210005848*/
 .product-detail{
     width: 100%;
@@ -419,6 +410,12 @@ footer p{
     color: white;
     margin: 0;
     padding: 5px;
+}
+
+/*Error messages - Humayra Hussain 210005848*/
+.error-message {
+    background-color: red;
+    color: red;
 }
 
 /*Basket Page styling - Haseeb */
@@ -496,7 +493,7 @@ th:last-child{
     background-color: #401f9b;
 }
 
-/*SABZ*/
+/*Mohammed Ali 220192905*/
 .welcome-message {
     font-size: 6px; 
     color: #e90606; 
@@ -513,4 +510,10 @@ th:last-child{
     border: none;
     cursor: pointer;
     float: right;
+}
+
+/*Error messages - Humayra Hussain 210005848*/
+.product-card .error-message {
+    background-color: red;
+    color: red;
 }

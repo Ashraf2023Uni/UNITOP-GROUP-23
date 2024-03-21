@@ -129,7 +129,7 @@
         $result->bindValue('searchName', $wildCard , PDO::PARAM_STR);
         /*$result->bindValue('searchCategory', $wildCard , PDO::PARAM_STR);*/
         $result->execute();
-
+        
         if($result->rowCount() > 0){
             while($product = $result->fetch()){
                 echo"<section class='product-card'>
@@ -142,7 +142,12 @@
                     </section>";
             }
         } else {
-            echo "Name does not exist.";
+            echo "<div class='error-message'> 
+                    We couldn't find any products matching your search. 
+                    <br>
+                    Please try again with a different keyword or browse our current categories to find what 
+                    you're looking for. 
+                </div>";
         }
      }
 
@@ -150,6 +155,21 @@
     if(!empty($_POST["sort"])) {
         $sort = $_POST["sort"];
         $sort = ($sort === 'low-to-high') ? 'ASC' : 'DESC';
+        /*// Adjust the sorting option before using it in the SQL query
+            $sort = isset($_POST["sort"]) ? $_POST["sort"] : 'default';
+
+            // If sort option is provided and not default, add ORDER BY clause
+            if ($sort !== 'default') {
+                switch ($sort) {
+                    case 'low-to-high':
+                        $query .= " ORDER BY price ASC";
+                        break;
+                    case 'high-to-low':
+                        $query .= " ORDER BY price DESC";
+                        break;
+                    // Add more cases if needed for additional sorting options
+                }
+            }*/
         $query = "SELECT product_id, product_name, price FROM products ORDER BY price $sort";
         $result = $db->prepare($query);
         $result->execute();
@@ -171,6 +191,7 @@
     }
 
 ?>
+
 </div>
 </div>
 

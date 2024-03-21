@@ -31,15 +31,18 @@ function getProductsByCategory($db, $category_id) {
                 INNER JOIN product_categories pc ON p.product_id = pc.product_id 
                 INNER JOIN categories c ON pc.category_id = c.category_id WHERE c.category_id = ?";
 
+   // if ($sort) {
+    //    $query .= " ORDER BY p.price $sort";
+    ////}
+
     $result = $db->prepare($query);
     $result->bindParam(1, $category_id, PDO::PARAM_INT);
     $result->execute();
-
+    
     $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
     /*echo "rows";
     print_r($rows);*/
-    
 
     if(count($rows) > 0) {
         foreach($rows as $row) {
@@ -48,3 +51,9 @@ function getProductsByCategory($db, $category_id) {
     }
     return $products;
 }
+
+//Check if sort option has been selected
+//$sort = isset($_POST["sort"]) ? $_POST["sort"] : null;
+
+//Get products based on category and sorting option
+$products = getProductsByCategory($db, $category_id);
