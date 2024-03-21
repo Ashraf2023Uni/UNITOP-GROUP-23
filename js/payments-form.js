@@ -59,7 +59,7 @@ function cardFormat(evnt){
     }
 }
 
-
+//card numeric details 
 cvv.addEventListener("keyup", e=>{
     filterDigits(e);
     setBorder(cvv,3);
@@ -77,13 +77,14 @@ expDate.addEventListener("keyup", e=>{
     setBorder(expDate,5);
 });
 
+
 paymentForm.addEventListener("submit", e =>{
     showError = false;
     lengthValidate(email, 0, e);
     lengthValidate(address, 0, e);
     lengthValidate(city, 0, e);
     lengthValidate(area, 0, e);
-    lengthValidate(postcode, 5, e);
+    lengthValidate(postcode, 4, e);
     lengthValidate(fullname, 0, e);
     lengthValidate(num, 18, e);
     lengthValidate(expDate, 4, e);
@@ -100,6 +101,7 @@ function lengthValidate(element, min_length, evnt){
     if(store_val.length <= min_length){
         evnt.preventDefault();
         showError = true;
+        element.style.borderColor = "red";
     }
 }
 

@@ -8,7 +8,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     exit; 
 }
 
-$db->beginTransaction(); 
+$db->beginTransaction(); //making a save point in case queries need to rollback
 //collecting billing form data
 $cardNum = $_REQUEST['num'];
 $cvv = $_REQUEST['cvv'];
@@ -39,23 +39,6 @@ try{
     endTransaction(false, $db);
 }
 
-// $intoAddress = "INSERT INTO address (email, address_line, city, town, postcode)
-// VALUES('$email', '$address', '$city', '$town', '$postcode')";
-
-//inserting data into address table
-// $enterAddress = "INSERT INTO address (email, address_line, city, town, postcode)
-// VALUES(?,?,?,?,?)";
-// try{
-//     $stmt = $db->prepare($enterAddress);
-//     $stmt->execute([$email, $address, $city, $town, $postcode]);
-//     echo"Address successfully stored <br>";
-//     $recall_address = $db->lastInsertId();
-// }catch(PDOException $ex){
-//     echo"Failed to store address data <br>";
-//     echo($ex->getMessage());
-//     echo"<br><br> <a href='../payments.php'><button> Re-enter address </button></a><br>";
-//     $rollback = true;
-// }
 
 
 //processing order: updating products table
@@ -90,20 +73,18 @@ try{
 
 
 
-        // temporary reciepts:
+        //adding to total cost with each product loop
         $subtotal = $current['price'] * intval($_SESSION['qty'][$i]);
-        echo "<p>".$current['product_name']."         £".$current['price']." <em> X".$_SESSION['qty'][$i]."</em></p>";
         $GLOBALS['total_cost'] = $GLOBALS['total_cost'] + $subtotal;
     }
-    echo "<strong><p>Total price: £".$GLOBALS['total_cost']."</p></strong>";
-    echo "  order_id: " .$order_id;
+
     $setCost = "UPDATE orders SET cost = ?, user_id = ? WHERE order_id = ?";
     $stmt = $db->prepare($setCost);
     $stmt->execute([$GLOBALS['total_cost'],$user_id,$order_id]);
-    //$enterCost = $db->query($setCost);
+
+    //resetting basket session arrays after successful checkout
     $_SESSION['prod_id'] = array();
     $_SESSION['qty'] = array();
-    echo "<br><br><a href='index.php'><button>Back to Homepage</button></a><br>"; 
     endTransaction(true, $db);
 }
 catch(PDOException $ex){
@@ -114,10 +95,11 @@ catch(PDOException $ex){
 function endTransaction($commit, $db){
     if($commit){
         $db->commit();
+        header('Location: checkout-receipt.php');
     }
     else{
         $db->rollback();
-        echo "Transaction did not go through";
+        header('Location: checkout-fail.php');
     }
 }
 
