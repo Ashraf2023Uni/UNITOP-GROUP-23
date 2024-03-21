@@ -37,14 +37,14 @@ session_start();
                         <a href="index.php"><img src="assests/Navbar/home_4991416.png" class="home-icon"></a>
                         <a href="index.php"><img src="assests/Navbar/avatar_9892372.png" class="account-icon"></a>
                         <a href="basket.php"><img src="assests/Navbar/checkout_4765148.png" class="basket-icon"></a>
-                        <a href="admin_login.php"><img src="assests/Navbar/staffpic.png" class="staff-icon"></a>
+                        <a href="admin_pin.php"><img src="assests/Navbar/staffpic.png" class="staff-icon"></a>
                     </div>
                     <div class="page-links">
                         <ul>
                             <li><a href="index.php">Home</a></li>
                             <li><a href="index.php">Account</a></li>
                             <li><a href="basket.php">Basket</a></li>
-                            <li><a href="admin_login.php">Staff login</a></li>
+                            <li><a href="admin_pin.php">Staff login</a></li>
                         </ul>
                     </div>
                 </nav>
