@@ -139,7 +139,6 @@ try {
             <?php endif; ?>
         </div>
         <div id="orders" class="section">
-            <h1>TESTING</h1>
             <div id="order-display">
                 <h1><bold>Your Orders</bold></h1>
 
@@ -162,20 +161,16 @@ try {
                             $productResult = $db->prepare($productQuery);
                             $productResult->execute([$orderline['product_id']]);
                             $productName = $productResult->fetch();
-                            echo "<p>".$productName['product_name']."<br>Qty: ".$orderline['quantity']."</p></div>";
+                            echo "<p>".$productName['product_name']."<br>Qty: ".$orderline['quantity']."</p></div>
+                                  <form method='post' action='write-review.php?id=".$orderline['product_id']."'><button class='review-btn' type='submit'> LEAVE A REVIEW </button></form>";
 
                         }
-
-                        echo   "<p><strong>Total Price:</strong> £" . $order['cost'] . "
-                            </div>";
+                        echo   "<p class='price-txt'><strong>Total Price:</strong> £" . $order['cost'] . "
+                            </p></div>";
                         
                         echo"<p class='status'>Delivery status: Processing</p></div>";
                     }
-
-
-
                     ?>
-                
                 </div>
         </div>
         <div id="changePassword" class="section">

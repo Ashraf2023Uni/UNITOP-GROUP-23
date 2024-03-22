@@ -1,0 +1,64 @@
+form img{
+    height:300px;
+}
+#review-body input{
+    width:auto;
+}
+
+#review-body{
+    margin:auto;
+    text-align: center;
+    margin-top:40px;
+    margin-bottom:30px;
+}
+
+.textarea{
+    margin-top:60px;
+    display: inline-flex;
+}
+
+#review-text{
+    margin-left:10px;
+    padding-left:5px;
+    width:600px;
+    height:200px;
+}
+.star-wrapper{
+    direction: rtl;
+}
+
+.star-wrapper label:before{
+    display: inline-block;
+    content: "\2605";
+    position:absolute;
+    font-size: 30px;
+    opacity:0.1;
+    top:0;
+    left:0
+}
+
+.star-wrapper label:after{
+    display: inline-block;
+    content: "\2605";
+    position:absolute;
+    color:rgb(252, 205, 53);
+    font-size: 30px;
+    opacity:0.5;
+    top:0;
+    left:0;
+}
+
+.star-wrapper label:hover:after, .star-wrapper label:hover ~ label:after, .star-wrapper input:checked ~ label:after{
+    opacity: 1;
+} 
+
+.star-wrapper input{
+     display:none;
+} 
+
+.star-wrapper label{
+    display:inline-block;
+    width:40px;
+    position:relative;
+    cursor:pointer;
+}
