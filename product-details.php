@@ -32,7 +32,7 @@
                         <a href="index.php"><img src="assests/Navbar/home_4991416.png" class="home-icon"></a>
                         <a href="about-us.html"><img src="assests/Navbar/about-us.png" class="about-us-icon"></a>
                         <a href="contact.html"><img src="assests/Navbar/notification_9383540.png" class="contact-us-icon"></a>
-                        <a href="index.php"><img src="assests/Navbar/avatar_9892372.png" class="account-icon"></a>
+                        <a href="accounts.php"><img src="assests/Navbar/avatar_9892372.png" class="account-icon"></a>
                         <a href="basket.php"><img src="assests/Navbar/checkout_4765148.png" class="basket-icon"></a>
                         <a href="admin_login.php"><img src="assests/Navbar/staffpic.png" class="staff-icon"></a>
                     </div>

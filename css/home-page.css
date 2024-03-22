@@ -86,6 +86,8 @@ a:hover{
     transform: translate(-10px);
 }
 
+/*Responsive design*/
+
 /************************Styling for Login Banner**************************/
 /*5 Categories for Menu*/
 .menu{
@@ -195,6 +197,7 @@ a:hover{
     width: auto;
 }
 .product-card{
+    background-color: #f3f3f3;
     align-items: center;
     padding: 3px;
     justify-content: center;
@@ -477,7 +480,13 @@ th:last-child{
     padding-left:10px;
     width:400px
 }
-.featured-products h1{
+
+/*Empty Basket Page styling*/
+.empty-basket{
+    margin-top: 20px;
+    background-color: #f3f3f3;
+}
+.empty-basket h1{
     text-align: center;
 }
 /*Buttons for Basket page*/
@@ -496,9 +505,8 @@ th:last-child{
     cursor: pointer;
     transition: transform 0.3s ease;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 42%;
+    right: 42%;
 }
 .checkout-button:hover {
     background-color: rgba(0, 0, 0, 0.9);

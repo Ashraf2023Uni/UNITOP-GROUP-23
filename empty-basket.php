@@ -30,7 +30,7 @@
                 <nav>
                     <div class="img-links">
                         <a href="index.php"><img src="assests/Navbar/home_4991416.png" class="home-icon"></a>
-                        <a href="index.php"><img src="assests/Navbar/avatar_9892372.png" class="account-icon"></a>
+                        <a href="accounts.php"><img src="assests/Navbar/avatar_9892372.png" class="account-icon"></a>
                         <a href="basket.php"><img src="assests/Navbar/checkout_4765148.png" class="basket-icon"></a>
                         <a href="admin_pin.php"><img src="assests/Navbar/staffpic.png" class="staff-icon"></a>
                     </div>
@@ -38,7 +38,7 @@
                     <div class="page-links">
                         <ul>
                             <li><a href="index.php">Home</a></li>
-                            <li><a href="index.php">Account</a></li>
+                            <li><a href="accounts.php">Account</a></li>
                             <li><a href="basket.php">Basket</a></li>
                             <li><a href="admin_pin.php">Staff login</a></li>
                         </ul>
@@ -62,7 +62,7 @@
 
 
    <!----Empty-basket Message--------->
-   <div class="featured-products">
+   <div class="empty-basket">
     <br><br>
     <h1>YOUR BASKET IS CURRENTLY EMPTY...</h1>
     <br><br>
@@ -72,14 +72,14 @@
     <br><br><br><br>
     </div>
 
-<!--Product showcase row (based on reviews?)-->
-<div class="featured-products">
-    <h2>Your Recommended Products</h2>
-    <p>Begin your search through our top rated products!</p>
-        <div class="product-row">
-            <?php include('php/featured.php'); ?>
-        </div>
-</div>
+    <!--Product showcase row (based on reviews?)-->
+    <div class="featured-products">
+        <h2>Your Recommended Products</h2>
+        <p>Begin your search through our top rated products!</p>
+            <div class="product-row">
+                <?php include('php/featured.php'); ?>
+            </div>
+    </div>
 
 
  <!--FOOTER-->
