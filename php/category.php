@@ -17,13 +17,13 @@ function getCategories($db){
     return $categories;
 }
 
-// Determine the sort order based on POST request
+//Determine the sort order based on POST request
 $sortOption = '';
 if(isset($_POST["sort"])){
     $sortOption = $_POST["sort"] == 'low-to-high' ? 'ASC' : ($_POST["sort"] == 'high-to-low' ? 'DESC' : '');
 }
 
-// Function to fetch products, optionally filtering by category and sorting
+// Function to fetch products, filtering by category and sorting
 function getProducts($db, $category_id = null, $sortOption = '') {
     $query = "SELECT p.product_id, p.product_name, p.price FROM products p";
 
@@ -39,19 +39,19 @@ function getProducts($db, $category_id = null, $sortOption = '') {
         if ($sortOption == 'ASC' || $sortOption == 'DESC') {
             $query .= " ORDER BY p.price $sortOption";
         } else {
-            // Default sort option: sort by product_id in ascending order
+            // Default sort option: sort by product_id
             $query .= " ORDER BY p.product_id";
         }
     }
 
-    $stmt = $db->prepare($query);
+    $result = $db->prepare($query);
 
     if (!is_null($category_id)) {
-        $stmt->bindParam(':category_id', $category_id, PDO::PARAM_INT);
+        $result->bindParam(':category_id', $category_id, PDO::PARAM_INT);
     }
 
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $result->execute();
+    return $result->fetchAll(PDO::FETCH_ASSOC);
 }
 
 // Get category from URL query parameter
