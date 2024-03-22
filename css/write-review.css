@@ -10,8 +10,31 @@ form img{
     text-align: center;
     margin-top:40px;
     margin-bottom:30px;
+    border-radius: 4px;
+    width:70%;
+    border-style:solid;
+    border-color: rgb(174, 189, 195);
+    padding-top:30px;
+    padding-bottom: 50px;
 }
 
+#review-body button{
+    padding-top:1px;
+    padding-bottom:1px;
+    padding-right: 3px;
+    padding-left: 3px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(195, 222, 238);
+    border-radius: 3px;
+    background-color: rgb(199, 227, 238);
+}
+
+#review-body button:hover{
+    cursor:pointer;
+    border-color: rgb(168, 199, 216);
+    background-color: rgb(171, 205, 218);
+}
 .textarea{
     margin-top:60px;
     display: inline-flex;
@@ -21,7 +44,9 @@ form img{
     margin-left:10px;
     padding-left:5px;
     width:600px;
-    height:200px;
+    height:130px;
+    border-color: rgb(109, 109, 167);
+    border-radius: 2px;
 }
 .star-wrapper{
     direction: rtl;
@@ -56,6 +81,9 @@ form img{
      display:none;
 } 
 
+#review-text:hover{
+    border-color: rgb(41, 56, 77);
+}
 .star-wrapper label{
     display:inline-block;
     width:40px;
