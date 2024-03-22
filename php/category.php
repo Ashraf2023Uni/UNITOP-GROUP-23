@@ -1,59 +1,61 @@
 <?php
 require('php/connectdb.php');
 
-//function to get the category names and will be used to display in the menu bar
-function getCategories($db) {
-    //Empty array
+//Function to get the category names for display in the menu bar
+function getCategories($db){
     $categories = array();
-    $query = "SELECT category_id, category FROM categories";
+    $query = " SELECT category_id, category FROM categories";
     $result = $db->prepare($query);
     $result->execute();
-
-    //Fetch results as an array
     $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
-    if(count($rows) > 0) {
-        foreach($rows as $row) {
+    if(count($rows) > 0){
+        foreach($rows as $row){
             $categories[] = $row;
         }
     }
     return $categories;
-
 }
 
-//FILTERING BASED ON CATEGORY
-$category_id = isset($_GET['category']) ? $_GET['category'] : null;
+// Determine the sort order based on POST request
+$sortOption = '';
+if(isset($_POST["sort"])){
+    $sortOption = $_POST["sort"] == 'low-to-high' ? 'ASC' : ($_POST["sort"] == 'high-to-low' ? 'DESC' : '');
+}
 
-//Function to get products per category
-function getProductsByCategory($db, $category_id) {
-    $products = array();
-    $query = "SELECT p.product_id, p.product_name, p.price FROM products p
-                INNER JOIN product_categories pc ON p.product_id = pc.product_id 
-                INNER JOIN categories c ON pc.category_id = c.category_id WHERE c.category_id = ?";
+// Function to fetch products, optionally filtering by category and sorting
+function getProducts($db, $category_id = null, $sortOption = '') {
+    $query = "SELECT p.product_id, p.product_name, p.price FROM products p";
 
-   // if ($sort) {
-    //    $query .= " ORDER BY p.price $sort";
-    ////}
+    if (!is_null($category_id)) {
+        // If a category is selected, join with the category tables
+        $query .= " INNER JOIN product_categories pc ON p.product_id = pc.product_id
+                    INNER JOIN categories c ON pc.category_id = c.category_id
+                    WHERE c.category_id = :category_id";
+    }
 
-    $result = $db->prepare($query);
-    $result->bindParam(1, $category_id, PDO::PARAM_INT);
-    $result->execute();
-    
-    $rows = $result->fetchAll(PDO::FETCH_ASSOC);
-
-    /*echo "rows";
-    print_r($rows);*/
-
-    if(count($rows) > 0) {
-        foreach($rows as $row) {
-            $products[] = $row;
+    // Add sorting
+    if (!empty($sortOption)) {
+        if ($sortOption == 'ASC' || $sortOption == 'DESC') {
+            $query .= " ORDER BY p.price $sortOption";
+        } else {
+            // Default sort option: sort by product_id in ascending order
+            $query .= " ORDER BY p.product_id";
         }
     }
-    return $products;
+
+    $stmt = $db->prepare($query);
+
+    if (!is_null($category_id)) {
+        $stmt->bindParam(':category_id', $category_id, PDO::PARAM_INT);
+    }
+
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-//Check if sort option has been selected
-//$sort = isset($_POST["sort"]) ? $_POST["sort"] : null;
+// Get category from URL query parameter
+$category_id = isset($_GET['category']) ? $_GET['category'] : null;
 
-//Get products based on category and sorting option
-$products = getProductsByCategory($db, $category_id);
+// Fetch products based on category and sort order
+$products = getProducts($db, $category_id, $sortOption);

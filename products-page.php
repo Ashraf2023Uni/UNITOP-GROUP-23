@@ -67,7 +67,7 @@
 
 <!------------------------------SORTING PRODUCTS-------------------------------------->
 <div class="sorting">
-<form action="products-page.php" method="POST">
+<form action="products-page.php<?php echo isset($_GET['category']) ? '?category=' . htmlspecialchars($_GET['category']) : ''; ?>" method="POST">
     <select name="sort" class="dropdown">
         <option value="default">Default</option>
         <option value="low-to-high">Price Low to High</option>
@@ -77,121 +77,56 @@
 </form>
 </div>
 
-<div class='featured-products'>
-<div class="product-row" id="product-row">
-    
-<?php
-    require('php/connectdb.php');
-    
-    $products = getProductsByCategory($db, $category_id);
-    /*print_r($category_id);*/
+<div class="featured-products">
+    <div class="product-row" id="product-row">
+        <?php
+            require('php/connectdb.php');
 
-    if(!empty($products)){
-        foreach($products as $product){
-            echo"<section class='product-card'>
-                <a href='product-details.php?id=".$product['product_id']."'>
-                <img src='assests/Products/".$product['product_id'].".png' alt='' id='Featured-Thumbnail'>
-                <h4>".$product['product_name']."</h4>
-                <p>£".$product['price']."</p>
-                <button class='button'>More Details</button>
-                </a>
-                </section>";
-        }
-    }
+            //Check to see if there is a search input
+            if (!empty($_POST["search"])) {
+                $productName = $_POST["search"];
+                $query = "SELECT product_id, product_name, price FROM products WHERE product_name LIKE :searchInput";
+                $result = $db->prepare($query);
+                $wildCard = '%' . $productName . '%';
+                $result->bindValue('searchInput', $wildCard, PDO::PARAM_STR);
+                $result->execute();
 
-    //To prevent duplication of products showing
-
-    //Check if getProductsByCategory has been called
-     if (!isset($products) && $products !== null){
-        if($products->rowCount() > 0){
-            while($product = $products->fetch()){
-                echo"<section class='product-card'>
-                        <a href='product-details.php?id=".$product['product_id']."'>
-                        <img src='assests/Products/".$product['product_id'].".png' alt='' id='Featured-Thumbnail'>
-                        <h4>".$product['product_name']."</h4>
-                        <p>£".$product['price']."</p>
-                        <button class='button'>More Details</button>
-                        </a>
-                    </section>";
-            }
-        } else {
-            echo "Name does not exist.";
-        }
-     } elseif (!empty($_POST["search"])) {
-        //Checks to see if there is a search input
-        $name = $_POST["search"];
-        /*$query = "SELECT p.product_id, p.product_name, p.price FROM products p
-                    INNER JOIN product_categories pc ON p.product_id = pc.product_id;
-                    INNER JOIN categories c ON pc.category_id = c.category_id WHERE p.product_name LIKE :searchName OR c.category_id LIKE :searchCategory";*/
-        $query = "SELECT product_id, product_name, price FROM products WHERE product_name LIKE :searchName";
-        $result = $db->prepare($query);
-        $wildCard = '%' . $name . '%';
-        $result->bindValue('searchName', $wildCard , PDO::PARAM_STR);
-        /*$result->bindValue('searchCategory', $wildCard , PDO::PARAM_STR);*/
-        $result->execute();
-        
-        if($result->rowCount() > 0){
-            while($product = $result->fetch()){
-                echo"<section class='product-card'>
-                        <a href='product-details.php?id=".$product['product_id']."'>
-                        <img src='assests/Products/".$product['product_id'].".png' alt='' id='Featured-Thumbnail'>
-                        <h4>".$product['product_name']."</h4>
-                        <p>£".$product['price']."</p>
-                        <button class='button'>More Details</button>
-                        </a>
-                    </section>";
-            }
-        } else {
-            echo "<div class='error-message'> 
-                    We couldn't find any products matching your search. 
-                    <br>
-                    Please try again with a different keyword or browse our current categories to find what 
-                    you're looking for. 
-                </div>";
-        }
-     }
-
-    //Check if sort option has been selected
-    if(!empty($_POST["sort"])) {
-        $sort = $_POST["sort"];
-        $sort = ($sort === 'low-to-high') ? 'ASC' : 'DESC';
-        /*// Adjust the sorting option before using it in the SQL query
-            $sort = isset($_POST["sort"]) ? $_POST["sort"] : 'default';
-
-            // If sort option is provided and not default, add ORDER BY clause
-            if ($sort !== 'default') {
-                switch ($sort) {
-                    case 'low-to-high':
-                        $query .= " ORDER BY price ASC";
-                        break;
-                    case 'high-to-low':
-                        $query .= " ORDER BY price DESC";
-                        break;
-                    // Add more cases if needed for additional sorting options
+                //Display products
+                if($result->rowCount() > 0) {
+                    while($product = $result->fetch()){
+                        echo"<section class='product-card'>
+                                <a href='product-details.php?id=".$product['product_id']."'>
+                                <img src='assests/Products/".$product['product_id'].".png' alt='' id='Featured-Thumbnail'>
+                                <h4>".$product['product_name']."</h4>
+                                <p>£".$product['price']."</p>
+                                <button class='button'>More Details</button>
+                                </a>
+                            </section>";
+                    }
+                } else {
+                    echo "<div class='error-message'> 
+                            We couldn't find any products matching your search. 
+                            <br>
+                            Please try again with a different keyword or browse our current categories to find what 
+                            you're looking for. 
+                        </div>";
                 }
-            }*/
-        $query = "SELECT product_id, product_name, price FROM products ORDER BY price $sort";
-        $result = $db->prepare($query);
-        $result->execute();
-
-        if($result->rowCount() > 0){
-            while($product = $result->fetch()){
-                echo"<section class='product-card'>
-                        <a href='product-details.php?id=".$product['product_id']."'>
-                        <img src='assests/Products/".$product['product_id'].".png' alt='' id='Featured-Thumbnail'>
-                        <h4>".$product['product_name']."</h4>
-                        <p>£".$product['price']."</p>
-                        <button class='button'>More Details</button>
-                        </a>
-                    </section>";
+            } else {
+                //Display products that have been filtered by the category or sorted
+                if(!empty($products)){
+                    foreach($products as $product){
+                        echo"<section class='product-card'>
+                                <a href='product-details.php?id=" . htmlspecialchars($product['product_id']) . "'>
+                                <img src='assests/Products/" . htmlspecialchars($product['product_id']) . ".png' alt='' id='Featured-Thumbnail'>
+                                <h4>" . htmlspecialchars($product['product_name']) . "</h4>
+                                <p>£" . htmlspecialchars($product['price']) . "</p>
+                                <button class='button'>More Details</button>
+                                </a>
+                            </section>";
+                    }
+                }
             }
-        } else {
-            echo "Name does not exist.";
-        }
-    }
-
 ?>
-
 </div>
 </div>
 
@@ -244,48 +179,3 @@
 
 </body>
 </html>
-
-
-
-
-
-<!--
-//OLD SEARCH AND SORT PHP
-/*SEARCH AND SORT FUNCTIONALITY
-     $query = "SELECT product_id, product_name, price from products";
-    
-     //Checks if the form named 'submit' has been submitted
-     if(isset($_POST["submit"])){
-         //Retrieve the value entered in the form named 'search'
-         $name = $_POST["search"];
-         //Search for products with a name similar to what was searched
-         $query = "SELECT product_id, product_name, price FROM products WHERE product_name LIKE :searchName";
-         $products = $db->prepare($query);
-         $products->bindValue('searchName', '%' . $name . '%', PDO::PARAM_STR);
-         $products->execute();
-     } else {
-         //If nothing has been searched then the query still continues.
-         $products = $db->prepare($query);
-     }
- 
-     //Checks if the form with the name 'sort' has been submitted
-     $sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
-     if(isset($_POST['sort'])){
-         if($_POST['sort'] !== 'default'){
-             switch($_POST['sort']){
-                 case 'low-to-high':
-                     $query .= " ORDER BY price ASC";
-                     break;
-                 case 'high-to-low':
-                     $query .= " ORDER BY price DESC";
-                     break; 
-             }
-         }
-     }
-     $products = $db->prepare($query);
-     
-     if(isset($_POST["submit"])){
-         $name = $_POST["search"];
-         $products->bindValue('searchName', '%' . $name . '%', PDO::PARAM_STR);
-     }
-         $products->execute();*/-->
