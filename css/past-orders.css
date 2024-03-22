@@ -40,3 +40,26 @@
 .all-info{
     display: flex;
 }
+
+.receipt-img{
+    height:150px;
+}
+
+#receipt-box{
+    margin-left:220px;
+    margin-top:30px;
+}
+
+#items{
+    margin-left: 270px;
+}
+
+#button{
+    margin-left: 490px;
+    margin-top: 30px;
+    margin-bottom:50px;
+}
+
+#price{
+    margin-left:490px;
+}

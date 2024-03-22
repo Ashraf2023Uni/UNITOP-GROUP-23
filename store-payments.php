@@ -22,7 +22,6 @@ $postcode = $_REQUEST['postcode'];
 
 $user_id = $_SESSION['user_id'];
 
-$rollback = false;
 
 
 //inserting data into payment_details table
@@ -82,6 +81,7 @@ try{
     $stmt = $db->prepare($setCost);
     $stmt->execute([$GLOBALS['total_cost'],$user_id,$order_id]);
 
+    $_SESSION['order_id'] = $order_id;
     //resetting basket session arrays after successful checkout
     $_SESSION['prod_id'] = array();
     $_SESSION['qty'] = array();
