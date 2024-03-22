@@ -218,7 +218,7 @@ a:hover{
     border-radius: 10px;   
     align-items: bottom;
     position: absolute;
-    transform: translateX(40px);
+    transform: translateX(30%);
     color: white;
     transition: background-colour 0.3s ease;
     background-color: rgba(46, 10, 10, 0.5);
@@ -418,7 +418,6 @@ footer p{
     color: red;
 }
 
-/*Basket Page styling - Haseeb */
 /*Cart Items*/
 .cart-page{
     margin: 80px auto;
@@ -478,19 +477,32 @@ th:last-child{
     padding-left:10px;
     width:400px
 }
-/*checkout button for cart page*/
-.checkout-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #623bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
+.featured-products h1{
+    text-align: center;
 }
-
+/*Buttons for Basket page*/
+.checkout-button {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;  
+    border-style: none;
+    position: absolute;
+    color: white;
+    transition: background-colour 0.3s ease;
+    background-color: rgba(46, 10, 10, 0.5);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 .checkout-button:hover {
-    background-color: #401f9b;
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
 }
 
 /*Mohammed Ali 220192905*/
@@ -513,7 +525,7 @@ th:last-child{
 }
 
 /*Error messages - Humayra Hussain 210005848*/
-.product-card .error-message {
-    background-color: red;
+.product-row .error-message {
+    background-color: rgb(247, 182, 182);
     color: red;
 }

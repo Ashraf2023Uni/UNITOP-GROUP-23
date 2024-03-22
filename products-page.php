@@ -106,7 +106,7 @@
                             <br>
                             Please try again with a different keyword or browse our current categories to find what 
                             you're looking for. 
-                        </div>";
+                          </div>";
                 }
             } else {
                 //Display products that have been filtered by the category or sorted
@@ -123,8 +123,8 @@
                     }
                 }
             }
-?>
-</div>
+        ?>
+    </div>
 </div>
 
 <!-------------------FOOTER---------------------->

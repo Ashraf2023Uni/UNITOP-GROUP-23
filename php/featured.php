@@ -1,10 +1,5 @@
 <!--Humayra Hussain (210005848) and Noor Ahmed (220032003)-->
 <style><?php include('../css/home-page.css') ?></style>
-<div class="featured-products">
-    <h2>Featured Laptops for your Degree</h2>
-    <p>Discover our selection of top-rated laptops to elevate your students' educational journey.</p>
-    <div class="product-row">
-
         <?php
             require_once('connectdb.php');
             $query = "SELECT product_id, product_name, price FROM products";
@@ -35,5 +30,3 @@
             }
 
         ?>
-    </div>
-</div>
