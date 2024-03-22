@@ -67,6 +67,7 @@ try {
         rel="stylesheet"
     />
     <link rel="stylesheet" href="css/accounts.css">
+    <link rel="stylesheet" href="css/past-orders.css">
     <link rel="shortcut icon" type="icon" href="assets/Banners/logo.png">
     <title>UNITOP/ Your Account</title>
 </head>
@@ -136,6 +137,46 @@ try {
             <?php else: ?>
                 <p>Account details not found.</p>
             <?php endif; ?>
+        </div>
+        <div id="orders" class="section">
+            <h1>TESTING</h1>
+            <div id="order-display">
+                <h1><bold>Your Orders</bold></h1>
+
+                
+                    <?php
+                    $orderQuery = "SELECT * FROM orders WHERE user_id = ?";
+                    $orderResult = $db->prepare($orderQuery);
+                    $orderResult->execute([$_SESSION['user_id']]);
+                    
+                    while($order = $orderResult->fetch(PDO::FETCH_ASSOC)){
+                        $orderlineQuery = "SELECT * FROM orderlines WHERE order_id = ?";
+                        $orderlineResult = $db->prepare($orderlineQuery);
+                        $orderlineResult->execute([$order['order_id']]);
+                        echo"<div class='all-info'>";
+                        echo"<div class='order-box'>
+                                <div class='date-header'><h3><strong>Ordered on: </strong>" . substr($order['order_date'],0,10) . "</h3></div>";
+                        while($orderline = $orderlineResult->fetch(PDO::FETCH_ASSOC)){
+                            echo "<div class='info'><img src='assests/Products/".$orderline['product_id'].".png' class='product-img'>";
+                            $productQuery = "SELECT product_name FROM products WHERE product_id = ?";
+                            $productResult = $db->prepare($productQuery);
+                            $productResult->execute([$orderline['product_id']]);
+                            $productName = $productResult->fetch();
+                            echo "<p>".$productName['product_name']."<br>Qty: ".$orderline['quantity']."</p></div>";
+
+                        }
+
+                        echo   "<p><strong>Total Price:</strong> £" . $order['cost'] . "
+                            </div>";
+                        
+                        echo"<p class='status'>Delivery status: Processing</p></div>";
+                    }
+
+
+
+                    ?>
+                
+                </div>
         </div>
         <div id="changePassword" class="section">
             <h2>Change Password</h2>
