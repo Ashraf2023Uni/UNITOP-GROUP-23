@@ -1,5 +1,11 @@
-body {
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: "Poppins", sans-serif;
+}
+
+body {
     margin: 0;
     padding: 0;
     display: flex;
@@ -160,7 +166,7 @@ a:hover{
     transform: translate(-10px);
 }
 
-/************************Styling for Login Banner**************************/
+/*Styling for Login Banner*/
 /*5 Categories for Menu*/
 .menu{
     background-color: rgba(0, 0, 0, 0.9);
@@ -179,71 +185,6 @@ a:hover{
 }
 .menu a:hover{
     text-decoration: underline;
-}
-/*Log-in Banner*/
-.banner-log{
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    text-align: center;
-}
-.log-in{
-    width: max-width;
-    height: 500px;
-    color: white;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.button{
-    display: inline-block;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 50px;
-    border: 2px solid white;
-    background-color: transparent;
-    padding: 10px 20px;
-    cursor: pointer;
-    color: white;
-    border-radius: 10px;
-}
-.button:hover{
-    text-decoration: underline;
-}
-.heading{
-    width: 60%;
-    transition: background-colour 0.3s ease;
-    background-color: rgba(0, 0, 0, 0.7);
-    border: 1px solid black;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
-}
-.heading:hover{
-    background-color: rgba(0, 0, 0, 0.8);
-    transform: scale(1.05);
-}
-.heading h1{
-    font-size: 50px;
-    line-height: 60px;
-    text-align: center;
-    margin: 10px 0;
-    padding-top: 50px;
-}
-.heading-links{
-    padding-top: 30px;
-}
-.log-in p{
-    text-align: center;
-    padding: 20px;
-}
-.button#login-btn{
-    background-color: white;
-    color: black;
-    margin-left: 40px;
 }
 
 /*FOOTER*/

@@ -102,8 +102,9 @@ try {
             </div>
         </div>
     </header>
-     <!--Menu with the categories based on degrees of students-->
-     <div class="menu">
+
+    <!--Menu with the categories based on degrees of students-->
+    <div class="menu">
         <?php 
         include('php/category.php');
         $categories = getCategories($db);
