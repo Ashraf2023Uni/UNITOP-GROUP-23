@@ -141,6 +141,7 @@ CREATE TABLE `orders` (
   `user_id` int(11) NOT NULL,
   `order_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `cost` decimal(9,2) DEFAULT NULL,
+  `status` varchar(20) NOT NULL,
   `admin_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -159,14 +160,14 @@ INSERT INTO `orders` (`order_id`, `user_id`, `order_date`, `cost`, `admin_id`) V
 
 CREATE TABLE `payment_details` (
   `payment_id` int(11) NOT NULL,
-  `card_name` varchar(30) DEFAULT NULL,
-  `card_num` varchar(16) DEFAULT NULL,
-  `cvv` varchar(3) DEFAULT NULL,
-  `expiration` varchar(5) DEFAULT NULL,
+  `card_name` varchar(30) NOT NULL,
+  `card_num` varchar(256) NOT NULL,
+  `cvv` varchar(256) NOT NULL,
+  `expiration` varchar(256) NOT NULL,
   `email` varchar(255) NOT NULL,
   `addressline` varchar(100) NOT NULL,
   `city` varchar(30) NOT NULL,
-  `town` varchar(40) DEFAULT NULL,
+  `town` varchar(40) NOT NULL,
   `postcode` varchar(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

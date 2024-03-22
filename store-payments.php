@@ -10,9 +10,9 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 
 $db->beginTransaction(); //making a save point in case queries need to rollback
 //collecting billing form data
-$cardNum = $_REQUEST['num'];
-$cvv = $_REQUEST['cvv'];
-$expDate = $_REQUEST['expDate'];
+$cardNum = password_hash($_REQUEST['num'],PASSWORD_DEFAULT);
+$cvv = password_hash($_REQUEST['cvv'], PASSWORD_DEFAULT);
+$expDate = password_hash($_REQUEST['expDate'],PASSWORD_DEFAULT);
 $email = $_REQUEST['email'];
 $name = $_REQUEST['fullname'];
 $address = $_REQUEST['address'];
