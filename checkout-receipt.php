@@ -15,7 +15,7 @@
         rel="stylesheet"
     />
     <link rel="stylesheet" href="css/home-page.css"/>
-    <link rel="stylesheet" href="css/past-orders.css">
+    <link rel="stylesheet" href="css/receipt.css">
     <link rel="shortcut icon" type="icon" href="assests/Banners/logo.png"/>
 </head>
 
@@ -42,20 +42,20 @@ echo"<div id='receipt-box'><h1>Thanks for ordering, ".$email['email']."! <br> Yo
 echo"<div id='items'><p>Ordered items:<p>";
 
 while($orders = $orderlines->fetch(PDO::FETCH_ASSOC)){
-    echo "<img src='assests/Products/".$orders['product_id'].".png' class='receipt-img'>";
+    echo "<div class='itemlines'><img src='assests/Products/".$orders['product_id'].".png' class='receipt-img'>";
     $productQuery = "SELECT product_name FROM products WHERE product_id = ?";
     $productResult = $db->prepare($productQuery);
     $productResult->execute([$orders['product_id']]);
     $productName = $productResult->fetch();
-    echo "<p>".$productName['product_name']."<br>Qty: ".$orders['quantity']."</p>";
+    echo "<p>".$productName['product_name']."<br>Qty: ".$orders['quantity']."</p></div>";
 }
 
 echo"</div><div id='price'>";
-echo   "<p><strong>Total Price:</strong> £" . $order['cost'] . "</div>
-</div>";
+echo   "<p><strong>Total Price:</strong> £" . $order['cost'] . "</div>";
+echo "<div id='button'><form action='index.php'><button type='submit'>Head back to Homepage</button></form></div></div>
+</div></div>";
 
 
-echo"<div id='button'><form action='index.php'><button type='submit'>Head back to Homepage</button></form></div></div>
-</div>";
+
 
 ?>

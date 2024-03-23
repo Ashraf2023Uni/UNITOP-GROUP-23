@@ -1,0 +1,52 @@
+#receipt-box{
+    padding-top:15px;
+    text-align:center;
+}
+
+#receipt-box img{
+    height:100px;
+    border-radius:3px;
+    border-style: solid;
+    border-width:1px;
+    border-color: black;
+}
+
+.itemlines{
+    display:flex;
+    border-radius: 5px;;
+    border:solid;
+    width:35%;
+    margin-top:1px;
+    margin-left:3px;
+    margin-left:33%;
+    padding-left:5px;
+    padding:3px;
+}
+
+.itemlines p{
+    margin-top:35px;
+    text-align:left;
+    margin-left:10px;
+}
+
+#items{
+    text-align:3;
+}
+
+#receipt-box button{
+    margin-top:10px;
+    padding:10px;
+    border-radius:10px;
+    border-style:solid;
+    border-color:rgb(127, 125, 125);
+    background-color:rgb(127, 125, 125);
+    color:white;
+}
+
+#receipt-box button:hover{
+    cursor:pointer;;
+    border-color:rgb(73, 72, 72);
+    background-color:rgb(73, 72, 72);
+    padding:10px;
+    font-size:15px;
+}
