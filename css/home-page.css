@@ -612,6 +612,7 @@ th:last-child{
 }
 
 /*Admin styling - Humayra Hussain 210005848*/
+/*Pin Page*/
 .admin-pin{
     display: flex;
     flex-direction: column;
@@ -655,3 +656,211 @@ th:last-child{
     background-color: rgba(0, 0, 0, 0.9);
     transform: scale(1.1);
 }
+/*Index - admin*/
+.container1{
+    margin: 30px;
+}
+.admin-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.container1 h3{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    flex: 1;
+    background-color: #f3f3f3;
+    align-items: center;
+    padding: 30px;
+    padding-bottom: 50px;
+    justify-content: center;
+    border: 1px solid black;
+    margin: 10px;
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
+}
+.container form{
+    display: inline-block;
+}
+.container #img1{
+    margin: 40px;
+}
+.logout-form {
+    text-align: center;
+    margin-top: 20px;
+}
+.logout-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;  
+    border: none;
+    border-radius: 10px;   
+    align-items: bottom;
+    color: white;
+    transition: background-colour 0.3s ease;
+    background-color: rgba(46, 10, 10, 0.5);
+    transition: transform 0.3s ease;
+}
+.logout-button:hover{
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+.stock-form {
+    text-align: center;
+    margin-top: 20px;
+}
+.stock-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;  
+    border: none;
+    border-radius: 10px;   
+    align-items: bottom;
+    color: white;
+    transition: background-colour 0.3s ease;
+    background-color: rgba(46, 10, 10, 0.5);
+    transition: transform 0.3s ease; 
+}
+.stock-button:hover{
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+.changePw-form {
+    text-align: center;
+    margin-top: 20px;
+}
+.changePw-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;  
+    border: none;
+    border-radius: 10px;   
+    align-items: bottom;
+    color: white;
+    transition: background-colour 0.3s ease;
+    background-color: rgba(46, 10, 10, 0.5);
+    transition: transform 0.3s ease;    
+}
+.changePw-button:hover{
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+.container2{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-left: 45%;
+    margin-right: 45%;
+    margin-bottom: 50px
+}
+/*Stock - dashboard*/
+.admin h1 {
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+th {
+    background-color: #000000;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+td input[type="number"] {
+    width: 150px;
+    padding: 5px;
+}
+
+td button {
+    margin: 5px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;   
+    color: white;
+    transition: background-colour 0.3s ease;
+    background-color: rgba(46, 10, 10, 0.5);
+    transition: transform 0.3s ease;
+}
+
+td button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/*a {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color:blue;
+}
+
+table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: palevioletred;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid green;
+    text-align: left;
+}
+th {
+    background-color: orange;
+    color: darkblue;
+}
+td input[type="number"] {
+    width: 80px;
+    padding: 5px;
+}
+
+td button {
+    padding: 5px 10px;
+    background-color: darkmagenta;
+    color:aqua;
+    border: none;
+    cursor: pointer;
+}
+
+td button:hover {
+    background-color: darkgoldenrod;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: yellow;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+}*/
