@@ -610,3 +610,48 @@ th:last-child{
     background-color: rgb(247, 182, 182);
     color: red;
 }
+
+/*Admin styling - Humayra Hussain 210005848*/
+.admin-pin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+.pin{
+    padding: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    background-color: #f3f3f3;
+    padding: 10px;
+    padding-top: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.pin input[type="password"]{
+    display: block;
+    width: 200px;
+    margin: 15px;
+}
+.pin input[type="submit"]{
+    display: block;
+    width: 100px;
+    margin: 15px;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding: 10px;
+    border-radius: 20px;  
+    border-style: none;
+    color: white;
+    transition: background-colour 0.3s ease;
+    background-color: rgba(46, 10, 10, 0.5);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.pin input[type="submit"]:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
