@@ -12,8 +12,14 @@ header .navbar{
     background-color: white;
     width: 100%;
     max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: small;
 }
 .navbar{
+    width: auto;
     display: flex;
     align-items: center;
     font-size: small;
@@ -52,8 +58,10 @@ a:hover{
 }
 .links nav{
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: flex-end;
+    justify-content: flex-end;
 }
 .links .img-links img{
     display: inline-block;
@@ -86,7 +94,17 @@ a:hover{
     transform: translate(-10px);
 }
 
-/*Responsive design*/
+/*Resizing for half-screen (TP1 Feedback) Humayra Hussain 210005848 FOR ALL PAGES*/
+@media screen and (max-width:1100px){
+    /*Navigation Bar*/
+    .search input{
+        max-width: 200px;
+    }
+    .links{
+        text-align: center;
+        flex: auto;
+    }
+}
 
 /************************Styling for Login Banner**************************/
 /*5 Categories for Menu*/
@@ -116,6 +134,7 @@ a:hover{
     text-align: center;
 }
 .log-in{
+    width: 100%;
     width: max-width;
     height: 500px;
     color: white;
@@ -142,7 +161,8 @@ a:hover{
     text-decoration: underline;
 }
 .heading{
-    width: 60%;
+    width: 80%;
+    max-width: 750px;
     transition: background-colour 0.3s ease;
     background-color: rgba(0, 0, 0, 0.7);
     border: 1px solid black;
@@ -155,8 +175,8 @@ a:hover{
     transform: scale(1.05);
 }
 .heading h1{
-    font-size: 50px;
-    line-height: 60px;
+    font-size: 3rem;
+    line-height: 1.5;
     text-align: center;
     margin: 10px 0;
     padding-top: 50px;
@@ -172,6 +192,18 @@ a:hover{
     background-color: white;
     color: black;
     margin-left: 40px;
+}
+
+@media screen and (max-width:700px){
+    /*Banner*/
+    .heading{
+        width: 80%;
+    }
+
+    .heading h1, p{
+        padding: 0;
+        margin: 0;
+    }
 }
 
 /************************PRODUCT SHOWCASE**************************/
@@ -231,6 +263,38 @@ a:hover{
 }
 .product-card:hover{
     transform: scale(1.1);
+}
+
+/*Products displayed in rows when screen is resized*/
+@media screen and (max-width:1150px){
+    .product-row{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding-bottom: 30px;
+    }
+
+    .product-card{
+        margin: 20px;
+        padding: 10px;
+        width: calc(50%-10%);
+        height: 100%;
+    }
+}
+
+@media screen and (max-width:900px){
+    .product-row{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding-bottom: 30px;
+    }
+
+    .product-card{
+        width: 100%;
+        width: calc(75%);
+        height: 100%;
+    }
 }
 
 /**************************ABOUT US and CONTACT US**************************/
@@ -327,7 +391,7 @@ footer p{
 .socials{
     width: 15px;
     margin: 10px;
-   transform: translate(140px);
+    transform: translate(140px);
 }
 .line{
     background-color: rgba(0, 0, 0, 0.9);
@@ -337,6 +401,15 @@ footer p{
     font-size: small;
     justify-content: space-around;
     align-items: center;
+}
+
+/*Resizing for social media icons*/
+@media screen and (max-width:800px){
+    .socials{
+        width: 15px;
+        margin: 10px;
+        transform: translate(50px);
+    }
 }
 
 /*Product-details page styling - Humayra Hussain - 210005848*/
