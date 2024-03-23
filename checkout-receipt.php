@@ -52,7 +52,7 @@ while($orders = $orderlines->fetch(PDO::FETCH_ASSOC)){
 
 echo"</div><div id='price'>";
 echo   "<p><strong>Total Price:</strong> £" . $order['cost'] . "</div>";
-echo "<div id='button'><form action='index.php'><button type='submit'>Head back to Homepage</button></form></div></div>
+echo "<div class='btn'><form action='index.php'><button type='submit'>Head back to Homepage</button></form></div></div>
 </div></div>";
 
 
