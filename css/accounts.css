@@ -13,6 +13,7 @@ body {
     min-height: 100vh;
 }
 
+
 .account-container {
     display: flex;
     align-items: stretch;
@@ -42,12 +43,10 @@ body {
     color: #333;
     padding: 10px 20px;
     border-bottom: 1px solid #ccc;
-    transition: background-colour 0.3s ease;
 }
 
 .sidebar-menu li a:hover {
     background-color: #ddd;
-    transform: scale(1.1);
 }
 
 .profile-content {
@@ -56,189 +55,14 @@ body {
     background: #fff;
 }
 
-/*Humayra Hussain 210005848*/
-
-#profile{
-    display: flex;
-    flex-direction: column;
-    margin-left: 30%;
-    margin-right: 30%;
-    padding: 10px;
-    transition: background-colour 0.3s ease;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-}
-#profile p{
-    padding: 2px;
-}
-#profile h2{
-    text-align: center;
+.section {
+    display: block;
 }
 
 .section h2 {
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
     margin-bottom: 20px;
-}
-#order-display{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.all-info{
-    width: calc(50% - 20px);
-    margin: 10px 0;
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
-}
-
-#orders h2{
-    text-align: center;
-    margin-top: 30px;
-}
-.date-header{
-    text-align: center;
-    padding:2px;
-    width:100%
-}
-
-.order-box{
-    flex-grow: 1;
-    width: 50%;
-    background-color: #f3f3f3;
-    align-items: center;
-    padding: 3px;
-    justify-content: center;
-    border-radius: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    border: 1px solid black;
-    margin-top: 20px;
-    padding: 10px;
-}
-
-.info{
-    justify-content:flex-start;
-    display:flex;
-    background-color: #fff;
-    padding: 3px;
-    border-radius: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    margin-top: 20px;
-    padding: 5px;
-}
-
-.review-btn{
-    margin-top: 20px;
-    border: none;
-    padding: 7px;
-    border-radius: 10px;   
-    align-items: bottom;
-    color: white;
-    transition: background-colour 0.3s ease;
-    background-color: rgba(46, 10, 10, 0.5);
-    transition: transform 0.3s ease;
-}
-.review-btn:hover{
-    background-color: rgba(0, 0, 0, 0.9);
-    transform: scale(1.1);
-}
-#order-display{
-    padding: 10px;
-}
-
-.product-img{
-    height:100px;
-}
-
-.info p{
-    padding-top: 20px;
-}
-.status{
-    padding: 5px;
-}
-.price-txt{
-    margin-top: 10px;
-    padding: 5px;
-}
-
-#changePassword{
-    padding: 10px;
-}
-#changePassword h2{
-    text-align: center;
-    margin-top: 30px;
-}
-#changePassword .form-group{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-}
-#changePassword .form-group label{
-    flex: 1;
-    text-align: right;
-}
-#changePassword .form-group input[type="password"]{
-    flex: 3;
-    padding: 3px;
-    border: 1px solid black;
-    border-radius: 5px;
-    margin-right: 50px;
-}
-#changePassword button[type="submit"]{
-    margin-top: 20px;
-    border: none;
-    padding: 7px;
-    border-radius: 10px;   
-    color: white;
-    transition: background-colour 0.3s ease;
-    background-color: rgba(46, 10, 10, 0.5);
-    transition: transform 0.3s ease;
-    
-}
-#changePassword button[type="submit"]:hover{
-    background-color: rgba(0, 0, 0, 0.9);
-    transform: scale(1.1);
-}
-
-.review-btn{
-    border: none;
-    padding: 10px;
-    border-radius: 10px;   
-    align-items: bottom;
-    color: white;
-    transition: background-colour 0.3s ease;
-    background-color: rgba(46, 10, 10, 0.5);
-    transition: transform 0.3s ease;
-}
-.review-btn:hover{
-    background-color: rgba(0, 0, 0, 0.9);
-    transform: scale(1.1);
-}
-.success{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: rgb(216, 255, 216);
-    color: rgb(0, 167, 0);
-    padding: 10px;
-    margin-bottom: 10px;
-}
-.error{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: rgb(255, 211, 211);
-    color: rgb(193, 0, 0);
-    padding: 10px;
-    margin-bottom: 10px;
 }
 
 /* Responsive design */
@@ -260,23 +84,16 @@ body {
     }
 }
 
-
 /*Menu, Navigation Bar and Footer styling from homepage.css*/
 
-/*Styling for NAVIGATION BAR*/
+/*Styling for NAVIGATION BAR**/
 header .navbar{
     text-align: center;
     background-color: white;
     width: 100%;
     max-width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    font-size: small;
 }
 .navbar{
-    width: auto;
     display: flex;
     align-items: center;
     font-size: small;
@@ -315,10 +132,8 @@ a:hover{
 }
 .links nav{
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     align-items: flex-end;
-    justify-content: flex-end;
 }
 .links .img-links img{
     display: inline-block;
@@ -350,17 +165,8 @@ a:hover{
     width: 15px;
     transform: translate(-10px);
 }
-@media screen and (max-width:1100px){
-    /*Navigation Bar*/
-    .search input{
-        max-width: 200px;
-    }
-    .links{
-        text-align: center;
-        flex: auto;
-    }
-}
 
+/*Styling for Login Banner*/
 /*5 Categories for Menu*/
 .menu{
     background-color: rgba(0, 0, 0, 0.9);
@@ -424,7 +230,7 @@ footer p{
 .socials{
     width: 15px;
     margin: 10px;
-    transform: translate(140px);
+   transform: translate(140px);
 }
 .line{
     background-color: rgba(0, 0, 0, 0.9);
@@ -434,13 +240,4 @@ footer p{
     font-size: small;
     justify-content: space-around;
     align-items: center;
-}
-
-/*Resizing for social media icons*/
-@media screen and (max-width:800px){
-    .socials{
-        width: 15px;
-        margin: 10px;
-        transform: translate(50px);
-    }
 }

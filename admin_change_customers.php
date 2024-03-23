@@ -1,18 +1,3 @@
-<?php
-
-session_start();
-
-
-    require_once('php/connectdb.php');
-
-if(isset($_SESSION['admin_email'])) {
-    $admin_email = $_SESSION['admin_email'];
-
-}
-
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -31,14 +16,23 @@ if(isset($_SESSION['admin_email'])) {
             <th>Email</th>
             <th>University</th>
             <th>Phone Number</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-       
-<?php
+        <?php
+
+session_start();
+
+
+require_once('php/connectdb.php');
 
 
 
+if(isset($_SESSION['admin_email'])) {
+    $admin_email = $_SESSION['admin_email'];
+
+}
 //view customers
 $query = "SELECT * FROM customers";
 $result = $db->query($query);
@@ -60,36 +54,74 @@ if ($result) {
 ?>
         </tbody>
     </table>
-
-    <li><a href="admin_add_cust.php">Add Customer</a></li>
-    <li><a href="admin_update_cust.php">Update Customer</a></li>
-
-
-
-
-    <!-- <h2>Update Customer</h2>
-
-    <form action="" method="post">
-        <label for="update_id">Customer ID:</label>
-        <input type="text" id="update_id" name="id" required>
-
-        <input type="email" id="email" name="email" required>
-        <input type="text" id="university" name="university"required>
-        <input type="text" id="phone_number" name="phone_number"required>
-        <input type="submit" name="Update_customer" value="Update Customer">
-
-    </form>
-
-    <h2>Delete Customer</h2>
-    <form action="" method="get">
-        <label for="delete_id">Customer ID:</label>
-        <input type="text" id="delete_id" name="delete_id" required>
-        <button type="submit">Delete Customer</button>
-    </form> -->
+  
 
     
     
 
         </body>
 </html>
+<?php
 
+
+//add customers
+if (isset($_POST['add_customer'])) {
+    $email = $_POST['email'];
+    $university = $_POST['university'];
+    $phoneNumber = $_POST['phone_number'];
+
+    $insert_query = "INSERT INTO customers (Email, university, phoneNumber) VALUES (:email, :university, :phoneNumber)";
+    $insert_statement = $db->prepare($insert_query);
+    $insert_statement->bindParam(' :email', $email, PDO::PARAM_STR);
+    $insert_statement->bindParam(' :university', $university, PDO::PARAM_STR);
+    $insert_statement->bindParam(' :phoneNumber', $phoneNumber, PDO::PARAM_STR);
+
+    if($insert_statement->execute()) {
+        echo "Customer added succesfully.";
+    } else {
+        echo "Error: Failed to add customer.";
+    }
+}
+
+//update customer
+    if (isset($_POST['update_customer'])) {
+        $id = $_POST['id'];
+        $email = $_POST['email'];
+        $university = $_POST['university'];
+        $phoneNumber = $_POST['phone_number'];
+
+        $update_query = "UPDATE customers SET EMAIL=:email, university=:university, phoneNumber=phoneNumber WHERE id=id";
+        $update_statement->bindParam(' :email', $email, PDO::PARAM_STR);
+        $update_statement->bindParam(' :university', $university, PDO::PARAM_STR);
+        $update_statement->bindParam(' :phoneNumber', $phoneNumber, PDO::PARAM_STR);
+        $update_statement->bindParam(' :id', $id, PDO::PARAM_INT);
+
+        if (update_statement->execute()) {
+            echo "Customer updated successfully.";
+        } else {
+            echo "Error: Failed to update customer.";
+        }
+    }
+
+
+    //delete customer
+    if (isset($_GET['delete_id'])) {
+        $delete_id = $_GET['delete_id'];
+
+        $delete_query = "DELETE FROM customers WHERE id=:id";
+        $delete_statement = $db->prepare($delete_query);
+        $delete_statement->bindParam(':id', $delete_id, PDO::PARAM_INT);
+
+        if ($delete_statement->execute()) {
+            echo "Customer deleted successfully.";
+        } else {
+            echo "Error: Failed to delete customer.";
+        }
+
+    }
+
+    
+
+
+
+?>

@@ -64,7 +64,7 @@ session_start();
         ?>
     </div>
 
-    <!--<?php if (isset($_SESSION['email'])): ?>
+    <!-- <?php if (isset($_SESSION['email'])): ?>
         <div class="welcome-message">
             <h1>Welcome, <?php echo htmlspecialchars($_SESSION['email']); ?></h1>
         </div>
