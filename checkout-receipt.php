@@ -55,7 +55,7 @@ echo   "<p><strong>Total Price:</strong> £" . $order['cost'] . "</div>
 </div>";
 
 
-echo"<div id='button'><form><a href='index.php'><button type='submit'>Head back to Homepage</button></a></form></div></div>
+echo"<div id='button'><form action='index.php'><button type='submit'>Head back to Homepage</button></form></div></div>
 </div>";
 
 ?>

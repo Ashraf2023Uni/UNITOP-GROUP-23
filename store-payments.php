@@ -7,6 +7,11 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     header("Location: login.php"); 
     exit; 
 }
+elseif(empty($_SESSION['prod_id'])){
+    //redirects user if basket's been emptied
+    header("Location: empty-basket.php");
+    exit; 
+}
 
 $db->beginTransaction(); //making a save point in case queries need to rollback
 //collecting billing form data
