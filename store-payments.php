@@ -38,9 +38,9 @@ try{
     $recall_payment = $db->lastInsertId();
 }catch(PDOException $ex){
     echo "Failed to store payment details<br>";
-    echo($ex->getMessage());
+    $ex_message = $ex->getMessage();
     echo"<br><br> <a href='../payments.php><button>Re-enter payment method</button</a><br>";
-    endTransaction(false, $db);
+    endTransaction(false, $db, $ex_message);
 }
 
 
@@ -90,21 +90,21 @@ try{
     //resetting basket session arrays after successful checkout
     $_SESSION['prod_id'] = array();
     $_SESSION['qty'] = array();
-    endTransaction(true, $db);
+    endTransaction(true, $db, null);
 }
 catch(PDOException $ex){
-    echo($ex->getMessage());
-    endTransaction(false, $db);
+    $ex_message = $ex->getMessage();
+    endTransaction(false, $db, $user_id);
 }
 
-function endTransaction($commit, $db){
+function endTransaction($commit, $db,$ex){
     if($commit){
         $db->commit();
         header('Location: checkout-receipt.php');
     }
     else{
         $db->rollback();
-        header('Location: checkout-fail.php');
+        header('Location: checkout-fail.php?ex='.$ex);
     }
 }
 

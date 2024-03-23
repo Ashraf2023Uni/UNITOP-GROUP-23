@@ -57,7 +57,7 @@ form img{
     content: "\2605";
     position:absolute;
     font-size: 30px;
-    opacity:0.1;
+    color: rgb(184, 184, 184);
     top:0;
     left:0
 }
@@ -68,7 +68,7 @@ form img{
     position:absolute;
     color:rgb(252, 205, 53);
     font-size: 30px;
-    opacity:0.5;
+    opacity:0;
     top:0;
     left:0;
 }

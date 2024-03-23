@@ -1,5 +1,4 @@
 <?php
-
 //user sent to homepage if accessing this page invalidly
 if(!(ISSET($_GET['id']))){
     header('Location: index.php');
@@ -75,7 +74,7 @@ if(!(ISSET($_GET['id']))){
         $product = $execute->fetch();
 
 
-        echo "<form action='temporary.php?id=".$_GET['id']."' method='POST'>"; //Replace temporary.php when not needed
+        echo "<form action='review-stored.php?id=".$_GET['id']."' method='POST'>"; //Replace temporary.php when not needed
             echo "<h2>".$product['product_name']."</h2>";
             echo "<img src='assests/Products/" . $_GET['id'] . ".png'>"; ?>
             
@@ -149,4 +148,5 @@ if(!(ISSET($_GET['id']))){
         </div>
     </footer>
 </body>
+
 
