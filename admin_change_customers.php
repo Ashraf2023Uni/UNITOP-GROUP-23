@@ -12,9 +12,6 @@ if(isset($_SESSION['admin_email'])) {
 
 
 
-  
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,8 +50,8 @@ if ($result) {
         echo "<tr>";
         echo "<td>" . $row['id'] . "</td>";
         echo "<td>" . $row['Email'] . "</td>";
-        echo "<td>" . $row['University'] . "</td>";
-        echo "<td>" . $row['PhoneNumber'] . "</td>";
+        echo "<td>" . $row['university'] . "</td>";
+        echo "<td>" . $row['phoneNumber'] . "</td>";
         echo "</tr>";
 
     }
