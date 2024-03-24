@@ -1,7 +1,8 @@
 #form-wrapper{
-    margin-top:30px;
+    margin-top:50px;
     text-align: center;
     width:100%;
+    margin-bottom: 30px;
 }
 
 #returnTxt{
@@ -11,19 +12,33 @@
 }
 
 #form-wrapper button{
+    display: inline-block;
     text-align: center;
     padding:8px;
     margin-top: 5px;
     margin-left: 4px;
     border:none;
-    background-color:rgb(112, 109, 109);
+    transition: background-colour 0.3s ease;
+    background-color: rgba(46, 10, 10, 0.5);
+    transition: transform 0.3s ease;
     border-radius:10px;
     color:white;
+}
+#form-wrapper .cancel{
+    display: inline-block;
+    margin: 10px;
+    border: 1px solid rgba(46, 10, 10, 0.5);
+    background-color: white;
+    color: black;
+    transition: transform 0.3s ease;
+    border-radius:10px;
 }
 
 #form-wrapper button:hover{
     padding:9px;
-    background-color:rgb(67, 64, 64);
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+    color: white;
 }
 
 #txtarea{

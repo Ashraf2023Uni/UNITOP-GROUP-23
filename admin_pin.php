@@ -80,7 +80,7 @@ $error_message = "Wrong Pin";
 
 <div class="admin-pin">
     <div class="pin">
-        <form action="" method="post">
+        <form action="admin_login.php" method="post">
             <label for "pin">Enter PIN:</label>
             <input type="password" id="pin" name="pin" required>
             <input type="submit" value="Submit">
