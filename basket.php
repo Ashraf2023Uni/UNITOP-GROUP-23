@@ -174,18 +174,51 @@
     </div>
 </div>
 
-   <!--FOOTER-->
-   <footer>
-    <div class="footer">
-        <div class="footer-box">
-            <img src="assests/Navbar/logo-no-slogan.png">
-            <h3>UNITOP</h3>
-            <p>Educate with UNITOP!</p>
-            <?php if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true): ?>
+
+    <!--FOOTER-->
+    <footer>
+        <div class="footer">
+            <div class="footer-box">
+                <img src="assests/Navbar/logo-no-slogan.png">
+                <h3>UNITOP</h3>
+                <p>Educate with UNITOP!</p>
+                <?php if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true): ?>
                 <a href="login.php" class="button">Log In</a>
-            <?php endif; ?>
+                <?php endif; ?>
+            </div>
+            <div class="footer-box">
+                <h3>Follow Us</h3>
+                <div class="socials">
+                    <img src="assests/Footer/instagram.png">
+                    <img src="assests/Footer/facebook.png">
+                    <img src="assests/Footer/linkedin.png">
+                </div>
+            </div>
+            <div class="footer-box">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="about-us.html">Who We Are</a></li>
+                    <br>
+                    <li><a href="about-us.html">Our Mission</a></li>
+                    <br>
+                    <li><a href="about-us.html">The Team</a></li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><a href="index.php">Home</a></li>
+                    <br>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <br>
+                    <li><a href="about-us.html">About Us</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-</footer>
+        <div class="line">
+            <p>Terms and Conditions apply* | UNITOP Limited</p>
+        </div>
+    </footer>
 
-
+</body>
+</html>

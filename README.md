@@ -1,5 +1,26 @@
 # UNITOP-GROUP-23
 Group 23s team project
+Mohammed Sabil Ali - 
+Sign-up and login 
+1. From index.php press sign up, takes you to register.php
+2. On register.php you should follow the fields to sign up input 
+- email following validation (ac.uk) that hasnt been used before
+- select university with search/drop down
+- use a phone number that hasnt been used before
+- create password that follows validation 
+- confirm password that follows validation 
+3. Once sign-up is clicked the user will be taken to login.php
+4. User should input login details (email & password)
+5. If details are correct user is then taken to index.php where they are now logged in.
+
+Accounts - view profile, change password and view orders
+1. The user must be signed in by following sign-up and login as shown above.
+2. User should click accounts button takes them to accounts.php
+3. They will then be shown their profile details with view profile, view orders and change password.
+4. if the user clicks view profile it will show all their details they inputted in sign-up
+5. view orders shows any created orders.
+6. change password allows them to change password following the same validation as login and sign-up does.
+
 Noor -
 Instructions to return an order:
 1. From index.php press the 'log in' button under the navigation & category bar
