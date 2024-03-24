@@ -64,6 +64,8 @@ if ($result) {
     <li><a href="admin_add_cust.php">Add Customer</a></li>
     <li><a href="admin_update_cust.php">Update Customer</a></li>
     <li><a href="admin_delete_cust.php">Delete Customer</a></li>
+    <li><a href="admin_index.php">Home</a></li>
+
 
 
 
