@@ -94,6 +94,13 @@
             </form>
         </div>
 
+        <div class="container">
+            <a href="admin_products.php"><img src="assests/Admin/customer.png" id="img1" width="200px"></a>
+            <form action="admin_products.php" method="post" class="changePw-form">
+                <button type="submit" class="changePw-button">Products</button>
+            </form>
+        </div>
+
         <div class="container2">
             <form action="admin_logout.php" method="post" class="logout-form">
                 <button type="submit" class="logout-button">Logout</button>
