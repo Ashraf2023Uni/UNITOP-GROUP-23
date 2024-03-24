@@ -60,6 +60,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNITOP/ Your Account</title>
     <!--Google Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -67,9 +68,7 @@ try {
         rel="stylesheet"
     />
     <link rel="stylesheet" href="css/accounts.css">
-    <link rel="stylesheet" href="css/past-orders.css">
     <link rel="shortcut icon" type="icon" href="assets/Banners/logo.png">
-    <title>UNITOP/ Your Account</title>
 </head>
 <body>
 
@@ -119,11 +118,11 @@ try {
 <div class="account-container">
     <aside class="sidebar">
         <div class="sidebar-header">
-            <h3>Personal Profile</h3>
+            <h3><a href="accounts.php">Your Account</a></h3>
         </div>
         <ul class="sidebar-menu">
             <li><a href="#" id="showInfoBtn">Your Profile</a></li>
-            <li><a href="#" id="showOrdersBtn">View Orders</a></li>
+            <li><a href="#" id="showOrdersBtn">View Your Orders</a></li>
             <li><a href="#" id="showPasswordBtn">Change Password</a></li>
         </ul>
     </aside>
@@ -139,22 +138,21 @@ try {
             <?php endif; ?>
         </div>
         <div id="orders" class="section">
-            <div id="order-display">
-                <h1><bold>Your Orders</bold></h1>
-
-                
+                <h2><bold>Your Orders</bold></h2>
+                <div id="order-display">
                     <?php
                     $orderQuery = "SELECT * FROM orders WHERE user_id = ?";
                     $orderResult = $db->prepare($orderQuery);
                     $orderResult->execute([$_SESSION['user_id']]);
-                    
+
                     while($order = $orderResult->fetch(PDO::FETCH_ASSOC)){
                         $orderlineQuery = "SELECT * FROM orderlines WHERE order_id = ?";
                         $orderlineResult = $db->prepare($orderlineQuery);
                         $orderlineResult->execute([$order['order_id']]);
+
                         echo"<div class='all-info'>";
                         echo"<div class='order-box'>
-                                <div class='date-header'><h3><strong>Ordered on: </strong>" . substr($order['order_date'],0,10) . "</h3></div>";
+                                <div class='date-header'><h3>Ordered on: " . substr($order['order_date'],0,10) . "</h3></div>";
                         while($orderline = $orderlineResult->fetch(PDO::FETCH_ASSOC)){
                             echo "<div class='info'><img src='assests/Products/".$orderline['product_id'].".png' class='product-img'>";
                             $productQuery = "SELECT product_name FROM products WHERE product_id = ?";
@@ -165,11 +163,12 @@ try {
                                   <form method='post' action='write-review.php?id=".$orderline['product_id']."'><button class='review-btn' type='submit'> LEAVE A REVIEW </button></form>";
 
                         }
-                        echo   "<p class='price-txt'><strong>Total Price:</strong> £" . $order['cost'] . "
-                            </p></div>";
-                        
-                        echo"<p class='status'>Delivery status: Processing</p></div>";
+                        echo   "<p class='price-txt'><strong>Total Price:</strong> £" . $order['cost'] . " </p>
+                                <p class='status'>Delivery status: Processing</p>
+                                </div>
+                            </div>";
                     }
+                    
                     ?>
                 </div>
         </div>
@@ -194,7 +193,9 @@ try {
                     <label for="confirm_new_password">Confirm New Password:</label>
                     <input type="password" name="confirm_new_password" id="confirm_new_password" required>
                 </div>
+                <div class="form-group">
                 <button type="submit" name="change_password">Change Password</button>
+                </div>
             </form>
         </div>
     </div>
