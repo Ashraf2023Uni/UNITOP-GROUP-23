@@ -23,6 +23,12 @@
 <?php
 session_start();
 require_once('php/connectdb.php');
+
+//blocking users from invalidly accessing page by entering url
+if(!(isset($_SESSION['order_id'])) || empty($_SESSION['order_id'])){
+    header('Location:index.php');
+}
+
 $order_fetch = "SELECT * FROM orders WHERE order_id = ?";
 $stmt = $db->prepare($order_fetch);
 $stmt->execute([$_SESSION['order_id']]);
