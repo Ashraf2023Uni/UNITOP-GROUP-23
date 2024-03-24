@@ -165,7 +165,7 @@ try {
                         }
                         echo   "<p class='price-txt'><strong>Total Price:</strong> £" . $order['cost'] . " </p>
                                 <p class='status'>Delivery status: ".$order['status']."</p>";
-                                if($order['status'] == "processing"){
+                                if($order['status'] == "completed"){
                                     echo "<form action='return-form.php' method='post'>
                                     <input type='hidden' name='id' value='".$order['order_id']."'>
                                     <button class='returnBtn' id='id'>Return Items</button>

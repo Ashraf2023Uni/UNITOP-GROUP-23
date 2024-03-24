@@ -170,8 +170,10 @@ CREATE TABLE `orders` (
 INSERT INTO `orders` (`order_id`, `user_id`, `order_date`, `cost`, `status`, `admin_id`) VALUES
 (1, 8, '2024-03-22 03:14:49', 61164.00, '', NULL),
 (2, 8, '2024-03-23 16:11:59', 4749.95, 'processing', NULL),
-(4, 9, '2024-03-23 17:11:38', 28883.00, 'processing', NULL),
+(4, 9, '2024-03-23 17:11:38', 28883.00, 'completed', NULL),
 (5, 8, '2024-03-23 19:14:47', 82028.38, 'processing', NULL);
+(6, 8, '2024-03-23 19:14:47', 82028.38, 'completed', NULL);
+
 
 -- --------------------------------------------------------
 

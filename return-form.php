@@ -73,7 +73,7 @@ if(isset($_POST['confirmation'])){
     try{
         $query = "UPDATE orders SET status=? WHERE order_id = ?";
         $setReturn = $db->prepare($query);
-        $setReturn->execute(['Return', $_POST['id']]);
+        $setReturn->execute(['verifying return', $_POST['id']]);
 
 
         $query = "INSERT INTO returned_orders (order_id, reason) VALUES (?,?)";
