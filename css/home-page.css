@@ -1007,3 +1007,21 @@ tr{
 .logout-message {
     text-align: center;
 }
+/*Admin change customer*/
+.container h1{
+    margin-bottom: 20px;
+}
+.container ol{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+}
+.container li{
+    text-align: center;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.container form{
+    
+}
