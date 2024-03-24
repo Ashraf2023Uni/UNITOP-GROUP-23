@@ -187,7 +187,8 @@ try {
                 </div>
                 <div class="form-group">
                 <label for="new_password">New Password:</label>
-                    <input type="password" name="new_password" id="new_password" required>
+                    <input type="password" name="new_password" id="new_password" pattern="(?=.*\d)(?=.*[A-Z]).{8,}"
+                    title="Password must be at least 8 characters long and contain at least one uppercase letter and one number." required>
                 </div>
                 <div class="form-group">
                     <label for="confirm_new_password">Confirm New Password:</label>
