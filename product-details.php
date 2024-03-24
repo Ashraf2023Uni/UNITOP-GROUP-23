@@ -185,6 +185,6 @@
             <p>Terms and Conditions apply* | UNITOP Limited</p>
         </div>
     </footer>
-    <script src="quantity-error.js"></script>
+    <script defer src="js/quantity-error.js"></script>
 </body>
 </html>

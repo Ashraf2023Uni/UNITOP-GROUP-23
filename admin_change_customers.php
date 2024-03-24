@@ -50,8 +50,8 @@ if ($result) {
         echo "<tr>";
         echo "<td>" . $row['id'] . "</td>";
         echo "<td>" . $row['Email'] . "</td>";
-        echo "<td>" . $row['University'] . "</td>";
-        echo "<td>" . $row['PhoneNumber'] . "</td>";
+        echo "<td>" . $row['university'] . "</td>";
+        echo "<td>" . $row['phoneNumber'] . "</td>";
         echo "</tr>";
 
     }
@@ -63,6 +63,7 @@ if ($result) {
 
     <li><a href="admin_add_cust.php">Add Customer</a></li>
     <li><a href="admin_update_cust.php">Update Customer</a></li>
+    <li><a href="admin_delete_cust.php">Delete Customer</a></li>
 
 
 
