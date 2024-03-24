@@ -29,7 +29,9 @@ if(isset($_POST['confirmation'])){
         <a href='index.php'><button>Return to Homepage</button></a>";
     }catch(PDOException $ex){
         $db->rollback();
-        echo $ex->getMesssage();
+        $ex_message = $ex->getMessage();
+        echo $ex_message;
+        echo "<br><a href='index.php'><button>Return to Homepage</button></a>";
     }
 
 } elseif(!isset($_POST['id'])){
