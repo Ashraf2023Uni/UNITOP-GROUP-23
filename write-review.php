@@ -10,7 +10,7 @@ if(!(ISSET($_GET['id']))){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" , initial-scale="1.0">
-    <title>UNITOP/HomePage</title>
+    <title>UNITOP/Write a Review</title>
     <!--Google Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -52,7 +52,9 @@ if(!(ISSET($_GET['id']))){
                 </nav>
             </div>
         </div>
-            <!--Menu with the categories based on degrees of students-->
+    </header>
+
+    <!--Menu with the categories based on degrees of students-->
     <div class="menu">
         <?php 
         include('php/category.php');
@@ -63,7 +65,6 @@ if(!(ISSET($_GET['id']))){
         }
         ?>
     </div>
-    </header>
 
     <div id="review-body">
         <?php
@@ -93,7 +94,7 @@ if(!(ISSET($_GET['id']))){
             <!--User's written review-->
             <div class='textarea'>
                 <label for='review-text'>Your review:</label>
-                <textarea name='review-text' id='review-text' placeholder='My review is...' maxlength='500' required></textarea>
+                <textarea name='review-text' id='review-text' placeholder='Leave a review...' maxlength='500' required></textarea>
             </div>
             <button type='submit'>Submit review</button>
 

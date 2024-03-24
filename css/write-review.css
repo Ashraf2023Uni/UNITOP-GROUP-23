@@ -6,48 +6,55 @@ form img{
 }
 
 #review-body{
+    background-color: #f3f3f3;
     margin:auto;
     text-align: center;
-    margin-top:40px;
+    margin-top:30px;
     margin-bottom:30px;
     border-radius: 4px;
     width:70%;
-    border-style:solid;
-    border-color: rgb(174, 189, 195);
+    border: 1px solid black;
     padding-top:30px;
     padding-bottom: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 #review-body button{
-    padding-top:1px;
-    padding-bottom:1px;
-    padding-right: 3px;
-    padding-left: 3px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: rgb(195, 222, 238);
-    border-radius: 3px;
-    background-color: rgb(199, 227, 238);
+    display: block; 
+    margin-top: 30px; 
+    margin-left: 45%;
+    margin-right: 40%; 
+    border: none;
+    padding: 10px;
+    border-radius: 10px;   
+    align-items: bottom;
+    color: white;
+    transition: background-colour 0.3s ease;
+    background-color: rgba(46, 10, 10, 0.5);
+    transition: transform 0.3s ease;
 }
 
 #review-body button:hover{
     cursor:pointer;
-    border-color: rgb(168, 199, 216);
-    background-color: rgb(171, 205, 218);
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: scale(1.2);
 }
 .textarea{
-    margin-top:60px;
+    margin-top: 60px;
     display: inline-flex;
+    border-radius: 10px;
 }
 
 #review-text{
     margin-left:10px;
     padding-left:5px;
-    width:600px;
-    height:130px;
-    border-color: rgb(109, 109, 167);
-    border-radius: 2px;
+    width: 600px;
+    height: 130px;
+    border: 1px solid black;
+    border-radius: 10px;
 }
+
 .star-wrapper{
     direction: rtl;
 }
@@ -98,7 +105,7 @@ form img{
     padding:30px;
 }
 #review-store-wrapper button .cancel{
-    background-color: #7c3e3e;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 #review-store-wrapper button{
     font-size:17px;
@@ -107,14 +114,14 @@ form img{
     color:white;
     border-style:none;
     border-radius:10px;
-    background-color: rgb(73, 69, 69);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 #review-store-wrapper button:hover{
     cursor: pointer;
     font-size:18px;
     padding:11px;
-    color:white;
-    background-color: rgb(43, 41, 41);
+    color:black;
+    border: 1px solid rgba(0, 0, 0, 0.7);
 }
 
