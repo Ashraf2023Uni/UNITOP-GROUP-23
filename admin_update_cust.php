@@ -62,7 +62,7 @@ if ($stmt->rowCount() > 0) {
     <input type="submit" name="update_customer" value="Update Customer">
 </form>
 
-<li><a href="admin_change_customer.php">Back to Customer Management</a></li>
+<li><a href="admin_index.php">Home</a></li>
 
 </div>
 
