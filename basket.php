@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width", initial-scale="1.0">
-    <title>UNITOP/ Basket</B></title>
+    <title>UNITOP/ Basket</title>
     <!--Google Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -54,7 +54,6 @@
         <?php 
         include('php/category.php');
         $categories = getCategories($db);
-        /*print_r($categories);*/
         foreach ($categories as $category){
             echo "<a href='products-page.php?category={$category['category_id']}'>{$category['category']}></a>";
         }
@@ -74,10 +73,6 @@
                 session_start();
                 require_once('php/connectdb.php');
 
-
-
-
-
                 if(isset($_POST['quantity']) && isset($_POST['prod_id'])){
                     $qty = $_POST['quantity'];
                     $id = $_POST['prod_id'];
@@ -87,8 +82,6 @@
                     header('Location: empty-basket.php');
                 }
                 if(isset($_POST['add_basket'])){
-                    
-
                     if(isset($_SESSION['prod_id'])){
                         $_SESSION['prod_id'][] = $id; 
                     } 
@@ -116,7 +109,7 @@
                     $split_total[$i] = (floatval($laptop['price']) * intval($quantity));
                 
                    
-                echo"<div class='cart-line'><img src='assests/Products/".$id.".png' alt='Product Image'>
+                echo "<div class='cart-line'><img src='assests/Products/".$id.".png' alt='Product Image'>
                 
                     <div>
                         <p>".$laptop['product_name']."</p>
@@ -124,10 +117,14 @@
                         <small>Qty: $quantity
                         <br>
                         <p> Subtotal: £$split_total[$i] </p>
-
+                        <form method='POST' action='remove_item.php'>
+                            <input type='hidden' name='prod_id' value='$id'>
+                            <button type='submit' class='remove-button'>Remove</button>
+                        </form>
                     </div>
-                </div>";}   
-        echo"</tr> </td>
+                </div>";
+            }   
+        echo "</tr> </td>
     </table>
     <div class='total-price'>
         <table>
@@ -147,10 +144,10 @@
     </div>";
 
     if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']){
-        echo"<form action= HTML-files/payments.html> <button type='submit' class='checkout-button'>Proceed to Checkout</button></form>";
+        echo "<form action='HTML-files/payments.html'> <button type='submit' class='checkout-button'>Proceed to Checkout</button></form>";
     }
     else{
-        echo"<form action= login.php> <button type='submit' class='checkout-button'>Login to Checkout</button></form>";   
+        echo "<form action='login.php'> <button type='submit' class='checkout-button'>Login to Checkout</button></form>";   
     }
 
  ?>
@@ -169,38 +166,3 @@
                 <?php endif; ?>
             </div>
             <div class="footer-box">
-                <h3>Follow Us</h3>
-                <div class="socials">
-                    <img src="assests/Footer/instagram.png">
-                    <img src="assests/Footer/facebook.png">
-                    <img src="assests/Footer/linkedin.png">
-                </div>
-            </div>
-            <div class="footer-box">
-                <h3>About Us</h3>
-                <ul>
-                    <li><a href="about-us.html">Who We Are</a></li>
-                    <br>
-                    <li><a href="about-us.html">Our Mission</a></li>
-                    <br>
-                    <li><a href="about-us.html">The Team</a></li>
-                </ul>
-            </div>
-            <div class="footer-box">
-                <h3>Useful Links</h3>
-                <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <br>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <br>
-                    <li><a href="about-us.html">About Us</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="line">
-            <p>Terms and Conditions apply* | UNITOP Limited</p>
-        </div>
-    </footer>
-    
-</body>
-</html>
