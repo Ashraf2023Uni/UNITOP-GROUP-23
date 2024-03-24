@@ -706,6 +706,7 @@ th:last-child{
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     left: 42%;
     right: 42%;
+    margin-top: 20px;
 }
 .checkout-button:hover {
     background-color: rgba(0, 0, 0, 0.9);

@@ -1,3 +1,6 @@
+<?php 
+            session_start();
+            ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +16,22 @@
     />
     <link rel="stylesheet" href="css/home-page.css">
     <link rel="shortcut icon" type="icon" href="assests/Banners/logo.png"/>
+
+    <style>
+        .cart-line {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-line img {
+            width: 80px; /* Adjust the width as needed */
+            margin-right: 20px; /* Add spacing between image and text */
+        }
+
+        .total-price {
+            margin-top: 20px; /* Add spacing between table and subtotal box */
+        }
+    </style>
 </head>
 
 <body>
@@ -64,73 +83,74 @@
    <div class="small-container cart-page">
     <table>
         <tr>
-            <th>Products</th>
-        
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+            <th>Action</th>
         </tr>
+        
+            <?php
+            require_once('php/connectdb.php');
+
+            if(isset($_POST['quantity']) && isset($_POST['prod_id'])){
+                $qty = $_POST['quantity'];
+                $id = $_POST['prod_id'];
+            }
+
+            if(isset($_POST['add_basket'])){
+                if(isset($_SESSION['prod_id'])){
+                    $_SESSION['prod_id'][] = $id; 
+                } 
+                else{
+                    $_SESSION['prod_id'] = array();
+                    $_SESSION['prod_id'][] = $id;
+                }
+
+                if(isset($_SESSION['qty'])){
+                    $_SESSION['qty'][] = $qty; 
+                } 
+                else{
+                    $_SESSION['qty'] = array();
+                    $_SESSION['qty'][] = $qty; 
+                }
+            }
+
+            $total = 0;
+            for($i = 0; $i<count($_SESSION['prod_id']); $i++){
+                $id = $_SESSION['prod_id'][$i];
+                $quantity = $_SESSION['qty'][$i];
+                $query = "SELECT product_name, price FROM products WHERE product_id = $id";
+                $product = $db->query($query)->fetch();
+                $subtotal = $product['price'] * $quantity;
+                $total += $subtotal;
+        ?>
         <tr>
-            <td class="cart-info" >
-<?php 
-                session_start();
-                require_once('php/connectdb.php');
-
-                if(isset($_POST['quantity']) && isset($_POST['prod_id'])){
-                    $qty = $_POST['quantity'];
-                    $id = $_POST['prod_id'];
-
-                }
-                elseif(! isset($_SESSION['prod_id']) || empty($_SESSION['prod_id'])) {
-                    header('Location: empty-basket.php');
-                }
-                if(isset($_POST['add_basket'])){
-                    if(isset($_SESSION['prod_id'])){
-                        $_SESSION['prod_id'][] = $id; 
-                    } 
-                    else{
-                        $_SESSION['prod_id'] = array();
-                        $_SESSION['prod_id'][] = $id;
-                    }
-
-                    if(isset($_SESSION['qty'])){
-                        $_SESSION['qty'][] = $qty; 
-                    } 
-                    else{
-                        $_SESSION['qty'] = array();
-                        $_SESSION['qty'][] = $qty; 
-                    }
-                }
-                $total = 0;
-                $split_total = array();
-                for($i = 0; $i<count($_SESSION['prod_id']); $i++){
-                    $id = $_SESSION['prod_id'][$i];
-                    $quantity = $_SESSION['qty'][$i];
-                    $query = "SELECT product_name, price FROM products WHERE product_id = $id";
-                    $laptop = $db->query($query)->fetch();
-                    $total = $total + (floatval($laptop['price']) * intval($quantity));
-                    $split_total[$i] = (floatval($laptop['price']) * intval($quantity));
-                
-                   
-                echo "<div class='cart-line'><img src='assests/Products/".$id.".png' alt='Product Image'>
-                
+            <td>
+                <div class='cart-line'>
+                    <img src='assests/Products/<?php echo $id; ?>.png' alt='Product Image'>
                     <div>
-                        <p>".$laptop['product_name']."</p>
-                        <small>Price: £".$laptop['price']."</small><br>
-                        <small>Qty: $quantity
-                        <br>
-                        <p> Subtotal: £$split_total[$i] </p>
-                        <form method='POST' action='remove_item.php'>
-                            <input type='hidden' name='prod_id' value='$id'>
-                            <button type='submit' class='remove-button'>Remove</button>
-                        </form>
+                        <p><?php echo $product['product_name']; ?></p>
                     </div>
-                </div>";
-            }   
-        echo "</tr> </td>
+                </div>
+            </td>
+            <td>£<?php echo $product['price']; ?></td>
+            <td><?php echo $quantity; ?></td>
+            <td>£<?php echo number_format($subtotal, 2); ?></td>
+            <td>
+                <form method='POST' action='remove_item.php'>
+                    <input type='hidden' name='prod_id' value='<?php echo $id; ?>'>
+                    <button type='submit' class='remove-button'>Remove</button>
+                </form>
+            </td>
+        </tr>
+        <?php } ?>
     </table>
     <div class='total-price'>
         <table>
             <tr>
                 <td>Subtotal</td>
-                <td>£$total</td>
+                <td>£<?php echo number_format($total, 2); ?></td>
             </tr>
             <tr>
                 <td>Tax</td>
@@ -138,31 +158,34 @@
             </tr>
             <tr>
                 <td>Total</td>
-                <td>£$total</td>
+                <td>£<?php echo number_format($total, 2); ?></td>
             </tr>
         </table>
-    </div>";
+    </div>
 
-    if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']){
-        echo "<form action='HTML-files/payments.html'> <button type='submit' class='checkout-button'>Proceed to Checkout</button></form>";
-    }
-    else{
-        echo "<form action='login.php'> <button type='submit' class='checkout-button'>Login to Checkout</button></form>";   
-    }
-
- ?>
+    <?php 
+        if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']){
+            echo "<form action='HTML-files/payments.html'> <button type='submit' class='checkout-button'>Proceed to Checkout</button></form>";
+        }
+        else{
+            echo "<form action='login.php'> <button type='submit' class='checkout-button'>Login to Checkout</button></form>";   
+        }
+    ?>
     </div>
 </div>
 
-  <!--FOOTER-->
-  <footer>
-        <div class="footer">
-            <div class="footer-box">
-                <img src="assests/Navbar/logo-no-slogan.png">
-                <h3>UNITOP</h3>
-                <p>Educate with UNITOP!</p>
-                <?php if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true): ?>
+   <!--FOOTER-->
+   <footer>
+    <div class="footer">
+        <div class="footer-box">
+            <img src="assests/Navbar/logo-no-slogan.png">
+            <h3>UNITOP</h3>
+            <p>Educate with UNITOP!</p>
+            <?php if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true): ?>
                 <a href="login.php" class="button">Log In</a>
-                <?php endif; ?>
-            </div>
-            <div class="footer-box">
+            <?php endif; ?>
+        </div>
+    </div>
+</footer>
+
+
