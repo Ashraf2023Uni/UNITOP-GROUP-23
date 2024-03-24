@@ -443,7 +443,9 @@ footer p{
 /*Product-details page styling - Humayra Hussain - 210005848*/
 .product-detail{
     width: 100%;
+    position: relative;
 }
+
 /*Product images*/
 .gallery{
     margin: 30px;
@@ -530,6 +532,74 @@ footer p{
     font-size: small;
     border-radius: 10px;
     padding: 1px;
+}
+/*Rating products*/
+.rating-bar{
+    font-size: large;
+}
+
+.avg-rating{
+    font-weight: bold;
+    padding-right: 5px;
+}
+
+.stars{
+    display: inline-block;
+    font-size: 30px
+}
+
+.star{
+    color: gold;
+}
+.filled::before{
+    content: "\2605";
+}
+.half::before{
+    content: "\2605";
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 0.5em;
+}
+.half::after{
+    content: "\2605";
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    left: 0;
+    width: 0.5em;
+}
+/*Reviews*/
+.product-detail .reviews{
+    margin-top: 20px;
+    bottom: 0;
+    width: 100%;
+    padding-top: 20px;
+}
+.reviews h2{
+    text-align: center;
+}
+.review{
+    margin: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+.user{
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.review-text{
+    margin-bottom: 10px;
+}
+.date{
+    font-size: 12px;
+    color: #666;
+}
+.no-reviews{
+    font-style: italic;
+    columns: #666;
 }
 
 /*Products page styling - Humayra Hussain, 210005848*/

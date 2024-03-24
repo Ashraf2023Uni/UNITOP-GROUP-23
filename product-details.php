@@ -61,7 +61,7 @@
 
     <!--Product display with price, description, stock and buttons-->
     <div class='product-detail'>
-        <section class='product-row'>
+        <div class='product-row'>
             <?php 
             require_once('php/connectdb.php');
 
@@ -106,7 +106,34 @@
             echo "<a href='products-page.php'>Home/ All Laptops</a>";
             echo "<br><br>";
             echo "<h3>".$details['product_name']."</h3>";
-            echo "<br>";
+
+            //Rating of product - Humayra Hussian 210005848
+                    //Fetch rating - from reviews table
+                    $query = "SELECT AVG(rating) AS avg_rating FROM reviews WHERE product_id = :product_id";
+                    $result = $db->prepare($query);
+                    $result->bindParam(':product_id', $product_id);
+                    $result->execute();
+                    $average_rating = $result->fetch(PDO::FETCH_ASSOC)['avg_rating'];
+
+                    //Display rating bar
+                    echo "<div class='rating-bar'>";
+                    echo "<span class='avg-rating'>Rating " . number_format($average_rating, 1) . "</span>";
+                    echo "<div class='stars'>";
+                    $filled_stars = floor($average_rating);
+                    $half_star = $average_rating - $filled_stars;
+                    $empty_star = 5 - ceil($average_rating);
+                    for($i = 0; $i < $filled_stars; $i++){
+                        echo "<span class='star filled'></span>";
+                    }
+                    if($half_star >= 5){
+                        echo "<span class='star half'></span>";
+                    }
+                    for($i = 0; $i < $empty_star; $i++){
+                        echo "<span class='star'></span>";
+                    }
+                    echo"</div>
+                        </div> <br><br>";
+
             echo "<h2>£".floatval($details['price'])."</h2>";
             echo "<br>";
             
@@ -118,18 +145,22 @@
                                     <p>In Shock</p>
                                 </div>
                           </div>";
-                    echo "<form id='addToBasket' action='basket.php' method='post'>";
-                    echo "<select id='quantity' name='quantity'>";
-                    echo "<option value='quantity'>Select Quantity</option>";
-                    for($i = 1;$i<=$stock_level;$i++){
-                            echo"<option>".$i."</option>";
-                    }
-                    echo "</select>";
-                    echo "<input type='hidden' name='prod_id' value='".$product_id."'>";
-                    echo "<br><br>";
-                    echo "<button type='submit' class='btn' name='add_basket'>Add to basket</button>";
-                    echo "</form>";
+                    echo "<form id='addToBasket' action='basket.php' method='post'>
+                            <select id='quantity' name='quantity'>
+                            <option value='quantity'>Select Quantity</option>";
+                    
+                for($i = 1;$i<=$stock_level;$i++){
+                    echo"<option>".$i."</option>";
+                }
+                    echo "</select>
+                            <input type='hidden' name='prod_id' value='".$product_id."'>";
+                    echo "<br><br>
+                            <button type='submit' class='btn' name='add_basket'>Add to basket</button>
+                            </form>";
+                            
+                    echo "<h4>Product Information</h4> <br>";
                     echo "<p>".$details['description']."</p>";
+
                 } else {
                     echo"<div class='stock-indicator2'>
                             <div class='low-stock' id='low-stock'>
@@ -147,6 +178,7 @@
                     echo "<br><br>";
                     echo "<button type='submit' class='btn' name='add_basket'>Add to basket</button>";
                     echo "</form>";
+                    echo "<h4>Product Information</h4><br>";
                     echo "<p>".$details['description']."</p>";
                     }
                 } else {
@@ -166,7 +198,10 @@
                     echo "<br><br>";
                     echo "<button type='submit' class='btn' name='add_basket'>Add to basket</button>";
                     echo "</form>";
+                    
+                    echo "<h4>Product Information</h4><br>";
                     echo "<p>".$details['description']."</p>";
+
             }
         } else {
             echo "Product not found";
@@ -175,7 +210,65 @@
         echo "Product ID not provided";
     }
         ?>
-        </section>
+        </div>
+
+        <!--Reviews and ratings Humayra Hussian 210005848-->
+        <div class="reviews">
+            <h2>Customer Reviews</h2>
+        <?php
+            //Fetch reviews
+            $query = "SELECT r.review_id, r.review_text, r.rating, r.review_date, c.Email, c.university
+                        FROM reviews r
+                        INNER JOIN customers c ON r.customer_id = c.id
+                        WHERE r.product_id = :product_id";
+
+            $result = $db->prepare($query);
+            $result->bindParam(':product_id', $product_id);
+            $result->execute();
+            $reviews = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            //Display reviews
+            if($reviews){
+                foreach($reviews as $review){
+                    echo"<div class='review'>";
+                    echo"<p class='user'>User From " . " (" . $review['university']. ")</p>";
+                    echo"<p class='rating'>Rating: " . $review['rating'] . "</p>";
+
+                    //Fetch rating - from reviews table
+                    $query = "SELECT AVG(rating) AS avg_rating FROM reviews WHERE product_id = :product_id";
+                    $result = $db->prepare($query);
+                    $result->bindParam(':product_id', $product_id);
+                    $result->execute();
+                    $average_rating = $result->fetch(PDO::FETCH_ASSOC)['avg_rating'];
+
+                    //Display rating bar
+                    echo "<div class='rating-bar'>";
+                    /*echo "<span class='avg-rating'>Rating " . number_format($average_rating, 1) . "</span>";*/
+                    echo "<div class='stars'>";
+                    $filled_stars = floor($average_rating);
+                    $half_star = $average_rating - $filled_stars;
+                    $empty_star = 5 - ceil($average_rating);
+                    for($i = 0; $i < $filled_stars; $i++){
+                        echo "<span class='star filled'></span>";
+                    }
+                    if($half_star >= 5){
+                        echo "<span class='star half'></span>";
+                    }
+                    for($i = 0; $i < $empty_star; $i++){
+                        echo "<span class='star'></span>";
+                    }
+                    echo"</div>
+                        </div>";
+
+                    echo"<p class='review-text'> " . $review['review_text'] . "</p>";
+                    echo"<p class='date'>Date: " . $review['review_date'] . "</p>";
+                    echo"</div>";
+                }
+            } else {
+                echo"<p class='no-reviews'>Be the first to review this product.</p>";
+            }
+        ?>
+        </div>
     </div>
 
  <!--FOOTER-->
