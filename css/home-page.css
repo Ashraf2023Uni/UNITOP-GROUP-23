@@ -227,6 +227,7 @@ a:hover{
     flex-flow: row;
     position: relative;
     width: auto;
+    gap: 0.5%;
 }
 .product-card{
     background-color: #f3f3f3;
@@ -235,7 +236,7 @@ a:hover{
     justify-content: center;
     border: 1px solid black;
     margin: 10px;
-    height: 370px;
+    height: 400px;
     transition: transform 0.3s ease;
     border-radius: 10px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -263,6 +264,33 @@ a:hover{
 }
 .product-card:hover{
     transform: scale(1.1);
+}
+.stock-indicator .in-stock{
+    margin: 2px;
+    margin-right: 70%; 
+    background-color: rgb(188, 220, 188);
+    color: rgb(9, 120, 9);
+    font-size: small;
+    border-radius: 10px;
+    padding: 1px;
+}
+.stock-indicator .low-stock{
+    margin: 2px;
+    margin-right: 50%; 
+    background-color: rgb(228, 230, 176);
+    color: rgb(112, 128, 14);
+    font-size: small;
+    border-radius: 10px;
+    padding: 1px;
+}
+.stock-indicator .out-stock{
+    margin: 2px;
+    margin-right: 50%; 
+    background-color: rgb(255, 211, 211);
+    color: rgb(193, 0, 0);
+    font-size: small;
+    border-radius: 10px;
+    padding: 1px;
 }
 
 /*Products displayed in rows when screen is resized*/
@@ -455,25 +483,53 @@ footer p{
 }
 /*Add to Basket button*/
 .details .btn{
-    margin-top: 20px;
-    padding: 20px;
-    font-size: large;
+    margin-top: 10px;
+    padding: 5px;
+    font-size: medium;
     transition: transform 0.5s ease;
     transition: background-colour 0.3s ease;
-    background-color: rgba(46, 10, 10, 0.5);
+    background-color: rgba(46, 10, 10, 0.4);
     border: none;
     margin-bottom: 30px;
     border-radius: 10px;
+    width: 100%;
 }
 .details .btn:hover{
     color: white;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.6);
     transform: scale(1.1);
 }
 .details select{
     margin-top: 10px;
     font-size: small;
     border-radius: 10px;
+}
+.stock-indicator2 .in-stock{
+    margin: 2px;
+    text-align: center;
+    background-color: rgb(188, 220, 188);
+    color: rgb(9, 120, 9);
+    font-size: small;
+    border-radius: 10px;
+    padding: 1px;
+}
+.stock-indicator2 .low-stock{
+    margin: 2px;
+    text-align: center;
+    background-color: rgb(228, 230, 176);
+    color: rgb(112, 128, 14);
+    font-size: small;
+    border-radius: 10px;
+    padding: 1px;
+}
+.stock-indicator2 .out-stock{
+    margin: 2px;
+    text-align: center;
+    background-color: rgb(255, 211, 211);
+    color: rgb(193, 0, 0);
+    font-size: small;
+    border-radius: 10px;
+    padding: 1px;
 }
 
 /*Products page styling - Humayra Hussain, 210005848*/
@@ -635,6 +691,9 @@ th:last-child{
     display: block;
     width: 200px;
     margin: 15px;
+    border-radius: 10px;
+    padding: 0px 10px;
+    border: 1px solid black;
 }
 .pin input[type="submit"]{
     display: block;
@@ -707,13 +766,14 @@ th:last-child{
     border: none;
     border-radius: 10px;   
     align-items: bottom;
-    color: white;
-    transition: background-colour 0.3s ease;
-    background-color: rgba(46, 10, 10, 0.5);
+    color: black;
+    background-color: white;
+    border: 1px solid rgba(46, 10, 10, 0.5);
     transition: transform 0.3s ease;
 }
 .logout-button:hover{
     background-color: rgba(0, 0, 0, 0.9);
+    color: white;
     transform: scale(1.1);
 }
 .stock-form {
@@ -767,10 +827,28 @@ th:last-child{
     margin-bottom: 50px
 }
 /*Stock - dashboard*/
+.admin-menu{
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 5px;
+    display: flex;
+    font-size: small;
+    justify-content: space-around;
+    align-items: center;
+}
+.admin-menu a{
+    color: white;
+}
+
 .admin h1 {
     text-align: center;
     margin-top: 20px;
     padding-bottom: 20px;
+}
+.admin p {
+    text-align: center;
+    margin-top: 10px;
+    padding-bottom:10px;
 }
 th, td {
     padding: 10px;
@@ -809,58 +887,53 @@ table {
     border-collapse: collapse;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
-/*a {
-    display: block;
-    text-align: center;
-    margin-bottom: 20px;
-    text-decoration: none;
-    color:blue;
-}
-
-table {
-    width: 80%;
-    margin: 0 auto;
-    border-collapse: collapse;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: palevioletred;
-}
-
-th, td {
-    padding: 10px;
-    border-bottom: 1px solid green;
-    text-align: left;
-}
-th {
-    background-color: orange;
-    color: darkblue;
-}
-td input[type="number"] {
-    width: 80px;
-    padding: 5px;
-}
-
-td button {
-    padding: 5px 10px;
-    background-color: darkmagenta;
-    color:aqua;
-    border: none;
-    cursor: pointer;
-}
-
-td button:hover {
-    background-color: darkgoldenrod;
-}
-
 .notification {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    background-color: yellow;
-    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(216, 255, 216);
+    color: rgb(0, 167, 0);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+tr{
+    border-bottom: 1px solid #ccc;
+}
+/*Admin password change*/
+#admin-pw form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+#admin-pw form label{
+    flex: 1;
+    text-align: right;
+}
+#admin-pw form input[type="password"]{
+    flex: 3;
+    padding: 3px;
+    border: 1px solid black;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-
-}*/
+}
+#admin-pw button[type="submit"]{
+    margin-top: 20px;
+    border: none;
+    padding: 7px;
+    border-radius: 10px;   
+    color: white;
+    transition: background-colour 0.3s ease;
+    background-color: rgba(46, 10, 10, 0.5);
+    transition: transform 0.3s ease;
+    
+}
+#admin-pw button[type="submit"]:hover{
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+/*Admin log-out*/
+.logout-message {
+    text-align: center;
+}

@@ -72,6 +72,11 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </header>
 
+    <!--Back button - to go back to dashboard-->
+    <div class="admin-menu">
+     <a href="admin_index.php">Admin/Dashboard</a>
+    </div>
+
     <div class="admin">
     <h1>Product Stock Management</h1>
     </div>
@@ -98,7 +103,7 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
                             <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
                             <input type="number" name="new_stock_level" placeholder="New Stock Level" required>
                             <button type="submit">Update Stock</button>
-            </form>
+                        </form>
                     </td>
                 </tr>
                 <?php endforeach; ?>

@@ -55,19 +55,12 @@
         </div>
     </header>
 
-    <!--Menu with the categories based on degrees of students-->
-    <div class="menu">
-        <?php 
-        include('php/category.php');
-        $categories = getCategories($db);
-        /*print_r($categories);*/
-        foreach ($categories as $category){
-            echo "<a href='products-page.php?category={$category['category_id']}'>{$category['category']}></a>";
-        }
-        ?>
+    <!------------------------------MAIN BODY--------------------------------------->
+     <!--Back button - to go back to dashboard-->
+     <div class="admin-menu">
+     <a href="admin_index.php">Admin/Dashboard</a>
     </div>
 
-    <!------------------------------MAIN BODY--------------------------------------->
     <div class="container1">
         <h3>Welcome, <?php echo $admin_email; ?></h3>
     </div>

@@ -4,7 +4,7 @@
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width', initial-scale='1.0'>
-    <title>Products Page</title>
+    <title>UNITOP/ Products Page</title>
     <!--Google Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -16,48 +16,47 @@
 </head>
 
 <body>
-    <!--Header - brand logo and navigation bar-->
-    <header>
+     <!--Header - brand logo and navigation bar-->
+     <header>
         <!--LOGO-->
         <div class="navbar">
             <img src="assests/Navbar/UT-new-logo.png" width="100px" alt="UNITOP logo">
             
             <!--Search bar - products to be searched through by name-->
             <?php include('php/search.php'); ?>
-
+            
             <!--NAVIGATION BAR-->
             <div class="links">
                 <nav>
                     <div class="img-links">
                         <a href="index.php"><img src="assests/Navbar/home_4991416.png" class="home-icon"></a>
-                        <a href="about-us.html"><img src="assests/Navbar/about-us.png" class="about-us-icon"></a>
-                        <a href="contact.html"><img src="assests/Navbar/notification_9383540.png" class="contact-us-icon"></a>
                         <a href="accounts.php"><img src="assests/Navbar/avatar_9892372.png" class="account-icon"></a>
                         <a href="basket.php"><img src="assests/Navbar/checkout_4765148.png" class="basket-icon"></a>
-                        <a href="admin_login.php"><img src="assests/Navbar/staffpic.png" class="staff-icon"></a>
+                        <a href="admin_pin.php"><img src="assests/Navbar/staffpic.png" class="staff-icon"></a>
                     </div>
                     <div class="page-links">
                         <ul>
                             <li><a href="index.php">Home</a></li>
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="index.php">Account</a></li>
+                            <li><a href="accounts.php">Account</a></li>
                             <li><a href="basket.php">Basket</a></li>
-                            <li><a href="admin_login.php">Staff login</a></li>
+                            <li><a href="admin_pin.php">Staff login</a></li>
                         </ul>
                     </div>
                 </nav>
             </div>
         </div>
     </header>
+
     <!--Menu with the categories based on degrees of students-->
     <div class="menu">
-    <a href="products-page.php">All Laptops</a>
-    <a href="products-page.php">Computer Science</a>
-    <a href="products-page.php">Biology</a>
-    <a href="products-page.php">Graphics Design</a>
-    <a href="products-page.php">Law</a>
-    <a href="products-page.php">Medicine</a>
+        <?php 
+        include('php/category.php');
+        $categories = getCategories($db);
+        /*print_r($categories);*/
+        foreach ($categories as $category){
+            echo "<a href='products-page.php?category={$category['category_id']}'>{$category['category']}></a>";
+        }
+        ?>
     </div>
 
     <!--Product display with price, description, stock and buttons-->
@@ -114,7 +113,11 @@
             $stock_level = $details['stock'];
             if($stock_level > 0){
                 if($stock_level > 10){
-                    echo "<p>Status: In Shock</p>";
+                    echo "<div class='stock-indicator2'>
+                                <div class='in-stock'>
+                                    <p>In Shock</p>
+                                </div>
+                          </div>";
                     echo "<form id='addToBasket' action='basket.php' method='post'>";
                     echo "<select id='quantity' name='quantity'>";
                     echo "<option value='quantity'>Select Quantity</option>";
@@ -128,10 +131,42 @@
                     echo "</form>";
                     echo "<p>".$details['description']."</p>";
                 } else {
-                    echo"<p>Status: Low Stock</p>";
+                    echo"<div class='stock-indicator2'>
+                            <div class='low-stock' id='low-stock'>
+                                <p>Low in Shock</p>
+                            </div>
+                        </div>";
+                        echo "<form id='addToBasket' action='basket.php' method='post'>";
+                    echo "<select id='quantity' name='quantity'>";
+                    echo "<option value='quantity'>Select Quantity</option>";
+                    for($i = 1;$i<=$stock_level;$i++){
+                            echo"<option>".$i."</option>";
+                    }
+                    echo "</select>";
+                    echo "<input type='hidden' name='prod_id' value='".$product_id."'>";
+                    echo "<br><br>";
+                    echo "<button type='submit' class='btn' name='add_basket'>Add to basket</button>";
+                    echo "</form>";
+                    echo "<p>".$details['description']."</p>";
                     }
                 } else {
-                    echo"<p>Status: Out of stock </p>";
+                    echo"<div class='stock-indicator2'>
+                            <div class='out-stock'>
+                                <p>Out of Shock</p>
+                            </div>
+                        </div>";
+                        echo "<form id='addToBasket' action='basket.php' method='post'>";
+                    echo "<select id='quantity' name='quantity'>";
+                    echo "<option value='quantity'>Select Quantity</option>";
+                    for($i = 1;$i<=$stock_level;$i++){
+                            echo"<option>".$i."</option>";
+                    }
+                    echo "</select>";
+                    echo "<input type='hidden' name='prod_id' value='".$product_id."'>";
+                    echo "<br><br>";
+                    echo "<button type='submit' class='btn' name='add_basket'>Add to basket</button>";
+                    echo "</form>";
+                    echo "<p>".$details['description']."</p>";
             }
         } else {
             echo "Product not found";
@@ -143,14 +178,16 @@
         </section>
     </div>
 
-   <!--FOOTER-->
-   <footer>
+ <!--FOOTER-->
+    <footer>
         <div class="footer">
             <div class="footer-box">
                 <img src="assests/Navbar/logo-no-slogan.png">
                 <h3>UNITOP</h3>
                 <p>Educate with UNITOP!</p>
+                <?php if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true): ?>
                 <a href="login.php" class="button">Log In</a>
+                <?php endif; ?>
             </div>
             <div class="footer-box">
                 <h3>Follow Us</h3>
@@ -185,6 +222,7 @@
             <p>Terms and Conditions apply* | UNITOP Limited</p>
         </div>
     </footer>
-    <script defer src="js/quantity-error.js"></script>
+
+    <script src="js/quantity-error.js"></script>
 </body>
 </html>

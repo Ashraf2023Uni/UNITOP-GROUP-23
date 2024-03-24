@@ -25,7 +25,7 @@ if(isset($_POST["sort"])){
 
 // Function to fetch products, filtering by category and sorting
 function getProducts($db, $category_id = null, $sortOption = '') {
-    $query = "SELECT p.product_id, p.product_name, p.price FROM products p";
+    $query = "SELECT p.product_id, p.product_name, p.price, p.stock FROM products p";
 
     if (!is_null($category_id)) {
         // If a category is selected, join with the category tables

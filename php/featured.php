@@ -2,7 +2,7 @@
 <style><?php include('../css/home-page.css') ?></style>
         <?php
             require_once('connectdb.php');
-            $query = "SELECT product_id, product_name, price FROM products";
+            $query = "SELECT product_id, product_name, stock, price FROM products";
             $all_laptops = $db->query($query);
 
             $count = 0;
@@ -12,6 +12,18 @@
                 //Only show first 5 laptops
                 if($count < 5){
                     echo"<div class='product-card'>
+                    <div class='stock-indicator'>";
+                    $stock_level = $laptop['stock'];
+                    if($stock_level > 0){
+                        if($stock_level > 10){
+                            echo"<div class='in-stock'><p>In Stock</p></div>";
+                        } else {
+                            echo"<div class='low-stock'><p>Low in Stock</p></div>";
+                        }
+                    } else {
+                        echo"<div class='out-stock'><p>Out of Stock</p></div>";
+                    }
+                echo"</div>
                         <a href='product-details.php?id=".$laptop['product_id']."'>
                         <img src='assests/Products/".$laptop['product_id'].".png' alt='' id='Featured-Thumbnail'>
         

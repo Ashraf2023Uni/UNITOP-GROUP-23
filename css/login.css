@@ -2,38 +2,37 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Poppins", sans-serif;
 }
-body{
-    background: white;
-}
+
 .container{
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    margin: 30px;
     
-}
+} 
 .box {
     background: #ffffff;
     display: flex;
     flex-direction: column;
     padding: 25px 25px;
-    border-radius: 0px; 
+    border-radius: 20px; 
     box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
-                0 32px 64px -48px rgba(0, 0, 0, 0.5);
+                0 11px 24px -28px rgba(0, 0, 0, 0.5);
     border: 1px solid #000000; /** remove maybe **/
 
 }
 .f-box{
-    width:500px;
+    width: 40%;
     margin: 0px 10px;
 }
 .f-box header{
     font-size: 30px;
     font-weight: 700;
     padding-bottom: 10px;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #b4b4b4;
     margin-bottom: 10px;
     text-align: left;
 }
@@ -45,26 +44,29 @@ body{
 }
 .f-box form .input input{
     height: 40px;
-    width: 100%;
+    width: 90%;
     font-size: small;
     padding: 0 10px;
-    border: 100 solid #000000;
-    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
     outline: none;
-
 }
-.button{
+
+.log-button{
     height: 45px;
-    background: rgb(34, 83, 198);
-    border: 5;
-    border-radius: 0px;
-    color: #ffffff;
+    width: 90%;
+    transition: transform 0.5s ease;
+    transition: background-colour 0.3s ease;
+    background-color: rgba(46, 10, 10, 0.4);
+    color: white;
+    border: none;
     font-size: 20px;
     font-weight: bolder;
     cursor: pointer;
     transition: all .3s;
     margin-top: 10px;
     padding: 0px 10px;
+    border-radius: 10px;
 }
 label {
     padding-bottom: 5px;
@@ -83,8 +85,9 @@ label {
 
 */
 
-.button:hover{
-    opacity: 0.80;
+.log-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: scale(1.1);
 }
 .submit{
     width: 100%;
@@ -93,17 +96,49 @@ label {
     margin-top: 30px;
     margin-bottom: 15px;
     color: black;
-    text-align: center;
-    
+    text-align: center; 
+    color: rgba(46, 10, 10, 0.6);
+}
+.links #sign-up{
+    font-weight: bold;
 }
 
 /**************************HEADER + FOOTER styling********************************/
-/*******NAVBAR styling START- all contents********/
+/************************Styling for NAVIGATION BAR**************************/
+header .navbar{
+    text-align: center;
+    background-color: white;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: small;
+}
 .navbar{
+    width: auto;
     display: flex;
     align-items: center;
     font-size: small;
 }
+/*Search Bar*/
+.search{
+    margin-top: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input{
+    width: 500px;
+    margin-left: 20px;
+}
+.search img{
+    height: 15px;
+    width: 15px;
+}
+/*Links to pages for the Nav-bar*/
 a{
     color: black;
     text-decoration: none;
@@ -113,24 +148,6 @@ a{
 a:hover{
     text-decoration: underline;
 }
-.search-bar{
-    text-align: center;
-    margin-top: 10px;
-}
-.search-bar input{
-    width: 700px;
-    height: 19px;
-}
-.search-bar button{
-    background-color: transparent;
-    color: white;
-    border: none;
-    transform: translateY(4px);
-    cursor: pointer;
-}
-.search-bar .search-icon{
-    width: 15px;
-}
 .links{
     flex: 1;
     text-align: right;
@@ -139,88 +156,164 @@ a:hover{
 }
 .links nav{
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: flex-end;
+    justify-content: flex-end;
 }
 .links .img-links img{
     display: inline-block;
-    padding: 0;
-    margin: 0;
-    margin-right: 56px;
+    margin-right: 50px;
+    margin-bottom: -7px;
 }
-
 .links ul{
     display: inline-block;
     list-style-type: none;
 }
-
-.links .nav-links ul li{
+.links .page-links ul li{
     display: inline-block;
     margin-right: 20px;
 }
-
 .links img{
     display: inline-block;
     width: 20px;
     text-align: center;
 }
-
 .img-links .home-icon{
     width: 15px;
-    transform: translate(18px);
-}
-.img-links .about-us-icon{
-    width: 17px;
-    transform: translate(9px);
-}
-.img-links .contact-us-icon{
-    width: 15px;
-    transform: translate(15px);
+    transform: translate(-12px);
 }
 .img-links .account-icon{
     width: 15px;
-    transform: translate(22px);
+    transform: translate(-11px);
 }
 .img-links .basket-icon{
     width: 15px;
-    transform: translate(13px);
+    transform: translate(-10px);
 }
 
-.banner{
+/*Resizing for half-screen (TP1 Feedback) Humayra Hussain 210005848 FOR ALL PAGES*/
+@media screen and (max-width:1100px){
+    /*Navigation Bar*/
+    .search input{
+        max-width: 200px;
+    }
+    .links{
+        text-align: center;
+        flex: auto;
+    }
+}
+
+/************************Styling for Login Banner**************************/
+/*5 Categories for Menu*/
+.menu{
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 5px;
+    display: flex;
+    font-size: small;
+    justify-content: space-around;
+    align-items: center;
+}
+.menu a{
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+.menu a:hover{
+    text-decoration: underline;
+}
+/*Log-in Banner*/
+.banner-log{
+    display: flex;
+    flex-direction: column;
     margin: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-.banner::after{
-    content: "";
-    display: block;
-    height: 1px;
-    margin-top: 10px;
-    background-color: gray;
-}
-
-header{
-    padding-bottom: 5px;
     text-align: center;
 }
-/********NAVBAR styling END- all contents**********/
-/*******FOOTER***********/
+.log-in{
+    width: 100%;
+    width: max-width;
+    height: 500px;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button{
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 50px;
+    border: 2px solid white;
+    background-color: transparent;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: white;
+    border-radius: 10px;
+}
+.button:hover{
+    text-decoration: underline;
+}
+.heading{
+    width: 80%;
+    max-width: 750px;
+    transition: background-colour 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+.heading:hover{
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: scale(1.05);
+}
+.heading h1{
+    font-size: 3rem;
+    line-height: 1.5;
+    text-align: center;
+    margin: 10px 0;
+    padding-top: 50px;
+}
+.heading-links{
+    padding-top: 30px;
+}
+.log-in p{
+    text-align: center;
+    padding: 20px;
+}
+.button#login-btn{
+    background-color: white;
+    color: black;
+    margin-left: 40px;
+}
 
+@media screen and (max-width:700px){
+    /*Banner*/
+    .heading{
+        width: 80%;
+    }
+
+    .heading h1, p{
+        padding: 0;
+        margin: 0;
+    }
+}
+
+/*********************************FOOTER*************************************/
 .footer{
+    padding-top: 30px;
     font-size: small;
     display: flex;
     justify-content: space-around;
     color: black;
-    padding: 25px 0 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
-footer::before{
-    content: "";
-    display: block;
-    height: 1px;
-    background-color: gray;
-    padding: 0;
-}
-
 .footer-box{
     flex: 1;
     text-align: center;
@@ -228,19 +321,16 @@ footer::before{
 .footer-box img{
     width: 20px;
 }
-.btn{
-    color: black;
-    text-decoration: none;
+.footer .button{
     cursor: pointer;
-    background-color: transparent;
-    border: 1px solid black;
-    margin-top: 5px;
-    padding: 10px;
+    transition: transform 0.5s ease;
+    transition: background-colour 0.3s ease;
+    background-color: rgba(46, 10, 10, 0.5);
+    border: none;
 }
-.btn:hover{
+.footer .button:hover{
     text-decoration: underline;
 }
-
 .footer h3{
     padding-bottom: 10px;
 }
@@ -249,25 +339,31 @@ ul{
     padding: 5px 10px;
     display: inline-block;
 }
-
 footer p{
     text-align: center;
     font-size: small;
-    padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 .socials{
     width: 15px;
     margin: 10px;
-   transform: translate(140px);
+    transform: translate(140px);
 }
 .line{
-    content: "";
-    display: block;
-    height: 0.5px;
-    background-color: gray;
-    margin-left: 20px;
-    margin-right: 20px;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 5px;
+    display: flex;
+    font-size: small;
+    justify-content: space-around;
+    align-items: center;
 }
-/*************FOOTER END**************/
 
+/*Resizing for social media icons*/
+@media screen and (max-width:800px){
+    .socials{
+        width: 15px;
+        margin: 10px;
+        transform: translate(50px);
+    }
+}

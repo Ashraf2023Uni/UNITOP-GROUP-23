@@ -82,7 +82,7 @@
             //Check to see if there is a search input
             if (!empty($_POST["search"])) {
                 $productName = $_POST["search"];
-                $query = "SELECT product_id, product_name, price FROM products WHERE product_name LIKE :searchInput";
+                $query = "SELECT product_id, product_name, stock, price FROM products WHERE product_name LIKE :searchInput";
                 $result = $db->prepare($query);
                 $wildCard = '%' . $productName . '%';
                 $result->bindValue('searchInput', $wildCard, PDO::PARAM_STR);
@@ -92,12 +92,23 @@
                 if($result->rowCount() > 0) {
                     while($product = $result->fetch()){
                         echo"<section class='product-card'>
+                                <div class='stock-indicator'>";
+                                    $stock_level = $product['stock'];
+                                    if($stock_level = 0){
+                                        if($stock_level > 10){
+                                            echo"<div class='in-stock'><p>In Stock</p></div>";
+                                        } else {
+                                            echo"<div class='low-stock'><p>Low in Stock</p></div>";
+                                        }
+                                    } else {
+                                        echo"<div class='out-stock'><p>Out of Stock</p></div>";
+                                    }
+                                echo"</div>
                                 <a href='product-details.php?id=".$product['product_id']."'>
                                 <img src='assests/Products/".$product['product_id'].".png' alt='' id='Featured-Thumbnail'>
                                 <h4>".$product['product_name']."</h4>
                                 <p>£".$product['price']."</p>
-                                <button class='button'>More Details</button>
-                                </a>
+                                <button class='button'>More Details</button> </a>
                             </section>";
                     }
                 } else {
@@ -113,6 +124,18 @@
                 if(!empty($products)){
                     foreach($products as $product){
                         echo"<section class='product-card'>
+                                <div class='stock-indicator'>";
+                                    $stock_level = $product['stock'];
+                                    if($stock_level > 0){
+                                        if($stock_level > 10){
+                                            echo"<div class='in-stock'><p>In Stock</p></div>";
+                                        } else {
+                                            echo"<div class='low-stock'><p>Low in Stock</p></div>";
+                                        }
+                                    } else {
+                                        echo"<div class='out-stock'><p>Out of Stock</p></div>";
+                                    }
+                                echo"</div>
                                 <a href='product-details.php?id=" . htmlspecialchars($product['product_id']) . "'>
                                 <img src='assests/Products/" . htmlspecialchars($product['product_id']) . ".png' alt='' id='Featured-Thumbnail'>
                                 <h4>" . htmlspecialchars($product['product_name']) . "</h4>
