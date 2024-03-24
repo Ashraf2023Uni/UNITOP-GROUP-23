@@ -138,6 +138,18 @@ INSERT INTO `orderlines` (`order_id`, `product_id`, `quantity`) VALUES
 
 -- --------------------------------------------------------
 
+
+--
+-- Table structure for table `returned_orders`
+--
+
+CREATE TABLE `returned_orders` (
+  `return_id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `reason` varchar(256) DEFAULT NULL,
+  `return_date` date DEFAULT curdate()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Table structure for table `orders`
 --
@@ -284,22 +296,6 @@ CREATE TABLE `reviews` (
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `shipping_address`
---
-
-CREATE TABLE `shipping_address` (
-  `address_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `firstname` varchar(30) NOT NULL,
-  `surname` varchar(30) NOT NULL,
-  `addressline` varchar(50) NOT NULL,
-  `flat_num` tinyint(3) DEFAULT NULL,
-  `city` varchar(30) NOT NULL,
-  `postcode` varchar(7) NOT NULL,
-  `county` varchar(50) NOT NULL,
-  `phone_num` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
@@ -337,6 +333,13 @@ ALTER TABLE `orderlines`
   ADD KEY `product_id` (`product_id`);
 
 --
+-- Indexes for table `returned_orders`
+--
+ALTER TABLE `returned_orders`
+  ADD PRIMARY KEY (`return_id`),
+  ADD KEY `order_id` (`order_id`);
+
+--
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
@@ -371,12 +374,7 @@ ALTER TABLE `reviews`
   ADD KEY `customer_id` (`customer_id`),
   ADD KEY `product_id` (`product_id`);
 
---
--- Indexes for table `shipping_address`
---
-ALTER TABLE `shipping_address`
-  ADD PRIMARY KEY (`address_id`),
-  ADD KEY `user_id` (`user_id`);
+
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -431,10 +429,12 @@ ALTER TABLE `reviews`
   MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `shipping_address`
+-- AUTO_INCREMENT for table `returned_orders`
 --
-ALTER TABLE `shipping_address`
-  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `returned_orders`
+  MODIFY `return_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+
 
 --
 -- Constraints for dumped tables
@@ -468,12 +468,14 @@ ALTER TABLE `reviews`
   ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `reviews_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE;
 
+
 --
--- Constraints for table `shipping_address`
+-- Constraints for table `returned_orders`
 --
-ALTER TABLE `shipping_address`
-  ADD CONSTRAINT `shipping_address_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `customers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `returned_orders`
+  ADD CONSTRAINT `returned_orders_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -1,0 +1,43 @@
+#form-wrapper{
+    margin-top:30px;
+    text-align: center;
+    width:100%;
+}
+
+#returnTxt{
+    height:120px;
+    width:500px;
+    border-radius:7px;
+}
+
+#form-wrapper button{
+    text-align: center;
+    padding:8px;
+    margin-top: 5px;
+    margin-left: 4px;
+    border:none;
+    background-color:rgb(112, 109, 109);
+    border-radius:10px;
+    color:white;
+}
+
+#form-wrapper button:hover{
+    padding:9px;
+    background-color:rgb(67, 64, 64);
+}
+
+#txtarea{
+    display:inline-flex;
+}
+
+#form textarea{
+    margin-left:10px;
+    padding:3px;
+    margin-right:20%;
+}
+
+#form button{
+margin-top:15px;
+display:block;
+margin-left: 46%
+}

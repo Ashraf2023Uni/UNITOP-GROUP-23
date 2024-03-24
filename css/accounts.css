@@ -260,7 +260,22 @@ body {
     }
 }
 
+/*return items button*/
+.returnBtn{
+    padding:5px;
+    width:140px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #f28686;
+    border:none;
+    border-radius:6px;
+    color:white;
+}
 
+.returnBtn:hover{
+    cursor:pointer;
+    background-color:#a64b4b ;
+}
 /*Menu, Navigation Bar and Footer styling from homepage.css*/
 
 /*Styling for NAVIGATION BAR*/

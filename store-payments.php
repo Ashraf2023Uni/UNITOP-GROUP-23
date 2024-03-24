@@ -84,7 +84,7 @@ try{
 
     $setCost = "UPDATE orders SET cost = ?, user_id = ?, status = ? WHERE order_id = ?";
     $stmt = $db->prepare($setCost);
-    $stmt->execute([$GLOBALS['total_cost'],$user_id,'processing',$order_id]);
+    $stmt->execute([$GLOBALS['total_cost'],$user_id,'Processing',$order_id]);
 
     $_SESSION['order_id'] = $order_id;
     //resetting basket session arrays after successful checkout
