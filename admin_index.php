@@ -88,21 +88,21 @@
         </div>
 
         <div class="container">
-            <a href="admin_orders.php"><img src="assests/Admin/customer.png" id="img1" width="200px"></a>
+            <a href="admin_orders.php"><img src="assests/Admin/order.png" id="img1" width="200px"></a>
             <form action="admin_orders.php" method="post" class="changePw-form">
                 <button type="submit" class="changePw-button">Orders</button>
             </form>
         </div>
 
         <div class="container">
-            <a href="admin_products.php"><img src="assests/Admin/customer.png" id="img1" width="200px"></a>
+            <a href="admin_products.php"><img src="assests/Admin/product-management.png" id="img1" width="200px"></a>
             <form action="admin_products.php" method="post" class="changePw-form">
                 <button type="submit" class="changePw-button">Products</button>
             </form>
         </div>
 
         <div class="container">
-            <a href="admin_reports.php"><img src="assests/Admin/customer.png" id="img1" width="200px"></a>
+            <a href="admin_reports.php"><img src="assests/Admin/report.png" id="img1" width="200px"></a>
             <form action="admin_reports.php" method="post" class="changePw-form">
                 <button type="submit" class="changePw-button">Report</button>
             </form>

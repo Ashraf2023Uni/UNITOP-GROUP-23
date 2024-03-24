@@ -144,7 +144,7 @@ are met then the third line is used.
 This third line hashes the new password
 using the password_hash() function with the 
 PASSWORD_DEFAULT algorithm. This function
-generates a new password hashed. This new
+generates a new password hashed. This new 
 hashed pw will then be stored in the database. 
 */
     // echo '54';
