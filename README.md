@@ -1,5 +1,6 @@
 # UNITOP-GROUP-23
 Group 23s team project
+
 Mohammed Sabil Ali - 
 Sign-up and login 
 1. From index.php press sign up, takes you to register.php
@@ -20,6 +21,15 @@ Accounts - view profile, change password and view orders
 4. if the user clicks view profile it will show all their details they inputted in sign-up
 5. view orders shows any created orders.
 6. change password allows them to change password following the same validation as login and sign-up does.
+
+Checkouts - 
+1. The user must first be logged in when checking out to do this follow sign up and login above.
+2. If the user is not logged in when pressing checkout they will be taken to login.php.
+3. The user should add products to basket through the poducts pages.
+4. Select quantity to add to basket.
+5. If steps 1 - 4 are followed the user should be able to checkout.
+6. Fill payment details as requested and press checkout.
+7. User should be displayed with a receipt. 
 
 Noor -
 Instructions to return an order:
