@@ -28,5 +28,3 @@ echo "<a href='basket.php'><button>Return to Basket</button></a>";
 echo "</div>";
 
 ?>
-
-echo $_GET['ex'];?>
