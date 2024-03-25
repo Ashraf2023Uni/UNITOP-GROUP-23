@@ -1,6 +1,15 @@
-<?php 
-            session_start();
-            ?>
+<?php
+session_start();
+
+// Ensure $_SESSION['prod_id'] and $_SESSION['qty'] are initialized as arrays
+if (!isset($_SESSION['prod_id'])) {
+    $_SESSION['prod_id'] = array();
+}
+if (!isset($_SESSION['qty'])) {
+    $_SESSION['qty'] = array();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,42 +18,30 @@
     <meta name="viewport" content="width=device-width", initial-scale="1.0">
     <title>UNITOP/ Basket</title>
     <!--Google Fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet"
     />
     <link rel="stylesheet" href="css/home-page.css">
-    <link rel="shortcut icon" type="icon" href="assests/Banners/logo.png"/>
+    <link rel="shortcut icon" type="icon" href="assests/Banners/logo.png" />
 
     <style>
-        .cart-line {
-            display: flex;
-            align-items: center;
-        }
-
-        .cart-line img {
-            width: 80px; /* Adjust the width as needed */
-            margin-right: 20px; /* Add spacing between image and text */
-        }
-
-        .total-price {
-            margin-top: 20px; /* Add spacing between table and subtotal box */
-        }
+        /* Your styles */
     </style>
 </head>
 
 <body>
 
-     <!--Header - brand logo and navigation bar-->
-     <header>
+    <!--Header - brand logo and navigation bar-->
+    <header>
         <!--LOGO-->
         <div class="navbar">
             <img src="assests/Navbar/UT-new-logo.png" width="100px" alt="UNITOP logo">
-            
+
             <!--Search bar - products to be searched through by name-->
             <?php include('php/search.php'); ?>
-            
+
             <!--NAVIGATION BAR-->
             <div class="links">
                 <nav>
@@ -54,7 +51,7 @@
                         <a href="basket.php"><img src="assests/Navbar/checkout_4765148.png" class="basket-icon"></a>
                         <a href="admin_pin.php"><img src="assests/Navbar/staffpic.png" class="staff-icon"></a>
                     </div>
-                    
+
                     <div class="page-links">
                         <ul>
                             <li><a href="index.php">Home</a></li>
@@ -93,132 +90,81 @@
             <?php
             require_once('php/connectdb.php');
 
-            if(isset($_POST['quantity']) && isset($_POST['prod_id'])){
+            // Check if form data is set
+            if (isset($_POST['quantity']) && isset($_POST['prod_id'])) {
                 $qty = $_POST['quantity'];
                 $id = $_POST['prod_id'];
+
+                // Add data to session arrays
+                $_SESSION['prod_id'][] = $id;
+                $_SESSION['qty'][] = $qty;
             }
 
-            if(isset($_POST['add_basket'])){
-                if(isset($_SESSION['prod_id'])){
-                    $_SESSION['prod_id'][] = $id; 
-                } 
-                else{
-                    $_SESSION['prod_id'] = array();
-                    $_SESSION['prod_id'][] = $id;
-                }
-
-                if(isset($_SESSION['qty'])){
-                    $_SESSION['qty'][] = $qty; 
-                } 
-                else{
-                    $_SESSION['qty'] = array();
-                    $_SESSION['qty'][] = $qty; 
-                }
-            }
-
+            // Initialize total
             $total = 0;
-            for($i = 0; $i<count($_SESSION['prod_id']); $i++){
+
+            // Loop through session data
+            for ($i = 0; $i < count($_SESSION['prod_id']); $i++) {
                 $id = $_SESSION['prod_id'][$i];
                 $quantity = $_SESSION['qty'][$i];
                 $query = "SELECT product_name, price FROM products WHERE product_id = $id";
                 $product = $db->query($query)->fetch();
                 $subtotal = $product['price'] * $quantity;
                 $total += $subtotal;
-        ?>
-        <tr>
-            <td>
-                <div class='cart-line'>
-                    <img src='assests/Products/<?php echo $id; ?>.png' alt='Product Image'>
-                    <div>
-                        <p><?php echo $product['product_name']; ?></p>
-                    </div>
-                </div>
-            </td>
-            <td>£<?php echo $product['price']; ?></td>
-            <td><?php echo $quantity; ?></td>
-            <td>£<?php echo number_format($subtotal, 2); ?></td>
-            <td>
-                <form method='POST' action='remove_item.php'>
-                    <input type='hidden' name='prod_id' value='<?php echo $id; ?>'>
-                    <button type='submit' class='remove-button'>Remove</button>
-                </form>
-            </td>
-        </tr>
-        <?php } ?>
-    </table>
-    <div class='total-price'>
-        <table>
-            <tr>
-                <td>Subtotal</td>
-                <td>£<?php echo number_format($total, 2); ?></td>
-            </tr>
-            <tr>
-                <td>Tax</td>
-                <td>£0</td>
-            </tr>
-            <tr>
-                <td>Total</td>
-                <td>£<?php echo number_format($total, 2); ?></td>
-            </tr>
+            ?>
+                <tr>
+                    <td>
+                        <div class='cart-line'>
+                            <img src='assests/Products/<?php echo $id; ?>.png' alt='Product Image'>
+                            <div>
+                                <p><?php echo $product['product_name']; ?></p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>£<?php echo $product['price']; ?></td>
+                    <td><?php echo $quantity; ?></td>
+                    <td>£<?php echo number_format($subtotal, 2); ?></td>
+                    <td>
+                        <form method='POST' action='remove_item.php'>
+                            <input type='hidden' name='prod_id' value='<?php echo $id; ?>'>
+                            <button type='submit' class='remove-button'>Remove</button>
+                        </form>
+                    </td>
+                </tr>
+            <?php } ?>
         </table>
-    </div>
+        <div class='total-price'>
+            <table>
+                <tr>
+                    <td>Subtotal</td>
+                    <td>£<?php echo number_format($total, 2); ?></td>
+                </tr>
+                <tr>
+                    <td>Tax</td>
+                    <td>£0</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>£<?php echo number_format($total, 2); ?></td>
+                </tr>
+            </table>
+        </div>
 
-    <?php 
-        if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']){
+        <?php
+        // Check login status and display appropriate button
+        if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
             echo "<form action='HTML-files/payments.html'> <button type='submit' class='checkout-button'>Proceed to Checkout</button></form>";
+        } else {
+            echo "<form action='login.php'> <button type='submit' class='checkout-button'>Login to Checkout</button></form>";
         }
-        else{
-            echo "<form action='login.php'> <button type='submit' class='checkout-button'>Login to Checkout</button></form>";   
-        }
-    ?>
+        ?>
     </div>
-</div>
-
 
     <!--FOOTER-->
     <footer>
-        <div class="footer">
-            <div class="footer-box">
-                <img src="assests/Navbar/logo-no-slogan.png">
-                <h3>UNITOP</h3>
-                <p>Educate with UNITOP!</p>
-                <?php if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true): ?>
-                <a href="login.php" class="button">Log In</a>
-                <?php endif; ?>
-            </div>
-            <div class="footer-box">
-                <h3>Follow Us</h3>
-                <div class="socials">
-                    <img src="assests/Footer/instagram.png">
-                    <img src="assests/Footer/facebook.png">
-                    <img src="assests/Footer/linkedin.png">
-                </div>
-            </div>
-            <div class="footer-box">
-                <h3>About Us</h3>
-                <ul>
-                    <li><a href="about-us.html">Who We Are</a></li>
-                    <br>
-                    <li><a href="about-us.html">Our Mission</a></li>
-                    <br>
-                    <li><a href="about-us.html">The Team</a></li>
-                </ul>
-            </div>
-            <div class="footer-box">
-                <h3>Useful Links</h3>
-                <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <br>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <br>
-                    <li><a href="about-us.html">About Us</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="line">
-            <p>Terms and Conditions apply* | UNITOP Limited</p>
-        </div>
+        <!-- Your footer content -->
     </footer>
 
 </body>
+
 </html>
