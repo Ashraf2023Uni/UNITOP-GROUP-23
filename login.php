@@ -128,8 +128,8 @@ if(isset($_POST['submit'])) {
 
        </div>
 
- <!--FOOTER-->
- <footer>
+    <!--FOOTER-->
+    <footer>
         <div class="footer">
             <div class="footer-box">
                 <img src="assests/Navbar/logo-no-slogan.png">
@@ -162,7 +162,7 @@ if(isset($_POST['submit'])) {
                 <ul>
                     <li><a href="index.php">Home</a></li>
                     <br>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.php">Contact Us</a></li>
                     <br>
                     <li><a href="about-us.html">About Us</a></li>
                 </ul>
@@ -172,6 +172,7 @@ if(isset($_POST['submit'])) {
             <p>Terms and Conditions apply* | UNITOP Limited</p>
         </div>
     </footer>
+
 
 </body>
 </html>

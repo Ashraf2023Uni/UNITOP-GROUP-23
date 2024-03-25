@@ -117,7 +117,7 @@ session_start();
                 Our vision began with proving ease in your laptop purchases. 
                 Learn more about us and how we strive to make your students learning better.
             </p>
-            <a href="about-us.hmtml" class="button">About Us</a>
+            <a href="about-us.html" class="button">About Us</a>
         </section>
         <section class="box" style="background-image: url(assests/Banners/contact.jpg);">
             <h1>How to reach us!</h1>
@@ -127,7 +127,7 @@ session_start();
                 Your feedback is invaluable to us and we look forward to hearing from you.
                 Get in touch today.
             </p>
-            <a href="contact.html" class="button">Contact Us</a>
+            <a href="contact.php" class="button">Contact Us</a>
         </section>
     </div>
 
@@ -165,7 +165,7 @@ session_start();
                 <ul>
                     <li><a href="index.php">Home</a></li>
                     <br>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.php">Contact Us</a></li>
                     <br>
                     <li><a href="about-us.html">About Us</a></li>
                 </ul>

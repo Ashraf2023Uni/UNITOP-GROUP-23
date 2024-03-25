@@ -265,7 +265,7 @@ hashed pw will then be stored in the database.
         <?php if (!empty($success_message)) : ?>
             <p style="color: green;"><?php echo $success_message; ?></p>
             <?php endif; ?>
-            
+
      <!--FOOTER-->
      <footer>
         <div class="footer">
@@ -300,7 +300,7 @@ hashed pw will then be stored in the database.
                 <ul>
                     <li><a href="index.php">Home</a></li>
                     <br>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.php">Contact Us</a></li>
                     <br>
                     <li><a href="about-us.html">About Us</a></li>
                 </ul>

@@ -122,7 +122,7 @@ $error_message = "Wrong Pin";
                 <ul>
                     <li><a href="index.php">Home</a></li>
                     <br>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.php">Contact Us</a></li>
                     <br>
                     <li><a href="about-us.html">About Us</a></li>
                 </ul>

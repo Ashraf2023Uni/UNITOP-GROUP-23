@@ -59,39 +59,48 @@ $mysqli->close();
     <link rel="stylesheet" href="css/home-page.css">
 </head>
 <body>
-
+<!--Header - brand logo and navigation bar-->
 <header>
-    <!--NAVBAR-->
-    <div class="navbar">
-        <img src="assests/Navbar/UT-new-logo.png" width="100px" alt="UNITOP logo">
-        <!--Search bar - products to be searched through by name-->
-        <?php include('php/search.php'); ?>
-
-        <!--NAVIGATION BAR-->
-        <div class="links">
-            <nav>
-                <div class="img-links">
-                    <a href="index.php"><img src="assests/Navbar/home_4991416.png" class="home-icon"></a>
-                    <a href="about-us.php"><img src="assests/Navbar/about-us.png" class="about-us-icon"></a>
-                    <a href="contact.php"><img src="assests/Navbar/notification_9383540.png" class="contact-us-icon"></a>
-                    <a href="index.php"><img src="assests/Navbar/avatar_9892372.png" class="account-icon"></a>
-                    <a href="basket.php"><img src="assests/Navbar/checkout_4765148.png" class="basket-icon"></a>
-                    <a href="admin_login.php"><img src="assests/Navbar/staffpic.png" class="staff-icon"></a>
-                </div>
-                <div class="page-links">
-                    <ul>
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="about-us.php">About Us</a></li>
-                        <li><a href="contact.php">Contact Us</a></li>
-                        <li><a href="index.php">Account</a></li>
-                        <li><a href="basket.php">Basket</a></li>
-                        <li><a href="admin_login.php">Staff login</a></li>
-                    </ul>
-                </div>
-            </nav>
+        <!--LOGO-->
+        <div class="navbar">
+            <img src="assests/Navbar/UT-new-logo.png" width="100px" alt="UNITOP logo">
+            
+            <!--Search bar - products to be searched through by name-->
+            <?php include('php/search.php'); ?>
+            
+            <!--NAVIGATION BAR-->
+            <div class="links">
+                <nav>
+                    <div class="img-links">
+                        <a href="index.php"><img src="assests/Navbar/home_4991416.png" class="home-icon"></a>
+                        <a href="accounts.php"><img src="assests/Navbar/avatar_9892372.png" class="account-icon"></a>
+                        <a href="basket.php"><img src="assests/Navbar/checkout_4765148.png" class="basket-icon"></a>
+                        <a href="admin_pin.php"><img src="assests/Navbar/staffpic.png" class="staff-icon"></a>
+                    </div>
+                    <div class="page-links">
+                        <ul>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="accounts.php">Account</a></li>
+                            <li><a href="basket.php">Basket</a></li>
+                            <li><a href="admin_pin.php">Staff login</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
         </div>
+    </header>
+
+    <!--Menu with the categories based on degrees of students-->
+    <div class="menu">
+        <?php 
+        include('php/category.php');
+        $categories = getCategories($db);
+        /*print_r($categories);*/
+        foreach ($categories as $category){
+            echo "<a href='products-page.php?category={$category['category_id']}'>{$category['category']}></a>";
+        }
+        ?>
     </div>
-</header>
 
 <div class="container contact-page">
     <h1>Contact Us</h1>
@@ -147,16 +156,18 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-</body>
-  <!-- Footer -->
-  <footer>
+
+    <!--FOOTER-->
+    <footer>
         <div class="footer">
             <div class="footer-box">
                 <img src="assests/Navbar/logo-no-slogan.png">
                 <h3>UNITOP</h3>
                 <p>Educate with UNITOP!</p>
+                <?php if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true): ?>
+                <a href="login.php" class="button">Log In</a>
+                <?php endif; ?>
             </div>
-
             <div class="footer-box">
                 <h3>Follow Us</h3>
                 <div class="socials">
@@ -165,22 +176,24 @@ document.addEventListener("DOMContentLoaded", function() {
                     <img src="assests/Footer/linkedin.png">
                 </div>
             </div>
-
             <div class="footer-box">
                 <h3>About Us</h3>
                 <ul>
-                    <li><a href="">Who We Are</a></li>
-                    <li><a href="">Our Mission</a></li>
-                    <li><a href="">The Team</a></li>
+                    <li><a href="about-us.html">Who We Are</a></li>
+                    <br>
+                    <li><a href="about-us.html">Our Mission</a></li>
+                    <br>
+                    <li><a href="about-us.html">The Team</a></li>
                 </ul>
             </div>
-
             <div class="footer-box">
                 <h3>Useful Links</h3>
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Contact Us</a></li>
-                    <li><a href="">About Us</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <br>
+                    <li><a href="contact.php">Contact Us</a></li>
+                    <br>
+                    <li><a href="about-us.html">About Us</a></li>
                 </ul>
             </div>
         </div>
