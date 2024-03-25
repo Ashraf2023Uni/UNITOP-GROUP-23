@@ -450,6 +450,36 @@ footer p{
     justify-content: space-around;
     align-items: center;
 }
+.logout-button {
+    padding: 12px 20px;
+    background-color: #c1bebe;
+    color: rgba(46, 10, 10, 0.5);
+    border: none;
+    cursor: pointer;
+    float: right;
+}
+
+.logout-form {
+    text-align: center;
+    margin-top: 20px;
+}
+.logout-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;  
+    border: none;
+    border-radius: 10px;   
+    align-items: bottom;
+    color: black;
+    background-color: white;
+    border: 1px solid rgba(46, 10, 10, 0.5);
+    transition: transform 0.3s ease;
+}
+.logout-button:hover{
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    transform: scale(1.1);
+}
 
 /*Resizing for social media icons*/
 @media screen and (max-width:800px){

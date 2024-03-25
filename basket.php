@@ -76,6 +76,13 @@ if (!isset($_SESSION['qty'])) {
         ?>
     </div>
 
+    <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
+    <!-- Logout Button -->
+    <form action="logout.php" method="post">
+    <button type="submit" name="logout" class="logout-button">Log Out</button>
+    </form>
+    <?php endif; ?>
+
    <!----cart item details--------->
    <div class="small-container cart-page">
     <table>
