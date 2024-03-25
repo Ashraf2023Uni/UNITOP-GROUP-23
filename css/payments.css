@@ -1,13 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
 
 *{
-  /*font-family: 'Poppins', sans-serif;*/
-  font-family: Arial, Helvetica, sans-serif;
   margin:0; padding:0;
   box-sizing: border-box;
   outline: none; 
   text-transform: capitalize;
   transition: all .2s linear;
+  font-family: "Poppins", sans-serif;
 }
 
 .container{
@@ -31,6 +30,7 @@
   display: flex;
   flex-wrap: wrap;
   gap:15px;
+  margin-right: 30px;
 }
 
 .container form .row .col{
@@ -82,7 +82,7 @@
 }
 
 .container form .submit-btn{
-  width: 100%;
+  width: 95%;
   padding:12px;
   font-size: 17px;
   background: rgb(34, 83, 198);
@@ -95,14 +95,41 @@
   opacity: 0.80;
 }
 
-/*******NAVBAR styling START- all contents********/
+/************************Styling for NAVIGATION BAR**************************/
+header .navbar{
+  text-align: center;
+  background-color: white;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: small;
+}
 .navbar{
+  width: auto;
   display: flex;
   align-items: center;
   font-size: small;
 }
-
-/*navbar - a tags/links to the other pages*/
+/*Search Bar*/
+.search{
+  margin-top: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input{
+  width: 500px;
+  margin-left: 20px;
+}
+.search img{
+  height: 15px;
+  width: 15px;
+}
+/*Links to pages for the Nav-bar*/
 a{
   color: black;
   text-decoration: none;
@@ -112,28 +139,6 @@ a{
 a:hover{
   text-decoration: underline;
 }
-
-/*searchbar - FUNCTIONALITY NEEDED*/
-.search-bar{
-  text-align: center;
-  margin-top: 10px;
-}
-.search-bar input{
-  width: 700px;
-  height: 19px;
-}
-.search-bar button{
-  background-color: transparent;
-  color: white;
-  border: none;
-  transform: translateY(4px);
-  cursor: pointer;
-}
-.search-bar .search-icon{
-  width: 15px;
-}
-
-/*div class=links - all contents*/
 .links{
   flex: 1;
   text-align: right;
@@ -142,89 +147,63 @@ a:hover{
 }
 .links nav{
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: flex-end;
+  justify-content: flex-end;
 }
-
 .links .img-links img{
   display: inline-block;
-  padding: 0;
-  margin: 0;
-  margin-right: 57px;
+  margin-right: 50px;
+  margin-bottom: -7px;
 }
-
 .links ul{
   display: inline-block;
   list-style-type: none;
 }
-
-.links .nav-links ul li{
+.links .page-links ul li{
   display: inline-block;
   margin-right: 20px;
 }
-
 .links img{
   display: inline-block;
   width: 20px;
   text-align: center;
 }
-
 .img-links .home-icon{
   width: 15px;
-  transform: translate(19px);
-}
-.img-links .about-us-icon{
-  width: 17px;
-  transform: translate(9px);
-}
-.img-links .contact-us-icon{
-  width: 15px;
-  transform: translate(17px);
+  transform: translate(-12px);
 }
 .img-links .account-icon{
   width: 15px;
-  transform: translate(22px);
+  transform: translate(-11px);
 }
 .img-links .basket-icon{
   width: 15px;
-  transform: translate(15px);
+  transform: translate(-10px);
 }
 
-.banner{
-  margin: auto;
-  padding-left: 20px;
-  padding-right: 20px;
+/*Resizing for half-screen (TP1 Feedback) Humayra Hussain 210005848 FOR ALL PAGES*/
+@media screen and (max-width:1100px){
+  /*Navigation Bar*/
+  .search input{
+      max-width: 200px;
+  }
+  .links{
+      text-align: center;
+      flex: auto;
+  }
 }
-.banner::after{
-  content: "";
-  display: block;
-  height: 1px;
-  margin-top: 10px;
-  background-color: gray;
-}
-
-header{
-  padding-bottom: 5px;
-  text-align: center;
-}
-/********NAVBAR styling END- all contents**********/
-/*******FOOTER***********/
-
+/*********************************FOOTER*************************************/
 .footer{
+  padding-top: 30px;
   font-size: small;
   display: flex;
   justify-content: space-around;
   color: black;
-  padding: 25px 0 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
-footer::before{
-  content: "";
-  display: block;
-  height: 1px;
-  background-color: gray;
-  padding: 0;
-}
-
 .footer-box{
   flex: 1;
   text-align: center;
@@ -232,19 +211,16 @@ footer::before{
 .footer-box img{
   width: 20px;
 }
-.btn{
-  color: black;
-  text-decoration: none;
+.footer .button{
   cursor: pointer;
-  background-color: transparent;
-  border: 1px solid black;
-  margin-top: 5px;
-  padding: 10px;
+  transition: transform 0.5s ease;
+  transition: background-colour 0.3s ease;
+  background-color: rgba(46, 10, 10, 0.5);
+  border: none;
 }
-.btn:hover{
+.footer .button:hover{
   text-decoration: underline;
 }
-
 .footer h3{
   padding-bottom: 10px;
 }
@@ -253,24 +229,31 @@ ul{
   padding: 5px 10px;
   display: inline-block;
 }
-
 footer p{
   text-align: center;
   font-size: small;
-  padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 .socials{
   width: 15px;
   margin: 10px;
- transform: translate(140px);
+  transform: translate(140px);
 }
 .line{
-  content: "";
-  display: block;
-  height: 0.5px;
-  background-color: gray;
-  margin-left: 20px;
-  margin-right: 20px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 5px;
+  display: flex;
+  font-size: small;
+  justify-content: space-around;
+  align-items: center;
 }
-/*************FOOTER END**************/
+
+/*Resizing for social media icons*/
+@media screen and (max-width:800px){
+  .socials{
+      width: 15px;
+      margin: 10px;
+      transform: translate(50px);
+  }
+}
