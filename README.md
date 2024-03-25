@@ -60,8 +60,8 @@ After you are done you can logout from the greyed out logout button on the botto
 Change your password – 
 Press the Change your password box on the admin home page.
 Enter your current password into the current password field
-Your password is now changed.
 Enter your new password into the new password field and confirm new password field. Ensure these two fields match. Then press Change Password.
+Your password is now changed.
 Then go back to the admin dashboard by pressing the banner above
 Then Logout and press the link to the homepage
 Go back to staff login on top right of the page and enter the pin 0000
@@ -88,6 +88,8 @@ Report –
 Press the Report box on the admin homepage.
 This will load up the Stock Levels and Orders Report. It will show current stock levels with product ID, product name, and the stock number. Then beneath that, it will show All Orders which will show the Order ID, the user ID, the Order Date, and the status.
 You need to press the back button on your browser as there is no link on this page to take you back to admin home page.
+
+
 How to logout of Admin – 
 (Assuming you are on the admin dashboard/admin_index.php) There is a logout button on the bottom-right side of the page greyed out. Press this button.
 You can press the home page link to go back to the guest/customer home page (index.php).
