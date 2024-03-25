@@ -31,6 +31,21 @@ Checkouts -
 6. Fill payment details as requested and press checkout.
 7. User should be displayed with a receipt. 
 
+Humayra Hussain 210005848-
+Index.php (Home-Page)
+1. The user can explore the home page, search for products, view the first 5 products and learn more 'About-Us' and 'Contact-Us'
+2. It has a banner as the first thing you see to encourage for log-in/sign-up to use further features like checkout.
+3. It has a navigation bar that allows you to access important parts of the website liek accounts and basket.
+
+Products-page.php (Product display)
+1. The product-page displays all the products on the screeen.
+2. The menu has categories which if you click on it filters the products to only shows the products of that category.
+3. There is a sorting drop-down and a button which applies the sort, sorting the products by price range of either low-to-high or high-to-low.
+
+Product-details.php (Product details)
+1. Key features of the page are: products images, detailed product description, pricing, add-to-basket button, customer reviews and product ratings.
+
+
 Noor -
 Instructions to return an order:
 1. From index.php press the 'log in' button under the navigation & category bar
@@ -60,8 +75,9 @@ After you are done you can logout from the greyed out logout button on the botto
 Change your password – 
 Press the Change your password box on the admin home page.
 Enter your current password into the current password field
-Your password is now changed.
 Enter your new password into the new password field and confirm new password field. Ensure these two fields match. Then press Change Password.
+Your password is now changed.
+Then go back to the admin dashboard by pressing the banner above
 Then Logout and press the link to the homepage
 Go back to staff login on top right of the page and enter the pin 0000
 Then press on the link to Sign in underneath the register button and the text “Already got an account?”.
@@ -87,6 +103,8 @@ Report –
 Press the Report box on the admin homepage.
 This will load up the Stock Levels and Orders Report. It will show current stock levels with product ID, product name, and the stock number. Then beneath that, it will show All Orders which will show the Order ID, the user ID, the Order Date, and the status.
 You need to press the back button on your browser as there is no link on this page to take you back to admin home page.
+
+
 How to logout of Admin – 
 (Assuming you are on the admin dashboard/admin_index.php) There is a logout button on the bottom-right side of the page greyed out. Press this button.
 You can press the home page link to go back to the guest/customer home page (index.php).

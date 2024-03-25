@@ -89,14 +89,10 @@ p {
         display: block;
         width: auto;
     }
-
-
-
-
 }
 
 /**************************HEADER + FOOTER styling********************************/
-/*******NAVBAR styling START- all contents********/
+/* NAVBAR styling */
 .navbar{
     display: flex;
     align-items: center;
@@ -163,132 +159,200 @@ a:hover{
     text-align: center;
 }
 
-.img-links .home-icon{
-    width: 15px;
-    transform: translate(18px);
-}
-.img-links .about-us-icon{
-    width: 17px;
-    transform: translate(9px);
-}
-.img-links .contact-us-icon{
-    width: 15px;
-    transform: translate(15px);
-}
-.img-links .account-icon{
-    width: 15px;
-    transform: translate(22px);
-}
-.img-links .basket-icon{
-    width: 15px;
-    transform: translate(13px);
-}
-
-.banner{
-    margin: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-.banner::after{
-    content: "";
-    display: block;
-    height: 1px;
-    margin-top: 10px;
-    background-color: gray;
-}
-
-header{
-    padding-bottom: 5px;
-    text-align: center;
-}
-/********NAVBAR styling END- all contents**********/
-/*******FOOTER***********/
-
-.footer{
-    font-size: small;
-    display: flex;
-    justify-content: space-around;
+/* FOOTER Styling */
+.footer {
+    font-size: 14px;
     color: black;
-    padding: 25px 0 15px;
-}
-footer::before{
-    content: "";
-    display: block;
-    height: 1px;
-    background-color: gray;
-    padding: 0;
+    background-color: #f0f0f0; /* Grey background */
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
-.footer-box{
-    flex: 1;
+.footer-box {
+    margin: 5px 20px;
+    padding: 10px;
     text-align: center;
+    flex: 1;
+    min-width: 150px;
 }
-.footer-box img{
+
+.socials {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.socials img {
+    margin: 0 10px;
     width: 20px;
 }
-.btn{
+
+@media screen and (max-width: 768px) {
+    .footer-box {
+        margin: 10px;
+    }
+
+    .socials img {
+        margin: 0 5px;
+    }
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d1d1d1; /* Set the vibrant grey background for the body */
+}
+
+/* Centering and Styling the Contact Form */
+.container {
+    width: 50%; /* Adjust the width as needed to fit your form size */
+    margin: auto; /* Center the container */
+    overflow: hidden;
+    background-color: #fff; /* White background for the form area */
+    padding: 20px; /* Add some padding around the form */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow for depth */
+}
+
+/* Adjusting Footer to be more compact */
+.footer {
+    font-size: 14px;
     color: black;
-    text-decoration: none;
-    cursor: pointer;
-    background-color: transparent;
-    border: 1px solid black;
-    margin-top: 5px;
-    padding: 10px;
-}
-.btn:hover{
-    text-decoration: underline;
+    background-color: #f0f0f0; /* Slightly lighter grey for footer background */
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around; /* Adjusted to space-around for even spacing */
+    flex-wrap: wrap;
+    align-items: center;
+    max-height: 200px; /* Example max height to compress the footer */
 }
 
-.footer h3{
-    padding-bottom: 10px;
-}
-ul{
-    list-style-type: none;
-    padding: 5px 10px;
-    display: inline-block;
-}
-
-footer p{
+.footer-box {
+    margin: 5px 10px; /* Reduce margin */
+    padding: 5px; /* Reduce padding */
     text-align: center;
-    font-size: small;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-.socials{
-    width: 15px;
-    margin: 10px;
-   transform: translate(140px);
-}
-.line{
-    content: "";
-    display: block;
-    height: 0.5px;
-    background-color: gray;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-/*************FOOTER END**************/
-
-/*SABZ*/
-
-.welcome-message {
-    font-size: 10px; 
-    color: #060101; 
-    padding: 0px;
-    margin-top: 20px; 
-    text-align: center; 
-
+    flex-grow: 1;
+    min-width: 120px; /* Adjust as needed */
 }
 
-.logout-button {
-    padding: 12px 20px;
-    background-color: #c1bebe;
-    color: rgba(46, 10, 10, 0.5);
+.socials img {
+    margin: 0 5px;
+    width: 20px; /* Keep social icons small */
+}
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%; /* Adjust for smaller screens */
+    }
+
+    .footer-box {
+        margin: 5px;
+    }
+}
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d1d1d1; /* Vibrant grey background for the body */
+}
+
+/* Centering and Styling the Contact Form */
+.container {
+    width: 60%; /* Increased width for the contact form area */
+    margin: 40px auto; /* Center the container and increase top and bottom margin */
+    overflow: hidden;
+    background-color: #3e3636; /* Dark grey background for the container */
+    padding: 40px; /* Increase padding for larger form area */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+    color: #ffffff; /* Change text color to white for better contrast */
+}
+
+/* Form Input Styling */
+input[type="text"], input[type="email"], textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* Lighter border for inputs */
+    border-radius: 4px;
+    background-color: #fff; /* White background for inputs */
+    color: #333; /* Dark text for readability */
+}
+
+/* Button Styling */
+input[type="submit"] {
+    background-color: #5d5555; /* Darker grey for submit button */
+    color: #ffffff;
+    padding: 10px 20px;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
-    float: right;
+    transition: background 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #716868; /* Slightly lighter on hover */
+}
+
+/* Adjusting Footer to be more compact */
+.footer {
+    font-size: 12px; /* Smaller font size for compactness */
+    color: black;
+    background-color: #f0f0f0; /* Light grey for footer background */
+    padding: 20px 0; /* Reduced padding */
+    display: flex;
+    justify-content: space-between; /* Adjust spacing */
+    flex-wrap: wrap;
+    align-items: center;
+    max-height: 160px; /* Restrict height to make footer more compact */
+}
+
+.footer-box {
+    margin: 10px; /* Adjust margins */
+    padding: 10px; /* Adjust padding */
+    text-align: center;
+    flex: 1; /* Flex grow to fill available space */
+    min-width: 120px; /* Ensure minimum width */
+}
+
+.socials img {
+    margin: 0 5px; /* Adjust spacing */
+    width: 20px; /* Standardize icon size */
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%; /* Full width for smaller screens */
+        padding: 20px; /* Adjust padding */
+    }
+    
+    .footer-box {
+        flex-basis: 100%; /* Stack footer items on small screens */
+        margin: 5px 0; /* Adjust margin */
+    }
 }
 
 
-
-
+/* Fixed element at the bottom */
+.door {
+    position: fixed; /* Keeps the door at the bottom of the viewport */
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 50px; /* Adjust the height as needed */
+    background-color: #333; /* Door color */
+    color: white; /* Text color */
+    text-align: center;
+    line-height: 50px; /* Centers text vertically within the door */
+}

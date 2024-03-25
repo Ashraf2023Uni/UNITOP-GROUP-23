@@ -48,6 +48,34 @@ INSERT INTO `admin_users` (`id`, `email`, `password`, `phoneNumber`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `message` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`id`, `name`, `email`, `subject`, `message`) VALUES
+(1, 'melissa', 'meliss@123', 'qs', 'wwd'),
+(2, 'melissa', 'meliss@123', 'qs', 'wwd'),
+(3, 'melissa', 'melissa@yahoo.com', 'yoloy', '1234'),
+(4, 'melissa', 'melissa.567@yahoo', 'laptops', 'uashdUSD'),
+(5, 'Melissa ', 'Melissa@M.com', 'AAAA', 'aaaa'),
+(6, 'Melissa ', 'Melissa@M.com', 'AAAA', 'aaaa'),
+(7, 'Melissa ', 'Melissa@M.com', 'AAAA', 'aaaa'),
+(8, 'Melissa ', 'Melissa@M.com', 'AAAA', 'aaaa'),
+(9, 'Melissa ', 'Melissa@M.com', 'AAAA', 'aaaa'),
+(10, 'Melissa ', 'Melissa@M.com', 'AAAA', 'aaaa');
+
+--
 -- Table structure for table `categories`
 --
 
@@ -149,7 +177,7 @@ CREATE TABLE `returned_orders` (
   `return_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
   `reason` varchar(256) DEFAULT NULL,
-  `return_date` date DEFAULT curdate()
+  `return_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -318,6 +346,13 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`category_id`);
 
 --
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
+
+
+--
 -- Indexes for table `customers`
 --
 ALTER TABLE `customers`
@@ -395,6 +430,12 @@ ALTER TABLE `admin_users`
 --
 ALTER TABLE `categories`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `customers`
