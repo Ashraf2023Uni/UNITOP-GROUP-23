@@ -94,7 +94,7 @@ try{
 }
 catch(PDOException $ex){
     $ex_message = $ex->getMessage();
-    endTransaction(false, $db, $user_id);
+    endTransaction(false, $db, $ex_message);
 }
 
 function endTransaction($commit, $db,$ex){
