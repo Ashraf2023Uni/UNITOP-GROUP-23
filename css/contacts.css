@@ -1,1 +1,358 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation and Section Styling */
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Company Heading */
+.company-heading {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.parallax {
+    height: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Typography */
+h1, h2, h3 {
+    color: #333;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Utility Classes */
+.marginTop40 {
+    margin-top: 40px;
+}
+
+.ct-u-paddingBoth100 {
+    padding: 100px 0;
+}
+
+.ct-u-fontWeight300 {
+    font-weight: 300;
+}
+
+/* Button Styling */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-uniTOP-red-reversed {
+    background-color: #ff4136;
+}
+
+.btn-fullWidth-sm {
+    width: 100%;
+}
+
+/* Small Devices */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .btn-fullWidth-sm {
+        display: block;
+        width: auto;
+    }
+}
+
+/**************************HEADER + FOOTER styling********************************/
+/* NAVBAR styling */
+.navbar{
+    display: flex;
+    align-items: center;
+    font-size: small;
+}
+a{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 2px;
+}
+a:hover{
+    text-decoration: underline;
+}
+.search-bar{
+    text-align: center;
+    margin-top: 10px;
+}
+.search-bar input{
+    width: 700px;
+    height: 19px;
+}
+.search-bar button{
+    background-color: transparent;
+    color: white;
+    border: none;
+    transform: translateY(4px);
+    cursor: pointer;
+}
+.search-bar .search-icon{
+    width: 15px;
+}
+.links{
+    flex: 1;
+    text-align: right;
+    padding-right: 5px;
+    padding-top: 20px;
+}
+.links nav{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.links .img-links img{
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    margin-right: 56px;
+}
+
+.links ul{
+    display: inline-block;
+    list-style-type: none;
+}
+
+.links .nav-links ul li{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.links img{
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+}
+
+/* FOOTER Styling */
+.footer {
+    font-size: 14px;
+    color: black;
+    background-color: #f0f0f0; /* Grey background */
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.footer-box {
+    margin: 5px 20px;
+    padding: 10px;
+    text-align: center;
+    flex: 1;
+    min-width: 150px;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.socials img {
+    margin: 0 10px;
+    width: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-box {
+        margin: 10px;
+    }
+
+    .socials img {
+        margin: 0 5px;
+    }
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d1d1d1; /* Set the vibrant grey background for the body */
+}
+
+/* Centering and Styling the Contact Form */
+.container {
+    width: 50%; /* Adjust the width as needed to fit your form size */
+    margin: auto; /* Center the container */
+    overflow: hidden;
+    background-color: #fff; /* White background for the form area */
+    padding: 20px; /* Add some padding around the form */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow for depth */
+}
+
+/* Adjusting Footer to be more compact */
+.footer {
+    font-size: 14px;
+    color: black;
+    background-color: #f0f0f0; /* Slightly lighter grey for footer background */
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around; /* Adjusted to space-around for even spacing */
+    flex-wrap: wrap;
+    align-items: center;
+    max-height: 200px; /* Example max height to compress the footer */
+}
+
+.footer-box {
+    margin: 5px 10px; /* Reduce margin */
+    padding: 5px; /* Reduce padding */
+    text-align: center;
+    flex-grow: 1;
+    min-width: 120px; /* Adjust as needed */
+}
+
+.socials img {
+    margin: 0 5px;
+    width: 20px; /* Keep social icons small */
+}
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%; /* Adjust for smaller screens */
+    }
+
+    .footer-box {
+        margin: 5px;
+    }
+}
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d1d1d1; /* Vibrant grey background for the body */
+}
+
+/* Centering and Styling the Contact Form */
+.container {
+    width: 60%; /* Increased width for the contact form area */
+    margin: 40px auto; /* Center the container and increase top and bottom margin */
+    overflow: hidden;
+    background-color: #3e3636; /* Dark grey background for the container */
+    padding: 40px; /* Increase padding for larger form area */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+    color: #ffffff; /* Change text color to white for better contrast */
+}
+
+/* Form Input Styling */
+input[type="text"], input[type="email"], textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* Lighter border for inputs */
+    border-radius: 4px;
+    background-color: #fff; /* White background for inputs */
+    color: #333; /* Dark text for readability */
+}
+
+/* Button Styling */
+input[type="submit"] {
+    background-color: #5d5555; /* Darker grey for submit button */
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #716868; /* Slightly lighter on hover */
+}
+
+/* Adjusting Footer to be more compact */
+.footer {
+    font-size: 12px; /* Smaller font size for compactness */
+    color: black;
+    background-color: #f0f0f0; /* Light grey for footer background */
+    padding: 20px 0; /* Reduced padding */
+    display: flex;
+    justify-content: space-between; /* Adjust spacing */
+    flex-wrap: wrap;
+    align-items: center;
+    max-height: 160px; /* Restrict height to make footer more compact */
+}
+
+.footer-box {
+    margin: 10px; /* Adjust margins */
+    padding: 10px; /* Adjust padding */
+    text-align: center;
+    flex: 1; /* Flex grow to fill available space */
+    min-width: 120px; /* Ensure minimum width */
+}
+
+.socials img {
+    margin: 0 5px; /* Adjust spacing */
+    width: 20px; /* Standardize icon size */
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%; /* Full width for smaller screens */
+        padding: 20px; /* Adjust padding */
+    }
+    
+    .footer-box {
+        flex-basis: 100%; /* Stack footer items on small screens */
+        margin: 5px 0; /* Adjust margin */
+    }
+}
+
+
+/* Fixed element at the bottom */
+.door {
+    position: fixed; /* Keeps the door at the bottom of the viewport */
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 50px; /* Adjust the height as needed */
+    background-color: #333; /* Door color */
+    color: white; /* Text color */
+    text-align: center;
+    line-height: 50px; /* Centers text vertically within the door */
+}
