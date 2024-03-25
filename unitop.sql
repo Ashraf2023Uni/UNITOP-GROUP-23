@@ -177,7 +177,7 @@ CREATE TABLE `returned_orders` (
   `return_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
   `reason` varchar(256) DEFAULT NULL,
-  `return_date` date DEFAULT curdate()
+  `return_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
