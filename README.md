@@ -90,3 +90,17 @@ You need to press the back button on your browser as there is no link on this pa
 How to logout of Admin – 
 (Assuming you are on the admin dashboard/admin_index.php) There is a logout button on the bottom-right side of the page greyed out. Press this button.
 You can press the home page link to go back to the guest/customer home page (index.php).
+
+Haseeb Ahmed- 
+Basket page instructions-
+1. Find product that you are interested in.
+2. Then click on the drop down and select quantity.
+3. Then add product to basket.
+4. Once added to basket you can view items there after tax.
+5. You can also add another product to your basket.
+6. Proceed to checkout.
+
+Checkout instructions-
+1. Once in checkout fill in details e.g. company address
+2. Validation checks are in place and if input incorrectly guides are placed on what to do correctly for example company email requires an "@" and must end in an .ac.uk 
+3. Once details are input user can checkout at the bottom.
