@@ -31,6 +31,21 @@ Checkouts -
 6. Fill payment details as requested and press checkout.
 7. User should be displayed with a receipt. 
 
+Humayra Hussain 210005848-
+Index.php (Home-Page)
+1. The user can explore the home page, search for products, view the first 5 products and learn more 'About-Us' and 'Contact-Us'
+2. It has a banner as the first thing you see to encourage for log-in/sign-up to use further features like checkout.
+3. It has a navigation bar that allows you to access important parts of the website liek accounts and basket.
+
+Products-page.php (Product display)
+1. The product-page displays all the products on the screeen.
+2. The menu has categories which if you click on it filters the products to only shows the products of that category.
+3. There is a sorting drop-down and a button which applies the sort, sorting the products by price range of either low-to-high or high-to-low.
+
+Product-details.php (Product details)
+1. Key features of the page are: products images, detailed product description, pricing, add-to-basket button, customer reviews and product ratings.
+
+
 Noor -
 Instructions to return an order:
 1. From index.php press the 'log in' button under the navigation & category bar
