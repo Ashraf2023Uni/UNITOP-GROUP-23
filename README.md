@@ -62,6 +62,7 @@ Press the Change your password box on the admin home page.
 Enter your current password into the current password field
 Your password is now changed.
 Enter your new password into the new password field and confirm new password field. Ensure these two fields match. Then press Change Password.
+Then go back to the admin dashboard by pressing the banner above
 Then Logout and press the link to the homepage
 Go back to staff login on top right of the page and enter the pin 0000
 Then press on the link to Sign in underneath the register button and the text “Already got an account?”.
