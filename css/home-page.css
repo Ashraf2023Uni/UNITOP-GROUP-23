@@ -887,6 +887,23 @@ th:last-child{
     background-color: rgba(0, 0, 0, 0.9);
     transform: scale(1.1);
 }
+.pW-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;  
+    border: none;
+    border-radius: 10px;   
+    align-items: bottom;
+    margin-left: 30%;
+    color: white;
+    transition: background-colour 0.3s ease;
+    background-color: rgba(46, 10, 10, 0.5);
+    transition: transform 0.3s ease;    
+}
+.pW-button:hover{
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
 .container2{
     display: flex;
     flex-wrap: wrap;
