@@ -15,7 +15,6 @@
   align-items: center;
   padding:25px;
   min-height: 100vh;  
-  /*background: linear-gradient(90deg, #2e80cc 60%, #2e80cc 40.1%);*/
 }
 
 .container form{
@@ -183,7 +182,7 @@ a:hover{
   transform: translate(-10px);
 }
 
-/*Resizing for half-screen (TP1 Feedback) Humayra Hussain 210005848 FOR ALL PAGES*/
+/*Resizing for half-screen */
 @media screen and (max-width:1100px){
   /*Navigation Bar*/
   .search input{

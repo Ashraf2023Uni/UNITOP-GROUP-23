@@ -1,4 +1,4 @@
-<!--This page will showcase list of products that can be searched and redirected to products page- HUMAYRA 210005848-->
+<!--This page will showcase list of products that can be searched and redirected to products page -->
 <style><?php include('../css/home-page.css') ?></style>
 
 <div class="search">

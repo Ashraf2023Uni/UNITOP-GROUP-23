@@ -4,6 +4,8 @@ Extract the file into htdocs of xampp.
 Run Apache and MySQL servers on xampp.
 Enter localhost/UNITOP/Index.php into the address bar of a browser.
 
+Instructions on how to navigate through website/use features of website
+
 
 Sign-up and login for customers:
 1. From index.php press sign up, takes you to register.php

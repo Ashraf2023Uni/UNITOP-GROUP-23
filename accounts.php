@@ -1,4 +1,3 @@
-<!--Mohammed Sabil Ali Student ID: 220192905-->
 
 <?php
 

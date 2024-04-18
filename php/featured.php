@@ -1,4 +1,3 @@
-<!--Humayra Hussain (210005848) and Noor Ahmed (220032003)-->
 <style><?php include('../css/home-page.css') ?></style>
         <?php
             require_once('connectdb.php');

@@ -1,4 +1,4 @@
-<!--This page will showcase list of products that can be filtered/sorted - HUMAYRA 210005848-->
+<!--This page will showcase list of products that can be filtered/sorted -->
 <?php
 ?>
 <!DOCTYPE html>

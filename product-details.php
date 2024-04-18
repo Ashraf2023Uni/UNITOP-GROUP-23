@@ -1,4 +1,4 @@
-<!--Products Deatil page for customers - Humayra Hussain, 210005848 | Noor Ahmed 220032003 | Ashraf-->
+<!--Products Details page for customers -->
 <!DOCTYPE html>
 <html lang='en'>
 <head>
@@ -107,7 +107,7 @@
             echo "<br><br>";
             echo "<h3>".$details['product_name']."</h3>";
 
-            //Rating of product - Humayra Hussian 210005848
+            //Rating of product 
                     //Fetch rating - from reviews table
                     $query = "SELECT AVG(rating) AS avg_rating FROM reviews WHERE product_id = :product_id";
                     $result = $db->prepare($query);
@@ -212,7 +212,7 @@
         ?>
         </div>
 
-        <!--Reviews and ratings Humayra Hussian 210005848-->
+        <!--Reviews and ratings -->
         <div class="reviews">
             <h2>Customer Reviews</h2>
         <?php
