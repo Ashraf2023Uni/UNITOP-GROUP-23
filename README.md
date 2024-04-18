@@ -2,6 +2,7 @@ How to run the code:
 Download zip from github
 Extract the file into htdocs of xampp.
 Run Apache and MySQL servers on xampp.
+Import unitop.sql to an empty database on phpmyadmin
 Enter localhost/UNITOP/Index.php into the address bar of a browser.
 
 Instructions on how to navigate through website/use features of website
