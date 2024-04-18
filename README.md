@@ -1,8 +1,11 @@
-# UNITOP-GROUP-23
-Group 23s team project
+How to run the code:
+Download zip from github
+Extract the file into htdocs of xampp.
+Run Apache and MySQL servers on xampp.
+Enter localhost/UNITOP/Index.php into the address bar of a browser.
 
-Mohammed Sabil Ali - 
-Sign-up and login 
+
+Sign-up and login for customers:
 1. From index.php press sign up, takes you to register.php
 2. On register.php you should follow the fields to sign up input 
 - email following validation (ac.uk) that hasnt been used before
@@ -31,7 +34,7 @@ Checkouts -
 6. Fill payment details as requested and press checkout.
 7. User should be displayed with a receipt. 
 
-Humayra Hussain 210005848-
+
 Index.php (Home-Page)
 1. The user can explore the home page, search for products, view the first 5 products and learn more 'About-Us' and 'Contact-Us'
 2. It has a banner as the first thing you see to encourage for log-in/sign-up to use further features like checkout.
@@ -46,7 +49,6 @@ Product-details.php (Product details)
 1. Key features of the page are: products images, detailed product description, pricing, add-to-basket button, customer reviews and product ratings.
 
 
-Noor -
 Instructions to return an order:
 1. From index.php press the 'log in' button under the navigation & category bar
 2. Log in to an account with an admin-verified order (recommended account: User='h.h@aston.ac.uk' , Password='Test12345')
@@ -59,7 +61,6 @@ Instructions to return an order:
 9. A message should display saying 'Thanks, we'll let you know once we recieve your items.'. Press 'Return to Homepage' button from here.  
 10. Repeat steps 3 and 4 to view your orders. The order you had previously returned should now state 'Delivery status: verifying return'.
 
-11. Ashraf -
 12. Instructions for admin –
 (Assuming you are on the main home page index.php) Click on the staff login link or icon to take you to a pin page (admin_pin.php).
 Enter the pin 0000 to see admin sign up
@@ -109,7 +110,7 @@ How to logout of Admin –
 (Assuming you are on the admin dashboard/admin_index.php) There is a logout button on the bottom-right side of the page greyed out. Press this button.
 You can press the home page link to go back to the guest/customer home page (index.php).
 
-Haseeb Ahmed- 
+
 Basket page instructions-
 1. Find product that you are interested in.
 2. Then click on the drop down and select quantity.
